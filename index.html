@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -80,6 +81,40 @@
     <button class="download-btn" onclick="downloadPDF()">
       📄 Download Resume
     </button>
+    <button class="theme-toggle" onclick="toggleThemeSelector()">
+      🎨 Themes
+    </button>
+    <button class="font-toggle" onclick="toggleFontSelector()">
+      🔤 Fonts
+    </button>
+    <div class="theme-selector" id="themeSelector">
+      <div class="theme-label">Choose Theme</div>
+      <div class="theme-colors">
+        <div class="theme-color active" style="background: #667eea" data-theme="blue" title="Blue"></div>
+        <div class="theme-color" style="background: #e74c3c" data-theme="red" title="Red"></div>
+        <div class="theme-color" style="background: #2ecc71" data-theme="green" title="Green"></div>
+        <div class="theme-color" style="background: #f39c12" data-theme="orange" title="Orange"></div>
+        <div class="theme-color" style="background: #9b59b6" data-theme="purple" title="Purple"></div>
+        <div class="theme-color" style="background: #34495e" data-theme="dark" title="Dark"></div>
+        <div class="theme-color" style="background: #e91e63" data-theme="pink" title="Pink"></div>
+        <div class="theme-color" style="background: #00bcd4" data-theme="cyan" title="Cyan"></div>
+        <div class="theme-color" style="background: #ff5722" data-theme="deeporange" title="Deep Orange"></div>
+        <div class="theme-color" style="background: #795548" data-theme="brown" title="Brown"></div>
+        <div class="theme-color" style="background: #607d8b" data-theme="bluegrey" title="Blue Grey"></div>
+        <div class="theme-color" style="background: #4caf50" data-theme="lightgreen" title="Light Green"></div>
+      </div>
+    </div>
+    <div class="font-selector" id="fontSelector">
+      <div class="font-label">Choose Font</div>
+      <div class="font-options">
+        <div class="font-option active" data-font="Segoe UI" style="font-family: 'Segoe UI', sans-serif">Segoe UI</div>
+        <div class="font-option" data-font="Arial" style="font-family: Arial, sans-serif">Arial</div>
+        <div class="font-option" data-font="Georgia" style="font-family: Georgia, serif">Georgia</div>
+        <div class="font-option" data-font="Times" style="font-family: 'Times New Roman', serif">Times</div>
+        <div class="font-option" data-font="Roboto" style="font-family: 'Roboto', sans-serif">Roboto</div>
+        <div class="font-option" data-font="Open Sans" style="font-family: 'Open Sans', sans-serif">Open Sans</div>
+      </div>
+    </div>
     <div class="container">
       <header class="header">
         <h1>SONU KUMAR</h1>

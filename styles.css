@@ -244,6 +244,143 @@ body {
   color: var(--text-muted);
 }
 
+/* Theme Selector */
+.theme-selector {
+  position: fixed;
+  top: 170px;
+  right: 20px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  z-index: 1000;
+  display: none;
+  min-width: 160px;
+}
+
+.font-selector {
+  position: fixed;
+  top: 170px;
+  right: 200px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  z-index: 1000;
+  display: none;
+  min-width: 140px;
+}
+
+.font-selector.active {
+  display: block;
+}
+
+.theme-selector.active {
+  display: block;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: var(--primary-gradient);
+  color: var(--white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.font-toggle {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: var(--primary-gradient);
+  color: var(--white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.font-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.theme-colors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.theme-color {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.theme-color:hover {
+  transform: scale(1.1);
+}
+
+.theme-color.active {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.theme-label,
+.font-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.font-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.font-option {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+}
+
+.font-option:hover {
+  background: var(--accent-color);
+}
+
+.font-option.active {
+  border-color: var(--primary-color);
+  background: var(--accent-color);
+}
+
 .certifications-list {
   list-style: none;
 }

@@ -1,9 +1,189 @@
+// Theme configurations
+const themes = {
+  blue: {
+    primary: '#667eea',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    secondary: '#764ba2'
+  },
+  red: {
+    primary: '#e74c3c',
+    gradient: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
+    secondary: '#c0392b'
+  },
+  green: {
+    primary: '#2ecc71',
+    gradient: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
+    secondary: '#27ae60'
+  },
+  orange: {
+    primary: '#f39c12',
+    gradient: 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)',
+    secondary: '#e67e22'
+  },
+  purple: {
+    primary: '#9b59b6',
+    gradient: 'linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%)',
+    secondary: '#8e44ad'
+  },
+  dark: {
+    primary: '#34495e',
+    gradient: 'linear-gradient(135deg, #34495e 0%, #2c3e50 100%)',
+    secondary: '#2c3e50'
+  },
+  pink: {
+    primary: '#e91e63',
+    gradient: 'linear-gradient(135deg, #e91e63 0%, #ad1457 100%)',
+    secondary: '#ad1457'
+  },
+  cyan: {
+    primary: '#00bcd4',
+    gradient: 'linear-gradient(135deg, #00bcd4 0%, #0097a7 100%)',
+    secondary: '#0097a7'
+  },
+  deeporange: {
+    primary: '#ff5722',
+    gradient: 'linear-gradient(135deg, #ff5722 0%, #d84315 100%)',
+    secondary: '#d84315'
+  },
+  brown: {
+    primary: '#795548',
+    gradient: 'linear-gradient(135deg, #795548 0%, #5d4037 100%)',
+    secondary: '#5d4037'
+  },
+  bluegrey: {
+    primary: '#607d8b',
+    gradient: 'linear-gradient(135deg, #607d8b 0%, #455a64 100%)',
+    secondary: '#455a64'
+  },
+  lightgreen: {
+    primary: '#4caf50',
+    gradient: 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)',
+    secondary: '#388e3c'
+  }
+};
+
+function toggleThemeSelector() {
+  const selector = document.getElementById('themeSelector');
+  selector.classList.toggle('active');
+}
+
+function toggleFontSelector() {
+  const selector = document.getElementById('fontSelector');
+  selector.classList.toggle('active');
+}
+
+function changeFont(fontName) {
+  const root = document.documentElement;
+  let fontFamily;
+  
+  switch(fontName) {
+    case 'Segoe UI':
+      fontFamily = '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif';
+      break;
+    case 'Arial':
+      fontFamily = 'Arial, Helvetica, sans-serif';
+      break;
+    case 'Georgia':
+      fontFamily = 'Georgia, "Times New Roman", serif';
+      break;
+    case 'Times':
+      fontFamily = '"Times New Roman", Times, serif';
+      break;
+    case 'Roboto':
+      fontFamily = '"Roboto", sans-serif';
+      break;
+    case 'Open Sans':
+      fontFamily = '"Open Sans", sans-serif';
+      break;
+    default:
+      fontFamily = '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif';
+  }
+  
+  root.style.setProperty('--font-family', fontFamily);
+  
+  // Update active font indicator
+  document.querySelectorAll('.font-option').forEach(option => {
+    option.classList.remove('active');
+  });
+  document.querySelector(`[data-font="${fontName}"]`).classList.add('active');
+  
+  // Save font preference
+  localStorage.setItem('selectedFont', fontName);
+}
+
+function changeTheme(themeName) {
+  const theme = themes[themeName];
+  const root = document.documentElement;
+  
+  root.style.setProperty('--primary-color', theme.primary);
+  root.style.setProperty('--primary-gradient', theme.gradient);
+  root.style.setProperty('--secondary-color', theme.secondary);
+  
+  // Update active theme indicator
+  document.querySelectorAll('.theme-color').forEach(color => {
+    color.classList.remove('active');
+  });
+  document.querySelector(`[data-theme="${themeName}"]`).classList.add('active');
+  
+  // Save theme preference
+  localStorage.setItem('selectedTheme', themeName);
+}
+
+// Initialize theme and font selectors
+document.addEventListener('DOMContentLoaded', function() {
+  // Load saved theme
+  const savedTheme = localStorage.getItem('selectedTheme') || 'blue';
+  changeTheme(savedTheme);
+  
+  // Load saved font
+  const savedFont = localStorage.getItem('selectedFont') || 'Segoe UI';
+  changeFont(savedFont);
+  
+  // Add click handlers to theme colors
+  document.querySelectorAll('.theme-color').forEach(color => {
+    color.addEventListener('click', function() {
+      changeTheme(this.dataset.theme);
+    });
+  });
+  
+  // Add click handlers to font options
+  document.querySelectorAll('.font-option').forEach(option => {
+    option.addEventListener('click', function() {
+      changeFont(this.dataset.font);
+    });
+  });
+  
+  // Close selectors when clicking outside
+  document.addEventListener('click', function(e) {
+    const themeSelector = document.getElementById('themeSelector');
+    const fontSelector = document.getElementById('fontSelector');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const fontToggle = document.querySelector('.font-toggle');
+    
+    if (!themeSelector.contains(e.target) && !themeToggle.contains(e.target)) {
+      themeSelector.classList.remove('active');
+    }
+    
+    if (!fontSelector.contains(e.target) && !fontToggle.contains(e.target)) {
+      fontSelector.classList.remove('active');
+    }
+  });
+});
+
 function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const button = document.querySelector(".download-btn");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const fontToggle = document.querySelector(".font-toggle");
+  const themeSelector = document.getElementById("themeSelector");
+  const fontSelector = document.getElementById("fontSelector");
 
-  // Hide download button temporarily
+  // Hide buttons and selectors temporarily
   button.style.display = "none";
+  themeToggle.style.display = "none";
+  fontToggle.style.display = "none";
+  themeSelector.style.display = "none";
+  fontSelector.style.display = "none";
 
   html2canvas(document.querySelector(".container"), {
     scale: 2,
@@ -31,7 +211,9 @@ function downloadPDF() {
 
     pdf.save("Sonu_Kumar_Senior_Full_Stack_Developer_7_Years_Experience.pdf");
 
-    // Show download button again
+    // Show buttons again
     button.style.display = "block";
+    themeToggle.style.display = "block";
+    fontToggle.style.display = "block";
   });
 }
