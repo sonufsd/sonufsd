@@ -72,7 +72,7 @@ Radharaman Institute of Technology & Science | 2012-2016 | GPA: 7.43/10
 
 ## 📫 Let's Connect
 
-- 💼 **LinkedIn**: [https://www.linkedin.com/in/sonuskr](https://www.linkedin.com/in/sonuskr)
+- 💼 **LinkedIn**: [https://www.linkedin.com/in/sonuskr](https://www.linkedin.com/in/sonuskr?trk=public_profile)
 - 🐙 **GitHub**: [https://github.com/sonuskr](https://github.com/sonuskr)
 - 📧 **Email**: sonukumarraj007@gmail.com
 - 🌐 **Portfolio**: [sonuskr.github.io/sonuskr](https://sonuskr.github.io/sonuskr/)
