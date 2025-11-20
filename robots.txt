@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sonuskr.github.io/sonu-kumar/sitemap.xml
