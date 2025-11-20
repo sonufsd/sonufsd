@@ -261,7 +261,7 @@ body {
 .font-selector {
   position: fixed;
   top: 170px;
-  right: 200px;
+  right: 20px;
   background: var(--white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
