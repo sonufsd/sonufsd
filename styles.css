@@ -430,28 +430,17 @@ body {
   margin-right: 8px;
 }
 
-.btn-download {
-  background-color: var(--secondary-color);
-}
-
-.btn-download:hover {
-  background-color: #e55a0a;
-}
-
-.btn-theme {
+.btn-download,
+.btn-theme,
+.btn-font {
   background-color: var(--primary-color);
 }
 
-.btn-theme:hover {
-  background-color: #5a6fd8;
-}
-
-.btn-font {
-  background-color: #6b7280;
-}
-
+.btn-download:hover,
+.btn-theme:hover,
 .btn-font:hover {
-  background-color: #4b5563;
+  opacity: 0.9;
+  filter: brightness(0.95);
 }
 
 .btn:hover {
