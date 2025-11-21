@@ -180,11 +180,22 @@ function downloadPDF() {
   const controlButtons = document.querySelector(".control-buttons");
   const themeSelector = document.getElementById("themeSelector");
   const fontSelector = document.getElementById("fontSelector");
+  const container = document.querySelector(".container");
+
+  // Store original styles
+  const originalBorderRadius = container.style.borderRadius;
+  const originalBoxShadow = container.style.boxShadow;
+  const originalMargin = container.style.margin;
 
   // Hide buttons and selectors temporarily
   controlButtons.style.display = "none";
   themeSelector.style.display = "none";
   fontSelector.style.display = "none";
+  
+  // Remove border radius, shadow, and margin for PDF
+  container.style.borderRadius = "0";
+  container.style.boxShadow = "none";
+  container.style.margin = "0";
 
   html2canvas(document.querySelector(".container"), {
     scale: 2,
@@ -212,6 +223,11 @@ function downloadPDF() {
 
     pdf.save("Sonu_Kumar_Senior_Full_Stack_Developer_7_Years_Experience.pdf");
 
+    // Restore original styles
+    container.style.borderRadius = originalBorderRadius;
+    container.style.boxShadow = originalBoxShadow;
+    container.style.margin = originalMargin;
+    
     // Show buttons again
     controlButtons.style.display = "flex";
   });
