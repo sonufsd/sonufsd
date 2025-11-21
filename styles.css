@@ -50,9 +50,11 @@ body {
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  text-align: center;
+}
+
+.header-main {
+  margin-bottom: 20px;
 }
 
 .header-left {
@@ -73,7 +75,15 @@ body {
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .contact-item {
