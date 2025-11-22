@@ -3,6 +3,7 @@
   <head>
     <!-- SEO Metadata -->
     <script src="metadata.js"></script>
+    <script src="social-metadata.js"></script>
     <script>
       // Inject meta tags from metadata.js
       document.addEventListener('DOMContentLoaded', function() {
@@ -24,14 +25,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sonu Kumar - Senior Full Stack Developer | Team Lead at Accenture | Java Spring Boot Angular React | 7.5+ Years Enterprise Experience</title>
     <meta name="description" content="Senior Full Stack Developer & Team Lead at Accenture with 7.5+ years enterprise experience. Expert in Java Spring Boot, Angular, React, TypeScript, Microservices, System Architecture, REST APIs, AWS, DevOps, CI/CD. Delivered scalable solutions for Fortune 500 clients: Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC. Specializing in end-to-end development, code review, performance optimization. Available for remote work opportunities." />
-    <meta name="keywords" content="Sonu Kumar, Senior Full Stack Developer, Team Lead, Accenture, Java, Spring Boot, Angular, React, TypeScript, JavaScript, HTML5, CSS3, Microservices, REST APIs, System Architecture, AWS, Azure, DevOps, CI/CD, Jenkins, Docker, MySQL, MongoDB, Oracle, Git, Maven, Agile, Scrum, Performance Optimization, Code Review, Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC, LTIMindtree, Bangalore, Remote Work" />
+    <!-- Enhanced keywords from social-metadata.js -->
+    <script>
+      if (typeof generateSEOKeywords === 'function') {
+        document.write('<meta name="keywords" content="' + generateSEOKeywords() + '" />');
+      }
+    </script>
+    <!-- Fallback keywords -->
+    <meta name="keywords" content="software developer, full stack developer, web developer, java developer, spring boot, angular, react, typescript, javascript, senior developer, tech lead, team lead, enterprise developer, bangalore developer, remote developer, microservices, rest api, system architecture, aws, devops, agile development" />
     <meta name="author" content="Sonu Kumar" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Sonu Kumar - Senior Full Stack Developer | Team Lead at Accenture | Enterprise Solutions Expert" />
-    <meta property="og:description" content="Senior Full Stack Developer & Team Lead at Accenture with 7.5+ years enterprise experience. Expert in Java Spring Boot, Angular, React, TypeScript, Microservices, System Architecture. Delivered scalable solutions for Fortune 500 clients: Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC. Available for remote work." />
+    <!-- Enhanced social media tags from social-metadata.js -->
+    <script>
+      if (typeof generateSocialMetaTags === 'function') {
+        document.write(generateSocialMetaTags());
+      }
+    </script>
+    <!-- Fallback social tags -->
+    <meta property="og:title" content="Sonu Kumar - Senior Full Stack Developer | Enterprise Solutions Expert" />
+    <meta property="og:description" content="Senior Full Stack Developer with 7.5+ years experience. Expert in Java, Spring Boot, Angular, React. Available for remote work opportunities." />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://sonuskr.github.io/sonuskr/" />
-    <meta property="og:site_name" content="Sonu Kumar - Portfolio" />
+    <meta property="og:site_name" content="Sonu Kumar - Professional Portfolio" />
     <link rel="canonical" href="https://sonuskr.github.io/sonuskr/" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="theme-color" content="#667eea" />
