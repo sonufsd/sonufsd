@@ -126,6 +126,6 @@ Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhop
   
   <br/>
   
-  ![Snake animation](https://github.com/sonuskr/sonuskr/blob/output/github-contribution-grid-snake.svg)
+  ![Snake animation](https://raw.githubusercontent.com/sonuskr/sonuskr/output/github-contribution-grid-snake.svg)
   
 </div>
