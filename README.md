@@ -123,13 +123,5 @@ Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhop
   ⭐ **Available for remote work, enterprise consulting, and full-time opportunities!**
   
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=800&lines=Senior+Full+Stack+Developer;Enterprise+Solutions+Expert;Java+Spring+Boot+Angular+React+Specialist;Let's+Build+Something+Amazing+Together!" alt="Footer Typing SVG" />
-  
-  <br/>
-  
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sonuskr/sonuskr/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sonuskr/sonuskr/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/sonuskr/sonuskr/output/github-contribution-grid-snake.svg">
-  </picture>
-  
+
 </div>
