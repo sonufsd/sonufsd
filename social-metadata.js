@@ -132,11 +132,17 @@ const socialMetadata = {
 
 // Generate comprehensive keywords for SEO
 function generateSEOKeywords() {
-  return [
+  const allKeywords = [
     ...socialMetadata.generalKeywords,
     ...socialMetadata.industryKeywords,
     ...socialMetadata.locationKeywords
-  ].join(", ");
+  ];
+
+  if (typeof nameKeywords !== 'undefined' && Array.isArray(nameKeywords)) {
+    allKeywords.push(...nameKeywords);
+  }
+
+  return allKeywords.join(", ");
 }
 
 // Generate social media meta tags
