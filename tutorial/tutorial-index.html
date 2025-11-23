@@ -21,46 +21,12 @@
     <meta name="twitter:title" content="Sonu Kumar - Technology Tutorials & Case Studies">
     <meta name="twitter:description" content="Expert insights on Java Spring Boot Angular React development from Senior Full Stack Developer">
     
+    <link rel="stylesheet" href="tutorial-styles.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem 0; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
         .hero { text-align: center; }
         .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
         .hero p { font-size: 1.2rem; opacity: 0.9; }
-        nav { background: #2c3e50; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
-        .nav-links { display: flex; justify-content: center; list-style: none; flex-wrap: wrap; }
-        .nav-links li { margin: 0 0.5rem; position: relative; }
-        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 0.8rem; border-radius: 5px; transition: background 0.3s; white-space: nowrap; font-size: 0.9rem; }
-        .nav-links a:hover { background: #34495e; }
-        .dropdown { position: relative; }
-        .dropdown > a::after { content: ' ▼'; font-size: 0.7rem; }
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            background: #34495e;
-            min-width: 180px; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1000; 
-            border-radius: 5px; 
-            top: 100%; 
-            left: 0;
-        }
-        .dropdown-content a { 
-            display: block; 
-            padding: 0.8rem 1rem; 
-            font-size: 0.85rem;
-        }
-        .dropdown-content a:hover { 
-            background: #2c3e50;
-        }
-        .dropdown:hover .dropdown-content { 
-            display: block; 
-        }
-        main { padding: 2rem 0; }
-        .section { margin-bottom: 4rem; }
-        .section h2 { font-size: 2rem; color: #2c3e50; margin-bottom: 2rem; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
@@ -72,15 +38,9 @@
         .tech-tag { background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; }
         .btn { display: inline-block; background: #667eea; color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
         .btn:hover { background: #5a6fd8; }
-        .highlight { background: #f8f9fa; padding: 2rem; border-left: 4px solid #667eea; margin: 1rem 0; }
-        .code-snippet { background: #2d3748; color: #e2e8f0; padding: 1rem; border-radius: 5px; overflow-x: auto; margin: 1rem 0; }
-        footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { flex-direction: column; align-items: center; }
-            .nav-links li { margin: 0.3rem 0; }
-            .nav-links a { font-size: 0.95rem; }
-        }
+        main { padding: 2rem 0; }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; color: #2c3e50; margin-bottom: 2rem; text-align: center; }
     </style>
 </head>
 <body>
