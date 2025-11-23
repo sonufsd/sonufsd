@@ -31,33 +31,33 @@ h1 {
 }
 
 /* Page-specific header colors */
-.page-tutorial-index header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.page-java header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.page-javascript header { background: linear-gradient(135deg, #f7df1e 0%, #f0db4f 100%); color: #333; }
-.page-typescript header { background: linear-gradient(135deg, #007acc 0%, #0056b3 100%); }
-.page-angular header { background: linear-gradient(135deg, #dd0031 0%, #c3002f 100%); }
-.page-react header { background: linear-gradient(135deg, #61dafb 0%, #21a9c7 100%); color: #333; }
-.page-spring-core header { background: linear-gradient(135deg, #6db33f 0%, #5a9e35 100%); }
-.page-spring-mvc header { background: linear-gradient(135deg, #6db33f 0%, #4a7c2a 100%); }
-.page-spring-boot header { background: linear-gradient(135deg, #6db33f 0%, #68bc00 100%); }
-.page-spring-security header { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
-.page-spring-interview header { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
-.page-array header { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
-.page-string header { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
-.page-linkedlist header { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
-.page-stack header { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
-.page-queue header { background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); }
-.page-tree header { background: linear-gradient(135deg, #00b894 0%, #00a085 100%); }
-.page-graph header { background: linear-gradient(135deg, #e17055 0%, #d63031 100%); }
-.page-hashmap header { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
-.page-interview header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
-.page-programs header { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
-.page-array-programs header { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
-.page-string-programs header { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
-.page-logical-programs header { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
-.page-pattern-programs header { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
-.page-number-programs header { background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); }
-.page-sorting-programs header { background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); }
+.page-tutorial-index header { background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); }
+.page-java header { background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); }
+.page-javascript header { background: linear-gradient(135deg, #ecc94b 0%, #d69e2e 100%); color: #1a202c; }
+.page-typescript header { background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%); }
+.page-angular header { background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); }
+.page-react header { background: linear-gradient(135deg, #4fd1c7 0%, #38b2ac 100%); color: #1a202c; }
+.page-spring-core header { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); }
+.page-spring-mvc header { background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%); }
+.page-spring-boot header { background: linear-gradient(135deg, #48bb78 0%, #68d391 100%); }
+.page-spring-security header { background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); }
+.page-spring-interview header { background: linear-gradient(135deg, #38a169 0%, #4fd1c7 100%); }
+.page-array header { background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%); }
+.page-string header { background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%); }
+.page-linkedlist header { background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%); }
+.page-stack header { background: linear-gradient(135deg, #f687b3 0%, #ed64a6 100%); }
+.page-queue header { background: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%); }
+.page-tree header { background: linear-gradient(135deg, #4fd1c7 0%, #38b2ac 100%); }
+.page-graph header { background: linear-gradient(135deg, #fc8181 0%, #f56565 100%); }
+.page-hashmap header { background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%); }
+.page-interview header { background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%); }
+.page-programs header { background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%); }
+.page-array-programs header { background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%); }
+.page-string-programs header { background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%); }
+.page-logical-programs header { background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%); }
+.page-pattern-programs header { background: linear-gradient(135deg, #f687b3 0%, #ed64a6 100%); }
+.page-number-programs header { background: linear-gradient(135deg, #68d391 0%, #48bb78 100%); }
+.page-sorting-programs header { background: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%); }
 
 /* Hero section for all pages */
 .hero { 
@@ -111,7 +111,7 @@ header .container {
 }
 
 .card h3 { 
-    color: #667eea; 
+    color: #3182ce; 
     margin-bottom: 1rem; 
 }
 
@@ -127,7 +127,7 @@ header .container {
 }
 
 .tech-tag { 
-    background: #667eea; 
+    background: #3182ce; 
     color: white; 
     padding: 0.3rem 0.8rem; 
     border-radius: 20px; 
@@ -136,7 +136,7 @@ header .container {
 
 .btn { 
     display: inline-block; 
-    background: #667eea; 
+    background: #3182ce; 
     color: white; 
     padding: 0.8rem 1.5rem; 
     text-decoration: none; 
@@ -145,7 +145,7 @@ header .container {
 }
 
 .btn:hover { 
-    background: #5a6fd8; 
+    background: #2c5aa0; 
 }
 
 main { 
@@ -213,7 +213,7 @@ main {
 }
 
 .breadcrumb a {
-    color: #667eea;
+    color: #3182ce;
     text-decoration: none;
 }
 
@@ -223,7 +223,7 @@ main {
 
 /* Navigation Styles */
 nav { 
-    background: #2c3e50; 
+    background: #1a202c; 
     padding: 1rem 0; 
     position: sticky; 
     top: 0; 
@@ -256,7 +256,7 @@ nav {
 }
 
 .mobile-menu-toggle:hover {
-    background: #34495e;
+    background: #2d3748;
     border-radius: 5px;
 }
 
@@ -276,11 +276,11 @@ nav {
 }
 
 .nav-links a:hover { 
-    background: #34495e; 
+    background: #2d3748; 
 }
 
 .nav-links a.active { 
-    background: #34495e; 
+    background: #2d3748; 
 }
 
 /* Dropdown Styles */
@@ -296,7 +296,7 @@ nav {
 .dropdown-content { 
     display: none; 
     position: absolute; 
-    background: #34495e;
+    background: #2d3748;
     min-width: 180px; 
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1000; 
@@ -312,7 +312,7 @@ nav {
 }
 
 .dropdown-content a:hover { 
-    background: #2c3e50;
+    background: #1a202c;
 }
 
 .dropdown:hover .dropdown-content { 
@@ -342,7 +342,7 @@ nav {
 
 /* Footer Styles */
 footer { 
-    background: #2c3e50; 
+    background: #1a202c; 
     color: white; 
     text-align: center; 
     padding: 2rem 0; 
@@ -350,7 +350,7 @@ footer {
 }
 
 footer a { 
-    color: #667eea; 
+    color: #4299e1; 
 }
 
 /* Responsive Design */
@@ -369,7 +369,7 @@ footer a {
         top: 100%;
         left: 0;
         right: 0;
-        background: #2c3e50;
+        background: #1a202c;
         flex-direction: column;
         padding: 1rem 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -387,7 +387,7 @@ footer a {
     .nav-links a {
         display: block;
         padding: 0.8rem 1rem;
-        border-bottom: 1px solid #34495e;
+        border-bottom: 1px solid #2d3748;
         width: 100%;
     }
     
@@ -395,7 +395,7 @@ footer a {
         position: static;
         display: none;
         box-shadow: none;
-        background: #34495e;
+        background: #2d3748;
         margin: 0;
     }
     
