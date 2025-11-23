@@ -8,59 +8,85 @@
     <script src="js/seo-social-metadata.js"></script>
     <script>
       // Inject meta tags from metadata.js
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof generateMetaTags === 'function') {
-          const metaContainer = document.createElement('div');
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof generateMetaTags === "function") {
+          const metaContainer = document.createElement("div");
           metaContainer.innerHTML = generateMetaTags();
           const head = document.head;
-          
+
           // Add meta tags to head
-          Array.from(metaContainer.children).forEach(element => {
+          Array.from(metaContainer.children).forEach((element) => {
             head.appendChild(element);
           });
         }
       });
     </script>
-    
+
     <!-- Fallback meta tags for immediate loading -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sonu Kumar - Senior Full Stack Developer | Team Lead at Accenture | Java Spring Boot Angular React | 7.5+ Years Enterprise Experience</title>
-    <meta name="description" content="Senior Full Stack Developer & Team Lead at Accenture with 7.5+ years enterprise experience. Expert in Java Spring Boot, Angular, React, TypeScript, Microservices, System Architecture, REST APIs, AWS, DevOps, CI/CD. Delivered scalable solutions for Fortune 500 clients: Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC. Specializing in end-to-end development, code review, performance optimization. Available for remote work opportunities." />
+    <title>
+      Sonu Kumar - Senior Full Stack Developer | Team Lead at Accenture | Java
+      Spring Boot Angular React | 7.5+ Years Enterprise Experience
+    </title>
+    <meta
+      name="description"
+      content="Senior Full Stack Developer & Team Lead at Accenture with 7.5+ years enterprise experience. Expert in Java Spring Boot, Angular, React, TypeScript, Microservices, System Architecture, REST APIs, AWS, DevOps, CI/CD. Delivered scalable solutions for Fortune 500 clients: Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC. Specializing in end-to-end development, code review, performance optimization. Available for remote work opportunities."
+    />
     <!-- Enhanced keywords from all keyword files -->
     <script>
       // Combine keywords from all files when available
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const allKeywords = [];
-        if (typeof nameKeywords !== 'undefined') allKeywords.push(...nameKeywords);
-        if (typeof tradingKeywords !== 'undefined') allKeywords.push(...tradingKeywords);
-        if (typeof contentKeywords !== 'undefined') allKeywords.push(...contentKeywords);
-        
+        if (typeof nameKeywords !== "undefined")
+          allKeywords.push(...nameKeywords);
+        if (typeof tradingKeywords !== "undefined")
+          allKeywords.push(...tradingKeywords);
+        if (typeof contentKeywords !== "undefined")
+          allKeywords.push(...contentKeywords);
+
         if (allKeywords.length > 0) {
-          const keywordsMetaTag = document.querySelector('meta[name="keywords"]');
+          const keywordsMetaTag = document.querySelector(
+            'meta[name="keywords"]'
+          );
           if (keywordsMetaTag) {
-            keywordsMetaTag.setAttribute('content', allKeywords.slice(0, 150).join(', '));
+            keywordsMetaTag.setAttribute(
+              "content",
+              allKeywords.slice(0, 150).join(", ")
+            );
           }
           console.log(`Total SEO Keywords loaded: ${allKeywords.length}`);
         }
       });
     </script>
     <!-- Fallback keywords -->
-    <meta name="keywords" content="Sonu Kumar, software developer, full stack developer, web developer, java developer, spring boot, angular, react, typescript, javascript, senior developer, tech lead, team lead, enterprise developer, bangalore developer, remote developer, microservices, rest api, system architecture, aws, devops, agile development, trader, options trading, intraday trading, delivery trading, mutual funds, ETF trading, 5 years trading experience" />
+    <meta
+      name="keywords"
+      content="Sonu Kumar, software developer, full stack developer, web developer, java developer, spring boot, angular, react, typescript, javascript, senior developer, tech lead, team lead, enterprise developer, bangalore developer, remote developer, microservices, rest api, system architecture, aws, devops, agile development, trader, options trading, intraday trading, delivery trading, mutual funds, ETF trading, 5 years trading experience"
+    />
     <meta name="author" content="Sonu Kumar" />
     <meta name="robots" content="index, follow" />
     <!-- Enhanced social media tags from social-metadata.js -->
     <script>
-      if (typeof generateSocialMetaTags === 'function') {
+      if (typeof generateSocialMetaTags === "function") {
         document.write(generateSocialMetaTags());
       }
     </script>
     <!-- Fallback social tags -->
-    <meta property="og:title" content="Sonu Kumar - Senior Full Stack Developer | Enterprise Solutions Expert" />
-    <meta property="og:description" content="Senior Full Stack Developer with 7.5+ years experience. Expert in Java, Spring Boot, Angular, React. Available for remote work opportunities." />
+    <meta
+      property="og:title"
+      content="Sonu Kumar - Senior Full Stack Developer | Enterprise Solutions Expert"
+    />
+    <meta
+      property="og:description"
+      content="Senior Full Stack Developer with 7.5+ years experience. Expert in Java, Spring Boot, Angular, React. Available for remote work opportunities."
+    />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://sonuskr.github.io/sonuskr/" />
-    <meta property="og:site_name" content="Sonu Kumar - Professional Portfolio" />
+    <meta
+      property="og:site_name"
+      content="Sonu Kumar - Professional Portfolio"
+    />
     <link rel="canonical" href="https://sonuskr.github.io/sonuskr/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -77,7 +103,7 @@
     <!-- Structured Data from metadata.js -->
     <script>
       // Inject structured data from metadata.js
-      if (typeof generateStructuredData === 'function') {
+      if (typeof generateStructuredData === "function") {
         document.write(generateStructuredData());
       } else {
         // Fallback structured data

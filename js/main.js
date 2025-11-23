@@ -1,5 +1,5 @@
 // Analytics tracking
-const trackEvent = (action, category = 'User Interaction') => {
+const trackEvent = (action, category = "User Interaction") => {
   console.log(`Analytics: ${category} - ${action}`);
   // Add Google Analytics gtag here if needed
   // gtag('event', action, { event_category: category });
