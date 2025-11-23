@@ -26,7 +26,7 @@
           </button>
           <ul class="nav-links" id="navLinks">
             <li><a href="tutorial-index.html">Home</a></li>
-            <li><a href="java-learning.html">Java</a></li>
+            <li><a href="java/java-learning.html">Java</a></li>
             <li>
               <a href="javascript-learning.html" class="active">JavaScript</a>
             </li>
@@ -379,10 +379,17 @@ const users = [
 ];
 const names = users.map(u => u.name);  // ['John', 'Jane']
 const adults = users.filter(u => u.age >= 30);  // [user objects]
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="promises">🔄 Promises & Async/Await:</h3>
-          <pre><code>
+                <section id="promises" class="section">
+                    <h2>🔄 Promises & Async/Await</h2>
+                    <div class="subsection">
+                        <h3>Promise Operations</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Promise - handle async operations
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -428,10 +435,17 @@ const result = await Promise.race([promise1, promise2]);
 
 // Promise.any - first successful
 const result = await Promise.any([promise1, promise2]);
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="dom">🌐 DOM Manipulation:</h3>
-          <pre><code>
+                <section id="dom" class="section">
+                    <h2>🌐 DOM Manipulation</h2>
+                    <div class="subsection">
+                        <h3>DOM Operations</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Selecting elements
 const el = document.getElementById('myId');
 const els = document.querySelectorAll('.myClass');
@@ -476,10 +490,17 @@ document.addEventListener('click', (e) => {
         console.log('Button clicked:', e.target);
     }
 });
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="closures">🔒 Closures & Higher-Order Functions:</h3>
-          <pre><code>
+                <section id="closures" class="section">
+                    <h2>🔒 Closures & Higher-Order Functions</h2>
+                    <div class="subsection">
+                        <h3>Closure Patterns</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Closure - function with access to outer scope
 function makeCounter() {
     let count = 0;
@@ -518,10 +539,17 @@ const add5 = x => x + 5;
 const multiply2 = x => x * 2;
 const addThenMultiply = compose(multiply2, add5);
 console.log(addThenMultiply(3));   // (3+5)*2 = 16
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="errors">⚠️ Error Handling & Debugging:</h3>
-          <pre><code>
+                <section id="errors" class="section">
+                    <h2>⚠️ Error Handling & Debugging</h2>
+                    <div class="subsection">
+                        <h3>Error Management</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Try-catch-finally
 try {
     const result = riskyOperation();
@@ -560,10 +588,17 @@ console.group('Group');
     console.log('Item 1');
     console.log('Item 2');
 console.groupEnd();
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="regex">🔍 Regular Expressions:</h3>
-          <pre><code>
+                <section id="regex" class="section">
+                    <h2>🔍 Regular Expressions</h2>
+                    <div class="subsection">
+                        <h3>Regex Patterns</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Creating regex
 const regex1 = /hello/i;                     // Literal, i=case insensitive
 const regex2 = new RegExp('hello', 'i');     // Constructor
@@ -585,10 +620,17 @@ email.search(/@/);                  // 4
 /pattern/g                          // global - all matches
 /pattern/i                          // case insensitive
 /pattern/m                          // multiline
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="es6">✨ Modern ES6+ Features:</h3>
-          <pre><code>
+                <section id="es6" class="section">
+                    <h2>✨ Modern ES6+ Features</h2>
+                    <div class="subsection">
+                        <h3>ES6+ Syntax</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Spread operator
 const arr = [1, 2, 3];
 const arr2 = [...arr, 4, 5];       // [1, 2, 3, 4, 5]
@@ -626,10 +668,16 @@ map.has('key');                    // true
 const wm = new WeakMap();
 let obj = {};
 wm.set(obj, 'private data');
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="interview">❓ Common Interview Problems:</h3>
-          <ul>
+                <section id="interview" class="section">
+                    <h2>❓ Common Interview Problems</h2>
+                    <div class="subsection">
+                        <h3>Key Concepts</h3>
+                        <ul>
             <li>
               <strong>Event Loop:</strong> Understand call stack, task queue,
               microtask
@@ -653,10 +701,16 @@ wm.set(obj, 'private data');
               <strong>JSON:</strong> JSON.parse/stringify, handling circular
               references
             </li>
-          </ul>
+                        </ul>
+                    </div>
+                </section>
 
-          <h3 id="performance">⚡ Performance & Best Practices:</h3>
-          <pre><code>
+                <section id="performance" class="section">
+                    <h2>⚡ Performance & Best Practices</h2>
+                    <div class="subsection">
+                        <h3>Optimization Techniques</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Avoid global variables
 // ❌ BAD
 var globalVar = 'bad';
@@ -710,10 +764,17 @@ function memoize(fn) {
 }
 
 const factorial = memoize((n) => n <= 1 ? 1 : n * factorial(n - 1));
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="nodejs">🖥️ Node.js Basics (Server-side JavaScript):</h3>
-          <pre><code>
+                <section id="nodejs" class="section">
+                    <h2>🖥️ Node.js Basics</h2>
+                    <div class="subsection">
+                        <h3>Server-side JavaScript</h3>
+                        <div class="code-block">
+                            <pre><code class="language-javascript">
 // Importing modules
 const fs = require('fs');
 const express = require('express');
@@ -751,10 +812,16 @@ app.listen(3000, () => {
 // Environment variables
 require('dotenv').config();
 const dbUrl = process.env.DATABASE_URL;
-                </code></pre>
+                            </code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          <h3 id="key-questions">🎯 Key Interview Questions:</h3>
-          <ul>
+                <section id="key-questions" class="section">
+                    <h2>🎯 Key Interview Questions</h2>
+                    <div class="subsection">
+                        <h3>Essential Questions</h3>
+                        <ul>
             <li>What's the difference between let, const, and var?</li>
             <li>Explain the event loop and call stack</li>
             <li>What are closures and provide an example</li>
@@ -765,23 +832,16 @@ const dbUrl = process.env.DATABASE_URL;
             <li>What is 'this' and how does it work?</li>
             <li>Explain async/await and error handling</li>
             <li>What's the difference between shallow and deep copy?</li>
-          </ul>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
-      </div>
     </div>
     <footer>
-      <div class="container">
-        <p>
-          &copy; 2025 Sonu Kumar - Senior Full Stack Developer | Java Spring
-          Boot Angular React Expert | Available for remote work, enterprise
-          consulting, and full-time opportunities | Contact:
-          <a href="mailto:skrdeveloper1@gmail.com">skrdeveloper1@gmail.com</a> |
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/sonuskr"
-            >linkedin.com/in/sonuskr</a
-          >
-        </p>
-      </div>
+        <div class="container">
+            <p>&copy; 2025 Sonu Kumar - Senior Full Stack Developer | Java Spring Boot Angular React Expert | Available for remote work, enterprise consulting, and full-time opportunities | Contact: <a href="mailto:skrdeveloper1@gmail.com">skrdeveloper1@gmail.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/sonuskr">linkedin.com/in/sonuskr</a></p>
+        </div>
     </footer>
   </body>
 </html>
