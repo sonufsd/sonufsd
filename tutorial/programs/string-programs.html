@@ -18,41 +18,9 @@
             </div>
         </div>
     </header>
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    ☰
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="../tutorial-index.html">Home</a></li>
-                    <li><a href="array-programs.html">Array</a></li>
-                    <li><a href="string-programs.html" class="active">String</a></li>
-                    <li><a href="logical-programs.html">Logical</a></li>
-                    <li><a href="pattern-programs.html">Pattern</a></li>
-                    <li><a href="number-programs.html">Number</a></li>
-                    <li><a href="sorting-programs.html">Sorting</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!nav.contains(event.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
-    <div class="container">
+    <nav></nav>
+    <script>window.activePage = "programs";</script>
+    <script src="../menu.js"></script>    <div class="container">
         <div class="content">
             <div class="topic">
                 <h2>String Programming Problems</h2>

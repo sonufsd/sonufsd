@@ -18,54 +18,9 @@
             </div>
         </div>
     </header>
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    ☰
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="../tutorial-index.html">Home</a></li>
-                    <li><a href="spring-core-learning.html">Spring Core</a></li>
-                    <li><a href="spring-mvc-learning.html">Spring MVC</a></li>
-                    <li><a href="spring-boot-learning.html">Spring Boot</a></li>
-                    <li><a href="spring-security-learning.html">Spring Security</a></li>
-                    <li><a href="spring-interview.html" class="active">Spring Interview</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!nav.contains(event.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-        
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName('tab-content');
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove('active');
-            }
-            tablinks = document.getElementsByClassName('tab-button');
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove('active');
-            }
-            document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
-    </script>
-    <div class="container">
+    <nav></nav>
+    <script>window.activePage = "spring";</script>
+    <script src="../menu.js"></script>    <div class="container">
         <div class="content">
             <div class="topic">
                 <div class="tabs">
