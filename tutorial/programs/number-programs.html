@@ -9,23 +9,765 @@
     <link rel="stylesheet" href="../tutorial-styles.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
-<body class="page-number-programs">
+<body class="page-programs">
     <header>
         <div class="container">
-            <div class="hero">
-                <h1>Number Programs</h1>
-                <p>Master Mathematical Programming</p>
-            </div>
+            <h1>Number Programs</h1>
+            <p>Master Mathematical Programming with Java</p>
         </div>
     </header>
     <nav></nav>
-    <script>window.activePage = "programs";</script>
+    <script>window.activePage = 'programs';</script>
     <script src="../menu.js"></script>
-    <script src="../theme-selector.js"></script>    <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>Number Programming Problems</h2>
-                <p>Practice number-based programming problems including prime numbers, factorials, and series.</p>
+    <script src="../theme-selector.js"></script>
+    <div class="container">
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#basic-operations">Basic Operations</a></li>
+                        <li><a href="#prime-numbers">Prime Numbers</a></li>
+                        <li><a href="#palindrome-numbers">Palindrome Numbers</a></li>
+                        <li><a href="#fibonacci-series">Fibonacci Series</a></li>
+                        <li><a href="#armstrong-numbers">Armstrong Numbers</a></li>
+                        <li><a href="#mathematical-series">Mathematical Series</a></li>
+                        <li><a href="#number-conversions">Number Conversions</a></li>
+                        <li><a href="#advanced-problems">Advanced Problems</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>Number Programming Mastery 🚀</h2>
+                <p><strong>What are Number Programs?</strong> Mathematical programming problems involving number theory, calculations, and algorithmic operations on integers.</p>
+                <p><strong>Why Learn Number Programming?</strong> Essential for competitive programming, mathematical problem-solving, and building strong algorithmic thinking skills.</p>
+                <p><strong>How to Approach?</strong> Start with basic operations, then progress to prime numbers, series, conversions, and advanced mathematical algorithms.</p>
+            </div>
+
+            <div class="topic" id="basic-operations">
+                <h2>Basic Number Operations</h2>
+
+                <h3>1. Reverse a Number</h3>
+                <pre><code>public class ReverseNumber {
+    public static int reverseNumber(int num) {
+        int reversed = 0;
+        
+        while (num != 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+        
+        return reversed;
+    }
+    
+    public static void main(String[] args) {
+        int num = 12345;
+        System.out.println("Original: " + num);
+        System.out.println("Reversed: " + reverseNumber(num));
+    }
+}</code></pre>
+
+                <h3>2. Sum of Digits</h3>
+                <pre><code>public class SumOfDigits {
+    public static int sumOfDigits(int num) {
+        int sum = 0;
+        
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        
+        return sum;
+    }
+    
+    // Recursive approach
+    public static int sumOfDigitsRecursive(int num) {
+        if (num == 0) return 0;
+        return (num % 10) + sumOfDigitsRecursive(num / 10);
+    }
+    
+    public static void main(String[] args) {
+        int num = 12345;
+        System.out.println("Sum of digits: " + sumOfDigits(num));
+        System.out.println("Sum (recursive): " + sumOfDigitsRecursive(num));
+    }
+}</code></pre>
+
+                <h3>3. Count Digits</h3>
+                <pre><code>public class CountDigits {
+    public static int countDigits(int num) {
+        if (num == 0) return 1;
+        
+        int count = 0;
+        while (num > 0) {
+            count++;
+            num /= 10;
+        }
+        
+        return count;
+    }
+    
+    // Using logarithm
+    public static int countDigitsLog(int num) {
+        if (num == 0) return 1;
+        return (int) Math.floor(Math.log10(num)) + 1;
+    }
+    
+    public static void main(String[] args) {
+        int num = 12345;
+        System.out.println("Number of digits: " + countDigits(num));
+        System.out.println("Using log: " + countDigitsLog(num));
+    }
+}</code></pre>
+
+                <h3>4. GCD and LCM</h3>
+                <pre><code>public class GcdLcm {
+    public static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+    
+    public static int lcm(int a, int b) {
+        return (a * b) / gcd(a, b);
+    }
+    
+    // Iterative GCD
+    public static int gcdIterative(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        int a = 48, b = 18;
+        System.out.println("GCD of " + a + " and " + b + ": " + gcd(a, b));
+        System.out.println("LCM of " + a + " and " + b + ": " + lcm(a, b));
+    }
+}</code></pre>
+
+                <h3>5. Power Calculation</h3>
+                <pre><code>public class PowerCalculation {
+    // Iterative approach
+    public static long power(int base, int exp) {
+        long result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+    
+    // Optimized using exponentiation by squaring
+    public static long powerOptimized(int base, int exp) {
+        if (exp == 0) return 1;
+        
+        long result = 1;
+        long currentPower = base;
+        
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result *= currentPower;
+            }
+            currentPower *= currentPower;
+            exp /= 2;
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int base = 2, exp = 10;
+        System.out.println(base + "^" + exp + " = " + powerOptimized(base, exp));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="prime-numbers">
+                <h2>Prime Number Problems</h2>
+
+                <h3>6. Check Prime Number</h3>
+                <pre><code>public class PrimeCheck {
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 == 0 || num % 3 == 0) return false;
+        
+        for (int i = 5; i * i <= num; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        int[] numbers = {2, 17, 25, 29, 100};
+        
+        for (int num : numbers) {
+            System.out.println(num + " is prime: " + isPrime(num));
+        }
+    }
+}</code></pre>
+
+                <h3>7. Generate Prime Numbers (Sieve of Eratosthenes)</h3>
+                <pre><code>public class SieveOfEratosthenes {
+    public static void sieveOfEratosthenes(int n) {
+        boolean[] prime = new boolean[n + 1];
+        Arrays.fill(prime, true);
+        
+        for (int p = 2; p * p <= n; p++) {
+            if (prime[p]) {
+                for (int i = p * p; i <= n; i += p) {
+                    prime[i] = false;
+                }
+            }
+        }
+        
+        System.out.print("Prime numbers up to " + n + ": ");
+        for (int i = 2; i <= n; i++) {
+            if (prime[i]) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        sieveOfEratosthenes(30);
+    }
+}</code></pre>
+
+                <h3>8. Prime Factors</h3>
+                <pre><code>public class PrimeFactors {
+    public static void primeFactors(int n) {
+        System.out.print("Prime factors of " + n + ": ");
+        
+        // Handle factor 2
+        while (n % 2 == 0) {
+            System.out.print(2 + " ");
+            n /= 2;
+        }
+        
+        // Handle odd factors
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            while (n % i == 0) {
+                System.out.print(i + " ");
+                n /= i;
+            }
+        }
+        
+        // If n is still greater than 2, it's a prime
+        if (n > 2) {
+            System.out.print(n);
+        }
+        
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        primeFactors(315);
+    }
+}</code></pre>
+
+                <h3>9. Twin Primes</h3>
+                <pre><code>public class TwinPrimes {
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 == 0 || num % 3 == 0) return false;
+        
+        for (int i = 5; i * i <= num; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void findTwinPrimes(int limit) {
+        System.out.println("Twin primes up to " + limit + ":");
+        
+        for (int i = 2; i <= limit - 2; i++) {
+            if (isPrime(i) && isPrime(i + 2)) {
+                System.out.println("(" + i + ", " + (i + 2) + ")");
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        findTwinPrimes(50);
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="palindrome-numbers">
+                <h2>Palindrome Numbers</h2>
+
+                <h3>10. Check Palindrome Number</h3>
+                <pre><code>public class PalindromeNumber {
+    public static boolean isPalindrome(int num) {
+        if (num < 0) return false;
+        
+        int original = num;
+        int reversed = 0;
+        
+        while (num > 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+        
+        return original == reversed;
+    }
+    
+    // Optimized approach (reverse only half)
+    public static boolean isPalindromeOptimized(int num) {
+        if (num < 0 || (num % 10 == 0 && num != 0)) return false;
+        
+        int reversedHalf = 0;
+        while (num > reversedHalf) {
+            reversedHalf = reversedHalf * 10 + num % 10;
+            num /= 10;
+        }
+        
+        return num == reversedHalf || num == reversedHalf / 10;
+    }
+    
+    public static void main(String[] args) {
+        int[] numbers = {121, 12321, 123, -121};
+        
+        for (int num : numbers) {
+            System.out.println(num + " is palindrome: " + isPalindromeOptimized(num));
+        }
+    }
+}</code></pre>
+
+                <h3>11. Generate Palindrome Numbers</h3>
+                <pre><code>public class GeneratePalindromes {
+    public static void generatePalindromes(int limit) {
+        System.out.println("Palindrome numbers up to " + limit + ":");
+        
+        for (int i = 1; i <= limit; i++) {
+            if (isPalindrome(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    private static boolean isPalindrome(int num) {
+        int original = num;
+        int reversed = 0;
+        
+        while (num > 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+        
+        return original == reversed;
+    }
+    
+    public static void main(String[] args) {
+        generatePalindromes(1000);
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="fibonacci-series">
+                <h2>Fibonacci Series</h2>
+
+                <h3>12. Fibonacci Series</h3>
+                <pre><code>public class FibonacciSeries {
+    // Iterative approach
+    public static void fibonacciIterative(int n) {
+        int a = 0, b = 1;
+        
+        System.out.print("Fibonacci series: " + a + " " + b + " ");
+        
+        for (int i = 2; i < n; i++) {
+            int next = a + b;
+            System.out.print(next + " ");
+            a = b;
+            b = next;
+        }
+        System.out.println();
+    }
+    
+    // Recursive approach
+    public static int fibonacciRecursive(int n) {
+        if (n <= 1) return n;
+        return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+    }
+    
+    // Optimized using memoization
+    public static int fibonacciMemo(int n, int[] memo) {
+        if (n <= 1) return n;
+        if (memo[n] != 0) return memo[n];
+        
+        memo[n] = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
+        return memo[n];
+    }
+    
+    public static void main(String[] args) {
+        int n = 10;
+        fibonacciIterative(n);
+        
+        System.out.print("Using recursion: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacciRecursive(i) + " ");
+        }
+        System.out.println();
+    }
+}</code></pre>
+
+                <h3>13. Check Fibonacci Number</h3>
+                <pre><code>public class CheckFibonacci {
+    public static boolean isPerfectSquare(int n) {
+        int sqrt = (int) Math.sqrt(n);
+        return sqrt * sqrt == n;
+    }
+    
+    public static boolean isFibonacci(int n) {
+        // A number is Fibonacci if one of (5*n*n + 4) or (5*n*n - 4) is perfect square
+        return isPerfectSquare(5 * n * n + 4) || isPerfectSquare(5 * n * n - 4);
+    }
+    
+    public static void main(String[] args) {
+        int[] numbers = {8, 13, 15, 21, 34};
+        
+        for (int num : numbers) {
+            System.out.println(num + " is Fibonacci: " + isFibonacci(num));
+        }
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="armstrong-numbers">
+                <h2>Armstrong Numbers</h2>
+
+                <h3>14. Check Armstrong Number</h3>
+                <pre><code>public class ArmstrongNumber {
+    public static boolean isArmstrong(int num) {
+        int original = num;
+        int digits = String.valueOf(num).length();
+        int sum = 0;
+        
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num /= 10;
+        }
+        
+        return sum == original;
+    }
+    
+    public static void main(String[] args) {
+        int[] numbers = {153, 371, 9474, 123};
+        
+        for (int num : numbers) {
+            System.out.println(num + " is Armstrong: " + isArmstrong(num));
+        }
+    }
+}</code></pre>
+
+                <h3>15. Generate Armstrong Numbers</h3>
+                <pre><code>public class GenerateArmstrong {
+    public static void generateArmstrongNumbers(int limit) {
+        System.out.println("Armstrong numbers up to " + limit + ":");
+        
+        for (int i = 1; i <= limit; i++) {
+            if (isArmstrong(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    private static boolean isArmstrong(int num) {
+        int original = num;
+        int digits = String.valueOf(num).length();
+        int sum = 0;
+        
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num /= 10;
+        }
+        
+        return sum == original;
+    }
+    
+    public static void main(String[] args) {
+        generateArmstrongNumbers(10000);
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="mathematical-series">
+                <h2>Mathematical Series</h2>
+
+                <h3>16. Factorial</h3>
+                <pre><code>public class Factorial {
+    // Iterative approach
+    public static long factorialIterative(int n) {
+        long result = 1;
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    
+    // Recursive approach
+    public static long factorialRecursive(int n) {
+        if (n <= 1) return 1;
+        return n * factorialRecursive(n - 1);
+    }
+    
+    // Using BigInteger for large numbers
+    public static BigInteger factorialBig(int n) {
+        BigInteger result = BigInteger.ONE;
+        for (int i = 2; i <= n; i++) {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Factorial of " + n + ": " + factorialIterative(n));
+        System.out.println("Large factorial (20!): " + factorialBig(20));
+    }
+}</code></pre>
+
+                <h3>17. Perfect Numbers</h3>
+                <pre><code>public class PerfectNumber {
+    public static boolean isPerfect(int num) {
+        if (num <= 1) return false;
+        
+        int sum = 1; // 1 is always a divisor
+        
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                sum += i;
+                if (i != num / i) { // Avoid counting square root twice
+                    sum += num / i;
+                }
+            }
+        }
+        
+        return sum == num;
+    }
+    
+    public static void findPerfectNumbers(int limit) {
+        System.out.println("Perfect numbers up to " + limit + ":");
+        
+        for (int i = 1; i <= limit; i++) {
+            if (isPerfect(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        findPerfectNumbers(10000);
+    }
+}</code></pre>
+
+                <h3>18. Happy Numbers</h3>
+                <pre><code>public class HappyNumber {
+    public static boolean isHappy(int n) {
+        Set&lt;Integer&gt; seen = new HashSet&lt;&gt;();
+        
+        while (n != 1 && !seen.contains(n)) {
+            seen.add(n);
+            n = getSumOfSquares(n);
+        }
+        
+        return n == 1;
+    }
+    
+    private static int getSumOfSquares(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        int[] numbers = {1, 7, 10, 13, 19, 23};
+        
+        for (int num : numbers) {
+            System.out.println(num + " is happy: " + isHappy(num));
+        }
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="number-conversions">
+                <h2>Number System Conversions</h2>
+
+                <h3>19. Binary Conversion</h3>
+                <pre><code>public class BinaryConversion {
+    public static String decimalToBinary(int decimal) {
+        if (decimal == 0) return "0";
+        
+        StringBuilder binary = new StringBuilder();
+        
+        while (decimal > 0) {
+            binary.append(decimal % 2);
+            decimal /= 2;
+        }
+        
+        return binary.reverse().toString();
+    }
+    
+    public static int binaryToDecimal(String binary) {
+        int decimal = 0;
+        int power = 0;
+        
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            if (binary.charAt(i) == '1') {
+                decimal += Math.pow(2, power);
+            }
+            power++;
+        }
+        
+        return decimal;
+    }
+    
+    public static void main(String[] args) {
+        int decimal = 25;
+        String binary = decimalToBinary(decimal);
+        
+        System.out.println("Decimal " + decimal + " to binary: " + binary);
+        System.out.println("Binary " + binary + " to decimal: " + binaryToDecimal(binary));
+    }
+}</code></pre>
+
+                <h3>20. Number Base Conversions</h3>
+                <pre><code>public class BaseConversion {
+    public static String convertToBase(int number, int base) {
+        if (number == 0) return "0";
+        
+        StringBuilder result = new StringBuilder();
+        String digits = "0123456789ABCDEF";
+        
+        while (number > 0) {
+            result.append(digits.charAt(number % base));
+            number /= base;
+        }
+        
+        return result.reverse().toString();
+    }
+    
+    public static int convertFromBase(String number, int base) {
+        int result = 0;
+        int power = 0;
+        
+        for (int i = number.length() - 1; i >= 0; i--) {
+            char digit = number.charAt(i);
+            int value;
+            
+            if (Character.isDigit(digit)) {
+                value = digit - '0';
+            } else {
+                value = digit - 'A' + 10;
+            }
+            
+            result += value * Math.pow(base, power);
+            power++;
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int number = 255;
+        
+        System.out.println("Decimal " + number + " to:");
+        System.out.println("Binary: " + convertToBase(number, 2));
+        System.out.println("Octal: " + convertToBase(number, 8));
+        System.out.println("Hexadecimal: " + convertToBase(number, 16));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="advanced-problems">
+                <h2>Advanced Number Problems</h2>
+
+                <h3>21. Catalan Numbers</h3>
+                <pre><code>public class CatalanNumbers {
+    public static long catalan(int n) {
+        if (n <= 1) return 1;
+        
+        long[] dp = new long[n + 1];
+        dp[0] = dp[1] = 1;
+        
+        for (int i = 2; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                dp[i] += dp[j] * dp[i - 1 - j];
+            }
+        }
+        
+        return dp[n];
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("First 10 Catalan numbers:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(catalan(i) + " ");
+        }
+    }
+}</code></pre>
+
+                <h3>🎯 Interview Questions Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem Type</th>
+                            <th>Time Complexity</th>
+                            <th>Key Technique</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prime Check</td>
+                            <td>O(√n)</td>
+                            <td>Trial Division</td>
+                        </tr>
+                        <tr>
+                            <td>Sieve of Eratosthenes</td>
+                            <td>O(n log log n)</td>
+                            <td>Sieving</td>
+                        </tr>
+                        <tr>
+                            <td>GCD</td>
+                            <td>O(log min(a,b))</td>
+                            <td>Euclidean Algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Fibonacci</td>
+                            <td>O(n)</td>
+                            <td>Dynamic Programming</td>
+                        </tr>
+                        <tr>
+                            <td>Power Calculation</td>
+                            <td>O(log n)</td>
+                            <td>Exponentiation by Squaring</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
     </div>

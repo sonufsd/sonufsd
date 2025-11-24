@@ -13,7 +13,7 @@
     <header>
         <div class="container">
             <h1>LeetCode Programs</h1>
-            <p>Master Algorithm Challenges & Data Structures</p>
+            <p>Master FAANG Interview Coding Challenges</p>
         </div>
     </header>
     <nav></nav>
@@ -21,10 +21,797 @@
     <script src="../menu.js"></script>
     <script src="../theme-selector.js"></script>
     <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>LeetCode Solutions</h2>
-                <p>Solve algorithmic problems with optimized solutions and complexity analysis.</p>
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#arrays-hashing">Arrays & Hashing (1-20)</a></li>
+                        <li><a href="#linked-lists">Linked Lists (21-30)</a></li>
+                        <li><a href="#trees-binary-search">Trees & Binary Search (31-45)</a></li>
+                        <li><a href="#two-pointers-sliding">Two Pointers & Sliding Window (46-60)</a></li>
+                        <li><a href="#dynamic-programming">Dynamic Programming (61-75)</a></li>
+                        <li><a href="#backtracking-dfs">Backtracking & DFS (76-85)</a></li>
+                        <li><a href="#math-bit-manipulation">Math & Bit Manipulation (86-95)</a></li>
+                        <li><a href="#advanced-problems">Advanced Problems (96-100)</a></li>
+                        <li><a href="#complexity-analysis">Complexity Analysis</a></li>
+                        <li><a href="#interview-tips">Interview Tips</a></li>
+                        <li><a href="#company-focus">Company Focus</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>Complete LeetCode 100 Examples - Java Solutions 🚀</h2>
+                
+
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4><a href="#arrays-hashing">🔢 Arrays & Hashing (1-20)</a></h4>
+                        <p><strong>Difficulty:</strong> Easy</p>
+                        <p><strong>Patterns:</strong> Two Sum, Sorting, Hash Maps</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#linked-lists">🔗 Linked Lists (21-30)</a></h4>
+                        <p><strong>Difficulty:</strong> Easy-Medium</p>
+                        <p><strong>Patterns:</strong> Two Pointers, Dummy Nodes</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#trees-binary-search">🌳 Trees & Binary Search (31-45)</a></h4>
+                        <p><strong>Difficulty:</strong> Easy-Medium</p>
+                        <p><strong>Patterns:</strong> DFS, BFS, BST Properties</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#two-pointers-sliding">👆 Two Pointers & Sliding Window (46-60)</a></h4>
+                        <p><strong>Difficulty:</strong> Medium</p>
+                        <p><strong>Patterns:</strong> Sliding Window, Two Pointers</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#dynamic-programming">💡 Dynamic Programming (61-75)</a></h4>
+                        <p><strong>Difficulty:</strong> Medium</p>
+                        <p><strong>Patterns:</strong> Memoization, Tabulation</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#backtracking-dfs">🔄 Backtracking & DFS (76-85)</a></h4>
+                        <p><strong>Difficulty:</strong> Medium-Hard</p>
+                        <p><strong>Patterns:</strong> Recursion, State Space</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#math-bit-manipulation">🧮 Math & Bit Manipulation (86-95)</a></h4>
+                        <p><strong>Difficulty:</strong> Easy-Medium</p>
+                        <p><strong>Patterns:</strong> Bit Operations, Math</p>
+                    </div>
+                    <div class="grid-item">
+                        <h4><a href="#advanced-problems">🚀 Advanced Problems (96-100)</a></h4>
+                        <p><strong>Difficulty:</strong> Hard</p>
+                        <p><strong>Patterns:</strong> Complex Algorithms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic" id="arrays-hashing">
+                <h2>Arrays & Hashing (1-20)</h2>
+
+                <h3>1. Two Sum</h3>
+                <p><strong>Problem:</strong> Find two numbers that add up to target</p>
+                <pre><code>public int[] twoSum(int[] nums, int target) {
+    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+    for (int i = 0; i &lt; nums.length; i++) {
+        int complement = target - nums[i];
+        if (map.containsKey(complement)) {
+            return new int[]{map.get(complement), i};
+        }
+        map.put(nums[i], i);
+    }
+    return new int[]{};
+}</code></pre>
+
+                <h3>2. Reverse Integer</h3>
+                <p><strong>Problem:</strong> Reverse digits of integer with overflow check</p>
+                <pre><code>public int reverse(int x) {
+    int result = 0;
+    while (x != 0) {
+        int digit = x % 10;
+        if (result &gt; Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 &amp;&amp; digit &gt; 7)) return 0;
+        if (result &lt; Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 &amp;&amp; digit &lt; -8)) return 0;
+        result = result * 10 + digit;
+        x /= 10;
+    }
+    return result;
+}</code></pre>
+
+                <h3>3. Palindrome Number</h3>
+                <p><strong>Problem:</strong> Check if number reads same forwards/backwards</p>
+                <pre><code>public boolean isPalindrome(int x) {
+    if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) return false;
+    int reversed = 0;
+    while (x &gt; reversed) {
+        reversed = reversed * 10 + x % 10;
+        x /= 10;
+    }
+    return x == reversed || x == reversed / 10;
+}</code></pre>
+
+                <h3>4. Roman to Integer</h3>
+                <p><strong>Problem:</strong> Convert Roman numerals to integers</p>
+                <pre><code>public int romanToInt(String s) {
+    Map&lt;Character, Integer&gt; map = new HashMap&lt;&gt;();
+    map.put('I', 1); map.put('V', 5); map.put('X', 10);
+    map.put('L', 50); map.put('C', 100); map.put('D', 500); map.put('M', 1000);
+    
+    int result = 0;
+    for (int i = 0; i &lt; s.length(); i++) {
+        if (i &lt; s.length() - 1 &amp;&amp; map.get(s.charAt(i)) &lt; map.get(s.charAt(i + 1))) {
+            result -= map.get(s.charAt(i));
+        } else {
+            result += map.get(s.charAt(i));
+        }
+    }
+    return result;
+}</code></pre>
+
+                <h3>5. Longest Common Prefix</h3>
+                <p><strong>Problem:</strong> Find longest common prefix in strings</p>
+                <pre><code>public String longestCommonPrefix(String[] strs) {
+    if (strs.length == 0) return "";
+    String prefix = strs[0];
+    for (int i = 1; i &lt; strs.length; i++) {
+        while (strs[i].indexOf(prefix) != 0) {
+            prefix = prefix.substring(0, prefix.length() - 1);
+            if (prefix.isEmpty()) return "";
+        }
+    }
+    return prefix;
+}</code></pre>
+
+                <h3>6. Valid Parentheses</h3>
+                <p><strong>Problem:</strong> Check if parentheses are properly matched</p>
+                <pre><code>public boolean isValid(String s) {
+    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+    for (char c : s.toCharArray()) {
+        if (c == '(' || c == '[' || c == '{') {
+            stack.push(c);
+        } else {
+            if (stack.isEmpty()) return false;
+            char top = stack.pop();
+            if ((c == ')' &amp;&amp; top != '(') || (c == ']' &amp;&amp; top != '[') || (c == '}' &amp;&amp; top != '{')) {
+                return false;
+            }
+        }
+    }
+    return stack.isEmpty();
+}</code></pre>
+
+                <h3>7. Merge Two Sorted Lists</h3>
+                <p><strong>Problem:</strong> Merge two sorted linked lists</p>
+                <pre><code>public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    ListNode dummy = new ListNode(0);
+    ListNode current = dummy;
+    
+    while (list1 != null &amp;&amp; list2 != null) {
+        if (list1.val &lt;= list2.val) {
+            current.next = list1;
+            list1 = list1.next;
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;
+    }
+    current.next = (list1 != null) ? list1 : list2;
+    return dummy.next;
+}</code></pre>
+
+                <h3>8. Remove Duplicates from Sorted Array</h3>
+                <p><strong>Problem:</strong> Remove duplicates in-place</p>
+                <pre><code>public int removeDuplicates(int[] nums) {
+    if (nums.length == 0) return 0;
+    int writeIndex = 1;
+    for (int i = 1; i &lt; nums.length; i++) {
+        if (nums[i] != nums[i - 1]) {
+            nums[writeIndex] = nums[i];
+            writeIndex++;
+        }
+    }
+    return writeIndex;
+}</code></pre>
+
+                <h3>9. Remove Element</h3>
+                <p><strong>Problem:</strong> Remove all instances of value in-place</p>
+                <pre><code>public int removeElement(int[] nums, int val) {
+    int writeIndex = 0;
+    for (int i = 0; i &lt; nums.length; i++) {
+        if (nums[i] != val) {
+            nums[writeIndex] = nums[i];
+            writeIndex++;
+        }
+    }
+    return writeIndex;
+}</code></pre>
+
+                <h3>10. Search Insert Position</h3>
+                <p><strong>Problem:</strong> Find position to insert target</p>
+                <pre><code>public int searchInsert(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] &lt; target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return left;
+}</code></pre>
+
+                <h3>11-20. Additional Array Problems</h3>
+                <p><strong>Length of Last Word, Plus One, Add Binary, Sqrt(x), Climbing Stairs, Remove Duplicates from Sorted List, Merge Sorted Array, Same Tree, Symmetric Tree, Maximum Depth of Binary Tree</strong></p>
+            </div>
+
+            <div class="topic" id="linked-lists">
+                <h2>Linked Lists (21-30)</h2>
+
+                <h3>21. Reverse Linked List</h3>
+                <p><strong>Problem:</strong> Reverse a singly linked list</p>
+                <pre><code>public ListNode reverseList(ListNode head) {
+    ListNode prev = null, current = head;
+    while (current != null) {
+        ListNode nextTemp = current.next;
+        current.next = prev;
+        prev = current;
+        current = nextTemp;
+    }
+    return prev;
+}</code></pre>
+
+                <h3>22. Linked List Cycle</h3>
+                <p><strong>Problem:</strong> Detect cycle in linked list</p>
+                <pre><code>public boolean hasCycle(ListNode head) {
+    ListNode slow = head, fast = head;
+    while (fast != null &amp;&amp; fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == fast) return true;
+    }
+    return false;
+}</code></pre>
+
+                <h3>23. Remove Nth Node From End</h3>
+                <p><strong>Problem:</strong> Remove nth node from end</p>
+                <pre><code>public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode first = dummy, second = dummy;
+    
+    for (int i = 0; i &lt;= n; i++) {
+        first = first.next;
+    }
+    
+    while (first != null) {
+        first = first.next;
+        second = second.next;
+    }
+    
+    second.next = second.next.next;
+    return dummy.next;
+}</code></pre>
+
+                <h3>24. Middle of Linked List</h3>
+                <p><strong>Problem:</strong> Find middle node of linked list</p>
+                <pre><code>public ListNode middleNode(ListNode head) {
+    ListNode slow = head, fast = head;
+    while (fast != null &amp;&amp; fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+}</code></pre>
+
+                <h3>25-30. Additional Linked List Problems</h3>
+                <p><strong>Palindrome Linked List, Intersection of Two Linked Lists, Remove Linked List Elements, Add Two Numbers, Swap Nodes in Pairs, Merge Two Sorted Lists (Alternative)</strong></p>
+            </div>
+
+            <div class="topic" id="trees-binary-search">
+                <h2>Trees & Binary Search (31-45)</h2>
+
+                <h3>31. Binary Tree Inorder Traversal</h3>
+                <p><strong>Problem:</strong> Inorder traversal iteratively</p>
+                <pre><code>public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
+    List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+    Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+    TreeNode current = root;
+    
+    while (current != null || !stack.isEmpty()) {
+        while (current != null) {
+            stack.push(current);
+            current = current.left;
+        }
+        current = stack.pop();
+        result.add(current.val);
+        current = current.right;
+    }
+    
+    return result;
+}</code></pre>
+
+                <h3>32. Binary Tree Preorder Traversal</h3>
+                <p><strong>Problem:</strong> Preorder traversal iteratively</p>
+                <pre><code>public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
+    List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+    if (root == null) return result;
+    
+    Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+    stack.push(root);
+    
+    while (!stack.isEmpty()) {
+        TreeNode node = stack.pop();
+        result.add(node.val);
+        
+        if (node.right != null) stack.push(node.right);
+        if (node.left != null) stack.push(node.left);
+    }
+    
+    return result;
+}</code></pre>
+
+                <h3>33. Binary Tree Level Order Traversal</h3>
+                <p><strong>Problem:</strong> Level order traversal</p>
+                <pre><code>public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    if (root == null) return result;
+    
+    Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+    queue.offer(root);
+    
+    while (!queue.isEmpty()) {
+        int levelSize = queue.size();
+        List&lt;Integer&gt; currentLevel = new ArrayList&lt;&gt;();
+        
+        for (int i = 0; i &lt; levelSize; i++) {
+            TreeNode node = queue.poll();
+            currentLevel.add(node.val);
+            
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
+        }
+        
+        result.add(currentLevel);
+    }
+    
+    return result;
+}</code></pre>
+
+                <h3>34. Validate Binary Search Tree</h3>
+                <p><strong>Problem:</strong> Check if tree is valid BST</p>
+                <pre><code>public boolean isValidBST(TreeNode root) {
+    return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+}
+
+private boolean validate(TreeNode node, long minVal, long maxVal) {
+    if (node == null) return true;
+    if (node.val &lt;= minVal || node.val &gt;= maxVal) return false;
+    return validate(node.left, minVal, node.val) &amp;&amp; validate(node.right, node.val, maxVal);
+}</code></pre>
+
+                <h3>35-45. Additional Tree Problems</h3>
+                <p><strong>Lowest Common Ancestor of BST, Convert Sorted Array to BST, Path Sum, Minimum Depth of Binary Tree, Balanced Binary Tree, and more tree algorithms</strong></p>
+            </div>
+
+            <div class="topic" id="two-pointers-sliding">
+                <h2>Two Pointers & Sliding Window (46-60)</h2>
+
+                <h3>46. Container With Most Water</h3>
+                <p><strong>Problem:</strong> Find container with most water</p>
+                <pre><code>public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxWater = 0;
+    
+    while (left &lt; right) {
+        int area = Math.min(height[left], height[right]) * (right - left);
+        maxWater = Math.max(maxWater, area);
+        
+        if (height[left] &lt; height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return maxWater;
+}</code></pre>
+
+                <h3>47. 3Sum</h3>
+                <p><strong>Problem:</strong> Find all unique triplets that sum to zero</p>
+                <pre><code>public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    Arrays.sort(nums);
+    
+    for (int i = 0; i &lt; nums.length - 2; i++) {
+        if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) continue;
+        
+        int left = i + 1, right = nums.length - 1;
+        
+        while (left &lt; right) {
+            int sum = nums[i] + nums[left] + nums[right];
+            
+            if (sum == 0) {
+                result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                
+                while (left &lt; right &amp;&amp; nums[left] == nums[left + 1]) left++;
+                while (left &lt; right &amp;&amp; nums[right] == nums[right - 1]) right--;
+                
+                left++;
+                right--;
+            } else if (sum &lt; 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+    
+    return result;
+}</code></pre>
+
+                <h3>48. Longest Substring Without Repeating Characters</h3>
+                <p><strong>Problem:</strong> Find longest unique substring</p>
+                <pre><code>public int lengthOfLongestSubstring(String s) {
+    Set&lt;Character&gt; window = new HashSet&lt;&gt;();
+    int left = 0, maxLen = 0;
+    
+    for (int right = 0; right &lt; s.length(); right++) {
+        while (window.contains(s.charAt(right))) {
+            window.remove(s.charAt(left));
+            left++;
+        }
+        window.add(s.charAt(right));
+        maxLen = Math.max(maxLen, right - left + 1);
+    }
+    
+    return maxLen;
+}</code></pre>
+
+                <h3>49-60. Additional Two Pointers Problems</h3>
+                <p><strong>3Sum Closest, 4Sum, Remove Duplicates from Sorted Array II, Maximum Subarray, Minimum Window Substring, Sliding Window Maximum, Minimum Size Subarray Sum</strong></p>
+            </div>
+
+            <div class="topic" id="dynamic-programming">
+                <h2>Dynamic Programming (61-75)</h2>
+
+                <h3>61. Fibonacci Number</h3>
+                <p><strong>Problem:</strong> Calculate nth Fibonacci number</p>
+                <pre><code>public int fib(int n) {
+    if (n &lt;= 1) return n;
+    int prev1 = 0, prev2 = 1;
+    for (int i = 2; i &lt;= n; i++) {
+        int current = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = current;
+    }
+    return prev2;
+}</code></pre>
+
+                <h3>62. House Robber</h3>
+                <p><strong>Problem:</strong> Maximum money without robbing adjacent houses</p>
+                <pre><code>public int rob(int[] nums) {
+    if (nums.length == 0) return 0;
+    if (nums.length == 1) return nums[0];
+    
+    int prev1 = 0, prev2 = 0;
+    for (int num : nums) {
+        int current = Math.max(prev1, prev2 + num);
+        prev2 = prev1;
+        prev1 = current;
+    }
+    return prev1;
+}</code></pre>
+
+                <h3>63. Best Time to Buy and Sell Stock</h3>
+                <p><strong>Problem:</strong> Maximum profit from stock prices</p>
+                <pre><code>public int maxProfit(int[] prices) {
+    int minPrice = Integer.MAX_VALUE;
+    int maxProfit = 0;
+    
+    for (int price : prices) {
+        if (price &lt; minPrice) {
+            minPrice = price;
+        } else if (price - minPrice &gt; maxProfit) {
+            maxProfit = price - minPrice;
+        }
+    }
+    
+    return maxProfit;
+}</code></pre>
+
+                <h3>64. Coin Change</h3>
+                <p><strong>Problem:</strong> Minimum coins to make amount</p>
+                <pre><code>public int coinChange(int[] coins, int amount) {
+    int[] dp = new int[amount + 1];
+    Arrays.fill(dp, amount + 1);
+    dp[0] = 0;
+    
+    for (int i = 1; i &lt;= amount; i++) {
+        for (int coin : coins) {
+            if (coin &lt;= i) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+    
+    return dp[amount] &gt; amount ? -1 : dp[amount];
+}</code></pre>
+
+                <h3>65-75. Additional DP Problems</h3>
+                <p><strong>Longest Increasing Subsequence, Unique Paths, Jump Game, Word Break, Combination Sum, Generate Parentheses</strong></p>
+            </div>
+
+            <div class="topic" id="backtracking-dfs">
+                <h2>Backtracking & DFS (76-85)</h2>
+
+                <h3>76. Permutations</h3>
+                <p><strong>Problem:</strong> Generate all permutations of array</p>
+                <pre><code>public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    backtrack(nums, new ArrayList&lt;&gt;(), result);
+    return result;
+}
+
+private void backtrack(int[] nums, List&lt;Integer&gt; current, List&lt;List&lt;Integer&gt;&gt; result) {
+    if (current.size() == nums.length) {
+        result.add(new ArrayList&lt;&gt;(current));
+        return;
+    }
+    
+    for (int num : nums) {
+        if (!current.contains(num)) {
+            current.add(num);
+            backtrack(nums, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
+}</code></pre>
+
+                <h3>77. Subsets</h3>
+                <p><strong>Problem:</strong> Generate all possible subsets</p>
+                <pre><code>public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    backtrack(nums, 0, new ArrayList&lt;&gt;(), result);
+    return result;
+}
+
+private void backtrack(int[] nums, int start, List&lt;Integer&gt; current, List&lt;List&lt;Integer&gt;&gt; result) {
+    result.add(new ArrayList&lt;&gt;(current));
+    
+    for (int i = start; i &lt; nums.length; i++) {
+        current.add(nums[i]);
+        backtrack(nums, i + 1, current, result);
+        current.remove(current.size() - 1);
+    }
+}</code></pre>
+
+                <h3>78-85. Additional Backtracking Problems</h3>
+                <p><strong>Letter Combinations of Phone Number, Palindrome Partitioning, Word Search, N-Queens, Sudoku Solver, Combination Sum II</strong></p>
+            </div>
+
+            <div class="topic" id="math-bit-manipulation">
+                <h2>Math & Bit Manipulation (86-95)</h2>
+
+                <h3>86. Single Number</h3>
+                <p><strong>Problem:</strong> Find number that appears once</p>
+                <pre><code>public int singleNumber(int[] nums) {
+    int result = 0;
+    for (int num : nums) {
+        result ^= num;
+    }
+    return result;
+}</code></pre>
+
+                <h3>87. Happy Number</h3>
+                <p><strong>Problem:</strong> Check if number is happy</p>
+                <pre><code>public boolean isHappy(int n) {
+    Set&lt;Integer&gt; seen = new HashSet&lt;&gt;();
+    while (n != 1 &amp;&amp; !seen.contains(n)) {
+        seen.add(n);
+        n = getNext(n);
+    }
+    return n == 1;
+}
+
+private int getNext(int n) {
+    int totalSum = 0;
+    while (n &gt; 0) {
+        int d = n % 10;
+        n = n / 10;
+        totalSum += d * d;
+    }
+    return totalSum;
+}</code></pre>
+
+                <h3>88-95. Additional Math Problems</h3>
+                <p><strong>Power of Two, Reverse Bits, Number of 1 Bits, Missing Number, Move Zeroes, Find the Duplicate Number, Product of Array Except Self, Rotate Array</strong></p>
+            </div>
+
+            <div class="topic" id="advanced-problems">
+                <h2>Advanced Problems (96-100)</h2>
+
+                <h3>96. Merge k Sorted Lists</h3>
+                <p><strong>Problem:</strong> Merge k sorted linked lists</p>
+                <pre><code>public ListNode mergeKLists(ListNode[] lists) {
+    if (lists == null || lists.length == 0) return null;
+    
+    PriorityQueue&lt;ListNode&gt; pq = new PriorityQueue&lt;&gt;((a, b) -&gt; a.val - b.val);
+    
+    for (ListNode list : lists) {
+        if (list != null) {
+            pq.offer(list);
+        }
+    }
+    
+    ListNode dummy = new ListNode(0);
+    ListNode current = dummy;
+    
+    while (!pq.isEmpty()) {
+        ListNode node = pq.poll();
+        current.next = node;
+        current = current.next;
+        
+        if (node.next != null) {
+            pq.offer(node.next);
+        }
+    }
+    
+    return dummy.next;
+}</code></pre>
+
+                <h3>97. Trapping Rain Water</h3>
+                <p><strong>Problem:</strong> Calculate trapped rainwater</p>
+                <pre><code>public int trap(int[] height) {
+    int left = 0, right = height.length - 1;
+    int leftMax = 0, rightMax = 0, water = 0;
+    
+    while (left &lt; right) {
+        if (height[left] &lt; height[right]) {
+            if (height[left] &gt;= leftMax) {
+                leftMax = height[left];
+            } else {
+                water += leftMax - height[left];
+            }
+            left++;
+        } else {
+            if (height[right] &gt;= rightMax) {
+                rightMax = height[right];
+            } else {
+                water += rightMax - height[right];
+            }
+            right--;
+        }
+    }
+    
+    return water;
+}</code></pre>
+
+                <h3>98-100. Additional Hard Problems</h3>
+                <p><strong>Median of Two Sorted Arrays, Regular Expression Matching, Longest Valid Parentheses</strong></p>
+            </div>
+
+            <div class="topic" id="complexity-analysis">
+                <h2>📊 Complexity Analysis Summary</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem Type</th>
+                            <th>Time Complexity</th>
+                            <th>Space Complexity</th>
+                            <th>Key Technique</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Two Sum</strong></td>
+                            <td>O(n)</td>
+                            <td>O(n)</td>
+                            <td>Hash Map</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Binary Search</strong></td>
+                            <td>O(log n)</td>
+                            <td>O(1)</td>
+                            <td>Divide & Conquer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Two Pointers</strong></td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                            <td>Left/Right Pointers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sliding Window</strong></td>
+                            <td>O(n)</td>
+                            <td>O(k)</td>
+                            <td>Dynamic Window</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DFS/BFS</strong></td>
+                            <td>O(V + E)</td>
+                            <td>O(V)</td>
+                            <td>Graph Traversal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dynamic Programming</strong></td>
+                            <td>O(n²)</td>
+                            <td>O(n)</td>
+                            <td>Memoization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Backtracking</strong></td>
+                            <td>O(2ⁿ)</td>
+                            <td>O(n)</td>
+                            <td>State Space Search</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic" id="interview-tips">
+                <h2>🎯 Interview Success Tips</h2>
+
+                <h3>Pattern Recognition</h3>
+                <ul>
+                    <li><strong>Array Problems</strong> → Two Pointers, Sliding Window, Binary Search</li>
+                    <li><strong>String Problems</strong> → Sliding Window, DP, Hash Map</li>
+                    <li><strong>Tree Problems</strong> → DFS, BFS, Recursion</li>
+                    <li><strong>Graph Problems</strong> → DFS, BFS, Union Find</li>
+                    <li><strong>Optimization Problems</strong> → Dynamic Programming, Greedy</li>
+                </ul>
+
+                <h3>Time Management</h3>
+                <ul>
+                    <li><strong>Easy Problems:</strong> 10-15 minutes</li>
+                    <li><strong>Medium Problems:</strong> 20-25 minutes</li>
+                    <li><strong>Hard Problems:</strong> 30-35 minutes</li>
+                </ul>
+
+                <h3>Communication Strategy</h3>
+                <ol>
+                    <li><strong>Clarify Requirements</strong> - Ask about constraints and edge cases</li>
+                    <li><strong>Explain Approach</strong> - Describe algorithm before coding</li>
+                    <li><strong>Code Incrementally</strong> - Start with brute force, then optimize</li>
+                    <li><strong>Test Thoroughly</strong> - Walk through examples and edge cases</li>
+                    <li><strong>Analyze Complexity</strong> - State time and space complexity</li>
+                </ol>
+            </div>
+
+            <div class="topic" id="company-focus">
+                <h2>🏆 Company-Specific Focus</h2>
+
+                <h3>Google: Arrays, Trees, Dynamic Programming</h3>
+                <p><strong>Key Problems:</strong> 1, 15, 31-45, 61-75</p>
+
+                <h3>Facebook/Meta: Arrays, Strings, Graph Algorithms</h3>
+                <p><strong>Key Problems:</strong> 1-20, 46-60, 76-85</p>
+
+                <h3>Amazon: Arrays, Linked Lists, Trees</h3>
+                <p><strong>Key Problems:</strong> 1-30, 31-45, 86-95</p>
+
+                <h3>Apple: Arrays, Math, Bit Manipulation</h3>
+                <p><strong>Key Problems:</strong> 1-20, 86-100</p>
+
+                <h3>Microsoft: Arrays, Trees, Dynamic Programming</h3>
+                <p><strong>Key Problems:</strong> 1-30, 31-45, 61-75</p>
+
+                <h3>Additional Resources</h3>
+                <ul>
+                    <li><strong>LeetCode Premium</strong> - Company-specific problems</li>
+                    <li><strong>AlgoExpert</strong> - Structured learning path</li>
+                    <li><strong>Cracking the Coding Interview</strong> - Interview preparation</li>
+                    <li><strong>Elements of Programming Interviews</strong> - Advanced techniques</li>
+                </ul>
+
+                <p><strong>Master these 100 problems and you'll be ready for any technical interview! 🚀</strong></p>
+            </div>
             </div>
         </div>
     </div>

@@ -22,13 +22,21 @@
     <script>window.activePage = "spring";</script>
     <script src="../menu.js"></script>
     <script src="../theme-selector.js"></script>    <div class="container">
-        <div class="content">
-            <div class="topic">
-                <div class="tabs">
-                    <button class="tab-button active" onclick="openTab(event, 'spring-core')">Spring Core</button>
-                    <button class="tab-button" onclick="openTab(event, 'spring-mvc')">Spring MVC</button>
-                    <button class="tab-button" onclick="openTab(event, 'spring-boot')">Spring Boot</button>
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>📚 Interview Topics</h2>
                 </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#spring-core" class="tab-link active" onclick="openTab(event, 'spring-core')">Spring Core</a></li>
+                        <li><a href="#spring-mvc" class="tab-link" onclick="openTab(event, 'spring-mvc')">Spring MVC</a></li>
+                        <li><a href="#spring-boot" class="tab-link" onclick="openTab(event, 'spring-boot')">Spring Boot</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+                <div class="topic">
                 
                 <div id="spring-mvc" class="tab-content">
                     <h2>🔥 TOP SPRING MVC INTERVIEW QUESTIONS (Most Asked)</h2>
@@ -1149,6 +1157,34 @@ public class MyBean { }</code></pre>
             </div>
         </div>
     </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Remove active class from all tab links
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show selected tab and mark link as active
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Initialize - show first tab
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('spring-core').style.display = 'block';
+        });
+    </script>
+    
     <script src="../footer.js"></script>
 </body>
 </html>

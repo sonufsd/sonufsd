@@ -56,41 +56,76 @@
                     <h1>Angular - Complete Guide</h1>
                 
                 <section id="what-is-angular" class="section">
-                    <h2>What is Angular?</h2>
-                <p>Angular is a modern TypeScript-based framework for building single-page applications (SPAs) with a component-based architecture. It provides a complete solution for building dynamic, interactive web applications with built-in dependency injection, routing, forms handling, and HTTP services.</p>
-                
+                    <h2>🚀 What is Angular?</h2>
+                    <p><strong>What it is:</strong> Angular is a modern TypeScript-based framework for building single-page applications (SPAs) with a component-based architecture.</p>
+                    <p><strong>How it works:</strong> Uses components as building blocks, dependency injection for services, and reactive programming with RxJS for handling asynchronous operations.</p>
+                    <p><strong>Why use it:</strong> Provides complete solution for building dynamic, interactive web applications with built-in dependency injection, routing, forms handling, and HTTP services.</p>
+                    
+                    <div class="subsection">
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li><strong>Component-Based:</strong> Reusable UI components with encapsulated logic</li>
+                            <li><strong>TypeScript:</strong> Strong typing and modern JavaScript features</li>
+                            <li><strong>Dependency Injection:</strong> Manages service dependencies automatically</li>
+                            <li><strong>Reactive Programming:</strong> RxJS observables for async data handling</li>
+                            <li><strong>CLI Tools:</strong> Powerful command-line interface for development</li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section id="evolution" class="section">
-                    <h2>Angular Evolution</h2>
-                <ul>
-                    <li><strong>Angular 2:</strong> Complete rewrite in TypeScript (2016)</li>
-                    <li><strong>Angular 4-9:</strong> Incremental improvements, RxJS integration</li>
-                    <li><strong>Angular 12:</strong> TypeScript 4.2+ support</li>
-                    <li><strong>Angular 14:</strong> Typed Forms, standalone components preview</li>
-                    <li><strong>Angular 15:</strong> Standalone components stable, directive composition</li>
-                    <li><strong>Angular 16:</strong> Control flow syntax (@if, @for, @switch)</li>
-                    <li><strong>Angular 17:</strong> New @if/@for/@switch, signals API preview</li>
-                </ul>
-
+                    <h2>📈 Angular Evolution</h2>
+                    <p><strong>What it shows:</strong> Angular's progression from AngularJS to modern framework with regular updates every 6 months.</p>
+                    <p><strong>How it evolved:</strong> Started as AngularJS (2010), completely rewritten as Angular 2+ (2016) with TypeScript, then continuous improvements.</p>
+                    
+                    <div class="subsection">
+                        <h3>Major Milestones</h3>
+                        <ul>
+                            <li><strong>AngularJS (1.x):</strong> JavaScript-based, MVC pattern (2010-2021)</li>
+                            <li><strong>Angular 2:</strong> Complete rewrite in TypeScript, component-based (2016)</li>
+                            <li><strong>Angular 4-9:</strong> Incremental improvements, RxJS integration, Ivy renderer</li>
+                            <li><strong>Angular 12:</strong> TypeScript 4.2+ support, strict mode by default</li>
+                            <li><strong>Angular 14:</strong> Typed Forms, standalone components preview</li>
+                            <li><strong>Angular 15:</strong> Standalone components stable, directive composition API</li>
+                            <li><strong>Angular 16:</strong> Control flow syntax (@if, @for, @switch), signals preview</li>
+                            <li><strong>Angular 17:</strong> New @if/@for/@switch stable, signals API, new lifecycle</li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section id="architecture" class="section">
-                    <h2>Angular Architecture - Core Building Blocks</h2>
-                <ul>
-                    <li><strong>Components:</strong> Basic UI building blocks with template, class, metadata</li>
-                    <li><strong>Modules (NgModule):</strong> Logical grouping of components, services, pipes</li>
-                    <li><strong>Services:</strong> Reusable logic injected via dependency injection</li>
-                    <li><strong>Directives:</strong> Structural (*ngIf, *ngFor) and attribute directives</li>
-                    <li><strong>Pipes:</strong> Transform data in templates (date, currency, uppercase)</li>
-                    <li><strong>Decorators:</strong> @Component, @Injectable, @Input, @Output metadata</li>
-                    <li><strong>Dependency Injection:</strong> Invert control pattern for service management</li>
-                </ul>
-
+                    <h2>🏢 Angular Architecture - Core Building Blocks</h2>
+                    <p><strong>What it is:</strong> Angular follows a modular architecture where applications are built using interconnected building blocks.</p>
+                    <p><strong>How it works:</strong> Components handle UI, services manage data/logic, modules organize features, and dependency injection connects everything.</p>
+                    
+                    <div class="subsection">
+                        <h3>Core Building Blocks</h3>
+                        <ul>
+                            <li><strong>Components:</strong> Basic UI building blocks with template, class, and metadata</li>
+                            <li><strong>Modules (NgModule):</strong> Logical grouping of components, services, pipes (being replaced by standalone)</li>
+                            <li><strong>Services:</strong> Reusable business logic injected via dependency injection</li>
+                            <li><strong>Directives:</strong> Structural (*ngIf, *ngFor) and attribute directives for DOM manipulation</li>
+                            <li><strong>Pipes:</strong> Transform data in templates (date, currency, uppercase, custom)</li>
+                            <li><strong>Decorators:</strong> @Component, @Injectable, @Input, @Output provide metadata</li>
+                            <li><strong>Dependency Injection:</strong> Inversion of control pattern for service management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Application Flow</h3>
+                        <p>1. <strong>Bootstrap:</strong> main.ts starts the application<br>
+                        2. <strong>Root Component:</strong> AppComponent loads first<br>
+                        3. <strong>Routing:</strong> Router determines which component to display<br>
+                        4. <strong>Services:</strong> Provide data and business logic<br>
+                        5. <strong>Templates:</strong> Render UI with data binding</p>
+                    </div>
                 </section>
 
                 <section id="components" class="section">
-                    <h2>Creating a Component (Modern Angular 17)</h2>
+                    <h2>🧩 Creating Components (Modern Angular 17)</h2>
+                    <p><strong>What it does:</strong> Components are the fundamental building blocks that control a portion of the screen called a view.</p>
+                    <p><strong>How it works:</strong> Each component consists of a TypeScript class with @Component decorator, HTML template, and CSS styles.</p>
+                    <p><strong>Best Practice:</strong> Use standalone components (Angular 14+) for better tree-shaking and simpler architecture.</p>
                 <pre><code>
 // Standalone component (Angular 14+)
 import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -128,7 +163,10 @@ export class UserCardComponent {
                 </section>
 
                 <section id="lifecycle" class="section">
-                    <h2>Component Lifecycle Hooks</h2>
+                    <h2>🔄 Component Lifecycle Hooks</h2>
+                    <p><strong>What it does:</strong> Lifecycle hooks provide visibility into key moments in a component's lifecycle from creation to destruction.</p>
+                    <p><strong>How it works:</strong> Angular calls these methods at specific times during component lifecycle, allowing you to tap into those moments.</p>
+                    <p><strong>Most Important:</strong> OnInit (initialization), OnDestroy (cleanup), OnChanges (input changes).</p>
                 <pre><code>
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 
@@ -163,7 +201,10 @@ export class LifecycleComponent
                 </section>
 
                 <section id="dependency-injection" class="section">
-                    <h2>Dependency Injection</h2>
+                    <h2>🔌 Dependency Injection</h2>
+                    <p><strong>What it does:</strong> Design pattern where Angular provides dependencies to a class instead of the class creating them itself.</p>
+                    <p><strong>How it works:</strong> Angular's injector creates service instances and injects them into components/services that need them.</p>
+                    <p><strong>Benefits:</strong> Loose coupling, easier testing, better code organization, and automatic dependency management.</p>
                 <pre><code>
 // Service definition
 import { Injectable } from '@angular/core';
@@ -205,7 +246,10 @@ export class UsersComponent implements OnInit {
                 </section>
 
                 <section id="data-binding" class="section">
-                    <h2>Data Binding & Template Syntax</h2>
+                    <h2>🔗 Data Binding & Template Syntax</h2>
+                    <p><strong>What it does:</strong> Connects component data with the DOM, automatically updating the UI when data changes.</p>
+                    <p><strong>How it works:</strong> Angular provides four types of data binding: interpolation, property binding, event binding, and two-way binding.</p>
+                    <p><strong>Performance:</strong> One-way binding is faster; use two-way binding sparingly for form inputs.</p>
                 <pre><code>
 // Property binding: [] - one way, component to template
 &lt;img [src]="imageUrl" [alt]="imageName" /&gt;
@@ -231,7 +275,10 @@ export class UsersComponent implements OnInit {
                 </section>
 
                 <section id="control-flow" class="section">
-                    <h2>Control Flow (Angular 17+)</h2>
+                    <h2>🔀 Control Flow (Angular 17+)</h2>
+                    <p><strong>What it does:</strong> Controls which parts of the template are rendered based on conditions and data.</p>
+                    <p><strong>How it works:</strong> New @if, @for, @switch syntax provides better performance and type safety than structural directives.</p>
+                    <p><strong>Migration:</strong> Gradually replace *ngIf, *ngFor, *ngSwitch with new syntax for better performance.</p>
                 <pre><code>
 // @if - replaces *ngIf
 &lt;div *ngIf="isLoggedIn; else notLoggedIn"&gt;
@@ -270,7 +317,10 @@ export class UsersComponent implements OnInit {
                 </section>
 
                 <section id="rxjs" class="section">
-                    <h2>RxJS Observables & Reactive Programming</h2>
+                    <h2>🌊 RxJS Observables & Reactive Programming</h2>
+                    <p><strong>What it does:</strong> Handles asynchronous data streams using reactive programming patterns with Observables.</p>
+                    <p><strong>How it works:</strong> Observables emit values over time, operators transform data, and subscribers react to changes.</p>
+                    <p><strong>Key Concept:</strong> Think of data as streams that flow through your application, transforming along the way.</p>
                 <pre><code>
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { map, filter, switchMap, takeUntil } from 'rxjs/operators';
@@ -301,7 +351,10 @@ getUser(id: number) {
                 </section>
 
                 <section id="forms" class="section">
-                    <h2>Reactive Forms (Type-Safe)</h2>
+                    <h2>📝 Reactive Forms (Type-Safe)</h2>
+                    <p><strong>What it does:</strong> Provides a model-driven approach to handling form inputs with validation and type safety.</p>
+                    <p><strong>How it works:</strong> Form controls are created in component class, providing programmatic access to form state and validation.</p>
+                    <p><strong>Advantages:</strong> Better for complex forms, easier testing, type safety, and reactive validation.</p>
                 <pre><code>
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -351,7 +404,10 @@ export class UserFormComponent {
                 </section>
 
                 <section id="routing" class="section">
-                    <h2>Routing</h2>
+                    <h2>🗺️ Routing & Navigation</h2>
+                    <p><strong>What it does:</strong> Enables navigation between different views/components in a single-page application.</p>
+                    <p><strong>How it works:</strong> Router maps URL paths to components, manages navigation history, and supports route parameters.</p>
+                    <p><strong>Features:</strong> Lazy loading, route guards, nested routes, and programmatic navigation.</p>
                 <pre><code>
 import { Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
@@ -388,7 +444,10 @@ export class UserDetailComponent {
                 </section>
 
                 <section id="http" class="section">
-                    <h2>HTTP Services with Error Handling</h2>
+                    <h2>🌐 HTTP Services with Error Handling</h2>
+                    <p><strong>What it does:</strong> Communicates with backend APIs using HTTP requests with built-in error handling and retry logic.</p>
+                    <p><strong>How it works:</strong> HttpClient returns Observables, allowing reactive handling of HTTP responses with operators.</p>
+                    <p><strong>Best Practices:</strong> Always handle errors, use interceptors for common logic, and implement retry strategies.</p>
                 <pre><code>
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
@@ -433,7 +492,10 @@ export class DataService {
                 </section>
 
                 <section id="directives" class="section">
-                    <h2>Custom Directives</h2>
+                    <h2>🎨 Custom Directives</h2>
+                    <p><strong>What it does:</strong> Extends HTML with custom behavior by manipulating DOM elements or adding functionality.</p>
+                    <p><strong>How it works:</strong> Attribute directives modify element behavior, structural directives change DOM layout.</p>
+                    <p><strong>Use Cases:</strong> DOM manipulation, event handling, styling, validation, and reusable behaviors.</p>
                 <pre><code>
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
@@ -464,7 +526,10 @@ export class HighlightDirective {
                 </section>
 
                 <section id="pipes" class="section">
-                    <h2>Pipes (Data Transformation)</h2>
+                    <h2>🔄 Pipes (Data Transformation)</h2>
+                    <p><strong>What it does:</strong> Transforms data in templates without changing the original data, like formatting dates or currency.</p>
+                    <p><strong>How it works:</strong> Takes input value, applies transformation logic, and returns formatted output for display.</p>
+                    <p><strong>Performance:</strong> Pure pipes are cached and only re-run when input changes; impure pipes run on every change detection.</p>
                 <pre><code>
 // Built-in pipes
 {{ date | date:'short' }}
@@ -498,7 +563,10 @@ export class TitleCasePipe implements PipeTransform {
                 </section>
 
                 <section id="signals" class="section">
-                    <h2>State Management with Signals (Angular 17)</h2>
+                    <h2>📡 State Management with Signals (Angular 17)</h2>
+                    <p><strong>What it does:</strong> Provides reactive state management with fine-grained reactivity and automatic dependency tracking.</p>
+                    <p><strong>How it works:</strong> Signals are reactive primitives that notify consumers when their value changes, enabling efficient updates.</p>
+                    <p><strong>Benefits:</strong> Better performance than Zone.js, simpler mental model, and automatic dependency tracking.</p>
                 <pre><code>
 import { signal, computed, effect } from '@angular/core';
 
@@ -534,7 +602,9 @@ export class CounterComponent {
                 </section>
 
                 <section id="interview" class="section">
-                    <h2>Common Interview Problems & Patterns</h2>
+                    <h2>🎯 Common Interview Problems & Patterns</h2>
+                    <p><strong>What to expect:</strong> Interviewers focus on Angular concepts, performance optimization, and real-world problem-solving.</p>
+                    <p><strong>How to prepare:</strong> Understand core concepts deeply, practice coding problems, and know performance best practices.</p>
                 <ul>
                     <li><strong>Change Detection:</strong> OnPush vs Default strategy</li>
                     <li><strong>Memory Leaks:</strong> Unsubscribe patterns, takeUntil operator</li>
@@ -548,7 +618,10 @@ export class CounterComponent {
                 </section>
 
                 <section id="cli" class="section">
-                    <h2>Angular CLI Commands</h2>
+                    <h2>🛠️ Angular CLI Commands</h2>
+                    <p><strong>What it does:</strong> Command-line interface that automates development tasks like project creation, code generation, and building.</p>
+                    <p><strong>How it works:</strong> Provides schematics (blueprints) for generating code and configurations with best practices built-in.</p>
+                    <p><strong>Productivity:</strong> Saves time by generating boilerplate code and maintaining consistent project structure.</p>
                 <pre><code>
 // Create new project
 ng new my-app
@@ -573,7 +646,10 @@ ng e2e
                 </section>
 
                 <section id="best-practices" class="section">
-                    <h2>Best Practices</h2>
+                    <h2>✨ Best Practices & Production Tips</h2>
+                    <p><strong>What it covers:</strong> Industry-standard practices for building maintainable, performant, and scalable Angular applications.</p>
+                    <p><strong>How to apply:</strong> Follow these patterns from the start of your project to avoid technical debt and performance issues.</p>
+                    <p><strong>Real-world impact:</strong> These practices are used in production applications serving millions of users.</p>
                 <ul>
                     <li><strong>Smart vs Presentational Components:</strong> Separate data/logic from UI</li>
                     <li><strong>OnPush Change Detection:</strong> Better performance with immutable patterns</li>

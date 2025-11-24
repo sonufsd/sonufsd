@@ -9,23 +9,918 @@
     <link rel="stylesheet" href="../tutorial-styles.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
-<body class="page-pattern-programs">
+<body class="page-programs">
     <header>
         <div class="container">
-            <div class="hero">
-                <h1>Pattern Programs</h1>
-                <p>Create Beautiful Patterns with Code</p>
-            </div>
+            <h1>Pattern Programs</h1>
+            <p>Master Pattern Programming with Java</p>
         </div>
     </header>
     <nav></nav>
-    <script>window.activePage = "programs";</script>
+    <script>window.activePage = 'programs';</script>
     <script src="../menu.js"></script>
-    <script src="../theme-selector.js"></script>    <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>Pattern Programming Problems</h2>
-                <p>Create various pattern programs using loops including star patterns, number patterns, and shapes.</p>
+    <script src="../theme-selector.js"></script>
+    <div class="container">
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#star-patterns">Star Patterns</a></li>
+                        <li><a href="#number-patterns">Number Patterns</a></li>
+                        <li><a href="#alphabet-patterns">Alphabet Patterns</a></li>
+                        <li><a href="#pyramid-patterns">Pyramid Patterns</a></li>
+                        <li><a href="#diamond-patterns">Diamond Patterns</a></li>
+                        <li><a href="#hollow-patterns">Hollow Patterns</a></li>
+                        <li><a href="#advanced-patterns">Advanced Patterns</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>Pattern Programming Mastery 🚀</h2>
+                <p><strong>What are Pattern Programs?</strong> Programs that create visual patterns using characters, numbers, or symbols arranged in specific geometric shapes.</p>
+                <p><strong>Why Learn Pattern Programming?</strong> Develops logical thinking, loop control mastery, and problem-solving skills essential for programming interviews.</p>
+                <p><strong>How to Approach?</strong> Understand row-column relationships, nested loops, and mathematical formulas for spaces and characters.</p>
+            </div>
+
+            <div class="topic" id="star-patterns">
+                <h2>Star Patterns</h2>
+
+                <h3>1. Right Triangle Star Pattern</h3>
+                <pre><code>public class RightTriangle {
+    public static void printRightTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Right Triangle Pattern:");
+        printRightTriangle(5);
+    }
+}
+
+/* Output:
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+*/</code></pre>
+
+                <h3>2. Left Triangle Star Pattern</h3>
+                <pre><code>public class LeftTriangle {
+    public static void printLeftTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("  ");
+            }
+            // Print stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Left Triangle Pattern:");
+        printLeftTriangle(5);
+    }
+}
+
+/* Output:
+        * 
+      * * 
+    * * * 
+  * * * * 
+* * * * * 
+*/</code></pre>
+
+                <h3>3. Inverted Right Triangle</h3>
+                <pre><code>public class InvertedRightTriangle {
+    public static void printInvertedRightTriangle(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Inverted Right Triangle:");
+        printInvertedRightTriangle(5);
+    }
+}
+
+/* Output:
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+*/</code></pre>
+
+                <h3>4. Inverted Left Triangle</h3>
+                <pre><code>public class InvertedLeftTriangle {
+    public static void printInvertedLeftTriangle(int n) {
+        for (int i = n; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("  ");
+            }
+            // Print stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Inverted Left Triangle:");
+        printInvertedLeftTriangle(5);
+    }
+}
+
+/* Output:
+* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+*/</code></pre>
+
+                <h3>5. Rectangle Star Pattern</h3>
+                <pre><code>public class Rectangle {
+    public static void printRectangle(int rows, int cols) {
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Rectangle Pattern:");
+        printRectangle(4, 6);
+    }
+}
+
+/* Output:
+* * * * * * 
+* * * * * * 
+* * * * * * 
+* * * * * * 
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="number-patterns">
+                <h2>Number Patterns</h2>
+
+                <h3>6. Number Triangle</h3>
+                <pre><code>public class NumberTriangle {
+    public static void printNumberTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Number Triangle:");
+        printNumberTriangle(5);
+    }
+}
+
+/* Output:
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+*/</code></pre>
+
+                <h3>7. Repeated Number Triangle</h3>
+                <pre><code>public class RepeatedNumberTriangle {
+    public static void printRepeatedNumberTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Repeated Number Triangle:");
+        printRepeatedNumberTriangle(5);
+    }
+}
+
+/* Output:
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+*/</code></pre>
+
+                <h3>8. Floyd's Triangle</h3>
+                <pre><code>public class FloydTriangle {
+    public static void printFloydTriangle(int n) {
+        int num = 1;
+        
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(num + " ");
+                num++;
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Floyd's Triangle:");
+        printFloydTriangle(5);
+    }
+}
+
+/* Output:
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+*/</code></pre>
+
+                <h3>9. Pascal's Triangle</h3>
+                <pre><code>public class PascalTriangle {
+    public static void printPascalTriangle(int n) {
+        for (int i = 0; i < n; i++) {
+            // Print spaces for alignment
+            for (int j = 0; j < n - i - 1; j++) {
+                System.out.print(" ");
+            }
+            
+            int number = 1;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(number + " ");
+                number = number * (i - j) / (j + 1);
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Pascal's Triangle:");
+        printPascalTriangle(6);
+    }
+}
+
+/* Output:
+     1 
+    1 1 
+   1 2 1 
+  1 3 3 1 
+ 1 4 6 4 1 
+1 5 10 10 5 1 
+*/</code></pre>
+
+                <h3>10. Binary Number Pattern</h3>
+                <pre><code>public class BinaryPattern {
+    public static void printBinaryPattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print((i + j) % 2 + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Binary Pattern:");
+        printBinaryPattern(5);
+    }
+}
+
+/* Output:
+0 
+1 0 
+0 1 0 
+1 0 1 0 
+0 1 0 1 0 
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="alphabet-patterns">
+                <h2>Alphabet Patterns</h2>
+
+                <h3>11. Alphabet Triangle</h3>
+                <pre><code>public class AlphabetTriangle {
+    public static void printAlphabetTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            char ch = 'A';
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch + " ");
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Alphabet Triangle:");
+        printAlphabetTriangle(5);
+    }
+}
+
+/* Output:
+A 
+A B 
+A B C 
+A B C D 
+A B C D E 
+*/</code></pre>
+
+                <h3>12. Repeated Alphabet Triangle</h3>
+                <pre><code>public class RepeatedAlphabetTriangle {
+    public static void printRepeatedAlphabetTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            char ch = (char) ('A' + i - 1);
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Repeated Alphabet Triangle:");
+        printRepeatedAlphabetTriangle(5);
+    }
+}
+
+/* Output:
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+*/</code></pre>
+
+                <h3>13. Continuous Alphabet Pattern</h3>
+                <pre><code>public class ContinuousAlphabet {
+    public static void printContinuousAlphabet(int n) {
+        char ch = 'A';
+        
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch + " ");
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Continuous Alphabet Pattern:");
+        printContinuousAlphabet(4);
+    }
+}
+
+/* Output:
+A 
+B C 
+D E F 
+G H I J 
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="pyramid-patterns">
+                <h2>Pyramid Patterns</h2>
+
+                <h3>14. Star Pyramid</h3>
+                <pre><code>public class StarPyramid {
+    public static void printStarPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Star Pyramid:");
+        printStarPyramid(5);
+    }
+}
+
+/* Output:
+    *
+   ***
+  *****
+ *******
+*********
+*/</code></pre>
+
+                <h3>15. Inverted Star Pyramid</h3>
+                <pre><code>public class InvertedStarPyramid {
+    public static void printInvertedStarPyramid(int n) {
+        for (int i = n; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Inverted Star Pyramid:");
+        printInvertedStarPyramid(5);
+    }
+}
+
+/* Output:
+*********
+ *******
+  *****
+   ***
+    *
+*/</code></pre>
+
+                <h3>16. Number Pyramid</h3>
+                <pre><code>public class NumberPyramid {
+    public static void printNumberPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print numbers (ascending)
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            // Print numbers (descending)
+            for (int j = i - 1; j >= 1; j--) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Number Pyramid:");
+        printNumberPyramid(5);
+    }
+}
+
+/* Output:
+    1
+   121
+  12321
+ 1234321
+123454321
+*/</code></pre>
+
+                <h3>17. Alphabet Pyramid</h3>
+                <pre><code>public class AlphabetPyramid {
+    public static void printAlphabetPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print ascending alphabets
+            char ch = 'A';
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch);
+                ch++;
+            }
+            // Print descending alphabets
+            ch -= 2;
+            for (int j = 1; j <= i - 1; j++) {
+                System.out.print(ch);
+                ch--;
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Alphabet Pyramid:");
+        printAlphabetPyramid(5);
+    }
+}
+
+/* Output:
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="diamond-patterns">
+                <h2>Diamond Patterns</h2>
+
+                <h3>18. Star Diamond</h3>
+                <pre><code>public class StarDiamond {
+    public static void printStarDiamond(int n) {
+        // Upper half (including middle)
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+        // Lower half
+        for (int i = n - 1; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Star Diamond:");
+        printStarDiamond(5);
+    }
+}
+
+/* Output:
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+*/</code></pre>
+
+                <h3>19. Number Diamond</h3>
+                <pre><code>public class NumberDiamond {
+    public static void printNumberDiamond(int n) {
+        // Upper half
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print numbers
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+        
+        // Lower half
+        for (int i = n - 1; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print numbers
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Number Diamond:");
+        printNumberDiamond(5);
+    }
+}
+
+/* Output:
+    1 
+   1 2 
+  1 2 3 
+ 1 2 3 4 
+1 2 3 4 5 
+ 1 2 3 4 
+  1 2 3 
+   1 2 
+    1 
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="hollow-patterns">
+                <h2>Hollow Patterns</h2>
+
+                <h3>20. Hollow Rectangle</h3>
+                <pre><code>public class HollowRectangle {
+    public static void printHollowRectangle(int rows, int cols) {
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                if (i == 1 || i == rows || j == 1 || j == cols) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hollow Rectangle:");
+        printHollowRectangle(5, 8);
+    }
+}
+
+/* Output:
+* * * * * * * * 
+*             * 
+*             * 
+*             * 
+* * * * * * * * 
+*/</code></pre>
+
+                <h3>21. Hollow Triangle</h3>
+                <pre><code>public class HollowTriangle {
+    public static void printHollowTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                if (j == 1 || j == 2 * i - 1 || i == n) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hollow Triangle:");
+        printHollowTriangle(6);
+    }
+}
+
+/* Output:
+     *
+    * *
+   *   *
+  *     *
+ *       *
+***********
+*/</code></pre>
+
+                <h3>22. Hollow Diamond</h3>
+                <pre><code>public class HollowDiamond {
+    public static void printHollowDiamond(int n) {
+        // Upper half
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print pattern
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                if (j == 1 || j == 2 * i - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        
+        // Lower half
+        for (int i = n - 1; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print pattern
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                if (j == 1 || j == 2 * i - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hollow Diamond:");
+        printHollowDiamond(5);
+    }
+}
+
+/* Output:
+    *
+   * *
+  *   *
+ *     *
+*       *
+ *     *
+  *   *
+   * *
+    *
+*/</code></pre>
+            </div>
+
+            <div class="topic" id="advanced-patterns">
+                <h2>Advanced Patterns</h2>
+
+                <h3>23. Butterfly Pattern</h3>
+                <pre><code>public class ButterflyPattern {
+    public static void printButterflyPattern(int n) {
+        // Upper half
+        for (int i = 1; i <= n; i++) {
+            // Left stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            // Spaces
+            for (int j = 1; j <= 2 * (n - i); j++) {
+                System.out.print(" ");
+            }
+            // Right stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+        // Lower half
+        for (int i = n; i >= 1; i--) {
+            // Left stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            // Spaces
+            for (int j = 1; j <= 2 * (n - i); j++) {
+                System.out.print(" ");
+            }
+            // Right stars
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Butterfly Pattern:");
+        printButterflyPattern(4);
+    }
+}
+
+/* Output:
+*      *
+**    **
+***  ***
+********
+********
+***  ***
+**    **
+*      *
+*/</code></pre>
+
+                <h3>24. Hourglass Pattern</h3>
+                <pre><code>public class HourglassPattern {
+    public static void printHourglassPattern(int n) {
+        // Upper half (including middle)
+        for (int i = n; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+        // Lower half
+        for (int i = 2; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int j = 1; j <= 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hourglass Pattern:");
+        printHourglassPattern(5);
+    }
+}
+
+/* Output:
+*********
+ *******
+  *****
+   ***
+    *
+   ***
+  *****
+ *******
+*********
+*/</code></pre>
+
+                <h3>🎯 Pattern Programming Tips</h3>
+                <ul>
+                    <li><strong>Understand the Structure:</strong> Analyze rows, columns, spaces, and characters</li>
+                    <li><strong>Find the Formula:</strong> Identify mathematical relationships between row/column positions</li>
+                    <li><strong>Use Nested Loops:</strong> Outer loop for rows, inner loops for spaces and characters</li>
+                    <li><strong>Practice Visualization:</strong> Draw patterns on paper before coding</li>
+                    <li><strong>Start Simple:</strong> Master basic patterns before attempting complex ones</li>
+                </ul>
+
+                <h3>Common Pattern Formulas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern Type</th>
+                            <th>Spaces Formula</th>
+                            <th>Characters Formula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Right Triangle</td>
+                            <td>0</td>
+                            <td>i (row number)</td>
+                        </tr>
+                        <tr>
+                            <td>Left Triangle</td>
+                            <td>n - i</td>
+                            <td>i</td>
+                        </tr>
+                        <tr>
+                            <td>Pyramid</td>
+                            <td>n - i</td>
+                            <td>2*i - 1</td>
+                        </tr>
+                        <tr>
+                            <td>Diamond Upper</td>
+                            <td>n - i</td>
+                            <td>2*i - 1</td>
+                        </tr>
+                        <tr>
+                            <td>Diamond Lower</td>
+                            <td>n - i</td>
+                            <td>2*i - 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
     </div>

@@ -9,23 +9,654 @@
     <link rel="stylesheet" href="../tutorial-styles.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
-<body class="page-string-programs">
+<body class="page-programs">
     <header>
         <div class="container">
-            <div class="hero">
-                <h1>String Programs</h1>
-                <p>Master String Programming Challenges</p>
-            </div>
+            <h1>String Programs</h1>
+            <p>Master String Manipulation with Java</p>
         </div>
     </header>
     <nav></nav>
-    <script>window.activePage = "programs";</script>
+    <script>window.activePage = 'programs';</script>
     <script src="../menu.js"></script>
-    <script src="../theme-selector.js"></script>    <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>String Programming Problems</h2>
-                <p>Master string programming challenges including manipulation, pattern matching, and algorithms.</p>
+    <script src="../theme-selector.js"></script>
+    <div class="container">
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#basic-operations">Basic Operations</a></li>
+                        <li><a href="#palindrome-problems">Palindrome Problems</a></li>
+                        <li><a href="#anagram-problems">Anagram Problems</a></li>
+                        <li><a href="#pattern-matching">Pattern Matching</a></li>
+                        <li><a href="#string-manipulation">String Manipulation</a></li>
+                        <li><a href="#advanced-problems">Advanced Problems</a></li>
+                        <li><a href="#interview-questions">Interview Questions</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>String Programming Mastery 🚀</h2>
+                <p><strong>What are Strings?</strong> Strings are sequences of characters used to represent text data in programming languages.</p>
+                <p><strong>Why Learn String Programming?</strong> String manipulation is crucial for text processing, data validation, and solving algorithmic problems in interviews.</p>
+                <p><strong>How to Approach?</strong> Master basic operations first, then progress to pattern matching, palindromes, anagrams, and advanced string algorithms.</p>
+            </div>
+
+            <div class="topic" id="basic-operations">
+                <h2>Basic String Operations</h2>
+
+                <h3>1. String Length and Character Access</h3>
+                <pre><code>public class StringBasics {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        
+        System.out.println("Length: " + str.length());
+        System.out.println("First char: " + str.charAt(0));
+        System.out.println("Last char: " + str.charAt(str.length() - 1));
+        
+        // Character frequency
+        int[] freq = new int[256];
+        for (char c : str.toCharArray()) {
+            freq[c]++;
+        }
+        System.out.println("Frequency of 'l': " + freq['l']);
+    }
+}</code></pre>
+
+                <h3>2. String Reversal</h3>
+                <pre><code>public class StringReverse {
+    // Method 1: Using StringBuilder
+    public static String reverseString1(String str) {
+        return new StringBuilder(str).reverse().toString();
+    }
+    
+    // Method 2: Using character array
+    public static String reverseString2(String str) {
+        char[] chars = str.toCharArray();
+        int left = 0, right = chars.length - 1;
+        
+        while (left < right) {
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
+        }
+        
+        return new String(chars);
+    }
+    
+    public static void main(String[] args) {
+        String str = "Hello";
+        System.out.println("Original: " + str);
+        System.out.println("Reversed: " + reverseString2(str));
+    }
+}</code></pre>
+
+                <h3>3. Count Vowels and Consonants</h3>
+                <pre><code>public class VowelConsonantCount {
+    public static void countVowelsConsonants(String str) {
+        int vowels = 0, consonants = 0;
+        str = str.toLowerCase();
+        
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)) {
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+    
+    public static void main(String[] args) {
+        countVowelsConsonants("Hello World");
+    }
+}</code></pre>
+
+                <h3>4. Remove Duplicates</h3>
+                <pre><code>public class RemoveDuplicates {
+    public static String removeDuplicates(String str) {
+        StringBuilder result = new StringBuilder();
+        boolean[] seen = new boolean[256];
+        
+        for (char c : str.toCharArray()) {
+            if (!seen[c]) {
+                result.append(c);
+                seen[c] = true;
+            }
+        }
+        
+        return result.toString();
+    }
+    
+    public static void main(String[] args) {
+        String str = "programming";
+        System.out.println("Original: " + str);
+        System.out.println("After removing duplicates: " + removeDuplicates(str));
+    }
+}</code></pre>
+
+                <h3>5. String Compression</h3>
+                <pre><code>public class StringCompression {
+    public static String compress(String str) {
+        if (str.length() <= 1) return str;
+        
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
+        
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                compressed.append(str.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+        
+        compressed.append(str.charAt(str.length() - 1)).append(count);
+        
+        return compressed.length() < str.length() ? compressed.toString() : str;
+    }
+    
+    public static void main(String[] args) {
+        String str = "aabcccccaaa";
+        System.out.println("Original: " + str);
+        System.out.println("Compressed: " + compress(str));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="palindrome-problems">
+                <h2>Palindrome Problems</h2>
+
+                <h3>6. Check Palindrome</h3>
+                <pre><code>public class PalindromeCheck {
+    public static boolean isPalindrome(String str) {
+        str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        int left = 0, right = str.length() - 1;
+        
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        String[] testStrings = {"racecar", "A man a plan a canal Panama", "race a car"};
+        
+        for (String str : testStrings) {
+            System.out.println("\"" + str + "\" is palindrome: " + isPalindrome(str));
+        }
+    }
+}</code></pre>
+
+                <h3>7. Longest Palindromic Substring</h3>
+                <pre><code>public class LongestPalindrome {
+    public static String longestPalindrome(String s) {
+        if (s.length() <= 1) return s;
+        
+        String longest = "";
+        
+        for (int i = 0; i < s.length(); i++) {
+            // Check for odd length palindromes
+            String palindrome1 = expandAroundCenter(s, i, i);
+            // Check for even length palindromes
+            String palindrome2 = expandAroundCenter(s, i, i + 1);
+            
+            String currentLongest = palindrome1.length() > palindrome2.length() ? palindrome1 : palindrome2;
+            
+            if (currentLongest.length() > longest.length()) {
+                longest = currentLongest;
+            }
+        }
+        
+        return longest;
+    }
+    
+    private static String expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return s.substring(left + 1, right);
+    }
+    
+    public static void main(String[] args) {
+        String str = "babad";
+        System.out.println("Longest palindrome in \"" + str + "\": " + longestPalindrome(str));
+    }
+}</code></pre>
+
+                <h3>8. Palindrome Permutation</h3>
+                <pre><code>public class PalindromePermutation {
+    public static boolean canFormPalindrome(String str) {
+        int[] charCount = new int[256];
+        
+        for (char c : str.toCharArray()) {
+            charCount[c]++;
+        }
+        
+        int oddCount = 0;
+        for (int count : charCount) {
+            if (count % 2 == 1) {
+                oddCount++;
+            }
+        }
+        
+        return oddCount <= 1;
+    }
+    
+    public static void main(String[] args) {
+        String[] testStrings = {"aab", "carerac", "abc"};
+        
+        for (String str : testStrings) {
+            System.out.println("\"" + str + "\" can form palindrome: " + canFormPalindrome(str));
+        }
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="anagram-problems">
+                <h2>Anagram Problems</h2>
+
+                <h3>9. Check Anagrams</h3>
+                <pre><code>public class AnagramCheck {
+    public static boolean areAnagrams(String str1, String str2) {
+        if (str1.length() != str2.length()) return false;
+        
+        int[] charCount = new int[256];
+        
+        for (int i = 0; i < str1.length(); i++) {
+            charCount[str1.charAt(i)]++;
+            charCount[str2.charAt(i)]--;
+        }
+        
+        for (int count : charCount) {
+            if (count != 0) return false;
+        }
+        
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("listen & silent: " + areAnagrams("listen", "silent"));
+        System.out.println("hello & bello: " + areAnagrams("hello", "bello"));
+    }
+}</code></pre>
+
+                <h3>10. Group Anagrams</h3>
+                <pre><code>public class GroupAnagrams {
+    public static List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) {
+        Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;();
+        
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+            
+            map.computeIfAbsent(key, k -> new ArrayList&lt;&gt;()).add(str);
+        }
+        
+        return new ArrayList&lt;&gt;(map.values());
+    }
+    
+    public static void main(String[] args) {
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List&lt;List&lt;String&gt;&gt; result = groupAnagrams(strs);
+        
+        for (List&lt;String&gt; group : result) {
+            System.out.println(group);
+        }
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="pattern-matching">
+                <h2>Pattern Matching</h2>
+
+                <h3>11. String Pattern Matching</h3>
+                <pre><code>public class PatternMatching {
+    // KMP Algorithm
+    public static List&lt;Integer&gt; findPattern(String text, String pattern) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        int[] lps = computeLPS(pattern);
+        
+        int i = 0, j = 0;
+        while (i < text.length()) {
+            if (text.charAt(i) == pattern.charAt(j)) {
+                i++;
+                j++;
+            }
+            
+            if (j == pattern.length()) {
+                result.add(i - j);
+                j = lps[j - 1];
+            } else if (i < text.length() && text.charAt(i) != pattern.charAt(j)) {
+                if (j != 0) {
+                    j = lps[j - 1];
+                } else {
+                    i++;
+                }
+            }
+        }
+        
+        return result;
+    }
+    
+    private static int[] computeLPS(String pattern) {
+        int[] lps = new int[pattern.length()];
+        int len = 0, i = 1;
+        
+        while (i < pattern.length()) {
+            if (pattern.charAt(i) == pattern.charAt(len)) {
+                len++;
+                lps[i] = len;
+                i++;
+            } else {
+                if (len != 0) {
+                    len = lps[len - 1];
+                } else {
+                    lps[i] = 0;
+                    i++;
+                }
+            }
+        }
+        
+        return lps;
+    }
+    
+    public static void main(String[] args) {
+        String text = "ABABDABACDABABCABCABCABCABC";
+        String pattern = "ABABCABCABCABC";
+        
+        List&lt;Integer&gt; matches = findPattern(text, pattern);
+        System.out.println("Pattern found at indices: " + matches);
+    }
+}</code></pre>
+
+                <h3>12. Wildcard Pattern Matching</h3>
+                <pre><code>public class WildcardMatching {
+    public static boolean isMatch(String s, String p) {
+        int sLen = s.length(), pLen = p.length();
+        boolean[][] dp = new boolean[sLen + 1][pLen + 1];
+        
+        dp[0][0] = true;
+        
+        // Handle patterns like a* or *a* etc.
+        for (int j = 1; j <= pLen; j++) {
+            if (p.charAt(j - 1) == '*') {
+                dp[0][j] = dp[0][j - 1];
+            }
+        }
+        
+        for (int i = 1; i <= sLen; i++) {
+            for (int j = 1; j <= pLen; j++) {
+                if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
+                } else if (p.charAt(j - 1) == '?' || s.charAt(i - 1) == p.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+            }
+        }
+        
+        return dp[sLen][pLen];
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("adceb matches a*c?b: " + isMatch("adceb", "a*c?b"));
+        System.out.println("adceb matches a*c?d: " + isMatch("adceb", "a*c?d"));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="string-manipulation">
+                <h2>String Manipulation</h2>
+
+                <h3>13. String Rotation</h3>
+                <pre><code>public class StringRotation {
+    public static boolean isRotation(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        
+        String concatenated = s1 + s1;
+        return concatenated.contains(s2);
+    }
+    
+    public static String rotateLeft(String str, int k) {
+        k = k % str.length();
+        return str.substring(k) + str.substring(0, k);
+    }
+    
+    public static void main(String[] args) {
+        String s1 = "waterbottle";
+        String s2 = "erbottlewat";
+        
+        System.out.println(s2 + " is rotation of " + s1 + ": " + isRotation(s1, s2));
+        System.out.println("Rotate \"hello\" left by 2: " + rotateLeft("hello", 2));
+    }
+}</code></pre>
+
+                <h3>14. String Permutations</h3>
+                <pre><code>public class StringPermutations {
+    public static void generatePermutations(String str) {
+        generatePermutations("", str);
+    }
+    
+    private static void generatePermutations(String prefix, String remaining) {
+        if (remaining.length() == 0) {
+            System.out.println(prefix);
+            return;
+        }
+        
+        for (int i = 0; i < remaining.length(); i++) {
+            String newPrefix = prefix + remaining.charAt(i);
+            String newRemaining = remaining.substring(0, i) + remaining.substring(i + 1);
+            generatePermutations(newPrefix, newRemaining);
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Permutations of 'ABC':");
+        generatePermutations("ABC");
+    }
+}</code></pre>
+
+                <h3>15. Longest Common Subsequence</h3>
+                <pre><code>public class LongestCommonSubsequence {
+    public static int lcs(String str1, String str2) {
+        int m = str1.length(), n = str2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+    
+    public static void main(String[] args) {
+        String str1 = "ABCDGH";
+        String str2 = "AEDFHR";
+        
+        System.out.println("LCS length: " + lcs(str1, str2));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="advanced-problems">
+                <h2>Advanced Problems</h2>
+
+                <h3>16. Minimum Window Substring</h3>
+                <pre><code>public class MinimumWindow {
+    public static String minWindow(String s, String t) {
+        Map&lt;Character, Integer&gt; need = new HashMap&lt;&gt;();
+        for (char c : t.toCharArray()) {
+            need.put(c, need.getOrDefault(c, 0) + 1);
+        }
+        
+        int left = 0, right = 0, valid = 0;
+        int start = 0, len = Integer.MAX_VALUE;
+        Map&lt;Character, Integer&gt; window = new HashMap&lt;&gt;();
+        
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            
+            if (need.containsKey(c)) {
+                window.put(c, window.getOrDefault(c, 0) + 1);
+                if (window.get(c).equals(need.get(c))) {
+                    valid++;
+                }
+            }
+            
+            while (valid == need.size()) {
+                if (right - left < len) {
+                    start = left;
+                    len = right - left;
+                }
+                
+                char d = s.charAt(left);
+                left++;
+                
+                if (need.containsKey(d)) {
+                    if (window.get(d).equals(need.get(d))) {
+                        valid--;
+                    }
+                    window.put(d, window.get(d) - 1);
+                }
+            }
+        }
+        
+        return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+    }
+    
+    public static void main(String[] args) {
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+        System.out.println("Minimum window: " + minWindow(s, t));
+    }
+}</code></pre>
+
+                <h3>17. Edit Distance</h3>
+                <pre><code>public class EditDistance {
+    public static int minDistance(String word1, String word2) {
+        int m = word1.length(), n = word2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        
+        for (int i = 0; i <= m; i++) dp[i][0] = i;
+        for (int j = 0; j <= n; j++) dp[0][j] = j;
+        
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = 1 + Math.min(dp[i - 1][j - 1], 
+                                           Math.min(dp[i - 1][j], dp[i][j - 1]));
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+    
+    public static void main(String[] args) {
+        String word1 = "horse";
+        String word2 = "ros";
+        System.out.println("Edit distance: " + minDistance(word1, word2));
+    }
+}</code></pre>
+            </div>
+
+            <div class="topic" id="interview-questions">
+                <h2>🎯 Interview Questions</h2>
+
+                <h3>Top 15 String Interview Questions</h3>
+                <ol>
+                    <li><strong>Reverse String:</strong> In-place reversal using two pointers</li>
+                    <li><strong>Valid Palindrome:</strong> Check ignoring non-alphanumeric characters</li>
+                    <li><strong>Valid Anagram:</strong> Check if two strings are anagrams</li>
+                    <li><strong>Longest Palindromic Substring:</strong> Expand around center approach</li>
+                    <li><strong>Group Anagrams:</strong> Use sorted string as key</li>
+                    <li><strong>String to Integer (atoi):</strong> Handle edge cases and overflow</li>
+                    <li><strong>Implement strStr():</strong> Find needle in haystack</li>
+                    <li><strong>Longest Common Prefix:</strong> Vertical or horizontal scanning</li>
+                    <li><strong>Valid Parentheses:</strong> Use stack for matching</li>
+                    <li><strong>Minimum Window Substring:</strong> Sliding window technique</li>
+                    <li><strong>Palindromic Substrings:</strong> Count all palindromic substrings</li>
+                    <li><strong>Edit Distance:</strong> Dynamic programming approach</li>
+                    <li><strong>Regular Expression Matching:</strong> DP with wildcards</li>
+                    <li><strong>Longest Substring Without Repeating:</strong> Sliding window</li>
+                    <li><strong>String Compression:</strong> Run-length encoding</li>
+                </ol>
+
+                <h3>Time Complexity Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Time Complexity</th>
+                            <th>Space Complexity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>String Reversal</td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                        </tr>
+                        <tr>
+                            <td>Palindrome Check</td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                        </tr>
+                        <tr>
+                            <td>Anagram Check</td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                        </tr>
+                        <tr>
+                            <td>Pattern Matching (KMP)</td>
+                            <td>O(n + m)</td>
+                            <td>O(m)</td>
+                        </tr>
+                        <tr>
+                            <td>Edit Distance</td>
+                            <td>O(m × n)</td>
+                            <td>O(m × n)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li><strong>Master Two Pointers:</strong> Essential for palindromes and reversals</li>
+                    <li><strong>Use Sliding Window:</strong> For substring problems</li>
+                    <li><strong>Character Frequency:</strong> Use arrays for ASCII or HashMap for Unicode</li>
+                    <li><strong>String Builder:</strong> Use for multiple concatenations</li>
+                    <li><strong>Edge Cases:</strong> Empty strings, single characters, special characters</li>
+                </ul>
+            </div>
             </div>
         </div>
     </div>

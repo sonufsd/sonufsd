@@ -49,6 +49,12 @@ function generateNavMenu(activePage = "") {
                             <a href="${basePath}spring/spring-interview.html">Spring Interview</a>
                         </div>
                     </li>
+                    <li><a href="${basePath}html-learning.html"${
+    activePage === "html" ? ' class="active"' : ""
+  }>HTML</a></li>
+                    <li><a href="${basePath}css-learning.html"${
+    activePage === "css" ? ' class="active"' : ""
+  }>CSS</a></li>
                     <li><a href="${basePath}javascript-learning.html"${
     activePage === "javascript" ? ' class="active"' : ""
   }>JavaScript</a></li>
@@ -61,6 +67,9 @@ function generateNavMenu(activePage = "") {
                     <li><a href="${basePath}react-learning.html"${
     activePage === "react" ? ' class="active"' : ""
   }>React</a></li>
+                    <li><a href="${basePath}git-learning.html"${
+    activePage === "git" ? ' class="active"' : ""
+  }>Git</a></li>
                     <li class="dropdown">
                         <a href="#">Programs</a>
                         <div class="dropdown-content">
@@ -77,7 +86,6 @@ function generateNavMenu(activePage = "") {
                         <div class="dropdown-content">
                             <a href="${basePath}interview/hackerrank-programs.html">HackerRank Programs</a>
                             <a href="${basePath}interview/leetcode-programs.html">LeetCode Programs</a>
-                            <a href="${basePath}interview/coding-interview.html">Coding Interview</a>
                             <a href="${basePath}interview/system-design.html">System Design</a>
                             <a href="${basePath}interview/behavioral-interview.html">Behavioral Interview</a>
                         </div>

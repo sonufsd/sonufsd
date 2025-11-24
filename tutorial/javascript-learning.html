@@ -116,34 +116,56 @@
 
             <section id="what-is-js" class="section">
               <h2>🚀 What is JavaScript?</h2>
-              <p>
-                JavaScript is a versatile, lightweight programming language that
-                runs in browsers and servers (Node.js). It's event-driven,
-                supports functional and object-oriented programming, and is
-                essential for modern web development. ES6+ introduced major
-                features like arrow functions, classes, and async/await.
-              </p>
+              <p><strong>What it is:</strong> JavaScript is a versatile, high-level programming language that runs in browsers and servers (Node.js) for creating interactive web applications.</p>
+              <p><strong>How it works:</strong> Interpreted language with dynamic typing, event-driven execution, and single-threaded with asynchronous capabilities through event loop.</p>
+              <p><strong>Why use it:</strong> Only language that runs natively in browsers, huge ecosystem, supports multiple programming paradigms, and essential for modern web development.</p>
+              
+              <div class="subsection">
+                <h3>Key Characteristics</h3>
+                <ul>
+                  <li><strong>Dynamic Typing:</strong> Variables can hold any type of value</li>
+                  <li><strong>Event-Driven:</strong> Responds to user interactions and system events</li>
+                  <li><strong>Prototype-Based:</strong> Object inheritance through prototypes</li>
+                  <li><strong>First-Class Functions:</strong> Functions are values that can be passed around</li>
+                  <li><strong>Asynchronous:</strong> Non-blocking operations with callbacks, promises, async/await</li>
+                </ul>
+              </div>
             </section>
 
             <section id="data-types" class="section">
               <h2>📊 JavaScript Data Types</h2>
+              <p><strong>What it covers:</strong> JavaScript has two categories of data types that behave differently in memory and assignment.</p>
+              <p><strong>How they differ:</strong> Primitives are stored by value and immutable, while reference types are stored by reference and mutable.</p>
+              
               <div class="subsection">
-                <h3>Primitive vs Reference Types</h3>
+                <h3>Primitive Types (Stored by Value)</h3>
                 <ul>
-                  <li>
-                    <strong>Primitive:</strong> string, number, boolean, null,
-                    undefined, symbol, bigint
-                  </li>
-                  <li>
-                    <strong>Reference:</strong> object, array, function, date,
-                    regex, map, set
-                  </li>
+                  <li><strong>string:</strong> Text data - 'hello', "world", `template`</li>
+                  <li><strong>number:</strong> Integers and floats - 42, 3.14, NaN, Infinity</li>
+                  <li><strong>boolean:</strong> true or false</li>
+                  <li><strong>null:</strong> Intentional absence of value</li>
+                  <li><strong>undefined:</strong> Variable declared but not assigned</li>
+                  <li><strong>symbol:</strong> Unique identifier (ES6+)</li>
+                  <li><strong>bigint:</strong> Large integers beyond Number.MAX_SAFE_INTEGER</li>
+                </ul>
+              </div>
+              
+              <div class="subsection">
+                <h3>Reference Types (Stored by Reference)</h3>
+                <ul>
+                  <li><strong>object:</strong> Key-value pairs - {name: 'John'}</li>
+                  <li><strong>array:</strong> Ordered list - [1, 2, 3]</li>
+                  <li><strong>function:</strong> Reusable code blocks</li>
+                  <li><strong>Date, RegExp, Map, Set:</strong> Built-in objects</li>
                 </ul>
               </div>
             </section>
 
             <section id="variables" class="section">
               <h2>🔧 Variables & Scope</h2>
+              <p><strong>What it does:</strong> Variables store data values and scope determines where variables can be accessed in your code.</p>
+              <p><strong>How it works:</strong> JavaScript has function scope (var) and block scope (let/const), with lexical scoping and closure behavior.</p>
+              <p><strong>Best Practice:</strong> Use const by default, let when you need to reassign, avoid var completely in modern JavaScript.</p>
 
               <div class="subsection">
                 <h3>Variable Declarations</h3>
@@ -180,7 +202,10 @@ console.log(fn());  // 15
             </section>
 
             <section id="functions" class="section">
-              <h2>⚡ Arrow Functions & Function Context</h2>
+              <h2>⚡ Functions & Context (this)</h2>
+              <p><strong>What it does:</strong> Functions are reusable blocks of code that can accept parameters and return values, with different syntax options.</p>
+              <p><strong>How it works:</strong> Regular functions have their own 'this' context, arrow functions inherit 'this' from parent scope.</p>
+              <p><strong>Key Difference:</strong> Arrow functions are more concise but can't be used as constructors and don't have their own 'this'.</p>
 
               <div class="subsection">
                 <h3>Function Syntax & Context</h3>
@@ -226,7 +251,10 @@ const { details: { city } } = person;  // Nested destructuring
             </section>
 
             <section id="strings" class="section">
-              <h2>📝 Template Literals & String Methods</h2>
+              <h2>📝 Strings & Template Literals</h2>
+              <p><strong>What it does:</strong> Strings represent text data with various methods for manipulation and template literals for dynamic content.</p>
+              <p><strong>How it works:</strong> Template literals use backticks and ${} for interpolation, string methods return new strings (immutable).</p>
+              <p><strong>Modern Approach:</strong> Use template literals for string interpolation and multi-line strings instead of concatenation.</p>
 
               <div class="subsection">
                 <h3>String Operations</h3>
@@ -262,6 +290,9 @@ str.trim();              // Remove whitespace
 
             <section id="objects" class="section">
               <h2>🏗️ Objects & Prototypes</h2>
+              <p><strong>What it does:</strong> Objects store key-value pairs and JavaScript uses prototype-based inheritance for sharing properties and methods.</p>
+              <p><strong>How it works:</strong> Every object has a prototype chain, ES6 classes are syntactic sugar over prototype-based inheritance.</p>
+              <p><strong>Key Concept:</strong> Understanding prototypes is crucial for JavaScript inheritance and how built-in methods work.</p>
 
               <div class="subsection">
                 <h3>Object Creation & Inheritance</h3>
@@ -328,7 +359,10 @@ console.log(Animal.info());    // Static method
             </section>
 
             <section id="arrays" class="section">
-              <h2>📋 Arrays & Array Methods</h2>
+              <h2>📋 Arrays & Functional Programming</h2>
+              <p><strong>What it does:</strong> Arrays store ordered collections with powerful methods for data transformation and manipulation.</p>
+              <p><strong>How it works:</strong> Higher-order methods like map, filter, reduce enable functional programming patterns for cleaner code.</p>
+              <p><strong>Performance:</strong> Mutating methods modify original array, non-mutating methods return new arrays - choose based on needs.</p>
 
               <div class="subsection">
                 <h3>Array Operations</h3>
@@ -375,7 +409,10 @@ const adults = users.filter(u => u.age >= 30);  // [user objects]
             </section>
 
             <section id="promises" class="section">
-              <h2>🔄 Promises & Async/Await</h2>
+              <h2>🔄 Asynchronous JavaScript</h2>
+              <p><strong>What it does:</strong> Handles asynchronous operations like API calls, file operations, and timers without blocking the main thread.</p>
+              <p><strong>How it works:</strong> Promises represent future values, async/await provides synchronous-looking syntax for asynchronous code.</p>
+              <p><strong>Evolution:</strong> Callbacks → Promises → Async/Await, each solving callback hell and improving readability.</p>
               <div class="subsection">
                 <h3>Promise Operations</h3>
                 <div class="code-block">
@@ -431,7 +468,10 @@ const result = await Promise.any([promise1, promise2]);
             </section>
 
             <section id="dom" class="section">
-              <h2>🌐 DOM Manipulation</h2>
+              <h2>🌐 DOM Manipulation & Events</h2>
+              <p><strong>What it does:</strong> Provides JavaScript interface to interact with HTML elements, modify content, styles, and handle user events.</p>
+              <p><strong>How it works:</strong> DOM is a tree structure representing HTML, JavaScript can query, modify, and listen to changes.</p>
+              <p><strong>Best Practice:</strong> Use modern query methods, event delegation for dynamic content, and avoid direct style manipulation.</p>
               <div class="subsection">
                 <h3>DOM Operations</h3>
                 <div class="code-block">
@@ -486,7 +526,10 @@ document.addEventListener('click', (e) => {
             </section>
 
             <section id="closures" class="section">
-              <h2>🔒 Closures & Higher-Order Functions</h2>
+              <h2>🔒 Closures & Advanced Functions</h2>
+              <p><strong>What it does:</strong> Closures allow functions to access variables from outer scope even after outer function returns.</p>
+              <p><strong>How it works:</strong> Inner functions maintain reference to outer scope variables, creating private variables and data encapsulation.</p>
+              <p><strong>Use Cases:</strong> Module pattern, data privacy, function factories, and maintaining state in functional programming.</p>
               <div class="subsection">
                 <h3>Closure Patterns</h3>
                 <div class="code-block">
@@ -536,6 +579,9 @@ console.log(addThenMultiply(3));   // (3+5)*2 = 16
 
             <section id="errors" class="section">
               <h2>⚠️ Error Handling & Debugging</h2>
+              <p><strong>What it does:</strong> Provides mechanisms to catch, handle, and debug errors gracefully without crashing the application.</p>
+              <p><strong>How it works:</strong> Try-catch blocks handle synchronous errors, promise .catch() and async/await try-catch handle async errors.</p>
+              <p><strong>Best Practice:</strong> Always handle errors appropriately, use specific error types, and provide meaningful error messages.</p>
               <div class="subsection">
                 <h3>Error Management</h3>
                 <div class="code-block">
@@ -585,6 +631,9 @@ console.groupEnd();
 
             <section id="regex" class="section">
               <h2>🔍 Regular Expressions</h2>
+              <p><strong>What it does:</strong> Pattern matching tool for searching, validating, and manipulating strings using special syntax.</p>
+              <p><strong>How it works:</strong> Uses metacharacters and quantifiers to define patterns, methods like test(), match(), replace() apply patterns.</p>
+              <p><strong>Common Uses:</strong> Form validation, data extraction, string replacement, and input sanitization.</p>
               <div class="subsection">
                 <h3>Regex Patterns</h3>
                 <div class="code-block">
@@ -617,6 +666,9 @@ email.search(/@/);                  // 4
 
             <section id="es6" class="section">
               <h2>✨ Modern ES6+ Features</h2>
+              <p><strong>What it covers:</strong> Modern JavaScript features that improve code readability, performance, and developer experience.</p>
+              <p><strong>How to adopt:</strong> These features are widely supported and should be used in modern JavaScript development for cleaner code.</p>
+              <p><strong>Impact:</strong> Reduces boilerplate code, prevents common errors, and enables more functional programming patterns.</p>
               <div class="subsection">
                 <h3>ES6+ Syntax</h3>
                 <div class="code-block">
@@ -667,6 +719,9 @@ wm.set(obj, 'private data');
 
             <section id="performance" class="section">
               <h2>⚡ Performance & Best Practices</h2>
+              <p><strong>What it covers:</strong> Techniques to write efficient JavaScript code that performs well and follows industry standards.</p>
+              <p><strong>How to apply:</strong> Measure performance first, then optimize bottlenecks using appropriate techniques and patterns.</p>
+              <p><strong>Key Principle:</strong> Premature optimization is the root of all evil - write clean code first, optimize when needed.</p>
               <div class="subsection">
                 <h3>Optimization Techniques</h3>
                 <div class="code-block">
@@ -731,6 +786,9 @@ const factorial = memoize((n) => n <= 1 ? 1 : n * factorial(n - 1));
 
             <section id="nodejs" class="section">
               <h2>🖥️ Node.js Basics</h2>
+              <p><strong>What it is:</strong> JavaScript runtime built on Chrome's V8 engine that allows JavaScript to run on servers and build backend applications.</p>
+              <p><strong>How it works:</strong> Uses event-driven, non-blocking I/O model making it efficient for data-intensive real-time applications.</p>
+              <p><strong>Use Cases:</strong> Web servers, APIs, real-time applications, build tools, and command-line utilities.</p>
               <div class="subsection">
                 <h3>Server-side JavaScript</h3>
                 <div class="code-block">
@@ -779,34 +837,47 @@ const dbUrl = process.env.DATABASE_URL;
 
             <section id="interview" class="section">
               <h2>🎯 JavaScript Interview Guide</h2>
+              <p><strong>What to expect:</strong> JavaScript interviews focus on core concepts, problem-solving, and understanding of asynchronous programming.</p>
+              <p><strong>How to prepare:</strong> Master fundamentals, practice coding problems, and understand how JavaScript works under the hood.</p>
               
               <div class="subsection">
-                <h3>Key Concepts to Master</h3>
+                <h3>Core Concepts to Master</h3>
                 <ul>
-                  <li><strong>Event Loop:</strong> Understand call stack, task queue, microtask</li>
-                  <li><strong>this Context:</strong> How it changes in methods, arrow functions, bind/call</li>
-                  <li><strong>Type Coercion:</strong> == vs ===, implicit conversions</li>
-                  <li><strong>Hoisting:</strong> var/function hoisting vs let/const</li>
-                  <li><strong>Callbacks & Promises:</strong> Callback hell, promise chains</li>
-                  <li><strong>Closures:</strong> Memory leaks, function factories</li>
-                  <li><strong>JSON:</strong> JSON.parse/stringify, handling circular references</li>
+                  <li><strong>Event Loop:</strong> Call stack, task queue, microtask queue, and how async operations work</li>
+                  <li><strong>this Context:</strong> How 'this' behaves in different contexts (methods, arrow functions, bind/call/apply)</li>
+                  <li><strong>Type Coercion:</strong> == vs ===, implicit type conversions, and truthy/falsy values</li>
+                  <li><strong>Hoisting:</strong> Variable and function hoisting behavior, temporal dead zone</li>
+                  <li><strong>Scope & Closures:</strong> Lexical scoping, closure patterns, and memory implications</li>
+                  <li><strong>Prototypes:</strong> Prototype chain, inheritance, and how built-in methods work</li>
+                  <li><strong>Async Programming:</strong> Callbacks, promises, async/await, and error handling</li>
                 </ul>
               </div>
               
               <div class="subsection">
-                <h3>Essential Interview Questions</h3>
+                <h3>Most Asked Interview Questions</h3>
                 <ul>
-                  <li>What's the difference between let, const, and var?</li>
-                  <li>Explain the event loop and call stack</li>
-                  <li>What are closures and provide an example</li>
-                  <li>Difference between == and ===</li>
-                  <li>Explain hoisting in JavaScript</li>
-                  <li>What's the difference between map/filter/reduce?</li>
-                  <li>How do promises work vs callbacks?</li>
-                  <li>What is 'this' and how does it work?</li>
-                  <li>Explain async/await and error handling</li>
-                  <li>What's the difference between shallow and deep copy?</li>
+                  <li><strong>Variable Declarations:</strong> Difference between let, const, and var with examples</li>
+                  <li><strong>Event Loop:</strong> Explain how JavaScript handles asynchronous operations</li>
+                  <li><strong>Closures:</strong> What are closures and provide practical examples</li>
+                  <li><strong>Equality:</strong> Difference between == and === with type coercion examples</li>
+                  <li><strong>Hoisting:</strong> How hoisting works for variables and functions</li>
+                  <li><strong>Array Methods:</strong> Difference between map, filter, reduce, and forEach</li>
+                  <li><strong>Promises:</strong> How promises work compared to callbacks, promise chaining</li>
+                  <li><strong>this Keyword:</strong> How 'this' works in different contexts</li>
+                  <li><strong>Async/Await:</strong> Benefits over promises and error handling patterns</li>
+                  <li><strong>Object Copying:</strong> Shallow vs deep copy and implementation methods</li>
                 </ul>
+              </div>
+              
+              <div class="subsection">
+                <h3>Coding Challenges</h3>
+                <p><strong>Common Problems:</strong><br>
+                • Implement debounce/throttle functions<br>
+                • Create a deep clone function<br>
+                • Build a simple promise implementation<br>
+                • Solve array manipulation problems<br>
+                • Implement function currying<br>
+                • Create a module pattern with closures</p>
               </div>
             </section>
           </div>

@@ -21,10 +21,487 @@
     <script src="../menu.js"></script>
     <script src="../theme-selector.js"></script>
     <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>HackerRank Solutions</h2>
-                <p>Practice coding problems and algorithms with detailed solutions and explanations.</p>
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#arrays-basic-math">Arrays & Basic Math (1-20)</a></li>
+                        <li><a href="#strings">Strings (21-35)</a></li>
+                        <li><a href="#searching-sorting">Searching & Sorting (36-50)</a></li>
+                        <li><a href="#dynamic-programming">Dynamic Programming (51-65)</a></li>
+                        <li><a href="#trees-graphs">Trees & Graphs (66-80)</a></li>
+                        <li><a href="#mathematics">Mathematics (81-95)</a></li>
+                        <li><a href="#advanced-problems">Advanced Problems (96-100)</a></li>
+                        <li><a href="#complexity-analysis">Complexity Analysis</a></li>
+                        <li><a href="#interview-strategies">Interview Strategies</a></li>
+                        <li><a href="#company-preparation">Company Preparation</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>Complete HackerRank 100 Examples - Java Solutions 🚀</h2>
+                <p><strong>What is HackerRank?</strong> HackerRank is a technology hiring platform that is the standard for assessing developer skills for over 2,000+ companies worldwide. It provides coding challenges and competitions to help developers improve their skills and get hired by top companies.</p>
+                <p><strong>Why Practice HackerRank?</strong> Master the most important coding problems for technical interviews and competitive programming with optimized Java solutions and detailed explanations.</p>
+                <p><strong>How to Use This Guide?</strong> Each problem includes problem statement, input/output format, examples, optimized solution, and complexity analysis to help you understand the approach and prepare for interviews.</p>
+            </div>
+
+            <div class="topic" id="arrays-basic-math">
+                <h2>Arrays & Basic Math (1-20)</h2>
+                <p><strong>What are Array Problems?</strong> Array problems involve manipulating collections of elements, performing operations like sum, search, sort, and mathematical calculations.</p>
+                <p><strong>How to Approach?</strong> Focus on linear scanning, two pointers technique, and basic mathematical operations. These problems build foundation for more complex algorithms.</p>
+                <p><strong>Best Practices:</strong> Always consider edge cases like empty arrays, single elements, and overflow conditions for large numbers.</p>
+
+                <h3>1. Simple Array Sum</h3>
+                <p><strong>Problem:</strong> Given an array of integers, find the sum of its elements.</p>
+                <p><strong>Example:</strong> Input [1, 2, 3, 4, 10, 11] → Output: 31</p>
+                <pre><code>public static int simpleArraySum(int[] ar) {
+    int sum = 0;
+    for (int num : ar) {
+        sum += num;
+    }
+    return sum;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>2. Compare the Triplets</h3>
+                <p><strong>Problem:</strong> Compare two triplets and award points based on element-wise comparison.</p>
+                <p><strong>Example:</strong> a=[5,6,7], b=[3,6,10] → Output: [1,1] (Alice wins 1st, Bob wins 3rd)</p>
+                <pre><code>public static List&lt;Integer&gt; compareTriplets(List&lt;Integer&gt; a, List&lt;Integer&gt; b) {
+    int aliceScore = 0, bobScore = 0;
+    for (int i = 0; i < 3; i++) {
+        if (a.get(i) > b.get(i)) aliceScore++;
+        else if (a.get(i) < b.get(i)) bobScore++;
+    }
+    return Arrays.asList(aliceScore, bobScore);
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(1), Space O(1)</p>
+
+                <h3>3. A Very Big Sum</h3>
+                <p><strong>Problem:</strong> Calculate sum of large integers that may exceed int range.</p>
+                <p><strong>Example:</strong> [1000000001, 1000000002, 1000000003, 1000000004, 1000000005] → 5000000015</p>
+                <pre><code>public static long aVeryBigSum(long[] ar) {
+    long sum = 0;
+    for (long num : ar) {
+        sum += num;
+    }
+    return sum;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>4. Diagonal Difference</h3>
+                <p><strong>Problem:</strong> Calculate absolute difference between sums of matrix diagonals.</p>
+                <p><strong>Example:</strong> [[11,2,4],[4,5,6],[10,8,-12]] → Primary: 4, Secondary: 19 → |4-19| = 15</p>
+                <pre><code>public static int diagonalDifference(List&lt;List&lt;Integer&gt;&gt; arr) {
+    int n = arr.size();
+    int primarySum = 0, secondarySum = 0;
+    
+    for (int i = 0; i < n; i++) {
+        primarySum += arr.get(i).get(i);
+        secondarySum += arr.get(i).get(n - 1 - i);
+    }
+    
+    return Math.abs(primarySum - secondarySum);
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>5. Plus Minus</h3>
+                <p><strong>Problem:</strong> Calculate ratios of positive, negative, and zero elements with 6 decimal precision.</p>
+                <p><strong>Example:</strong> [-4,3,-9,0,4,1] → Positive: 0.500000, Negative: 0.333333, Zero: 0.166667</p>
+                <pre><code>public static void plusMinus(int[] arr) {
+    int positive = 0, negative = 0, zero = 0;
+    
+    for (int num : arr) {
+        if (num > 0) positive++;
+        else if (num < 0) negative++;
+        else zero++;
+    }
+    
+    int n = arr.length;
+    System.out.printf("%.6f%n", (double) positive / n);
+    System.out.printf("%.6f%n", (double) negative / n);
+    System.out.printf("%.6f%n", (double) zero / n);
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+            </div>
+
+            <div class="topic" id="strings">
+                <h2>Strings (21-35)</h2>
+                <p><strong>What are String Problems?</strong> String manipulation involves processing text data, pattern matching, character frequency analysis, and string transformations.</p>
+                <p><strong>How to Approach?</strong> Use character arrays, StringBuilder for efficiency, HashMap for frequency counting, and two-pointer technique for palindromes.</p>
+                <p><strong>Best Practices:</strong> Consider case sensitivity, handle empty strings, and optimize space complexity for large inputs.</p>
+
+                <h3>21. CamelCase</h3>
+                <p><strong>Problem:</strong> Count number of words in a CamelCase string.</p>
+                <p><strong>Example:</strong> "saveChangesInTheEditor" → 5 words</p>
+                <pre><code>public static int camelcase(String s) {
+    int wordCount = 1;
+    for (char c : s.toCharArray()) {
+        if (Character.isUpperCase(c)) {
+            wordCount++;
+        }
+    }
+    return wordCount;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>22. Strong Password</h3>
+                <p><strong>Problem:</strong> Find minimum characters to add for a strong password (length ≥6, has lowercase, uppercase, digit, special char).</p>
+                <pre><code>public static int minimumNumber(int n, String password) {
+    boolean hasLower = false, hasUpper = false, hasDigit = false, hasSpecial = false;
+    String specialChars = "!@#$%^&*()-+";
+    
+    for (char c : password.toCharArray()) {
+        if (Character.isLowerCase(c)) hasLower = true;
+        else if (Character.isUpperCase(c)) hasUpper = true;
+        else if (Character.isDigit(c)) hasDigit = true;
+        else if (specialChars.contains(String.valueOf(c))) hasSpecial = true;
+    }
+    
+    int missing = 0;
+    if (!hasLower) missing++;
+    if (!hasUpper) missing++;
+    if (!hasDigit) missing++;
+    if (!hasSpecial) missing++;
+    
+    return Math.max(missing, 6 - n);
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>23. Mars Exploration</h3>
+                <p><strong>Problem:</strong> Count altered letters in SOS messages affected by cosmic radiation.</p>
+                <p><strong>Example:</strong> "SOSSPSSQSSOR" → Expected "SOSSOSSOSSOS" → 3 alterations</p>
+                <pre><code>public static int marsExploration(String s) {
+    int alterations = 0;
+    String sos = "SOS";
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s.charAt(i) != sos.charAt(i % 3)) {
+            alterations++;
+        }
+    }
+    
+    return alterations;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>24. HackerRank in a String!</h3>
+                <p><strong>Problem:</strong> Check if string contains "hackerrank" as subsequence.</p>
+                <pre><code>public static String hackerrankInString(String s) {
+    String target = "hackerrank";
+    int targetIndex = 0;
+    
+    for (char c : s.toCharArray()) {
+        if (targetIndex < target.length() && c == target.charAt(targetIndex)) {
+            targetIndex++;
+        }
+    }
+    
+    return targetIndex == target.length() ? "YES" : "NO";
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>25. Pangrams</h3>
+                <p><strong>Problem:</strong> Check if string contains all 26 alphabet letters.</p>
+                <pre><code>public static String pangrams(String s) {
+    Set&lt;Character&gt; letters = new HashSet&lt;&gt;();
+    
+    for (char c : s.toLowerCase().toCharArray()) {
+        if (Character.isLetter(c)) {
+            letters.add(c);
+        }
+    }
+    
+    return letters.size() == 26 ? "pangram" : "not pangram";
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+            </div>
+
+            <div class="topic" id="searching-sorting">
+                <h2>Searching & Sorting (36-50)</h2>
+                <p><strong>What are Search/Sort Problems?</strong> These involve finding elements efficiently using binary search, sorting algorithms, and optimizing search operations.</p>
+                <p><strong>How to Approach?</strong> Use binary search for sorted arrays, HashMap for O(1) lookups, and understand when to sort vs use other data structures.</p>
+                <p><strong>Best Practices:</strong> Always check if input is sorted, consider space-time tradeoffs, and handle duplicate elements correctly.</p>
+
+                <h3>36. Missing Numbers</h3>
+                <p><strong>Problem:</strong> Find missing numbers by comparing frequency maps.</p>
+                <pre><code>public static int[] missingNumbers(int[] arr, int[] brr) {
+    Map&lt;Integer, Integer&gt; freqA = new HashMap&lt;&gt;();
+    Map&lt;Integer, Integer&gt; freqB = new HashMap&lt;&gt;();
+    
+    for (int num : arr) {
+        freqA.put(num, freqA.getOrDefault(num, 0) + 1);
+    }
+    
+    for (int num : brr) {
+        freqB.put(num, freqB.getOrDefault(num, 0) + 1);
+    }
+    
+    List&lt;Integer&gt; missing = new ArrayList&lt;&gt;();
+    for (int num : freqB.keySet()) {
+        if (freqB.get(num) > freqA.getOrDefault(num, 0)) {
+            missing.add(num);
+        }
+    }
+    
+    Collections.sort(missing);
+    return missing.stream().mapToInt(i -> i).toArray();
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n + m), Space O(n + m)</p>
+
+                <h3>37. Sherlock and Array</h3>
+                <p><strong>Problem:</strong> Find equilibrium index where left sum equals right sum.</p>
+                <pre><code>public static String balancedSums(List&lt;Integer&gt; arr) {
+    int totalSum = arr.stream().mapToInt(Integer::intValue).sum();
+    int leftSum = 0;
+    
+    for (int i = 0; i < arr.size(); i++) {
+        int rightSum = totalSum - leftSum - arr.get(i);
+        
+        if (leftSum == rightSum) {
+            return "YES";
+        }
+        
+        leftSum += arr.get(i);
+    }
+    
+    return "NO";
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+            </div>
+
+            <div class="topic" id="dynamic-programming">
+                <h2>Dynamic Programming (51-65)</h2>
+                <p><strong>What is Dynamic Programming?</strong> DP solves complex problems by breaking them into simpler subproblems and storing results to avoid redundant calculations.</p>
+                <p><strong>How to Approach?</strong> Identify overlapping subproblems, define state transitions, use memoization (top-down) or tabulation (bottom-up).</p>
+                <p><strong>Best Practices:</strong> Start with recursive solution, add memoization, then optimize to iterative approach for better space complexity.</p>
+
+                <h3>41. Fibonacci Modified</h3>
+                <p><strong>Problem:</strong> Calculate modified Fibonacci where F(n) = F(n-2) + F(n-1)²</p>
+                <pre><code>public static BigInteger fibonacciModified(int t1, int t2, int n) {
+    if (n == 1) return BigInteger.valueOf(t1);
+    if (n == 2) return BigInteger.valueOf(t2);
+    
+    BigInteger prev1 = BigInteger.valueOf(t1);
+    BigInteger prev2 = BigInteger.valueOf(t2);
+    
+    for (int i = 3; i <= n; i++) {
+        BigInteger current = prev1.add(prev2.multiply(prev2));
+        prev1 = prev2;
+        prev2 = current;
+    }
+    
+    return prev2;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(1)</p>
+
+                <h3>42. Coin Change Problem</h3>
+                <p><strong>Problem:</strong> Count number of ways to make change for given amount.</p>
+                <pre><code>public static long getWays(int n, int[] c) {
+    long[] dp = new long[n + 1];
+    dp[0] = 1;
+    
+    for (int coin : c) {
+        for (int i = coin; i <= n; i++) {
+            dp[i] += dp[i - coin];
+        }
+    }
+    
+    return dp[n];
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n × m), Space O(n)</p>
+            </div>
+
+            <div class="topic" id="trees-graphs">
+                <h2>Trees & Graphs (66-80)</h2>
+                <p><strong>What are Tree/Graph Problems?</strong> These involve traversing hierarchical (trees) or connected (graphs) data structures using various algorithms.</p>
+                <p><strong>How to Approach?</strong> Use DFS for path problems, BFS for shortest paths, and understand when to use recursion vs iteration.</p>
+                <p><strong>Best Practices:</strong> Handle null nodes, avoid infinite loops in graphs, and choose appropriate traversal method based on problem requirements.</p>
+
+                <h3>51. Tree: Preorder Traversal</h3>
+                <p><strong>Problem:</strong> Visit nodes in Root → Left → Right order.</p>
+                <pre><code>public static void preOrder(Node root) {
+    if (root != null) {
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(h) where h is height</p>
+
+                <h3>52. Tree: Height of a Binary Tree</h3>
+                <p><strong>Problem:</strong> Calculate maximum depth from root to leaf.</p>
+                <pre><code>public static int height(Node root) {
+    if (root == null) return -1;
+    return 1 + Math.max(height(root.left), height(root.right));
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n), Space O(h)</p>
+            </div>
+
+            <div class="topic" id="mathematics">
+                <h2>Mathematics & Number Theory (81-95)</h2>
+                <p><strong>What are Math Problems?</strong> These involve number theory, combinatorics, modular arithmetic, and mathematical algorithms.</p>
+                <p><strong>How to Approach?</strong> Understand mathematical properties, use efficient algorithms for large numbers, and handle edge cases like division by zero.</p>
+                <p><strong>Best Practices:</strong> Use appropriate data types for large numbers, understand modular arithmetic, and optimize for time complexity.</p>
+
+                <h3>61. Find Digits</h3>
+                <p><strong>Problem:</strong> Count digits in a number that divide the number evenly.</p>
+                <pre><code>public static int findDigits(int n) {
+    int count = 0;
+    int original = n;
+    
+    while (n > 0) {
+        int digit = n % 10;
+        if (digit != 0 && original % digit == 0) {
+            count++;
+        }
+        n /= 10;
+    }
+    
+    return count;
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(log n), Space O(1)</p>
+
+                <h3>62. Sherlock and Squares</h3>
+                <p><strong>Problem:</strong> Count perfect squares in given range.</p>
+                <pre><code>public static int squares(int a, int b) {
+    int sqrtA = (int) Math.ceil(Math.sqrt(a));
+    int sqrtB = (int) Math.floor(Math.sqrt(b));
+    
+    return Math.max(0, sqrtB - sqrtA + 1);
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(1), Space O(1)</p>
+            </div>
+
+            <div class="topic" id="advanced-problems">
+                <h2>Advanced Problems (96-100)</h2>
+                <p><strong>What are Advanced Problems?</strong> Complex algorithmic challenges requiring combination of multiple techniques and optimization strategies.</p>
+                <p><strong>How to Approach?</strong> Break down into smaller subproblems, identify patterns, and combine different algorithmic approaches.</p>
+                <p><strong>Best Practices:</strong> Focus on correctness first, then optimize, handle all edge cases, and ensure solution scales for given constraints.</p>
+
+                <h3>76. Organizing Containers of Balls</h3>
+                <p><strong>Problem:</strong> Check if balls can be organized so each container has balls of single type.</p>
+                <pre><code>public static String organizingContainers(int[][] container) {
+    int n = container.length;
+    long[] containerCapacity = new long[n];
+    long[] ballCount = new long[n];
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            containerCapacity[i] += container[i][j];
+            ballCount[j] += container[i][j];
+        }
+    }
+    
+    Arrays.sort(containerCapacity);
+    Arrays.sort(ballCount);
+    
+    return Arrays.equals(containerCapacity, ballCount) ? "Possible" : "Impossible";
+}</code></pre>
+                <p><strong>Complexity:</strong> Time O(n²), Space O(n)</p>
+            </div>
+
+            <div class="topic" id="complexity-analysis">
+                <h2>📊 Complexity Analysis Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem Type</th>
+                            <th>Time Complexity</th>
+                            <th>Space Complexity</th>
+                            <th>Key Technique</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Array Sum</strong></td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                            <td>Linear Scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>String Processing</strong></td>
+                            <td>O(n)</td>
+                            <td>O(1)</td>
+                            <td>Character Analysis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Binary Search</strong></td>
+                            <td>O(log n)</td>
+                            <td>O(1)</td>
+                            <td>Divide & Conquer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DFS/BFS</strong></td>
+                            <td>O(V + E)</td>
+                            <td>O(V)</td>
+                            <td>Graph Traversal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dynamic Programming</strong></td>
+                            <td>O(n²)</td>
+                            <td>O(n)</td>
+                            <td>Memoization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sorting</strong></td>
+                            <td>O(n log n)</td>
+                            <td>O(1)</td>
+                            <td>Comparison Based</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic" id="interview-strategies">
+                <h2>🎯 Interview Success Strategies</h2>
+                <p><strong>Problem Recognition Patterns:</strong></p>
+                <ul>
+                    <li><strong>Array Problems</strong> → Linear scan, two pointers, sorting</li>
+                    <li><strong>String Problems</strong> → Character frequency, pattern matching</li>
+                    <li><strong>Tree Problems</strong> → Recursion, traversal algorithms</li>
+                    <li><strong>Graph Problems</strong> → BFS, DFS, connectivity</li>
+                    <li><strong>Math Problems</strong> → Number theory, combinatorics</li>
+                </ul>
+
+                <p><strong>Time Management:</strong></p>
+                <ul>
+                    <li><strong>Easy Problems:</strong> 5-10 minutes</li>
+                    <li><strong>Medium Problems:</strong> 15-20 minutes</li>
+                    <li><strong>Hard Problems:</strong> 25-30 minutes</li>
+                </ul>
+
+                <p><strong>Coding Best Practices:</strong></p>
+                <ul>
+                    <li><strong>Read Constraints</strong> - Understand input limits</li>
+                    <li><strong>Handle Edge Cases</strong> - Empty inputs, single elements</li>
+                    <li><strong>Optimize Space</strong> - Use in-place algorithms when possible</li>
+                    <li><strong>Test Thoroughly</strong> - Verify with sample inputs</li>
+                    <li><strong>Clean Code</strong> - Use meaningful variable names</li>
+                </ul>
+            </div>
+
+            <div class="topic" id="company-preparation">
+                <h2>🏆 Company-Specific Preparation</h2>
+                <p><strong>Product Companies:</strong> Focus on Problems 1-50 - Basic algorithms, problem-solving fundamentals</p>
+                <p><strong>Service Companies:</strong> Focus on Problems 21-65 - String processing, dynamic programming</p>
+                <p><strong>FAANG Companies:</strong> Focus on Problems 36-80 - Advanced algorithms, optimization techniques</p>
+                <p><strong>Startups:</strong> Focus on Problems 1-35 - Quick implementation, basic data structures</p>
+
+                <p><strong>Additional Practice Resources:</strong></p>
+                <ul>
+                    <li><strong>HackerRank Domains</strong> - Practice by topic</li>
+                    <li><strong>GeeksforGeeks</strong> - Algorithm explanations</li>
+                    <li><strong>InterviewBit</strong> - Structured learning path</li>
+                    <li><strong>CodeChef/Codeforces</strong> - Competitive programming</li>
+                </ul>
+
+                <p><strong>Master these 100 HackerRank problems for technical interview success! 🎯</strong></p>
+            </div>
             </div>
         </div>
     </div>

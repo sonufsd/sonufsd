@@ -9,23 +9,808 @@
     <link rel="stylesheet" href="../tutorial-styles.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
-<body class="page-array-programs">
+<body class="page-programs">
     <header>
         <div class="container">
-            <div class="hero">
-                <h1>Array Programs</h1>
-                <p>Practice Array Programming Problems</p>
-            </div>
+            <h1>Array Programs</h1>
+            <p>Master Array Programming with Java</p>
         </div>
     </header>
     <nav></nav>
-    <script>window.activePage = "programs";</script>
+    <script>window.activePage = 'programs';</script>
     <script src="../menu.js"></script>
-    <script src="../theme-selector.js"></script>    <div class="container">
-        <div class="content">
-            <div class="topic">
-                <h2>Array Programming Problems</h2>
-                <p>Practice array programming problems with detailed solutions and step-by-step explanations.</p>
+    <script src="../theme-selector.js"></script>
+    <div class="container">
+        <div class="content-with-sidebar">
+            <div class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>🎯 Quick Navigation</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#basic-operations">Basic Operations</a></li>
+                        <li><a href="#searching-problems">Searching Problems</a></li>
+                        <li><a href="#sorting-problems">Sorting Problems</a></li>
+                        <li><a href="#mathematical-problems">Mathematical Problems</a></li>
+                        <li><a href="#matrix-problems">Matrix Problems</a></li>
+                        <li><a href="#advanced-problems">Advanced Problems</a></li>
+                        <li><a href="#interview-questions">Interview Questions</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+            <div class="topic" id="overview">
+                <h2>Array Programming Mastery 🚀</h2>
+                <p><strong>What are Arrays?</strong> Arrays are data structures that store multiple elements of the same type in contiguous memory locations, accessed using indices.</p>
+                <p><strong>Why Learn Array Programming?</strong> Arrays are fundamental to programming and form the basis for more complex data structures. Mastering array operations is essential for technical interviews.</p>
+                <p><strong>How to Approach?</strong> Start with basic operations, then progress to searching, sorting, and advanced manipulation techniques with time complexity analysis.</p>
+            </div>
+
+            <div class="topic" id="basic-operations">
+                <h2>Basic Array Operations</h2>
+                <p><strong>What are Basic Operations?</strong> Fundamental operations include creation, initialization, traversal, insertion, deletion, and finding elements.</p>
+                <p><strong>How to Master?</strong> Practice each operation with different scenarios and understand their time and space complexities.</p>
+
+                <h3>1. Array Declaration and Initialization</h3>
+                <p><strong>Problem:</strong> Create and initialize arrays in different ways</p>
+                <pre><code>public class ArrayBasics {
+    public static void main(String[] args) {
+        // Method 1: Declaration then initialization
+        int[] arr1 = new int[5];
+        arr1[0] = 10; arr1[1] = 20; arr1[2] = 30; arr1[3] = 40; arr1[4] = 50;
+        
+        // Method 2: Declaration with initialization
+        int[] arr2 = {10, 20, 30, 40, 50};
+        
+        // Method 3: Using new keyword with values
+        int[] arr3 = new int[]{10, 20, 30, 40, 50};
+        
+        System.out.println("Array 1: " + Arrays.toString(arr1));
+        System.out.println("Array 2: " + Arrays.toString(arr2));
+        System.out.println("Array 3: " + Arrays.toString(arr3));
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Array 1: [10, 20, 30, 40, 50]</p>
+
+                <h3>2. Array Traversal</h3>
+                <p><strong>Problem:</strong> Print all elements using different loop methods</p>
+                <pre><code>public class ArrayTraversal {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        
+        // Method 1: Traditional for loop
+        System.out.print("For loop: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        
+        // Method 2: Enhanced for loop
+        System.out.print("\nEnhanced for: ");
+        for (int element : arr) {
+            System.out.print(element + " ");
+        }
+        
+        // Method 3: While loop
+        System.out.print("\nWhile loop: ");
+        int i = 0;
+        while (i < arr.length) {
+            System.out.print(arr[i] + " ");
+            i++;
+        }
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n), <strong>Space Complexity:</strong> O(1)</p>
+
+                <h3>3. Find Maximum and Minimum</h3>
+                <p><strong>Problem:</strong> Find the largest and smallest elements in an array</p>
+                <pre><code>public class MaxMin {
+    public static void findMaxMin(int[] arr) {
+        if (arr.length == 0) return;
+        
+        int max = arr[0];
+        int min = arr[0];
+        
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        
+        System.out.println("Maximum: " + max);
+        System.out.println("Minimum: " + min);
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        findMaxMin(arr);
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Maximum: 90, Minimum: 11</p>
+
+                <h3>4. Array Sum and Average</h3>
+                <p><strong>Problem:</strong> Calculate sum and average of array elements</p>
+                <pre><code>public class SumAverage {
+    public static void calculateSumAverage(int[] arr) {
+        int sum = 0;
+        
+        for (int element : arr) {
+            sum += element;
+        }
+        
+        double average = (double) sum / arr.length;
+        
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        calculateSumAverage(arr);
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Sum: 150, Average: 30.0</p>
+
+                <h3>5. Reverse an Array</h3>
+                <p><strong>Problem:</strong> Reverse array elements in-place</p>
+                <pre><code>public class ReverseArray {
+    public static void reverseArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        
+        while (start < end) {
+            // Swap elements
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            
+            start++;
+            end--;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println("Original: " + Arrays.toString(arr));
+        
+        reverseArray(arr);
+        System.out.println("Reversed: " + Arrays.toString(arr));
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Original: [1, 2, 3, 4, 5], Reversed: [5, 4, 3, 2, 1]</p>
+            </div>
+
+            <div class="topic" id="searching-problems">
+                <h2>Searching Problems</h2>
+                <p><strong>What is Searching?</strong> Finding the position or existence of a specific element in an array using various algorithms.</p>
+                <p><strong>Key Algorithms:</strong> Linear Search (O(n)), Binary Search (O(log n) for sorted arrays).</p>
+
+                <h3>6. Linear Search</h3>
+                <p><strong>Problem:</strong> Find element in unsorted array</p>
+                <pre><code>public class LinearSearch {
+    public static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return index if found
+            }
+        }
+        return -1; // Return -1 if not found
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int target = 22;
+        
+        int result = linearSearch(arr, target);
+        
+        if (result != -1) {
+            System.out.println("Element " + target + " found at index " + result);
+        } else {
+            System.out.println("Element " + target + " not found");
+        }
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n), <strong>Space Complexity:</strong> O(1)</p>
+
+                <h3>7. Binary Search</h3>
+                <p><strong>Problem:</strong> Find element in sorted array efficiently</p>
+                <pre><code>public class BinarySearch {
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (arr[mid] == target) {
+                return mid;
+            }
+            
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {11, 12, 22, 25, 34, 64, 90}; // Sorted array
+        int target = 25;
+        
+        int result = binarySearch(arr, target);
+        
+        if (result != -1) {
+            System.out.println("Element " + target + " found at index " + result);
+        } else {
+            System.out.println("Element " + target + " not found");
+        }
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(log n), <strong>Space Complexity:</strong> O(1)</p>
+
+                <h3>8. Find First and Last Occurrence</h3>
+                <p><strong>Problem:</strong> Find first and last position of element in sorted array</p>
+                <pre><code>public class FirstLastOccurrence {
+    public static int[] findFirstLast(int[] arr, int target) {
+        int[] result = {-1, -1};
+        
+        // Find first occurrence
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                result[0] = mid;
+                right = mid - 1; // Continue searching left
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        // Find last occurrence
+        left = 0; right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                result[1] = mid;
+                left = mid + 1; // Continue searching right
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 2, 2, 3, 4, 5};
+        int target = 2;
+        
+        int[] result = findFirstLast(arr, target);
+        System.out.println("First occurrence: " + result[0]);
+        System.out.println("Last occurrence: " + result[1]);
+    }
+}</code></pre>
+                <p><strong>Output:</strong> First occurrence: 1, Last occurrence: 3</p>
+            </div>
+
+            <div class="topic" id="sorting-problems">
+                <h2>Sorting Problems</h2>
+                <p><strong>What is Sorting?</strong> Arranging array elements in ascending or descending order using various algorithms.</p>
+                <p><strong>Key Algorithms:</strong> Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort.</p>
+
+                <h3>9. Bubble Sort</h3>
+                <p><strong>Problem:</strong> Sort array using bubble sort algorithm</p>
+                <pre><code>public class BubbleSort {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            boolean swapped = false;
+            
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap elements
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            
+            // If no swapping occurred, array is sorted
+            if (!swapped) break;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        System.out.println("Original: " + Arrays.toString(arr));
+        
+        bubbleSort(arr);
+        System.out.println("Sorted: " + Arrays.toString(arr));
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(1)</p>
+
+                <h3>10. Selection Sort</h3>
+                <p><strong>Problem:</strong> Sort array using selection sort algorithm</p>
+                <pre><code>public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            
+            // Find minimum element in remaining array
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            
+            // Swap minimum element with first element
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {64, 25, 12, 22, 11};
+        System.out.println("Original: " + Arrays.toString(arr));
+        
+        selectionSort(arr);
+        System.out.println("Sorted: " + Arrays.toString(arr));
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(1)</p>
+
+                <h3>11. Insertion Sort</h3>
+                <p><strong>Problem:</strong> Sort array using insertion sort algorithm</p>
+                <pre><code>public class InsertionSort {
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            
+            // Move elements greater than key one position ahead
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            
+            arr[j + 1] = key;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6};
+        System.out.println("Original: " + Arrays.toString(arr));
+        
+        insertionSort(arr);
+        System.out.println("Sorted: " + Arrays.toString(arr));
+    }
+}</code></pre>
+                <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(1)</p>
+            </div>
+
+            <div class="topic" id="mathematical-problems">
+                <h2>Mathematical Problems</h2>
+                <p><strong>What are Mathematical Problems?</strong> Array problems involving mathematical operations, calculations, and number theory concepts.</p>
+
+                <h3>12. Second Largest Element</h3>
+                <p><strong>Problem:</strong> Find second largest element without sorting</p>
+                <pre><code>public class SecondLargest {
+    public static int findSecondLargest(int[] arr) {
+        if (arr.length < 2) return -1;
+        
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        
+        for (int num : arr) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest && num != largest) {
+                secondLargest = num;
+            }
+        }
+        
+        return secondLargest == Integer.MIN_VALUE ? -1 : secondLargest;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {12, 35, 1, 10, 34, 1};
+        int result = findSecondLargest(arr);
+        
+        if (result != -1) {
+            System.out.println("Second largest: " + result);
+        } else {
+            System.out.println("No second largest element");
+        }
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Second largest: 34</p>
+
+                <h3>13. Array Rotation</h3>
+                <p><strong>Problem:</strong> Rotate array elements to the right by k positions</p>
+                <pre><code>public class ArrayRotation {
+    public static void rotateRight(int[] arr, int k) {
+        int n = arr.length;
+        k = k % n; // Handle k > n
+        
+        // Reverse entire array
+        reverse(arr, 0, n - 1);
+        
+        // Reverse first k elements
+        reverse(arr, 0, k - 1);
+        
+        // Reverse remaining elements
+        reverse(arr, k, n - 1);
+    }
+    
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
+        
+        System.out.println("Original: " + Arrays.toString(arr));
+        rotateRight(arr, k);
+        System.out.println("Rotated by " + k + ": " + Arrays.toString(arr));
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Original: [1, 2, 3, 4, 5, 6, 7], Rotated by 3: [5, 6, 7, 1, 2, 3, 4]</p>
+
+                <h3>14. Missing Number</h3>
+                <p><strong>Problem:</strong> Find missing number in array of 1 to n</p>
+                <pre><code>public class MissingNumber {
+    public static int findMissingNumber(int[] arr, int n) {
+        // Method 1: Using sum formula
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+        
+        for (int num : arr) {
+            actualSum += num;
+        }
+        
+        return expectedSum - actualSum;
+    }
+    
+    // Method 2: Using XOR
+    public static int findMissingNumberXOR(int[] arr, int n) {
+        int xor1 = 0; // XOR of all numbers from 1 to n
+        int xor2 = 0; // XOR of all array elements
+        
+        for (int i = 1; i <= n; i++) {
+            xor1 ^= i;
+        }
+        
+        for (int num : arr) {
+            xor2 ^= num;
+        }
+        
+        return xor1 ^ xor2;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6}; // Missing 3
+        int n = 6;
+        
+        System.out.println("Missing number (Sum): " + findMissingNumber(arr, n));
+        System.out.println("Missing number (XOR): " + findMissingNumberXOR(arr, n));
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Missing number: 3</p>
+
+                <h3>15. Duplicate Elements</h3>
+                <p><strong>Problem:</strong> Find and remove duplicate elements</p>
+                <pre><code>public class RemoveDuplicates {
+    public static int removeDuplicates(int[] arr) {
+        if (arr.length == 0) return 0;
+        
+        int writeIndex = 1;
+        
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                arr[writeIndex] = arr[i];
+                writeIndex++;
+            }
+        }
+        
+        return writeIndex; // New length
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 2, 2, 3, 4, 4, 5};
+        System.out.println("Original: " + Arrays.toString(arr));
+        
+        int newLength = removeDuplicates(arr);
+        System.out.print("After removing duplicates: ");
+        for (int i = 0; i < newLength; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}</code></pre>
+                <p><strong>Output:</strong> After removing duplicates: 1 2 3 4 5</p>
+            </div>
+
+            <div class="topic" id="matrix-problems">
+                <h2>Matrix Problems</h2>
+                <p><strong>What are Matrix Problems?</strong> Two-dimensional array problems involving matrix operations, traversals, and transformations.</p>
+
+                <h3>16. Matrix Addition</h3>
+                <p><strong>Problem:</strong> Add two matrices</p>
+                <pre><code>public class MatrixAddition {
+    public static int[][] addMatrices(int[][] matrix1, int[][] matrix2) {
+        int rows = matrix1.length;
+        int cols = matrix1[0].length;
+        int[][] result = new int[rows][cols];
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        
+        return result;
+    }
+    
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}};
+        int[][] matrix2 = {{7, 8, 9}, {10, 11, 12}};
+        
+        System.out.println("Matrix 1:");
+        printMatrix(matrix1);
+        
+        System.out.println("Matrix 2:");
+        printMatrix(matrix2);
+        
+        int[][] result = addMatrices(matrix1, matrix2);
+        System.out.println("Sum:");
+        printMatrix(result);
+    }
+}</code></pre>
+
+                <h3>17. Matrix Transpose</h3>
+                <p><strong>Problem:</strong> Find transpose of a matrix</p>
+                <pre><code>public class MatrixTranspose {
+    public static int[][] transpose(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] result = new int[cols][rows];
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[j][i] = matrix[i][j];
+            }
+        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
+        
+        System.out.println("Original Matrix:");
+        printMatrix(matrix);
+        
+        int[][] transposed = transpose(matrix);
+        System.out.println("Transposed Matrix:");
+        printMatrix(transposed);
+    }
+}</code></pre>
+
+                <h3>18. Spiral Matrix Traversal</h3>
+                <p><strong>Problem:</strong> Print matrix elements in spiral order</p>
+                <pre><code>public class SpiralMatrix {
+    public static void printSpiral(int[][] matrix) {
+        int top = 0, bottom = matrix.length - 1;
+        int left = 0, right = matrix[0].length - 1;
+        
+        while (top <= bottom && left <= right) {
+            // Print top row
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            top++;
+            
+            // Print right column
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            right--;
+            
+            // Print bottom row
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    System.out.print(matrix[bottom][i] + " ");
+                }
+                bottom--;
+            }
+            
+            // Print left column
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " ");
+                }
+                left++;
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12}
+        };
+        
+        System.out.println("Spiral traversal:");
+        printSpiral(matrix);
+    }
+}</code></pre>
+                <p><strong>Output:</strong> 1 2 3 4 8 12 11 10 9 5 6 7</p>
+            </div>
+
+            <div class="topic" id="advanced-problems">
+                <h2>Advanced Problems</h2>
+                <p><strong>What are Advanced Problems?</strong> Complex array problems requiring multiple techniques, optimization, and algorithmic thinking.</p>
+
+                <h3>19. Maximum Subarray Sum (Kadane's Algorithm)</h3>
+                <p><strong>Problem:</strong> Find maximum sum of contiguous subarray</p>
+                <pre><code>public class MaxSubarraySum {
+    public static int maxSubarraySum(int[] arr) {
+        int maxSoFar = arr[0];
+        int maxEndingHere = arr[0];
+        
+        for (int i = 1; i < arr.length; i++) {
+            maxEndingHere = Math.max(arr[i], maxEndingHere + arr[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+        
+        return maxSoFar;
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+        int result = maxSubarraySum(arr);
+        System.out.println("Maximum subarray sum: " + result);
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Maximum subarray sum: 7 (subarray: [4, -1, -2, 1, 5])</p>
+
+                <h3>20. Two Sum Problem</h3>
+                <p><strong>Problem:</strong> Find two numbers that add up to target</p>
+                <pre><code>public class TwoSum {
+    public static int[] twoSum(int[] nums, int target) {
+        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+        
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            
+            map.put(nums[i], i);
+        }
+        
+        return new int[]{}; // No solution found
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        
+        int[] result = twoSum(nums, target);
+        
+        if (result.length > 0) {
+            System.out.println("Indices: " + Arrays.toString(result));
+            System.out.println("Numbers: " + nums[result[0]] + " + " + nums[result[1]] + " = " + target);
+        }
+    }
+}</code></pre>
+                <p><strong>Output:</strong> Indices: [0, 1], Numbers: 2 + 7 = 9</p>
+            </div>
+
+            <div class="topic" id="interview-questions">
+                <h2>🎯 Interview Questions</h2>
+                <p><strong>Common Array Interview Questions:</strong> Practice these frequently asked problems for technical interviews.</p>
+
+                <h3>Top 10 Array Interview Questions</h3>
+                <ol>
+                    <li><strong>Two Sum:</strong> Find pair that sums to target - O(n) using HashMap</li>
+                    <li><strong>Maximum Subarray:</strong> Kadane's algorithm - O(n) time</li>
+                    <li><strong>Rotate Array:</strong> Rotate by k positions - O(n) time, O(1) space</li>
+                    <li><strong>Remove Duplicates:</strong> In-place removal from sorted array</li>
+                    <li><strong>Missing Number:</strong> Find missing in 1 to n sequence</li>
+                    <li><strong>Merge Sorted Arrays:</strong> Combine two sorted arrays</li>
+                    <li><strong>Best Time to Buy/Sell Stock:</strong> Maximum profit calculation</li>
+                    <li><strong>Product Except Self:</strong> Array of products without division</li>
+                    <li><strong>Container With Most Water:</strong> Two pointer technique</li>
+                    <li><strong>3Sum Problem:</strong> Find triplets that sum to zero</li>
+                </ol>
+
+                <h3>Time Complexity Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Best Case</th>
+                            <th>Average Case</th>
+                            <th>Worst Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Linear Search</td>
+                            <td>O(1)</td>
+                            <td>O(n)</td>
+                            <td>O(n)</td>
+                        </tr>
+                        <tr>
+                            <td>Binary Search</td>
+                            <td>O(1)</td>
+                            <td>O(log n)</td>
+                            <td>O(log n)</td>
+                        </tr>
+                        <tr>
+                            <td>Bubble Sort</td>
+                            <td>O(n)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                        </tr>
+                        <tr>
+                            <td>Selection Sort</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                        </tr>
+                        <tr>
+                            <td>Insertion Sort</td>
+                            <td>O(n)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li><strong>Start Simple:</strong> Master basic operations before advanced problems</li>
+                    <li><strong>Understand Complexity:</strong> Always analyze time and space complexity</li>
+                    <li><strong>Practice Edge Cases:</strong> Empty arrays, single elements, duplicates</li>
+                    <li><strong>Use Multiple Approaches:</strong> Solve same problem with different methods</li>
+                    <li><strong>Code Without IDE:</strong> Practice writing code on paper or whiteboard</li>
+                </ul>
+            </div>
             </div>
         </div>
     </div>

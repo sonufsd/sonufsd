@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tutorial - Complete Guide to HTML</title>
+    <link rel="stylesheet" href="tutorial-styles.css">
+</head>
+<body>
+    <nav></nav>
+    
+    <div class="content-with-sidebar">
+        <div class="sidebar-toc">
+            <div class="toc-header">HTML Topics</div>
+            <nav class="toc-nav">
+                <a href="#introduction">Introduction</a>
+                <a href="#structure">HTML Structure</a>
+                <a href="#elements">HTML Elements</a>
+                <a href="#attributes">Attributes</a>
+                <a href="#forms">Forms</a>
+                <a href="#semantic">Semantic HTML</a>
+                <a href="#multimedia">Multimedia</a>
+                <a href="#tables">Tables</a>
+                <a href="#best-practices">Best Practices</a>
+                <a href="#interview">Interview Questions</a>
+            </nav>
+        </div>
+        
+        <div class="main-content">
+            <h1>HTML Tutorial - Complete Guide</h1>
+            
+            <section id="introduction">
+                <h2>What is HTML?</h2>
+                <p><strong>HTML (HyperText Markup Language)</strong> is the standard markup language for creating web pages. It describes the structure and content of web documents using elements and tags.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Markup language for web content</li>
+                    <li>Uses tags to define elements</li>
+                    <li>Platform independent</li>
+                    <li>Foundation of all web pages</li>
+                </ul>
+            </section>
+
+            <section id="structure">
+                <h2>HTML Document Structure</h2>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Main Heading&lt;/h1&gt;
+    &lt;p&gt;Content goes here&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h3>Document Parts:</h3>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Document type declaration</li>
+                    <li><code>&lt;html&gt;</code> - Root element</li>
+                    <li><code>&lt;head&gt;</code> - Metadata container</li>
+                    <li><code>&lt;body&gt;</code> - Visible content</li>
+                </ul>
+            </section>
+
+            <section id="elements">
+                <h2>HTML Elements</h2>
+                
+                <h3>Headings:</h3>
+                <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Sub Heading&lt;/h2&gt;
+&lt;h3&gt;Section Heading&lt;/h3&gt;
+&lt;h4&gt;Subsection&lt;/h4&gt;
+&lt;h5&gt;Minor Heading&lt;/h5&gt;
+&lt;h6&gt;Smallest Heading&lt;/h6&gt;</code></pre>
+
+                <h3>Text Elements:</h3>
+                <pre><code>&lt;p&gt;Paragraph text&lt;/p&gt;
+&lt;strong&gt;Bold text&lt;/strong&gt;
+&lt;em&gt;Italic text&lt;/em&gt;
+&lt;span&gt;Inline element&lt;/span&gt;
+&lt;div&gt;Block element&lt;/div&gt;</code></pre>
+
+                <h3>Lists:</h3>
+                <pre><code>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+                <h3>Links and Images:</h3>
+                <pre><code>&lt;a href="https://example.com"&gt;Link text&lt;/a&gt;
+&lt;img src="image.jpg" alt="Description" width="300" height="200"&gt;</code></pre>
+            </section>
+
+            <section id="attributes">
+                <h2>HTML Attributes</h2>
+                <p>Attributes provide additional information about HTML elements.</p>
+
+                <h3>Common Attributes:</h3>
+                <pre><code>&lt;div id="unique-id" class="css-class" style="color: red;"&gt;
+    Content with attributes
+&lt;/div&gt;
+
+&lt;a href="page.html" target="_blank" title="Tooltip text"&gt;Link&lt;/a&gt;
+
+&lt;input type="text" name="username" placeholder="Enter username" required&gt;</code></pre>
+
+                <h3>Global Attributes:</h3>
+                <ul>
+                    <li><code>id</code> - Unique identifier</li>
+                    <li><code>class</code> - CSS class names</li>
+                    <li><code>style</code> - Inline CSS</li>
+                    <li><code>title</code> - Tooltip text</li>
+                    <li><code>data-*</code> - Custom data attributes</li>
+                </ul>
+            </section>
+
+            <section id="forms">
+                <h2>HTML Forms</h2>
+                <p>Forms collect user input and send data to servers.</p>
+
+                <h3>Basic Form Structure:</h3>
+                <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <h3>Input Types:</h3>
+                <pre><code>&lt;input type="text"&gt;        &lt;!-- Text input --&gt;
+&lt;input type="password"&gt;   &lt;!-- Password field --&gt;
+&lt;input type="email"&gt;      &lt;!-- Email validation --&gt;
+&lt;input type="number"&gt;     &lt;!-- Number input --&gt;
+&lt;input type="date"&gt;       &lt;!-- Date picker --&gt;
+&lt;input type="checkbox"&gt;   &lt;!-- Checkbox --&gt;
+&lt;input type="radio"&gt;      &lt;!-- Radio button --&gt;
+&lt;input type="file"&gt;       &lt;!-- File upload --&gt;</code></pre>
+            </section>
+
+            <section id="semantic">
+                <h2>Semantic HTML</h2>
+                <p>Semantic elements clearly describe their meaning to both browsers and developers.</p>
+
+                <h3>Semantic Elements:</h3>
+                <pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Article Title&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Section Heading&lt;/h2&gt;
+            &lt;p&gt;Content...&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/article&gt;
+    
+    &lt;aside&gt;
+        &lt;h3&gt;Related Links&lt;/h3&gt;
+        &lt;ul&gt;...&lt;/ul&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024 Company Name&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+                <h3>Benefits:</h3>
+                <ul>
+                    <li>Better SEO</li>
+                    <li>Improved accessibility</li>
+                    <li>Cleaner code structure</li>
+                    <li>Screen reader friendly</li>
+                </ul>
+            </section>
+
+            <section id="multimedia">
+                <h2>Multimedia Elements</h2>
+                
+                <h3>Images:</h3>
+                <pre><code>&lt;img src="image.jpg" alt="Description" loading="lazy"&gt;
+
+&lt;figure&gt;
+    &lt;img src="chart.png" alt="Sales Chart"&gt;
+    &lt;figcaption&gt;Q4 Sales Performance&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+                <h3>Video:</h3>
+                <pre><code>&lt;video controls width="640" height="360"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    Your browser doesn't support video.
+&lt;/video&gt;</code></pre>
+
+                <h3>Audio:</h3>
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    Your browser doesn't support audio.
+&lt;/audio&gt;</code></pre>
+            </section>
+
+            <section id="tables">
+                <h2>HTML Tables</h2>
+                <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Jane&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;London&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </section>
+
+            <section id="best-practices">
+                <h2>HTML Best Practices</h2>
+                <ul>
+                    <li><strong>Use semantic elements</strong> - Choose meaningful tags</li>
+                    <li><strong>Validate HTML</strong> - Use W3C validator</li>
+                    <li><strong>Proper nesting</strong> - Close tags in correct order</li>
+                    <li><strong>Alt attributes</strong> - Always include for images</li>
+                    <li><strong>Lowercase tags</strong> - Use consistent casing</li>
+                    <li><strong>Indent code</strong> - Maintain readable structure</li>
+                    <li><strong>Use comments</strong> - Document complex sections</li>
+                    <li><strong>Optimize performance</strong> - Minimize HTTP requests</li>
+                </ul>
+            </section>
+
+            <section id="interview">
+                <h2>HTML Interview Questions</h2>
+                
+                <h3>1. What is the difference between HTML and XHTML?</h3>
+                <p><strong>Answer:</strong> XHTML is stricter version of HTML that follows XML rules. It requires proper nesting, closing tags, and lowercase elements.</p>
+
+                <h3>2. What are semantic elements?</h3>
+                <p><strong>Answer:</strong> Semantic elements clearly describe their meaning (header, nav, main, article, section, aside, footer) improving SEO and accessibility.</p>
+
+                <h3>3. What is the difference between block and inline elements?</h3>
+                <p><strong>Answer:</strong> Block elements take full width and start on new line (div, p, h1). Inline elements take only necessary width (span, a, strong).</p>
+
+                <h3>4. What are data attributes?</h3>
+                <p><strong>Answer:</strong> Custom attributes starting with 'data-' used to store extra information: <code>&lt;div data-user-id="123"&gt;</code></p>
+
+                <h3>5. What is the purpose of DOCTYPE?</h3>
+                <p><strong>Answer:</strong> DOCTYPE tells the browser which HTML version to use and ensures standards mode rendering.</p>
+            </section>
+        </div>
+    </div>
+
+    <footer></footer>
+
+    <script>
+        window.activePage = "html";
+    </script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>
