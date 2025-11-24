@@ -156,7 +156,6 @@ body {
 }
 
 .container { 
-    max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 20px; 
 }
@@ -235,7 +234,7 @@ header .container {
 }
 
 .card p { 
-    color: var(--text-secondary);
+    color: var(--bg-dark); 
     margin-bottom: 1rem; 
 }
 
@@ -483,6 +482,7 @@ nav {
 .toc-nav {
     padding: 1rem 0;
     color: var(--text-white);
+    background-color: var(--bg-dark);
 }
 
 .toc-nav h3 {
