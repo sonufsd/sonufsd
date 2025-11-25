@@ -19,6 +19,35 @@
     <script>window.activePage = 'spring';</script>
     <script src="../menu.js"></script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                highlightJava(block);
+            });
+        });
+        
+        function highlightJava(element) {
+            let code = element.textContent;
+            
+            code = code.replace(/\b(public|private|protected|static|final|class|interface|extends|implements|import|package|void|int|String|boolean|double|float|long|short|byte|char|if|else|for|while|do|switch|case|default|break|continue|return|try|catch|finally|throw|throws|new|this|super|null|true|false|abstract|synchronized|volatile|transient|native|strictfp|enum|assert|@Configuration|@EnableWebSecurity|@Service|@Component|@Autowired|@Value|@Entity|@Override|@Bean)\b/g, '<span class="keyword">$1</span>');
+            
+            code = code.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+            code = code.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
+            
+            code = code.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
+            code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
+            
+            code = code.replace(/\b\d+(\.\d+)?[fLdF]?\b/g, '<span class="number">$&</span>');
+            
+            code = code.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="method">$1</span>(');
+            
+            code = code.replace(/\b[A-Z][a-zA-Z0-9_]*\b/g, '<span class="class">$&</span>');
+            
+            element.innerHTML = code;
+        }
+    </script>
+    
     <div class="container">
         <div class="content-with-sidebar">
             <aside class="sidebar-toc">
@@ -29,14 +58,7 @@
                     <ul>
                         <li><a href="#overview">Security Overview</a></li>
                         <li><a href="#authentication">Authentication</a></li>
-                        <li><a href="#authorization">Authorization</a></li>
                         <li><a href="#jwt">JWT Security</a></li>
-                        <li><a href="#oauth2">OAuth2</a></li>
-                        <li><a href="#method-security">Method Security</a></li>
-                        <li><a href="#csrf">CSRF Protection</a></li>
-                        <li><a href="#cors">CORS Configuration</a></li>
-                        <li><a href="#testing">Security Testing</a></li>
-                        <li><a href="#best-practices">Best Practices</a></li>
                         <li><a href="#interview">Interview Questions</a></li>
                     </ul>
                 </nav>
@@ -332,7 +354,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         </div>
     </div>
     
-    <footer></footer>
     <script src="../footer.js"></script>
 </body>
 </html>
