@@ -21,6 +21,42 @@
     <script>window.activePage = 'java';</script>
     <script src="../menu.js"></script>
     
+    <script>
+        // Syntax highlighting for Java code
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                highlightJava(block);
+            });
+        });
+        
+        function highlightJava(element) {
+            let code = element.textContent;
+            
+            // Java keywords
+            code = code.replace(/\b(public|private|protected|static|final|class|interface|extends|implements|import|package|void|int|String|boolean|double|float|long|short|byte|char|if|else|for|while|do|switch|case|default|break|continue|return|try|catch|finally|throw|throws|new|this|super|null|true|false|abstract|synchronized|volatile|transient|native|strictfp|enum|assert)\b/g, '<span class="keyword">$1</span>');
+            
+            // Strings
+            code = code.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+            code = code.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
+            
+            // Comments
+            code = code.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
+            code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
+            
+            // Numbers
+            code = code.replace(/\b\d+(\.\d+)?[fLdF]?\b/g, '<span class="number">$&</span>');
+            
+            // Method calls
+            code = code.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="method">$1</span>(');
+            
+            // Class names (capitalized words)
+            code = code.replace(/\b[A-Z][a-zA-Z0-9_]*\b/g, '<span class="class">$&</span>');
+            
+            element.innerHTML = code;
+        }
+    </script>
+    
     <div class="container">
         <div class="content-with-sidebar">
             <aside class="sidebar-toc">
@@ -44,7 +80,7 @@
             </aside>
 
             <div class="main-content">
-                <div class="topic">
+            <div class="topic">
 
                 <section id="lambda-expressions" class="section">
                     <h2>🚀 Lambda Expressions</h2>
@@ -232,6 +268,92 @@ public class CustomFunctionalInterface {
                             <li><strong>Intermediate operations:</strong> filter, map, sorted (return Stream)</li>
                             <li><strong>Terminal operation:</strong> collect, forEach, reduce (triggers execution)</li>
                         </ul>
+                        
+                        <h3>⭐ Complete Stream Tutorial - Beginner to Advanced</h3>
+                        
+                        <h4>🔥 How to Create Streams</h4>
+                        <div class="code-block">
+                            <pre><code>// 1. From a List
+List<String> list = List.of("A", "B", "C");
+list.stream();
+
+// 2. From individual values
+Stream.of("A", "B", "C");
+
+// 3. From Arrays
+Arrays.stream(new int[]{1, 2, 3});
+
+// 4. From IntStream / LongStream
+IntStream.range(1, 5); // 1,2,3,4
+IntStream.rangeClosed(1, 5); // 1,2,3,4,5</code></pre>
+                        </div>
+                        
+                        <h4>🎯 Core Stream Operations</h4>
+                        
+                        <h5>1️⃣ filter() - Keep only matching values</h5>
+                        <div class="code-block">
+                            <pre><code>List<Integer> nums = List.of(10, 15, 20, 25);
+
+nums.stream()
+    .filter(n -> n > 15)
+    .forEach(System.out::println);
+// Output: 20, 25</code></pre>
+                        </div>
+                        
+                        <h5>2️⃣ map() - Transform values</h5>
+                        <div class="code-block">
+                            <pre><code>List<String> names = List.of("java", "spring");
+
+names.stream()
+     .map(String::toUpperCase)
+     .forEach(System.out::println);
+// Output: JAVA, SPRING</code></pre>
+                        </div>
+                        
+                        <h5>3️⃣ collect() - Convert Stream back to List</h5>
+                        <div class="code-block">
+                            <pre><code>List<Integer> even = nums.stream()
+    .filter(n -> n % 2 == 0)
+    .collect(Collectors.toList());</code></pre>
+                        </div>
+                        
+                        <h4>🚀 Advanced Operations</h4>
+                        
+                        <h5>1️⃣ flatMap() - Flatten nested lists</h5>
+                        <div class="code-block">
+                            <pre><code>List<List<Integer>> data = List.of(
+    List.of(1,2),
+    List.of(3,4)
+);
+
+data.stream()
+    .flatMap(List::stream)
+    .forEach(System.out::println);
+// Output: 1, 2, 3, 4</code></pre>
+                        </div>
+                        
+                        <h5>2️⃣ reduce() - Combine values</h5>
+                        <div class="code-block">
+                            <pre><code>int sum = List.of(1,2,3).stream()
+    .reduce(0, (a,b) -> a + b);
+// Result: 6</code></pre>
+                        </div>
+                        
+                        <h4>🔥 Real-World Pipeline Example</h4>
+                        <div class="code-block">
+                            <pre><code>// Input: Mixed case names with empty strings
+List<String> names = List.of("ram", "", "SHYAM", "rahul", "");
+
+// Process: remove empty → uppercase → sort → collect
+List<String> result = names.stream()
+    .filter(s -> !s.isEmpty())     // Remove empty strings
+    .map(String::toUpperCase)      // Convert to uppercase
+    .sorted()                      // Sort alphabetically
+    .collect(Collectors.toList()); // Collect to list
+
+System.out.println(result);
+// Output: [RAHUL, RAM, SHYAM]</code></pre>
+                        </div>
                         
                         <div class="code-block">
                             <pre><code>import java.util.*;
@@ -881,9 +1003,9 @@ Set<String> nameSet = names.stream()
                     </div>
                 </section>
 
-                </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="../footer.js"></script>
