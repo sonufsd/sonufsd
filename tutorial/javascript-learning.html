@@ -1,887 +1,1076 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <title>JavaScript Learning - Sonu Kumar</title>
-    <link rel="stylesheet" href="tutorial-styles.css" />
-  </head>
-  <body class="page-javascript">
+    <link rel="stylesheet" href="tutorial-styles.css">
+</head>
+<body class="page-javascript">
     <header>
-      <div class="container">
-        <div class="hero">
-          <h1>JavaScript Learning Tutorial</h1>
-          <p>Master Modern JavaScript Development</p>
+        <div class="container">
+            <div class="hero">
+                <h1>JavaScript Fundamentals</h1>
+                <p>Master Modern JavaScript for Dynamic Web Development</p>
+            </div>
         </div>
-      </div>
     </header>
     <nav></nav>
-    <script>
-      window.activePage = "javascript";
-    </script>
+    <script>window.activePage = 'javascript';</script>
     <script src="menu.js"></script>
-
+    
     <script>
-      // Syntax highlighting
-      document.addEventListener("DOMContentLoaded", function () {
-        const codeBlocks = document.querySelectorAll("pre code");
-        codeBlocks.forEach((block) => {
-          highlightJavaScript(block);
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                highlightJS(block);
+            });
         });
-      });
-
-      function highlightJavaScript(element) {
-        let code = element.textContent;
-
-        // Keywords
-        code = code.replace(
-          /\b(const|let|var|function|return|if|else|for|while|do|switch|case|break|continue|try|catch|finally|throw|new|this|class|extends|super|static|async|await|import|export|from|default|typeof|instanceof)\b/g,
-          '<span class="keyword">$1</span>'
-        );
-
-        // Strings
-        code = code.replace(
-          /(['"`])((?:\\.|(?!\1)[^\\\r\n])*?)\1/g,
-          '<span class="string">$1$2$1</span>'
-        );
-
-        // Template literals
-        code = code.replace(
-          /(`)([^`]*?)(`)/g,
-          '<span class="string">$1$2$3</span>'
-        );
-
-        // Numbers
-        code = code.replace(
-          /\b(\d+(?:\.\d+)?)\b/g,
-          '<span class="number">$1</span>'
-        );
-
-        // Comments
-        code = code.replace(
-          /\/\*[\s\S]*?\*\//g,
-          '<span class="comment">$&</span>'
-        );
-        code = code.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
-
-        // Built-in objects and methods
-        code = code.replace(
-          /\b(console|document|window|Array|Object|String|Number|Boolean|Date|Math|JSON|Promise|Set|Map|WeakMap|WeakSet|RegExp|Error|setTimeout|setInterval|fetch|localStorage|sessionStorage)\b/g,
-          '<span class="builtin">$1</span>'
-        );
-
-        // Method calls
-        code = code.replace(
-          /\.(\w+)\s*\(/g,
-          '.<span class="method">$1</span>('
-        );
-
-        element.innerHTML = code;
-      }
+        
+        function highlightJS(element) {
+            let code = element.textContent;
+            
+            code = code.replace(/\b(const|let|var|function|return|if|else|for|while|do|switch|case|default|break|continue|try|catch|finally|throw|class|extends|import|export|async|await|true|false|null|undefined|typeof|instanceof)\b/g, '<span class="keyword">$1</span>');
+            
+            code = code.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+            code = code.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
+            code = code.replace(/`([^`]*)`/g, '<span class="string">`$1`</span>');
+            
+            code = code.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
+            code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
+            
+            code = code.replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>');
+            
+            code = code.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="method">$1</span>(');
+            
+            element.innerHTML = code;
+        }
     </script>
+    
     <div class="container">
-      <div class="content-with-sidebar">
-        <div class="sidebar-toc">
-          <div class="toc-header">
-            <h2>📚 Table of Contents</h2>
-          </div>
-          <nav class="toc-nav">
-            <ul>
-              <li><a href="#what-is-js">What is JavaScript?</a></li>
-              <li><a href="#data-types">Data Types</a></li>
-              <li><a href="#variables">Variables & Scope</a></li>
-              <li><a href="#functions">Functions & Context</a></li>
-              <li><a href="#strings">Strings & Templates</a></li>
-              <li><a href="#objects">Objects & Prototypes</a></li>
-              <li><a href="#arrays">Arrays & Methods</a></li>
-              <li><a href="#promises">Promises & Async/Await</a></li>
-              <li><a href="#dom">DOM Manipulation</a></li>
-              <li><a href="#closures">Closures & Higher-Order</a></li>
-              <li><a href="#errors">Error Handling</a></li>
-              <li><a href="#regex">Regular Expressions</a></li>
-              <li><a href="#es6">Modern ES6+ Features</a></li>
-              <li><a href="#performance">Performance & Best Practices</a></li>
-              <li><a href="#nodejs">Node.js Basics</a></li>
-              <li><a href="#interview">Interview Questions</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="main-content">
-          <div class="topic">
-            <h1>JavaScript Fundamentals Refresher</h1>
+        <div class="content-with-sidebar">
+            <aside class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>📚 JavaScript Topics</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">JavaScript Overview</a></li>
+                        <li><a href="#variables">Variables & Data Types</a></li>
+                        <li><a href="#functions">Functions</a></li>
+                        <li><a href="#objects">Objects & Arrays</a></li>
+                        <li><a href="#dom">DOM Manipulation</a></li>
+                        <li><a href="#events">Event Handling</a></li>
+                        <li><a href="#async">Async Programming</a></li>
+                        <li><a href="#es6">ES6+ Features</a></li>
+                        <li><a href="#modules">Modules</a></li>
+                        <li><a href="#error-handling">Error Handling</a></li>
+                        <li><a href="#best-practices">Best Practices</a></li>
+                        <li><a href="#interview">Interview Questions</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-            <section id="what-is-js" class="section">
-              <h2>🚀 What is JavaScript?</h2>
-              <p><strong>What it is:</strong> JavaScript is a versatile, high-level programming language that runs in browsers and servers (Node.js) for creating interactive web applications.</p>
-              <p><strong>How it works:</strong> Interpreted language with dynamic typing, event-driven execution, and single-threaded with asynchronous capabilities through event loop.</p>
-              <p><strong>Why use it:</strong> Only language that runs natively in browsers, huge ecosystem, supports multiple programming paradigms, and essential for modern web development.</p>
-              
-              <div class="subsection">
-                <h3>Key Characteristics</h3>
-                <ul>
-                  <li><strong>Dynamic Typing:</strong> Variables can hold any type of value</li>
-                  <li><strong>Event-Driven:</strong> Responds to user interactions and system events</li>
-                  <li><strong>Prototype-Based:</strong> Object inheritance through prototypes</li>
-                  <li><strong>First-Class Functions:</strong> Functions are values that can be passed around</li>
-                  <li><strong>Asynchronous:</strong> Non-blocking operations with callbacks, promises, async/await</li>
-                </ul>
-              </div>
-            </section>
+            <div class="main-content">
+            <div class="topic">
 
-            <section id="data-types" class="section">
-              <h2>📊 JavaScript Data Types</h2>
-              <p><strong>What it covers:</strong> JavaScript has two categories of data types that behave differently in memory and assignment.</p>
-              <p><strong>How they differ:</strong> Primitives are stored by value and immutable, while reference types are stored by reference and mutable.</p>
-              
-              <div class="subsection">
-                <h3>Primitive Types (Stored by Value)</h3>
-                <ul>
-                  <li><strong>string:</strong> Text data - 'hello', "world", `template`</li>
-                  <li><strong>number:</strong> Integers and floats - 42, 3.14, NaN, Infinity</li>
-                  <li><strong>boolean:</strong> true or false</li>
-                  <li><strong>null:</strong> Intentional absence of value</li>
-                  <li><strong>undefined:</strong> Variable declared but not assigned</li>
-                  <li><strong>symbol:</strong> Unique identifier (ES6+)</li>
-                  <li><strong>bigint:</strong> Large integers beyond Number.MAX_SAFE_INTEGER</li>
-                </ul>
-              </div>
-              
-              <div class="subsection">
-                <h3>Reference Types (Stored by Reference)</h3>
-                <ul>
-                  <li><strong>object:</strong> Key-value pairs - {name: 'John'}</li>
-                  <li><strong>array:</strong> Ordered list - [1, 2, 3]</li>
-                  <li><strong>function:</strong> Reusable code blocks</li>
-                  <li><strong>Date, RegExp, Map, Set:</strong> Built-in objects</li>
-                </ul>
-              </div>
-            </section>
+                <section id="overview" class="section">
+                    <h2>🚀 JavaScript Overview</h2>
+                    
+                    <div class="subsection">
+                        <h3>What is JavaScript?</h3>
+                        <p><strong>Definition:</strong> JavaScript is a high-level, interpreted programming language that enables interactive web pages and dynamic content. It's the programming language of the web.</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li><strong>Dynamic:</strong> Variables can change types at runtime</li>
+                            <li><strong>Interpreted:</strong> No compilation step required</li>
+                            <li><strong>Event-driven:</strong> Responds to user interactions</li>
+                            <li><strong>Prototype-based:</strong> Object-oriented through prototypes</li>
+                            <li><strong>First-class functions:</strong> Functions are values</li>
+                            <li><strong>Asynchronous:</strong> Non-blocking operations support</li>
+                        </ul>
+                        
+                        <h4>JavaScript Environments:</h4>
+                        <div class="code-block">
+                            <pre><code>// Browser Environment
+console.log('Running in browser');
+document.getElementById('myElement');
+window.location.href = 'https://example.com';
 
-            <section id="variables" class="section">
-              <h2>🔧 Variables & Scope</h2>
-              <p><strong>What it does:</strong> Variables store data values and scope determines where variables can be accessed in your code.</p>
-              <p><strong>How it works:</strong> JavaScript has function scope (var) and block scope (let/const), with lexical scoping and closure behavior.</p>
-              <p><strong>Best Practice:</strong> Use const by default, let when you need to reassign, avoid var completely in modern JavaScript.</p>
+// Node.js Environment
+const fs = require('fs');
+const path = require('path');
+process.env.NODE_ENV;
 
-              <div class="subsection">
-                <h3>Variable Declarations</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// var - function scoped (avoid, legacy)
-var x = 5;
+// Modern Module System
+import { myFunction } from './module.js';
+export default myClass;</code></pre>
+                        </div>
+                        
+                        <h4>Including JavaScript in HTML:</h4>
+                        <div class="code-block">
+                            <pre><code>&lt;!-- External JavaScript (Recommended) --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;
 
-// let - block scoped, reassignable (use this)
+&lt;!-- Internal JavaScript --&gt;
+&lt;script&gt;
+    console.log('Hello, World!');
+&lt;/script&gt;
+
+&lt;!-- Inline JavaScript (Avoid) --&gt;
+&lt;button onclick="alert('Clicked!')"&gt;Click me&lt;/button&gt;
+
+&lt;!-- Modern module loading --&gt;
+&lt;script type="module" src="app.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="variables" class="section">
+                    <h2>📦 Variables & Data Types</h2>
+                    
+                    <div class="subsection">
+                        <h3>Variable Declarations</h3>
+                        <div class="code-block">
+                            <pre><code>// var (function-scoped, hoisted, can be redeclared)
+var oldStyle = 'avoid using var';
+var oldStyle = 'can redeclare'; // No error
+
+// let (block-scoped, hoisted but not initialized)
+let modernVariable = 'preferred for variables';
 let count = 0;
-if (true) {
-    let count = 10;  // Different scope
+// let count = 1; // Error: cannot redeclare
+
+// const (block-scoped, must be initialized, immutable binding)
+const CONSTANT_VALUE = 'cannot be reassigned';
+const config = { api: 'https://api.example.com' };
+config.api = 'https://new-api.com'; // OK: object is mutable
+// config = {}; // Error: cannot reassign
+
+// Scope examples
+function scopeExample() {
+    if (true) {
+        var functionScoped = 'accessible throughout function';
+        let blockScoped = 'only accessible in this block';
+        const alsoBlockScoped = 'also only in this block';
+    }
+    
+    console.log(functionScoped); // Works
+    // console.log(blockScoped); // ReferenceError
+    // console.log(alsoBlockScoped); // ReferenceError
+}</code></pre>
+                        </div>
+                        
+                        <h3>Data Types</h3>
+                        <div class="code-block">
+                            <pre><code>// Primitive Types
+let stringType = 'Hello World';
+let numberType = 42;
+let bigintType = 123456789012345678901234567890n;
+let booleanType = true;
+let undefinedType = undefined;
+let nullType = null;
+let symbolType = Symbol('unique');
+
+// Type checking
+console.log(typeof stringType);    // "string"
+console.log(typeof numberType);    // "number"
+console.log(typeof bigintType);    // "bigint"
+console.log(typeof booleanType);   // "boolean"
+console.log(typeof undefinedType); // "undefined"
+console.log(typeof nullType);      // "object" (JavaScript quirk)
+console.log(typeof symbolType);    // "symbol"
+
+// Reference Types
+let objectType = { name: 'John', age: 30 };
+let arrayType = [1, 2, 3, 4, 5];
+let functionType = function() { return 'Hello'; };
+let dateType = new Date();
+let regexType = /pattern/gi;
+
+console.log(typeof objectType);    // "object"
+console.log(typeof arrayType);     // "object"
+console.log(typeof functionType);  // "function"
+console.log(typeof dateType);      // "object"
+console.log(typeof regexType);     // "object"
+
+// Better type checking
+console.log(Array.isArray(arrayType));           // true
+console.log(objectType instanceof Object);       // true
+console.log(dateType instanceof Date);           // true
+console.log(Object.prototype.toString.call(arrayType)); // "[object Array]"</code></pre>
+                        </div>
+                        
+                        <h3>Type Conversion</h3>
+                        <div class="code-block">
+                            <pre><code>// Implicit conversion (coercion)
+console.log('5' + 3);        // "53" (string concatenation)
+console.log('5' - 3);        // 2 (numeric subtraction)
+console.log('5' * '2');      // 10 (numeric multiplication)
+console.log(true + 1);       // 2 (boolean to number)
+console.log(false + 1);      // 1
+console.log(null + 1);       // 1 (null becomes 0)
+console.log(undefined + 1);  // NaN
+
+// Explicit conversion
+// To String
+let num = 123;
+let str1 = String(num);           // "123"
+let str2 = num.toString();        // "123"
+let str3 = `${num}`;              // "123" (template literal)
+
+// To Number
+let str = '123';
+let num1 = Number(str);           // 123
+let num2 = parseInt(str);         // 123
+let num3 = parseFloat('123.45');  // 123.45
+let num4 = +str;                  // 123 (unary plus)
+
+// To Boolean
+let bool1 = Boolean(1);           // true
+let bool2 = Boolean(0);           // false
+let bool3 = Boolean('');          // false
+let bool4 = Boolean('hello');     // true
+let bool5 = !!str;                // true (double negation)
+
+// Falsy values in JavaScript
+console.log(Boolean(false));      // false
+console.log(Boolean(0));          // false
+console.log(Boolean(-0));         // false
+console.log(Boolean(0n));         // false
+console.log(Boolean(''));         // false
+console.log(Boolean(null));       // false
+console.log(Boolean(undefined));  // false
+console.log(Boolean(NaN));        // false</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="functions" class="section">
+                    <h2>⚡ Functions</h2>
+                    
+                    <div class="subsection">
+                        <h3>Function Declarations and Expressions</h3>
+                        <div class="code-block">
+                            <pre><code>// Function Declaration (hoisted)
+function greet(name) {
+    return `Hello, ${name}!`;
 }
-console.log(count);  // 0
 
-// const - block scoped, not reassignable
-const PI = 3.14159;
-const obj = { name: 'John' };
-obj.name = 'Jane';  // OK - modifying object
-// obj = {};  // ERROR - can't reassign
+// Function Expression (not hoisted)
+const greetExpression = function(name) {
+    return `Hello, ${name}!`;
+};
 
-// Scope chain & closure
-function outer() {
-    let a = 5;
-    return function inner() {
-        return a + 10;  // Access outer 'a'
+// Arrow Functions (ES6+)
+const greetArrow = (name) => {
+    return `Hello, ${name}!`;
+};
+
+// Concise arrow function
+const greetConcise = name => `Hello, ${name}!`;
+
+// Multiple parameters
+const add = (a, b) => a + b;
+
+// No parameters
+const getCurrentTime = () => new Date().toLocaleTimeString();
+
+// Rest parameters
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+// Default parameters
+function createUser(name, age = 18, role = 'user') {
+    return { name, age, role };
+}
+
+console.log(createUser('John'));                    // { name: 'John', age: 18, role: 'user' }
+console.log(createUser('Jane', 25, 'admin'));       // { name: 'Jane', age: 25, role: 'admin' }
+
+// Destructuring parameters
+function processUser({ name, age, email }) {
+    console.log(`Processing user: ${name}, ${age}, ${email}`);
+}
+
+processUser({ name: 'John', age: 30, email: 'john@example.com' });</code></pre>
+                        </div>
+                        
+                        <h3>Advanced Function Concepts</h3>
+                        <div class="code-block">
+                            <pre><code>// Higher-order functions
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
     };
 }
-const fn = outer();
-console.log(fn());  // 15
-                            </code></pre>
-                </div>
-              </div>
-            </section>
 
-            <section id="functions" class="section">
-              <h2>⚡ Functions & Context (this)</h2>
-              <p><strong>What it does:</strong> Functions are reusable blocks of code that can accept parameters and return values, with different syntax options.</p>
-              <p><strong>How it works:</strong> Regular functions have their own 'this' context, arrow functions inherit 'this' from parent scope.</p>
-              <p><strong>Key Difference:</strong> Arrow functions are more concise but can't be used as constructors and don't have their own 'this'.</p>
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
 
-              <div class="subsection">
-                <h3>Function Syntax & Context</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Traditional function
-function add(a, b) {
-    return a + b;
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+
+// Callback functions
+function processArray(arr, callback) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i], i));
+    }
+    return result;
 }
 
-// Arrow function - concise
-const add = (a, b) => a + b;
-const square = x => x * x;
-const greet = () => 'Hello';
+const numbers = [1, 2, 3, 4, 5];
+const doubled = processArray(numbers, (num, index) => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
 
-// Arrow functions inherit 'this' from parent scope
-const person = {
-    name: 'John',
-    greeting: function() {
-        // 'this' = person object
-        console.log(this.name);
-    },
-    arrow: () => {
-        // 'this' = window/global, NOT person
-        console.log(this);
-    }
-};
-
-// Default parameters & rest operator
-const greet = (name = 'Guest', ...rest) => {
-    console.log(name, rest);
-};
-greet('John', 'a', 'b');  // John ['a', 'b']
-
-// Destructuring
-const [a, b, c] = [1, 2, 3];
-const { name, age } = { name: 'John', age: 30 };
-const person = { name: 'Jane', details: { city: 'NYC' } };
-const { details: { city } } = person;  // Nested destructuring
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="strings" class="section">
-              <h2>📝 Strings & Template Literals</h2>
-              <p><strong>What it does:</strong> Strings represent text data with various methods for manipulation and template literals for dynamic content.</p>
-              <p><strong>How it works:</strong> Template literals use backticks and ${} for interpolation, string methods return new strings (immutable).</p>
-              <p><strong>Modern Approach:</strong> Use template literals for string interpolation and multi-line strings instead of concatenation.</p>
-
-              <div class="subsection">
-                <h3>String Operations</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Template literals with interpolation
-const name = 'John';
-const age = 30;
-const message = `Hello ${name}, you are ${age} years old`;
-
-// Multi-line strings
-const html = `
-    <div>
-        <p>Formatted text</p>
-    </div>
-`;
-
-// Common string methods
-const str = 'JavaScript';
-str.charAt(0);           // 'J'
-str.indexOf('Script');   // 4
-str.includes('Script');  // true
-str.slice(0, 4);         // 'Java'
-str.substring(0, 4);     // 'Java'
-str.toUpperCase();       // 'JAVASCRIPT'
-str.split('');           // ['J','a','v','a','S','c','r','i','p','t']
-str.replace('Java', 'Type');  // 'TypeScript'
-str.trim();              // Remove whitespace
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="objects" class="section">
-              <h2>🏗️ Objects & Prototypes</h2>
-              <p><strong>What it does:</strong> Objects store key-value pairs and JavaScript uses prototype-based inheritance for sharing properties and methods.</p>
-              <p><strong>How it works:</strong> Every object has a prototype chain, ES6 classes are syntactic sugar over prototype-based inheritance.</p>
-              <p><strong>Key Concept:</strong> Understanding prototypes is crucial for JavaScript inheritance and how built-in methods work.</p>
-
-              <div class="subsection">
-                <h3>Object Creation & Inheritance</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Object creation
-const obj = { name: 'John', age: 30 };
-const person = new Object();
-person.name = 'John';
-
-// Object methods
-Object.keys(obj);              // ['name', 'age']
-Object.values(obj);            // ['John', 30]
-Object.entries(obj);           // [['name','John'],['age',30]]
-Object.assign({}, obj);        // Shallow copy
-const copy = { ...obj };       // Spread operator
-
-// Prototypes & Inheritance
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-
-Person.prototype.greet = function() {
-    return `Hello, ${this.name}`;
-};
-
-const john = new Person('John', 30);
-console.log(john.greet());     // 'Hello, John'
-console.log(john instanceof Person);  // true
-
-// ES6 Classes (syntactic sugar over prototypes)
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
-    
-    speak() {
-        return `${this.name} makes sound`;
-    }
-    
-    static info() {
-        return 'This is Animal class';
-    }
-}
-
-class Dog extends Animal {
-    constructor(name, breed) {
-        super(name);
-        this.breed = breed;
-    }
-    
-    speak() {
-        return `${this.name} barks`;
-    }
-}
-
-const dog = new Dog('Buddy', 'Golden');
-console.log(dog.speak());      // 'Buddy barks'
-console.log(Animal.info());    // Static method
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="arrays" class="section">
-              <h2>📋 Arrays & Functional Programming</h2>
-              <p><strong>What it does:</strong> Arrays store ordered collections with powerful methods for data transformation and manipulation.</p>
-              <p><strong>How it works:</strong> Higher-order methods like map, filter, reduce enable functional programming patterns for cleaner code.</p>
-              <p><strong>Performance:</strong> Mutating methods modify original array, non-mutating methods return new arrays - choose based on needs.</p>
-
-              <div class="subsection">
-                <h3>Array Operations</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-const arr = [1, 2, 3, 4, 5];
-
-// Mutating methods (modify original)
-arr.push(6);                   // Add to end [1,2,3,4,5,6]
-arr.unshift(0);                // Add to start [0,1,2,3,4,5,6]
-arr.pop();                      // Remove from end
-arr.shift();                    // Remove from start
-arr.splice(2, 1, 10);          // Remove 1 at index 2, insert 10
-
-// Non-mutating methods (return new array)
-arr.slice(1, 3);               // [2, 3]
-arr.concat([7, 8]);            // [1,2,3,4,5,7,8]
-arr.reverse();                 // Reverse order
-
-// Higher-order methods
-arr.map(x => x * 2);           // [2,4,6,8,10]
-arr.filter(x => x > 2);        // [3,4,5]
-arr.reduce((sum, x) => sum + x, 0);  // 15 (sum)
-arr.find(x => x > 3);          // 4 (first match)
-arr.findIndex(x => x === 3);   // 2 (index)
-arr.some(x => x > 4);          // true
-arr.every(x => x > 0);         // true
-arr.includes(3);               // true
-arr.indexOf(3);                // 2
-
-// Common patterns
-const numbers = [1, 2, 3];
-const squared = numbers.map(n => n * n);  // [1, 4, 9]
-
-const users = [
-    { name: 'John', age: 30 },
-    { name: 'Jane', age: 25 }
-];
-const names = users.map(u => u.name);  // ['John', 'Jane']
-const adults = users.filter(u => u.age >= 30);  // [user objects]
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="promises" class="section">
-              <h2>🔄 Asynchronous JavaScript</h2>
-              <p><strong>What it does:</strong> Handles asynchronous operations like API calls, file operations, and timers without blocking the main thread.</p>
-              <p><strong>How it works:</strong> Promises represent future values, async/await provides synchronous-looking syntax for asynchronous code.</p>
-              <p><strong>Evolution:</strong> Callbacks → Promises → Async/Await, each solving callback hell and improving readability.</p>
-              <div class="subsection">
-                <h3>Promise Operations</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Promise - handle async operations
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve('Success');
-        // reject(new Error('Failed'));
-    }, 1000);
-});
-
-promise
-    .then(result => console.log(result))
-    .catch(error => console.error(error))
-    .finally(() => console.log('Complete'));
-
-// Promise chaining
-fetch('/api/users')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-
-// Async/Await - cleaner syntax
-async function getUsers() {
-    try {
-        const response = await fetch('/api/users');
-        const data = await response.json();
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error('Error:', error);
-    } finally {
-        console.log('Request completed');
-    }
-}
-
-// Promise.all - wait for all
-const results = await Promise.all([
-    fetch('/api/users'),
-    fetch('/api/posts'),
-    fetch('/api/comments')
-]);
-
-// Promise.race - first to complete
-const result = await Promise.race([promise1, promise2]);
-
-// Promise.any - first successful
-const result = await Promise.any([promise1, promise2]);
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="dom" class="section">
-              <h2>🌐 DOM Manipulation & Events</h2>
-              <p><strong>What it does:</strong> Provides JavaScript interface to interact with HTML elements, modify content, styles, and handle user events.</p>
-              <p><strong>How it works:</strong> DOM is a tree structure representing HTML, JavaScript can query, modify, and listen to changes.</p>
-              <p><strong>Best Practice:</strong> Use modern query methods, event delegation for dynamic content, and avoid direct style manipulation.</p>
-              <div class="subsection">
-                <h3>DOM Operations</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Selecting elements
-const el = document.getElementById('myId');
-const els = document.querySelectorAll('.myClass');
-const el = document.querySelector('div > p');
-
-// Modifying content
-el.textContent = 'New text';          // Plain text
-el.innerHTML = '<b>Bold text</b>';    // HTML
-el.innerText = 'Visible text';        // Visible content
-
-// Modifying attributes
-el.setAttribute('data-value', '123');
-el.getAttribute('data-value');
-el.removeAttribute('disabled');
-el.classList.add('active');
-el.classList.remove('inactive');
-el.classList.toggle('hidden');
-el.classList.contains('active');      // true/false
-
-// Styling
-el.style.color = 'red';
-el.style.backgroundColor = 'blue';
-
-// Creating & removing elements
-const newDiv = document.createElement('div');
-newDiv.textContent = 'Hello';
-el.appendChild(newDiv);
-el.removeChild(newDiv);
-newDiv.remove();                       // Direct removal
-
-// Event listeners
-el.addEventListener('click', (e) => {
-    console.log('Clicked', e.target);
-});
-
-el.addEventListener('click', handler);
-el.removeEventListener('click', handler);
-
-// Event delegation
-document.addEventListener('click', (e) => {
-    if (e.target.matches('.btn')) {
-        console.log('Button clicked:', e.target);
-    }
-});
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="closures" class="section">
-              <h2>🔒 Closures & Advanced Functions</h2>
-              <p><strong>What it does:</strong> Closures allow functions to access variables from outer scope even after outer function returns.</p>
-              <p><strong>How it works:</strong> Inner functions maintain reference to outer scope variables, creating private variables and data encapsulation.</p>
-              <p><strong>Use Cases:</strong> Module pattern, data privacy, function factories, and maintaining state in functional programming.</p>
-              <div class="subsection">
-                <h3>Closure Patterns</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Closure - function with access to outer scope
-function makeCounter() {
+// Closures
+function createCounter() {
     let count = 0;
+    
     return {
         increment: () => ++count,
         decrement: () => --count,
-        getCount: () => count
+        getValue: () => count
     };
 }
 
-const counter = makeCounter();
-console.log(counter.increment());  // 1
-console.log(counter.increment());  // 2
-console.log(counter.getCount());   // 2
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.getValue());  // 2
 
-// Data privacy pattern
-function createUser(name) {
-    let _private = 'secret';  // Private variable
-    
-    return {
-        getName: () => name,
-        isPrivateAccessible: () => _private
-    };
-}
-
-// Higher-order functions
-const multiply = (factor) => (n) => n * factor;
-const double = multiply(2);
-const triple = multiply(3);
-console.log(double(5));            // 10
-console.log(triple(5));            // 15
-
-// Function composition
-const compose = (f, g) => (x) => f(g(x));
-const add5 = x => x + 5;
-const multiply2 = x => x * 2;
-const addThenMultiply = compose(multiply2, add5);
-console.log(addThenMultiply(3));   // (3+5)*2 = 16
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="errors" class="section">
-              <h2>⚠️ Error Handling & Debugging</h2>
-              <p><strong>What it does:</strong> Provides mechanisms to catch, handle, and debug errors gracefully without crashing the application.</p>
-              <p><strong>How it works:</strong> Try-catch blocks handle synchronous errors, promise .catch() and async/await try-catch handle async errors.</p>
-              <p><strong>Best Practice:</strong> Always handle errors appropriately, use specific error types, and provide meaningful error messages.</p>
-              <div class="subsection">
-                <h3>Error Management</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Try-catch-finally
-try {
-    const result = riskyOperation();
-    console.log(result);
-} catch (error) {
-    console.error('Error message:', error.message);
-    console.error('Stack:', error.stack);
-} finally {
-    console.log('Cleanup');
-}
-
-// Throwing errors
-function validateEmail(email) {
-    if (!email.includes('@')) {
-        throw new Error('Invalid email');
-    }
-    return true;
-}
-
-// Custom error class
-class ValidationError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'ValidationError';
-    }
-}
-
-throw new ValidationError('Email is required');
-
-// Debugging
-console.log('Simple:', value);
-console.warn('Warning:', issue);
-console.error('Error:', problem);
-console.table(data);               // Table format
-console.group('Group');
-    console.log('Item 1');
-    console.log('Item 2');
-console.groupEnd();
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="regex" class="section">
-              <h2>🔍 Regular Expressions</h2>
-              <p><strong>What it does:</strong> Pattern matching tool for searching, validating, and manipulating strings using special syntax.</p>
-              <p><strong>How it works:</strong> Uses metacharacters and quantifiers to define patterns, methods like test(), match(), replace() apply patterns.</p>
-              <p><strong>Common Uses:</strong> Form validation, data extraction, string replacement, and input sanitization.</p>
-              <div class="subsection">
-                <h3>Regex Patterns</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Creating regex
-const regex1 = /hello/i;                     // Literal, i=case insensitive
-const regex2 = new RegExp('hello', 'i');     // Constructor
-
-// Common patterns
-/^[a-z0-9]+@[a-z]+\.[a-z]{2,}$/    // Email validation
-/^\d{3}-\d{3}-\d{4}$/               // Phone: 123-456-7890
-/^https?:\/\/.+/                   // URL
-/^[A-Za-z\s]+$/                    // Only letters and spaces
-
-// Methods
-const email = 'john@example.com';
-email.match(/[a-z]+/g);             // ['john', 'example', 'com']
-email.replace(/@.*/, '');           // 'john'
-email.search(/@/);                  // 4
-/john/.test(email);                 // true
-
-// Regex flags
-/pattern/g                          // global - all matches
-/pattern/i                          // case insensitive
-/pattern/m                          // multiline
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="es6" class="section">
-              <h2>✨ Modern ES6+ Features</h2>
-              <p><strong>What it covers:</strong> Modern JavaScript features that improve code readability, performance, and developer experience.</p>
-              <p><strong>How to adopt:</strong> These features are widely supported and should be used in modern JavaScript development for cleaner code.</p>
-              <p><strong>Impact:</strong> Reduces boilerplate code, prevents common errors, and enables more functional programming patterns.</p>
-              <div class="subsection">
-                <h3>ES6+ Syntax</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Spread operator
-const arr = [1, 2, 3];
-const arr2 = [...arr, 4, 5];       // [1, 2, 3, 4, 5]
-const obj2 = { ...obj1, name: 'Jane' };
-
-// Optional chaining
-const city = user?.address?.city;  // undefined if any is null
-
-// Nullish coalescing
-const name = user.name ?? 'Guest';  // Use default if null/undefined
-
-// Nullish assignment
-user.name ??= 'Anonymous';
-
-// Logical assignment
-obj.active ||= true;               // If falsy, assign true
-obj.count &&= 5;                   // If truthy, assign 5
-
-// for...of vs for...in
-for (const value of arr) { }       // Values of iterable
-for (const key in obj) { }         // Keys of object
-
-// Sets & Maps
-const uniqueNums = new Set([1, 2, 2, 3, 3, 3]);  // {1, 2, 3}
-uniqueNums.add(4);
-uniqueNums.has(2);                 // true
-uniqueNums.delete(1);
-
-const map = new Map();
-map.set('key', 'value');
-map.get('key');                    // 'value'
-map.has('key');                    // true
-
-// WeakMap & WeakSet (for garbage collection)
-const wm = new WeakMap();
-let obj = {};
-wm.set(obj, 'private data');
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-
-
-            <section id="performance" class="section">
-              <h2>⚡ Performance & Best Practices</h2>
-              <p><strong>What it covers:</strong> Techniques to write efficient JavaScript code that performs well and follows industry standards.</p>
-              <p><strong>How to apply:</strong> Measure performance first, then optimize bottlenecks using appropriate techniques and patterns.</p>
-              <p><strong>Key Principle:</strong> Premature optimization is the root of all evil - write clean code first, optimize when needed.</p>
-              <div class="subsection">
-                <h3>Optimization Techniques</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Avoid global variables
-// ❌ BAD
-var globalVar = 'bad';
-
-// ✅ GOOD
-const local = 'good';
+// IIFE (Immediately Invoked Function Expression)
 (function() {
-    const scoped = 'better';
+    console.log('IIFE executed immediately');
 })();
 
-// Cache DOM queries
-// ❌ BAD
-for (let i = 0; i < 1000; i++) {
-    document.querySelector('.item').style.color = 'red';
+// Arrow function IIFE
+(() => {
+    console.log('Arrow IIFE executed');
+})();
+
+// Function methods: call, apply, bind
+const person = {
+    name: 'John',
+    greet: function(greeting, punctuation) {
+        return `${greeting}, I'm ${this.name}${punctuation}`;
+    }
+};
+
+const anotherPerson = { name: 'Jane' };
+
+// call - invoke immediately with specific 'this'
+console.log(person.greet.call(anotherPerson, 'Hello', '!')); // "Hello, I'm Jane!"
+
+// apply - like call but with array of arguments
+console.log(person.greet.apply(anotherPerson, ['Hi', '.'])); // "Hi, I'm Jane."
+
+// bind - create new function with bound 'this'
+const boundGreet = person.greet.bind(anotherPerson);
+console.log(boundGreet('Hey', '?')); // "Hey, I'm Jane?"</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="objects" class="section">
+                    <h2>🏗️ Objects & Arrays</h2>
+                    
+                    <div class="subsection">
+                        <h3>Objects</h3>
+                        <div class="code-block">
+                            <pre><code>// Object creation
+const person = {
+    name: 'John Doe',
+    age: 30,
+    email: 'john@example.com',
+    address: {
+        street: '123 Main St',
+        city: 'New York',
+        zipCode: '10001'
+    },
+    hobbies: ['reading', 'swimming', 'coding'],
+    
+    // Methods
+    greet: function() {
+        return `Hello, I'm ${this.name}`;
+    },
+    
+    // ES6 method shorthand
+    introduce() {
+        return `I'm ${this.name}, ${this.age} years old`;
+    },
+    
+    // Getter
+    get fullInfo() {
+        return `${this.name} (${this.age}) - ${this.email}`;
+    },
+    
+    // Setter
+    set fullName(name) {
+        this.name = name;
+    }
+};
+
+// Accessing properties
+console.log(person.name);           // Dot notation
+console.log(person['age']);         // Bracket notation
+console.log(person.address.city);   // Nested property
+
+// Dynamic property access
+const prop = 'email';
+console.log(person[prop]);          // john@example.com
+
+// Adding/modifying properties
+person.phone = '+1-555-0123';
+person['country'] = 'USA';
+person.age = 31;
+
+// Deleting properties
+delete person.phone;
+
+// Object methods
+console.log(Object.keys(person));           // Array of property names
+console.log(Object.values(person));         // Array of property values
+console.log(Object.entries(person));        // Array of [key, value] pairs
+
+// Object destructuring
+const { name, age, email } = person;
+const { street, city } = person.address;
+
+// Destructuring with renaming
+const { name: fullName, age: yearsOld } = person;
+
+// Destructuring with default values
+const { phone = 'N/A', country = 'Unknown' } = person;
+
+// Rest in destructuring
+const { name: personName, ...otherInfo } = person;
+
+// Object spread operator
+const updatedPerson = {
+    ...person,
+    age: 32,
+    phone: '+1-555-0456'
+};
+
+// Object.assign()
+const newPerson = Object.assign({}, person, { age: 33 });</code></pre>
+                        </div>
+                        
+                        <h3>Arrays</h3>
+                        <div class="code-block">
+                            <pre><code>// Array creation
+const fruits = ['apple', 'banana', 'orange'];
+const numbers = new Array(1, 2, 3, 4, 5);
+const mixed = ['text', 42, true, { name: 'object' }, [1, 2, 3]];
+
+// Array methods - Mutating
+fruits.push('grape');              // Add to end
+fruits.unshift('mango');           // Add to beginning
+const lastFruit = fruits.pop();   // Remove from end
+const firstFruit = fruits.shift(); // Remove from beginning
+
+fruits.splice(1, 2, 'kiwi', 'pear'); // Remove 2 items at index 1, add 'kiwi' and 'pear'
+fruits.sort();                     // Sort alphabetically
+fruits.reverse();                  // Reverse order
+
+// Array methods - Non-mutating
+const numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// filter - select elements that meet condition
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+
+// reduce - accumulate values
+const sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum); // 15
+
+// find - first element that meets condition
+const found = numbers.find(num => num > 3);
+console.log(found); // 4
+
+// findIndex - index of first element that meets condition
+const index = numbers.findIndex(num => num > 3);
+console.log(index); // 3
+
+// some - check if any element meets condition
+const hasEven = numbers.some(num => num % 2 === 0);
+console.log(hasEven); // true
+
+// every - check if all elements meet condition
+const allPositive = numbers.every(num => num > 0);
+console.log(allPositive); // true
+
+// includes - check if array contains value
+console.log(numbers.includes(3)); // true
+
+// Array destructuring
+const [first, second, ...rest] = numbers;
+console.log(first);  // 1
+console.log(second); // 2
+console.log(rest);   // [3, 4, 5]
+
+// Array spread operator
+const moreNumbers = [0, ...numbers, 6, 7];
+console.log(moreNumbers); // [0, 1, 2, 3, 4, 5, 6, 7]
+
+// Multi-dimensional arrays
+const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+console.log(matrix[1][2]); // 6
+
+// Array of objects
+const users = [
+    { id: 1, name: 'John', age: 30 },
+    { id: 2, name: 'Jane', age: 25 },
+    { id: 3, name: 'Bob', age: 35 }
+];
+
+const adults = users.filter(user => user.age >= 30);
+const names = users.map(user => user.name);
+const totalAge = users.reduce((sum, user) => sum + user.age, 0);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="dom" class="section">
+                    <h2>🌐 DOM Manipulation</h2>
+                    
+                    <div class="subsection">
+                        <h3>Selecting Elements</h3>
+                        <div class="code-block">
+                            <pre><code>// Single element selection
+const elementById = document.getElementById('myId');
+const elementByQuery = document.querySelector('.my-class');
+const elementByTag = document.querySelector('h1');
+
+// Multiple element selection
+const elementsByClass = document.getElementsByClassName('my-class');
+const elementsByTag = document.getElementsByTagName('p');
+const elementsByQuery = document.querySelectorAll('.my-class');
+
+// Advanced selectors
+const firstParagraph = document.querySelector('p:first-child');
+const lastListItem = document.querySelector('li:last-child');
+const evenRows = document.querySelectorAll('tr:nth-child(even)');
+const dataElements = document.querySelectorAll('[data-category="tech"]');
+
+// Element relationships
+const parent = element.parentElement;
+const children = element.children;
+const firstChild = element.firstElementChild;
+const lastChild = element.lastElementChild;
+const nextSibling = element.nextElementSibling;
+const prevSibling = element.previousElementSibling;
+
+// Check if element exists
+if (elementById) {
+    // Element exists, safe to manipulate
+    elementById.textContent = 'Element found!';
+}</code></pre>
+                        </div>
+                        
+                        <h3>Manipulating Elements</h3>
+                        <div class="code-block">
+                            <pre><code>// Content manipulation
+const element = document.getElementById('myElement');
+
+element.textContent = 'Plain text content';
+element.innerHTML = '<strong>HTML content</strong>';
+element.innerText = 'Visible text only';
+
+// Attribute manipulation
+element.setAttribute('data-id', '123');
+element.setAttribute('class', 'new-class');
+const dataId = element.getAttribute('data-id');
+element.removeAttribute('data-id');
+
+// Modern attribute access
+element.id = 'newId';
+element.className = 'class1 class2';
+element.dataset.userId = '456'; // Sets data-user-id="456"
+
+// Style manipulation
+element.style.color = 'red';
+element.style.backgroundColor = 'yellow';
+element.style.fontSize = '18px';
+
+// CSS class manipulation
+element.classList.add('new-class');
+element.classList.remove('old-class');
+element.classList.toggle('active');
+element.classList.contains('my-class'); // returns boolean
+element.classList.replace('old-class', 'new-class');
+
+// Creating new elements
+const newDiv = document.createElement('div');
+newDiv.textContent = 'New element';
+newDiv.className = 'dynamic-element';
+
+const newParagraph = document.createElement('p');
+newParagraph.innerHTML = 'This is a <strong>new paragraph</strong>';
+
+// Adding elements to DOM
+const container = document.getElementById('container');
+container.appendChild(newDiv);
+container.insertBefore(newParagraph, container.firstChild);
+
+// Modern insertion methods
+container.prepend(newDiv);           // Add as first child
+container.append(newParagraph);      // Add as last child
+element.before(newDiv);              // Insert before element
+element.after(newParagraph);         // Insert after element
+
+// Removing elements
+element.remove();                    // Remove element itself
+container.removeChild(element);      // Remove child element
+
+// Cloning elements
+const clone = element.cloneNode(true); // true = deep clone (includes children)
+const shallowClone = element.cloneNode(false);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="events" class="section">
+                    <h2>⚡ Event Handling</h2>
+                    
+                    <div class="subsection">
+                        <h3>Event Listeners</h3>
+                        <div class="code-block">
+                            <pre><code>// Basic event listener
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function(event) {
+    console.log('Button clicked!');
+    console.log('Event type:', event.type);
+    console.log('Target element:', event.target);
+});
+
+// Arrow function event listener
+button.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default behavior
+    console.log('Arrow function handler');
+});
+
+// Named function handler
+function handleButtonClick(event) {
+    console.log('Named function handler');
 }
 
-// ✅ GOOD
-const element = document.querySelector('.item');
-for (let i = 0; i < 1000; i++) {
-    element.style.color = 'red';
+button.addEventListener('click', handleButtonClick);
+
+// Remove event listener
+button.removeEventListener('click', handleButtonClick);
+
+// Event listener options
+button.addEventListener('click', handleClick, {
+    once: true,      // Execute only once
+    passive: true,   // Never calls preventDefault()
+    capture: true    // Capture phase instead of bubble phase
+});
+
+// Multiple event types
+const input = document.getElementById('myInput');
+
+['focus', 'blur', 'input'].forEach(eventType => {
+    input.addEventListener(eventType, (event) => {
+        console.log(`${eventType} event triggered`);
+    });
+});
+
+// Common event types
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded');
+});
+
+window.addEventListener('load', () => {
+    console.log('Page fully loaded including images');
+});
+
+window.addEventListener('resize', () => {
+    console.log('Window resized');
+});
+
+document.addEventListener('keydown', (event) => {
+    console.log('Key pressed:', event.key);
+    if (event.key === 'Escape') {
+        console.log('Escape key pressed');
+    }
+});
+
+// Form events
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent form submission
+    
+    const formData = new FormData(form);
+    console.log('Form data:', Object.fromEntries(formData));
+});
+
+input.addEventListener('input', (event) => {
+    console.log('Input value changed:', event.target.value);
+});
+
+input.addEventListener('change', (event) => {
+    console.log('Input value committed:', event.target.value);
+});</code></pre>
+                        </div>
+                        
+                        <h3>Event Delegation and Propagation</h3>
+                        <div class="code-block">
+                            <pre><code>// Event delegation - handle events on parent for dynamic children
+const list = document.getElementById('myList');
+
+list.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+        console.log('List item clicked:', event.target.textContent);
+        event.target.classList.toggle('selected');
+    }
+});
+
+// Add new list items dynamically
+function addListItem(text) {
+    const li = document.createElement('li');
+    li.textContent = text;
+    list.appendChild(li);
 }
 
-// Debouncing & Throttling
-function debounce(fn, delay) {
-    let timeout;
-    return function(...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn(...args), delay);
-    };
-}
+// Event propagation example
+const outer = document.getElementById('outer');
+const inner = document.getElementById('inner');
 
-function throttle(fn, limit) {
-    let lastCall = 0;
-    return function(...args) {
-        const now = Date.now();
-        if (now - lastCall >= limit) {
-            fn(...args);
-            lastCall = now;
+outer.addEventListener('click', () => {
+    console.log('Outer div clicked');
+});
+
+inner.addEventListener('click', (event) => {
+    console.log('Inner div clicked');
+    event.stopPropagation(); // Stop event from bubbling up
+});
+
+// Capture phase
+outer.addEventListener('click', () => {
+    console.log('Outer div - capture phase');
+}, true);
+
+// Custom events
+const customEvent = new CustomEvent('myCustomEvent', {
+    detail: { message: 'Hello from custom event!' }
+});
+
+document.addEventListener('myCustomEvent', (event) => {
+    console.log('Custom event received:', event.detail.message);
+});
+
+// Dispatch custom event
+document.dispatchEvent(customEvent);
+
+// Mouse events
+const element = document.getElementById('mouseTarget');
+
+element.addEventListener('mouseenter', () => {
+    console.log('Mouse entered');
+});
+
+element.addEventListener('mouseleave', () => {
+    console.log('Mouse left');
+});
+
+element.addEventListener('mousemove', (event) => {
+    console.log('Mouse position:', event.clientX, event.clientY);
+});
+
+// Touch events (mobile)
+element.addEventListener('touchstart', (event) => {
+    console.log('Touch started');
+    event.preventDefault(); // Prevent scrolling
+});
+
+element.addEventListener('touchmove', (event) => {
+    const touch = event.touches[0];
+    console.log('Touch position:', touch.clientX, touch.clientY);
+});
+
+element.addEventListener('touchend', () => {
+    console.log('Touch ended');
+});</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="async" class="section">
+                    <h2>⏰ Async Programming</h2>
+                    
+                    <div class="subsection">
+                        <h3>Promises</h3>
+                        <div class="code-block">
+                            <pre><code>// Creating a Promise
+const myPromise = new Promise((resolve, reject) => {
+    const success = Math.random() > 0.5;
+    
+    setTimeout(() => {
+        if (success) {
+            resolve('Operation successful!');
+        } else {
+            reject(new Error('Operation failed!'));
         }
-    };
+    }, 1000);
+});
+
+// Using Promises
+myPromise
+    .then(result => {
+        console.log('Success:', result);
+        return 'Next step';
+    })
+    .then(nextResult => {
+        console.log('Next:', nextResult);
+    })
+    .catch(error => {
+        console.error('Error:', error.message);
+    })
+    .finally(() => {
+        console.log('Promise completed');
+    });
+
+// Promise utility methods
+const promise1 = Promise.resolve('Quick success');
+const promise2 = Promise.reject(new Error('Quick failure'));
+const promise3 = new Promise(resolve => setTimeout(() => resolve('Delayed success'), 2000));
+
+// Promise.all - wait for all promises
+Promise.all([promise1, promise3])
+    .then(results => {
+        console.log('All resolved:', results);
+    })
+    .catch(error => {
+        console.log('One failed:', error);
+    });
+
+// Promise.allSettled - wait for all promises (success or failure)
+Promise.allSettled([promise1, promise2, promise3])
+    .then(results => {
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled') {
+                console.log(`Promise ${index} succeeded:`, result.value);
+            } else {
+                console.log(`Promise ${index} failed:`, result.reason);
+            }
+        });
+    });
+
+// Promise.race - first promise to resolve/reject wins
+Promise.race([promise1, promise3])
+    .then(result => {
+        console.log('First to finish:', result);
+    });
+
+// Fetch API (returns Promise)
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Fetched data:', data);
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });</code></pre>
+                        </div>
+                        
+                        <h3>Async/Await</h3>
+                        <div class="code-block">
+                            <pre><code>// Async function declaration
+async function fetchUserData(userId) {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        throw error; // Re-throw to allow caller to handle
+    }
 }
 
-// Memoization - cache function results
-function memoize(fn) {
-    const cache = {};
-    return (arg) => {
-        if (arg in cache) return cache[arg];
-        cache[arg] = fn(arg);
-        return cache[arg];
-    };
+// Using async function
+async function displayUser() {
+    try {
+        const user = await fetchUserData(1);
+        console.log('User:', user.name);
+        console.log('Email:', user.email);
+    } catch (error) {
+        console.log('Failed to display user');
+    }
 }
 
-const factorial = memoize((n) => n <= 1 ? 1 : n * factorial(n - 1));
-                            </code></pre>
-                </div>
-              </div>
-            </section>
+displayUser();
 
-            <section id="nodejs" class="section">
-              <h2>🖥️ Node.js Basics</h2>
-              <p><strong>What it is:</strong> JavaScript runtime built on Chrome's V8 engine that allows JavaScript to run on servers and build backend applications.</p>
-              <p><strong>How it works:</strong> Uses event-driven, non-blocking I/O model making it efficient for data-intensive real-time applications.</p>
-              <p><strong>Use Cases:</strong> Web servers, APIs, real-time applications, build tools, and command-line utilities.</p>
-              <div class="subsection">
-                <h3>Server-side JavaScript</h3>
-                <div class="code-block">
-                  <pre><code class="language-javascript">
-// Importing modules
-const fs = require('fs');
-const express = require('express');
+// Async arrow function
+const fetchPosts = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const posts = await response.json();
+    return posts.slice(0, 5); // Return first 5 posts
+};
 
-// ES6 imports
-import { readFile } from 'fs/promises';
-import express from 'express';
+// Parallel async operations
+async function fetchMultipleData() {
+    try {
+        // Sequential (slower)
+        const user = await fetchUserData(1);
+        const posts = await fetchPosts();
+        
+        // Parallel (faster)
+        const [userParallel, postsParallel] = await Promise.all([
+            fetchUserData(1),
+            fetchPosts()
+        ]);
+        
+        console.log('Sequential user:', user.name);
+        console.log('Parallel user:', userParallel.name);
+        console.log('Posts count:', postsParallel.length);
+    } catch (error) {
+        console.error('Error in parallel fetch:', error);
+    }
+}
 
-// File system operations
-fs.readFile('file.txt', 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log(data);
-});
+// Error handling with async/await
+async function robustFetch(url) {
+    const maxRetries = 3;
+    let retries = 0;
+    
+    while (retries < maxRetries) {
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error(`HTTP ${response.status}`);
+        } catch (error) {
+            retries++;
+            if (retries === maxRetries) {
+                throw new Error(`Failed after ${maxRetries} retries: ${error.message}`);
+            }
+            
+            // Wait before retry
+            await new Promise(resolve => setTimeout(resolve, 1000 * retries));
+        }
+    }
+}
 
-const data = fs.readFileSync('file.txt', 'utf8');
+// Async iteration
+async function processItems(items) {
+    for (const item of items) {
+        await processItem(item); // Process items sequentially
+    }
+}
 
-// Express.js - web framework
-const app = express();
+async function processItemsParallel(items) {
+    const promises = items.map(item => processItem(item));
+    await Promise.all(promises); // Process items in parallel
+}
 
-app.use(express.json());
+// Async generators
+async function* fetchPages(baseUrl) {
+    let page = 1;
+    let hasMore = true;
+    
+    while (hasMore) {
+        const response = await fetch(`${baseUrl}?page=${page}`);
+        const data = await response.json();
+        
+        if (data.length === 0) {
+            hasMore = false;
+        } else {
+            yield data;
+            page++;
+        }
+    }
+}
 
-app.get('/api/users', (req, res) => {
-    res.json({ users: [] });
-});
+// Using async generator
+async function processAllPages() {
+    for await (const pageData of fetchPages('https://api.example.com/items')) {
+        console.log('Processing page with', pageData.length, 'items');
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-app.post('/api/users', (req, res) => {
-    const user = req.body;
-    res.status(201).json(user);
-});
+                <section id="interview" class="section">
+                    <h2>💼 Interview Questions</h2>
+                    
+                    <div class="subsection">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <div class="question-block">
+                            <h4>Q1: What's the difference between let, const, and var?</h4>
+                            <p><strong>Answer:</strong></p>
+                            <ul>
+                                <li><strong>var:</strong> Function-scoped, hoisted, can be redeclared</li>
+                                <li><strong>let:</strong> Block-scoped, hoisted but not initialized, cannot be redeclared</li>
+                                <li><strong>const:</strong> Block-scoped, must be initialized, immutable binding</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q2: Explain closures in JavaScript</h4>
+                            <p><strong>Answer:</strong> A closure is when an inner function has access to variables from its outer function's scope even after the outer function has returned. Closures are created every time a function is created.</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q3: What's the difference between == and ===?</h4>
+                            <p><strong>Answer:</strong></p>
+                            <ul>
+                                <li><strong>==:</strong> Loose equality, performs type coercion</li>
+                                <li><strong>===:</strong> Strict equality, no type coercion, checks type and value</li>
+                                <li><strong>Best practice:</strong> Always use === unless you specifically need coercion</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q4: What is event delegation?</h4>
+                            <p><strong>Answer:</strong> Event delegation is attaching an event listener to a parent element to handle events for its children, including dynamically added ones. Uses event bubbling to catch events from child elements.</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q5: Explain the difference between Promise and async/await</h4>
+                            <p><strong>Answer:</strong> Promises use .then() chains for handling asynchronous operations. Async/await is syntactic sugar over Promises, making asynchronous code look synchronous and easier to read and debug.</p>
+                        </div>
+                    </div>
+                </section>
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
-
-// Environment variables
-require('dotenv').config();
-const dbUrl = process.env.DATABASE_URL;
-                            </code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section id="interview" class="section">
-              <h2>🎯 JavaScript Interview Guide</h2>
-              <p><strong>What to expect:</strong> JavaScript interviews focus on core concepts, problem-solving, and understanding of asynchronous programming.</p>
-              <p><strong>How to prepare:</strong> Master fundamentals, practice coding problems, and understand how JavaScript works under the hood.</p>
-              
-              <div class="subsection">
-                <h3>Core Concepts to Master</h3>
-                <ul>
-                  <li><strong>Event Loop:</strong> Call stack, task queue, microtask queue, and how async operations work</li>
-                  <li><strong>this Context:</strong> How 'this' behaves in different contexts (methods, arrow functions, bind/call/apply)</li>
-                  <li><strong>Type Coercion:</strong> == vs ===, implicit type conversions, and truthy/falsy values</li>
-                  <li><strong>Hoisting:</strong> Variable and function hoisting behavior, temporal dead zone</li>
-                  <li><strong>Scope & Closures:</strong> Lexical scoping, closure patterns, and memory implications</li>
-                  <li><strong>Prototypes:</strong> Prototype chain, inheritance, and how built-in methods work</li>
-                  <li><strong>Async Programming:</strong> Callbacks, promises, async/await, and error handling</li>
-                </ul>
-              </div>
-              
-              <div class="subsection">
-                <h3>Most Asked Interview Questions</h3>
-                <ul>
-                  <li><strong>Variable Declarations:</strong> Difference between let, const, and var with examples</li>
-                  <li><strong>Event Loop:</strong> Explain how JavaScript handles asynchronous operations</li>
-                  <li><strong>Closures:</strong> What are closures and provide practical examples</li>
-                  <li><strong>Equality:</strong> Difference between == and === with type coercion examples</li>
-                  <li><strong>Hoisting:</strong> How hoisting works for variables and functions</li>
-                  <li><strong>Array Methods:</strong> Difference between map, filter, reduce, and forEach</li>
-                  <li><strong>Promises:</strong> How promises work compared to callbacks, promise chaining</li>
-                  <li><strong>this Keyword:</strong> How 'this' works in different contexts</li>
-                  <li><strong>Async/Await:</strong> Benefits over promises and error handling patterns</li>
-                  <li><strong>Object Copying:</strong> Shallow vs deep copy and implementation methods</li>
-                </ul>
-              </div>
-              
-              <div class="subsection">
-                <h3>Coding Challenges</h3>
-                <p><strong>Common Problems:</strong><br>
-                • Implement debounce/throttle functions<br>
-                • Create a deep clone function<br>
-                • Build a simple promise implementation<br>
-                • Solve array manipulation problems<br>
-                • Implement function currying<br>
-                • Create a module pattern with closures</p>
-              </div>
-            </section>
-          </div>
+            </div>
+            </div>
         </div>
-      </div>
     </div>
+    
+    <footer></footer>
     <script src="footer.js"></script>
-  </body>
+</body>
 </html>

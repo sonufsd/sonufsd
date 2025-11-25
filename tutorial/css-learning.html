@@ -3,458 +3,739 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Tutorial - Complete Guide to CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <title>CSS Learning - Sonu Kumar</title>
     <link rel="stylesheet" href="tutorial-styles.css">
 </head>
-<body>
+<body class="page-css">
     <header>
         <div class="container">
             <div class="hero">
-                <h1>CSS Tutorial - Complete Guide</h1>
-                <p>Master CSS styling, layouts, and responsive design</p>
+                <h1>CSS Fundamentals</h1>
+                <p>Master Cascading Style Sheets for Modern Web Design</p>
             </div>
         </div>
     </header>
     <nav></nav>
+    <script>window.activePage = 'css';</script>
+    <script src="menu.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                highlightCSS(block);
+            });
+        });
+        
+        function highlightCSS(element) {
+            let code = element.textContent;
+            
+            code = code.replace(/([.#]?[a-zA-Z][a-zA-Z0-9-_]*)\s*{/g, '<span class="keyword">$1</span> {');
+            code = code.replace(/([a-zA-Z-]+):/g, '<span class="method">$1</span>:');
+            code = code.replace(/:\s*([^;]+);/g, ': <span class="string">$1</span>;');
+            code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
+            
+            element.innerHTML = code;
+        }
+    </script>
     
     <div class="container">
         <div class="content-with-sidebar">
-        <div class="sidebar-toc">
-            <div class="toc-header">CSS Topics</div>
-            <nav class="toc-nav">
-                <a href="#introduction">Introduction</a>
-                <a href="#syntax">CSS Syntax</a>
-                <a href="#selectors">Selectors</a>
-                <a href="#properties">Properties</a>
-                <a href="#box-model">Box Model</a>
-                <a href="#layout">Layout</a>
-                <a href="#flexbox">Flexbox</a>
-                <a href="#grid">CSS Grid</a>
-                <a href="#responsive">Responsive Design</a>
-                <a href="#animations">Animations</a>
-                <a href="#best-practices">Best Practices</a>
-                <a href="#interview">Interview Questions</a>
-            </nav>
-        </div>
-        
-        <div class="main-content">
-            <div class="topic">
-            
-            <section id="introduction">
-                <h2>What is CSS?</h2>
-                <p><strong>CSS (Cascading Style Sheets)</strong> is a stylesheet language used to describe the presentation and styling of HTML documents. It controls layout, colors, fonts, and visual appearance.</p>
-                
-                <h3>Key Features:</h3>
-                <ul>
-                    <li>Separates content from presentation</li>
-                    <li>Cascading and inheritance</li>
-                    <li>Responsive design capabilities</li>
-                    <li>Animation and transition support</li>
-                </ul>
+            <aside class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>📚 CSS Topics</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">CSS Overview</a></li>
+                        <li><a href="#syntax">CSS Syntax</a></li>
+                        <li><a href="#selectors">Selectors</a></li>
+                        <li><a href="#box-model">Box Model</a></li>
+                        <li><a href="#layout">Layout</a></li>
+                        <li><a href="#flexbox">Flexbox</a></li>
+                        <li><a href="#grid">CSS Grid</a></li>
+                        <li><a href="#responsive">Responsive Design</a></li>
+                        <li><a href="#animations">Animations</a></li>
+                        <li><a href="#preprocessors">Preprocessors</a></li>
+                        <li><a href="#best-practices">Best Practices</a></li>
+                        <li><a href="#interview">Interview Questions</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-                <h3>Ways to Include CSS:</h3>
-                <pre><code>&lt;!-- External CSS --&gt;
+            <div class="main-content">
+            <div class="topic">
+
+                <section id="overview" class="section">
+                    <h2>🚀 CSS Overview</h2>
+                    
+                    <div class="subsection">
+                        <h3>What is CSS?</h3>
+                        <p><strong>Definition:</strong> CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation and styling of HTML documents. It controls layout, colors, fonts, and visual appearance.</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li><strong>Separation of Concerns:</strong> Separates content (HTML) from presentation (CSS)</li>
+                            <li><strong>Cascading:</strong> Multiple stylesheets can be applied with inheritance rules</li>
+                            <li><strong>Responsive:</strong> Adapts to different screen sizes and devices</li>
+                            <li><strong>Reusable:</strong> Styles can be applied to multiple elements</li>
+                            <li><strong>Maintainable:</strong> Centralized styling makes updates easier</li>
+                        </ul>
+                        
+                        <h4>CSS Integration Methods:</h4>
+                        <div class="code-block">
+                            <pre><code>/* 1. External CSS (Recommended) */
 &lt;link rel="stylesheet" href="styles.css"&gt;
 
-&lt;!-- Internal CSS --&gt;
+/* 2. Internal CSS */
 &lt;style&gt;
     body { background-color: #f0f0f0; }
 &lt;/style&gt;
 
-&lt;!-- Inline CSS --&gt;
-&lt;p style="color: red; font-size: 16px;"&gt;Text&lt;/p&gt;</code></pre>
-            </section>
+/* 3. Inline CSS (Avoid when possible) */
+&lt;p style="color: red; font-size: 16px;"&gt;Styled text&lt;/p&gt;</code></pre>
+                        </div>
+                        
+                        <h4>CSS Evolution:</h4>
+                        <div class="code-block">
+                            <pre><code>CSS1 (1996) → Basic styling properties
+CSS2 (1998) → Positioning, media types
+CSS2.1 (2004) → Bug fixes and clarifications
+CSS3 (2011+) → Modules: Flexbox, Grid, Animations
+CSS4 (Future) → Advanced selectors and features</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-            <section id="syntax">
-                <h2>CSS Syntax</h2>
-                <pre><code>selector {
+                <section id="syntax" class="section">
+                    <h2>📝 CSS Syntax</h2>
+                    
+                    <div class="subsection">
+                        <h3>Basic Syntax Structure</h3>
+                        <div class="code-block">
+                            <pre><code>/* CSS Rule Structure */
+selector {
     property: value;
     property: value;
-}</code></pre>
+}
 
-                <h3>Example:</h3>
-                <pre><code>h1 {
+/* Example */
+h1 {
     color: blue;
     font-size: 24px;
     text-align: center;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Multiple selectors */
+h1, h2, h3 {
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
 }
 
-#header {
-    background-color: #333;
-    padding: 20px;
-}</code></pre>
-            </section>
+/* Comments */
+/* This is a single-line comment */
 
-            <section id="selectors">
-                <h2>CSS Selectors</h2>
-                
-                <h3>Basic Selectors:</h3>
-                <pre><code>/* Element Selector */
+/*
+ * This is a multi-line comment
+ * Used for longer explanations
+ */</code></pre>
+                        </div>
+                        
+                        <h3>CSS Values and Units</h3>
+                        <div class="code-block">
+                            <pre><code>/* Absolute Units */
+.absolute-units {
+    width: 300px;        /* Pixels */
+    height: 2in;         /* Inches */
+    margin: 1cm;         /* Centimeters */
+    padding: 10mm;       /* Millimeters */
+    font-size: 12pt;     /* Points */
+}
+
+/* Relative Units */
+.relative-units {
+    width: 50%;          /* Percentage of parent */
+    font-size: 1.2em;    /* Relative to parent font size */
+    line-height: 1.5rem; /* Relative to root font size */
+    margin: 2vh;         /* Viewport height */
+    padding: 5vw;        /* Viewport width */
+    gap: 1ch;            /* Character width */
+}
+
+/* Colors */
+.colors {
+    color: red;                    /* Named colors */
+    background-color: #ff0000;     /* Hexadecimal */
+    border-color: rgb(255, 0, 0);  /* RGB */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* RGBA with alpha */
+    outline-color: hsl(0, 100%, 50%);          /* HSL */
+    text-shadow: 1px 1px hsla(0, 100%, 50%, 0.8); /* HSLA */
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="selectors" class="section">
+                    <h2>🎯 Selectors</h2>
+                    
+                    <div class="subsection">
+                        <h3>Basic Selectors</h3>
+                        <div class="code-block">
+                            <pre><code>/* Element Selector */
 p { color: black; }
 
 /* Class Selector */
 .highlight { background-color: yellow; }
 
 /* ID Selector */
-#main-title { font-size: 32px; }
+#header { font-size: 24px; }
 
 /* Universal Selector */
-* { margin: 0; padding: 0; }</code></pre>
+* { margin: 0; padding: 0; }
 
-                <h3>Combinator Selectors:</h3>
-                <pre><code>/* Descendant Selector */
-div p { color: blue; }
+/* Attribute Selectors */
+[type="text"] { border: 1px solid #ccc; }
+[href^="https"] { color: green; }      /* Starts with */
+[href$=".pdf"] { color: red; }         /* Ends with */
+[class*="btn"] { padding: 10px; }      /* Contains */
 
-/* Child Selector */
-div > p { font-weight: bold; }
-
-/* Adjacent Sibling */
-h1 + p { margin-top: 0; }
-
-/* General Sibling */
-h1 ~ p { color: gray; }</code></pre>
-
-                <h3>Pseudo-classes:</h3>
-                <pre><code>a:hover { color: red; }
+/* Pseudo-classes */
+a:hover { color: blue; }
 a:visited { color: purple; }
-input:focus { border-color: blue; }
+a:active { color: red; }
+input:focus { outline: 2px solid blue; }
 li:first-child { font-weight: bold; }
-li:nth-child(odd) { background-color: #f0f0f0; }</code></pre>
+li:last-child { margin-bottom: 0; }
+li:nth-child(odd) { background-color: #f0f0f0; }
+li:nth-child(3n+1) { color: red; }
 
-                <h3>Pseudo-elements:</h3>
-                <pre><code>p::first-line { font-weight: bold; }
+/* Pseudo-elements */
+p::first-line { font-weight: bold; }
 p::first-letter { font-size: 2em; }
-.button::before { content: "→ "; }
-.button::after { content: " ←"; }</code></pre>
-            </section>
+.tooltip::before { content: "Tip: "; }
+.tooltip::after { content: " ℹ️"; }</code></pre>
+                        </div>
+                        
+                        <h3>Advanced Selectors</h3>
+                        <div class="code-block">
+                            <pre><code>/* Combinators */
+/* Descendant selector (space) */
+.container p { margin: 10px; }
 
-            <section id="properties">
-                <h2>CSS Properties</h2>
-                
-                <h3>Text Properties:</h3>
-                <pre><code>.text-styling {
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-    text-decoration: underline;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}</code></pre>
+/* Child selector (>) */
+.menu > li { display: inline-block; }
 
-                <h3>Background Properties:</h3>
-                <pre><code>.background-example {
-    background-color: #f0f0f0;
-    background-image: url('image.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    /* Shorthand */
-    background: #f0f0f0 url('image.jpg') no-repeat center/cover;
-}</code></pre>
+/* Adjacent sibling selector (+) */
+h2 + p { margin-top: 0; }
 
-                <h3>Border Properties:</h3>
-                <pre><code>.border-example {
-    border-width: 2px;
-    border-style: solid;
-    border-color: #333;
-    /* Shorthand */
-    border: 2px solid #333;
-    border-radius: 10px;
-}</code></pre>
-            </section>
+/* General sibling selector (~) */
+h2 ~ p { color: gray; }
 
-            <section id="box-model">
-                <h2>CSS Box Model</h2>
-                <p>Every HTML element is a rectangular box consisting of content, padding, border, and margin.</p>
+/* Complex selectors */
+.card .header h3:hover { color: blue; }
+form input[type="email"]:focus:valid { border-color: green; }
 
-                <pre><code>.box-model-example {
-    width: 300px;           /* Content width */
-    height: 200px;          /* Content height */
-    padding: 20px;          /* Space inside border */
-    border: 5px solid #333; /* Border around padding */
-    margin: 10px;           /* Space outside border */
+/* Selector specificity examples */
+/* Specificity: 0,0,0,1 */
+p { color: black; }
+
+/* Specificity: 0,0,1,0 */
+.text { color: blue; }
+
+/* Specificity: 0,1,0,0 */
+#content { color: red; }
+
+/* Specificity: 1,0,0,0 */
+p { color: green !important; }</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="box-model" class="section">
+                    <h2>📦 Box Model</h2>
+                    
+                    <div class="subsection">
+                        <h3>Understanding the Box Model</h3>
+                        <div class="code-block">
+                            <pre><code>/* Box Model Components */
+.box {
+    /* Content area */
+    width: 200px;
+    height: 100px;
+    
+    /* Padding (inside the border) */
+    padding: 20px;                    /* All sides */
+    padding: 10px 20px;               /* Vertical | Horizontal */
+    padding: 10px 15px 20px 25px;     /* Top | Right | Bottom | Left */
+    
+    /* Border */
+    border: 2px solid #333;           /* Width | Style | Color */
+    border-width: 1px 2px 3px 4px;    /* Individual sides */
+    border-style: solid dashed dotted double;
+    border-color: red green blue yellow;
+    
+    /* Margin (outside the border) */
+    margin: 10px;                     /* All sides */
+    margin: 20px auto;                /* Vertical | Horizontal (auto centers) */
+    margin: 10px 15px 20px 25px;      /* Top | Right | Bottom | Left */
 }
 
 /* Box-sizing property */
-.border-box {
-    box-sizing: border-box; /* Width includes padding and border */
+.content-box {
+    box-sizing: content-box;  /* Default: width/height = content only */
+    width: 200px;             /* Total width = 200px + padding + border */
+    padding: 20px;
+    border: 5px solid black;  /* Actual total width = 250px */
 }
 
-.content-box {
-    box-sizing: content-box; /* Default: width is content only */
+.border-box {
+    box-sizing: border-box;   /* width/height includes padding and border */
+    width: 200px;             /* Total width = 200px (including padding + border) */
+    padding: 20px;
+    border: 5px solid black;  /* Content width = 150px */
+}
+
+/* Universal box-sizing (recommended) */
+*, *::before, *::after {
+    box-sizing: border-box;
 }</code></pre>
+                        </div>
+                        
+                        <h3>Display Properties</h3>
+                        <div class="code-block">
+                            <pre><code>/* Display values */
+.block { display: block; }           /* Full width, new line */
+.inline { display: inline; }         /* Content width, same line */
+.inline-block { display: inline-block; } /* Content width, same line, accepts width/height */
+.none { display: none; }             /* Completely hidden */
+.flex { display: flex; }             /* Flexible box layout */
+.grid { display: grid; }             /* Grid layout */
+.table { display: table; }           /* Table-like behavior */
 
-                <h3>Box Model Calculation:</h3>
-                <ul>
-                    <li><strong>Total Width</strong> = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right</li>
-                    <li><strong>Total Height</strong> = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom</li>
-                </ul>
-            </section>
+/* Visibility */
+.hidden { visibility: hidden; }      /* Hidden but takes space */
+.visible { visibility: visible; }    /* Default visible state */
 
-            <section id="layout">
-                <h2>CSS Layout</h2>
-                
-                <h3>Display Property:</h3>
-                <pre><code>.block { display: block; }        /* Full width, new line */
-.inline { display: inline; }      /* Only necessary width */
-.inline-block { display: inline-block; } /* Inline with block properties */
-.none { display: none; }          /* Hidden element */</code></pre>
+/* Overflow */
+.overflow-examples {
+    width: 200px;
+    height: 100px;
+}
 
-                <h3>Position Property:</h3>
-                <pre><code>.static { position: static; }     /* Default positioning */
-.relative { position: relative; } /* Relative to normal position */
-.absolute { position: absolute; } /* Relative to positioned parent */
-.fixed { position: fixed; }       /* Relative to viewport */
-.sticky { position: sticky; }     /* Sticky positioning */</code></pre>
+.overflow-visible { overflow: visible; }  /* Default: content overflows */
+.overflow-hidden { overflow: hidden; }    /* Hide overflowing content */
+.overflow-scroll { overflow: scroll; }    /* Always show scrollbars */
+.overflow-auto { overflow: auto; }        /* Show scrollbars when needed */</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-                <h3>Float and Clear:</h3>
-                <pre><code>.float-left { float: left; }
-.float-right { float: right; }
-.clear-both { clear: both; }</code></pre>
-            </section>
-
-            <section id="flexbox">
-                <h2>CSS Flexbox</h2>
-                <p>Flexbox provides efficient way to arrange and distribute space among items in a container.</p>
-
-                <h3>Flex Container:</h3>
-                <pre><code>.flex-container {
+                <section id="flexbox" class="section">
+                    <h2>🔄 Flexbox</h2>
+                    
+                    <div class="subsection">
+                        <h3>Flex Container Properties</h3>
+                        <div class="code-block">
+                            <pre><code>/* Flex Container */
+.flex-container {
     display: flex;
-    flex-direction: row;        /* row, column, row-reverse, column-reverse */
-    justify-content: center;    /* flex-start, flex-end, center, space-between, space-around */
-    align-items: center;        /* flex-start, flex-end, center, stretch, baseline */
-    flex-wrap: wrap;           /* nowrap, wrap, wrap-reverse */
-    gap: 20px;                 /* Space between items */
-}</code></pre>
-
-                <h3>Flex Items:</h3>
-                <pre><code>.flex-item {
-    flex-grow: 1;      /* How much item should grow */
-    flex-shrink: 1;    /* How much item should shrink */
-    flex-basis: auto;  /* Initial size before free space distribution */
+    
+    /* Direction */
+    flex-direction: row;        /* Default: left to right */
+    flex-direction: row-reverse; /* Right to left */
+    flex-direction: column;     /* Top to bottom */
+    flex-direction: column-reverse; /* Bottom to top */
+    
+    /* Wrapping */
+    flex-wrap: nowrap;          /* Default: single line */
+    flex-wrap: wrap;            /* Multi-line */
+    flex-wrap: wrap-reverse;    /* Multi-line, reverse order */
+    
     /* Shorthand */
-    flex: 1 1 auto;
-    align-self: center; /* Override container's align-items */
+    flex-flow: row wrap;        /* direction + wrap */
+    
+    /* Main axis alignment */
+    justify-content: flex-start;    /* Default: start */
+    justify-content: flex-end;      /* End */
+    justify-content: center;        /* Center */
+    justify-content: space-between; /* Space between items */
+    justify-content: space-around;  /* Space around items */
+    justify-content: space-evenly;  /* Equal space */
+    
+    /* Cross axis alignment */
+    align-items: stretch;       /* Default: fill container */
+    align-items: flex-start;    /* Start of cross axis */
+    align-items: flex-end;      /* End of cross axis */
+    align-items: center;        /* Center of cross axis */
+    align-items: baseline;      /* Baseline alignment */
+    
+    /* Multi-line alignment */
+    align-content: stretch;     /* Default */
+    align-content: flex-start;
+    align-content: center;
+    align-content: space-between;
+    
+    /* Gap between items */
+    gap: 20px;                  /* Row and column gap */
+    row-gap: 10px;              /* Row gap only */
+    column-gap: 15px;           /* Column gap only */
 }</code></pre>
+                        </div>
+                        
+                        <h3>Flex Item Properties</h3>
+                        <div class="code-block">
+                            <pre><code>/* Flex Items */
+.flex-item {
+    /* Growth factor */
+    flex-grow: 0;               /* Default: don't grow */
+    flex-grow: 1;               /* Grow to fill space */
+    flex-grow: 2;               /* Grow twice as much */
+    
+    /* Shrink factor */
+    flex-shrink: 1;             /* Default: can shrink */
+    flex-shrink: 0;             /* Don't shrink */
+    flex-shrink: 2;             /* Shrink twice as much */
+    
+    /* Base size */
+    flex-basis: auto;           /* Default: content size */
+    flex-basis: 200px;          /* Fixed base size */
+    flex-basis: 30%;            /* Percentage base size */
+    
+    /* Shorthand */
+    flex: 1;                    /* grow: 1, shrink: 1, basis: 0% */
+    flex: 0 1 auto;             /* grow: 0, shrink: 1, basis: auto */
+    flex: 200px;                /* grow: 1, shrink: 1, basis: 200px */
+    
+    /* Individual alignment */
+    align-self: auto;           /* Default: inherit from container */
+    align-self: flex-start;
+    align-self: center;
+    align-self: flex-end;
+    align-self: stretch;
+    
+    /* Order */
+    order: 0;                   /* Default: source order */
+    order: 1;                   /* Move to end */
+    order: -1;                  /* Move to beginning */
+}
 
-                <h3>Common Flexbox Patterns:</h3>
-                <pre><code>/* Center content */
-.center {
+/* Common Flexbox Patterns */
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Equal width columns */
-.equal-columns {
+.card-grid {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.equal-columns > * {
-    flex: 1;
+
+.card-grid .card {
+    flex: 1 1 300px;           /* Responsive cards */
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }</code></pre>
-            </section>
+                        </div>
+                    </div>
+                </section>
 
-            <section id="grid">
-                <h2>CSS Grid</h2>
-                <p>CSS Grid provides two-dimensional layout system for complex layouts.</p>
-
-                <h3>Grid Container:</h3>
-                <pre><code>.grid-container {
+                <section id="grid" class="section">
+                    <h2>🏗️ CSS Grid</h2>
+                    
+                    <div class="subsection">
+                        <h3>Grid Container Properties</h3>
+                        <div class="code-block">
+                            <pre><code>/* Grid Container */
+.grid-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;  /* 3 columns */
-    grid-template-rows: auto 1fr auto;   /* 3 rows */
-    gap: 20px;                           /* Space between items */
+    
+    /* Define columns */
+    grid-template-columns: 200px 1fr 100px;        /* Fixed, flexible, fixed */
+    grid-template-columns: repeat(3, 1fr);          /* 3 equal columns */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive */
+    
+    /* Define rows */
+    grid-template-rows: 100px auto 50px;           /* Fixed, content, fixed */
+    grid-template-rows: repeat(3, 200px);          /* 3 equal rows */
+    
+    /* Named grid lines */
+    grid-template-columns: [start] 250px [content-start] 1fr [content-end] 250px [end];
+    
+    /* Grid areas */
     grid-template-areas: 
         "header header header"
         "sidebar main aside"
         "footer footer footer";
+    
+    /* Gaps */
+    gap: 20px;                  /* Row and column gap */
+    row-gap: 15px;              /* Row gap only */
+    column-gap: 25px;           /* Column gap only */
+    
+    /* Alignment */
+    justify-items: stretch;     /* Default: fill grid area */
+    justify-items: start;       /* Align to start */
+    justify-items: center;      /* Center items */
+    justify-items: end;         /* Align to end */
+    
+    align-items: stretch;       /* Default: fill grid area */
+    align-items: start;
+    align-items: center;
+    align-items: end;
+    
+    /* Grid alignment */
+    justify-content: start;     /* Default */
+    justify-content: center;    /* Center grid */
+    justify-content: space-between;
+    
+    align-content: start;
+    align-content: center;
+    align-content: space-around;
 }</code></pre>
-
-                <h3>Grid Items:</h3>
-                <pre><code>.grid-item {
-    grid-column: 1 / 3;        /* Span from column 1 to 3 */
-    grid-row: 2 / 4;           /* Span from row 2 to 4 */
-    grid-area: header;         /* Use named area */
-}
-
-/* Alternative syntax */
-.grid-item-alt {
+                        </div>
+                        
+                        <h3>Grid Item Properties</h3>
+                        <div class="code-block">
+                            <pre><code>/* Grid Items */
+.grid-item {
+    /* Column placement */
     grid-column-start: 1;
     grid-column-end: 3;
+    grid-column: 1 / 3;         /* Shorthand */
+    grid-column: 1 / span 2;    /* Span 2 columns */
+    
+    /* Row placement */
     grid-row-start: 2;
     grid-row-end: 4;
-}</code></pre>
+    grid-row: 2 / 4;            /* Shorthand */
+    grid-row: 2 / span 2;       /* Span 2 rows */
+    
+    /* Area shorthand */
+    grid-area: 2 / 1 / 4 / 3;   /* row-start / col-start / row-end / col-end */
+    
+    /* Named areas */
+    grid-area: header;          /* Use named grid area */
+    
+    /* Individual alignment */
+    justify-self: start;        /* Horizontal alignment */
+    justify-self: center;
+    justify-self: end;
+    justify-self: stretch;
+    
+    align-self: start;          /* Vertical alignment */
+    align-self: center;
+    align-self: end;
+    align-self: stretch;
+}
 
-                <h3>Responsive Grid:</h3>
-                <pre><code>.responsive-grid {
+/* Common Grid Layouts */
+.layout-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* Responsive card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }</code></pre>
-            </section>
+                        </div>
+                    </div>
+                </section>
 
-            <section id="responsive">
-                <h2>Responsive Design</h2>
-                
-                <h3>Media Queries:</h3>
-                <pre><code>/* Mobile First Approach */
+                <section id="responsive" class="section">
+                    <h2>📱 Responsive Design</h2>
+                    
+                    <div class="subsection">
+                        <h3>Media Queries</h3>
+                        <div class="code-block">
+                            <pre><code>/* Mobile First Approach */
+/* Base styles for mobile */
 .container {
     width: 100%;
     padding: 10px;
 }
 
-/* Tablet */
-@media (min-width: 768px) {
+/* Tablet styles */
+@media screen and (min-width: 768px) {
     .container {
         max-width: 750px;
         margin: 0 auto;
-    }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1200px;
         padding: 20px;
     }
 }
 
-/* Print Styles */
-@media print {
-    .no-print { display: none; }
-}</code></pre>
+/* Desktop styles */
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 30px;
+    }
+}
 
-                <h3>Flexible Units:</h3>
-                <pre><code>/* Relative Units */
+/* Large desktop styles */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Specific device targeting */
+@media screen and (max-width: 480px) {
+    /* Small mobile phones */
+    .nav-menu { display: none; }
+    .mobile-menu { display: block; }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    /* Large mobile phones */
+    .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Orientation queries */
+@media screen and (orientation: landscape) {
+    .hero { height: 60vh; }
+}
+
+@media screen and (orientation: portrait) {
+    .hero { height: 40vh; }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+    .logo {
+        background-image: url('logo@2x.png');
+        background-size: 100px 50px;
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Responsive Techniques</h3>
+                        <div class="code-block">
+                            <pre><code>/* Fluid Typography */
 .responsive-text {
-    font-size: 2rem;      /* Relative to root font-size */
-    width: 50%;           /* Percentage of parent */
-    margin: 1em;          /* Relative to element's font-size */
-    padding: 2vw;         /* Viewport width percentage */
-    height: 50vh;         /* Viewport height percentage */
-}</code></pre>
-            </section>
-
-            <section id="animations">
-                <h2>CSS Animations</h2>
-                
-                <h3>Transitions:</h3>
-                <pre><code>.transition-example {
-    background-color: blue;
-    transition: background-color 0.3s ease;
+    font-size: clamp(1rem, 2.5vw, 2rem);  /* min, preferred, max */
 }
 
-.transition-example:hover {
-    background-color: red;
+/* Responsive Images */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Multiple properties */
-.multi-transition {
-    transition: all 0.3s ease-in-out;
-}</code></pre>
+/* Responsive Videos */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
 
-                <h3>Keyframe Animations:</h3>
-                <pre><code>@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container Queries (Modern browsers) */
+.card-container {
+    container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+    .card {
+        display: flex;
+        flex-direction: row;
     }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
-.animated-element {
-    animation: slideIn 0.5s ease-out;
-}
-
-/* Animation properties */
-.complex-animation {
-    animation-name: slideIn;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}</code></pre>
-
-                <h3>Transform Property:</h3>
-                <pre><code>.transform-examples {
-    transform: translateX(50px);           /* Move horizontally */
-    transform: translateY(20px);           /* Move vertically */
-    transform: rotate(45deg);              /* Rotate */
-    transform: scale(1.5);                 /* Scale up */
-    transform: skew(10deg, 5deg);          /* Skew */
-    
-    /* Multiple transforms */
-    transform: translateX(50px) rotate(45deg) scale(1.2);
-}</code></pre>
-            </section>
-
-            <section id="best-practices">
-                <h2>CSS Best Practices</h2>
-                <ul>
-                    <li><strong>Use external stylesheets</strong> - Better maintainability</li>
-                    <li><strong>Organize CSS</strong> - Group related styles together</li>
-                    <li><strong>Use meaningful class names</strong> - Descriptive and semantic</li>
-                    <li><strong>Avoid !important</strong> - Use specific selectors instead</li>
-                    <li><strong>Mobile-first approach</strong> - Start with mobile styles</li>
-                    <li><strong>Use CSS preprocessors</strong> - Sass, Less for better organization</li>
-                    <li><strong>Optimize performance</strong> - Minimize CSS, use efficient selectors</li>
-                    <li><strong>Use CSS variables</strong> - For consistent theming</li>
-                </ul>
-
-                <h3>CSS Variables Example:</h3>
-                <pre><code>:root {
+/* CSS Custom Properties for Theming */
+:root {
     --primary-color: #007bff;
     --secondary-color: #6c757d;
-    --font-size-base: 16px;
+    --font-size-base: 1rem;
+    --spacing-unit: 1rem;
 }
 
-.button {
-    background-color: var(--primary-color);
-    font-size: var(--font-size-base);
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #0d6efd;
+        --secondary-color: #adb5bd;
+    }
 }</code></pre>
-            </section>
+                        </div>
+                    </div>
+                </section>
 
-            <section id="interview">
-                <h2>CSS Interview Questions</h2>
-                
-                <h3>1. What is the difference between margin and padding?</h3>
-                <p><strong>Answer:</strong> Margin is space outside the border, padding is space inside the border between content and border.</p>
+                <section id="interview" class="section">
+                    <h2>💼 Interview Questions</h2>
+                    
+                    <div class="subsection">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <div class="question-block">
+                            <h4>Q1: What is the CSS Box Model?</h4>
+                            <p><strong>Answer:</strong> The box model consists of content, padding, border, and margin. Box-sizing property controls whether width/height includes padding and border (border-box) or just content (content-box).</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q2: What's the difference between Flexbox and CSS Grid?</h4>
+                            <p><strong>Answer:</strong></p>
+                            <ul>
+                                <li><strong>Flexbox:</strong> One-dimensional layout (row or column), content-first</li>
+                                <li><strong>Grid:</strong> Two-dimensional layout (rows and columns), layout-first</li>
+                                <li><strong>Use Flexbox:</strong> For component layout, navigation bars</li>
+                                <li><strong>Use Grid:</strong> For page layout, complex 2D arrangements</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q3: Explain CSS specificity</h4>
+                            <p><strong>Answer:</strong> Specificity determines which CSS rule applies when multiple rules target the same element. Order: Inline styles (1000) > IDs (100) > Classes/attributes/pseudo-classes (10) > Elements (1).</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q4: What are CSS preprocessors?</h4>
+                            <p><strong>Answer:</strong> Tools like Sass, Less, and Stylus that extend CSS with variables, nesting, mixins, and functions. They compile to regular CSS for browser compatibility.</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q5: How do you center an element horizontally and vertically?</h4>
+                            <p><strong>Answer:</strong> Multiple methods: Flexbox (justify-content: center; align-items: center), Grid (place-items: center), or absolute positioning with transform.</p>
+                        </div>
+                    </div>
+                </section>
 
-                <h3>2. What is CSS specificity?</h3>
-                <p><strong>Answer:</strong> Specificity determines which CSS rule applies when multiple rules target the same element. Order: Inline styles > IDs > Classes > Elements.</p>
-
-                <h3>3. What is the difference between display: none and visibility: hidden?</h3>
-                <p><strong>Answer:</strong> display: none removes element from layout completely. visibility: hidden hides element but keeps its space.</p>
-
-                <h3>4. What is flexbox and when to use it?</h3>
-                <p><strong>Answer:</strong> Flexbox is one-dimensional layout method for arranging items in rows or columns. Use for component layouts, centering, and flexible distributions.</p>
-
-                <h3>5. What are CSS Grid advantages over Flexbox?</h3>
-                <p><strong>Answer:</strong> CSS Grid is two-dimensional (rows and columns), better for complex layouts. Flexbox is one-dimensional, better for component layouts.</p>
-            </section>
+            </div>
             </div>
         </div>
     </div>
-
-
-
-    <script>
-        window.activePage = "css";
-    </script>
-    <script src="menu.js"></script>
+    
+    <footer></footer>
     <script src="footer.js"></script>
 </body>
 </html>

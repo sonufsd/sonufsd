@@ -1,778 +1,988 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <title>TypeScript Learning - Sonu Kumar</title>
-    <link rel="stylesheet" href="tutorial-styles.css" />
-
-  </head>
-  <body class="page-typescript">
+    <link rel="stylesheet" href="tutorial-styles.css">
+</head>
+<body class="page-typescript">
     <header>
-      <div class="container">
-        <div class="hero">
-          <h1>TypeScript Learning Tutorial</h1>
-          <p>Master TypeScript Advanced Types & Features</p>
+        <div class="container">
+            <div class="hero">
+                <h1>TypeScript Fundamentals</h1>
+                <p>Master Typed JavaScript for Scalable Enterprise Applications</p>
+            </div>
         </div>
-      </div>
     </header>
     <nav></nav>
     <script>window.activePage = 'typescript';</script>
     <script src="menu.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                highlightTS(block);
+            });
+        });
+        
+        function highlightTS(element) {
+            let code = element.textContent;
+            
+            code = code.replace(/\b(interface|type|enum|class|extends|implements|public|private|protected|readonly|static|abstract|namespace|module|declare|export|import|as|from|string|number|boolean|void|null|undefined|any|unknown|never|object|function|const|let|var|if|else|for|while|do|switch|case|default|break|continue|return|try|catch|finally|throw|async|await|true|false)\b/g, '<span class="keyword">$1</span>');
+            
+            code = code.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+            code = code.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
+            code = code.replace(/`([^`]*)`/g, '<span class="string">`$1`</span>');
+            
+            code = code.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
+            code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
+            
+            code = code.replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>');
+            
+            code = code.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="method">$1</span>(');
+            
+            element.innerHTML = code;
+        }
+    </script>
+    
     <div class="container">
-      <div class="content-with-sidebar">
-        <div class="sidebar-toc">
-          <div class="toc-header">
-            <h2>📚 Table of Contents</h2>
-          </div>
-          <nav class="toc-nav">
-            <ul>
-              <li><a href="#what-is-typescript">What is TypeScript?</a></li>
-              <li><a href="#basic-types">Basic Types</a></li>
-              <li><a href="#interfaces">Interfaces & Objects</a></li>
-              <li><a href="#classes">Classes & Inheritance</a></li>
-              <li><a href="#generics">Generics</a></li>
-              <li><a href="#advanced-types">Advanced Types</a></li>
-              <li><a href="#decorators">Decorators</a></li>
-              <li><a href="#utility-types">Utility Types</a></li>
-              <li><a href="#type-narrowing">Type Narrowing</a></li>
-              <li><a href="#modules">Modules & Namespaces</a></li>
-              <li><a href="#enums">Enum Types</a></li>
-              <li><a href="#async">Async/Await & Promises</a></li>
-              <li><a href="#configuration">Configuration</a></li>
-              <li><a href="#interview">Interview Questions</a></li>
-              <li><a href="#best-practices">Best Practices</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="main-content">
-          <div class="topic">
-            <h1>TypeScript - Complete Guide</h1>
-          
-          <section id="what-is-typescript" class="section">
-            <h2>What is TypeScript?</h2>
-          <p>TypeScript is a superset of JavaScript that adds static type checking, interfaces, and other object-oriented features. It compiles to clean, readable JavaScript and helps catch errors at compile-time rather than runtime. Essential for large-scale applications and frameworks like Angular and modern React projects.</p>
-          
-          </section>
+        <div class="content-with-sidebar">
+            <aside class="sidebar-toc">
+                <div class="toc-header">
+                    <h2>📚 TypeScript Topics</h2>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">TypeScript Overview</a></li>
+                        <li><a href="#basic-types">Basic Types</a></li>
+                        <li><a href="#interfaces">Interfaces</a></li>
+                        <li><a href="#classes">Classes</a></li>
+                        <li><a href="#generics">Generics</a></li>
+                        <li><a href="#advanced-types">Advanced Types</a></li>
+                        <li><a href="#modules">Modules</a></li>
+                        <li><a href="#decorators">Decorators</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                        <li><a href="#best-practices">Best Practices</a></li>
+                        <li><a href="#interview">Interview Questions</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-          <section id="basic-types" class="section">
-            <h2>Basic Types</h2>
-          <pre><code>
-// Primitive types
-let isDone: boolean = true;
-let count: number = 42;
-let name: string = 'John';
-let symbol: symbol = Symbol('unique');
-let bigInt: bigint = 123n;
+            <div class="main-content">
+            <div class="topic">
 
-// null and undefined
-let nothing: null = null;
-let undef: undefined = undefined;
+                <section id="overview" class="section">
+                    <h2>🚀 TypeScript Overview</h2>
+                    
+                    <div class="subsection">
+                        <h3>What is TypeScript?</h3>
+                        <p><strong>Definition:</strong> TypeScript is a strongly typed programming language that builds on JavaScript by adding static type definitions. It compiles to plain JavaScript and runs anywhere JavaScript runs.</p>
+                        
+                        <h4>Key Benefits:</h4>
+                        <ul>
+                            <li><strong>Type Safety:</strong> Catch errors at compile time instead of runtime</li>
+                            <li><strong>Better IDE Support:</strong> Enhanced autocomplete, refactoring, and navigation</li>
+                            <li><strong>Self-Documenting:</strong> Types serve as inline documentation</li>
+                            <li><strong>Scalability:</strong> Better for large codebases and teams</li>
+                            <li><strong>Modern JavaScript:</strong> Supports latest ECMAScript features</li>
+                            <li><strong>Gradual Adoption:</strong> Can be adopted incrementally</li>
+                        </ul>
+                        
+                        <h4>TypeScript Compilation Process:</h4>
+                        <div class="code-block">
+                            <pre><code>TypeScript Source (.ts)
+         ↓
+TypeScript Compiler (tsc)
+         ↓
+JavaScript Output (.js)
+         ↓
+    Browser/Node.js</code></pre>
+                        </div>
+                        
+                        <h4>Getting Started:</h4>
+                        <div class="code-block">
+                            <pre><code>// Install TypeScript globally
+npm install -g typescript
+
+// Install for project
+npm install --save-dev typescript
+
+// Compile TypeScript file
+tsc app.ts
+
+// Watch mode
+tsc app.ts --watch
+
+// Initialize TypeScript project
+tsc --init</code></pre>
+                        </div>
+                        
+                        <h4>Basic TypeScript Example:</h4>
+                        <div class="code-block">
+                            <pre><code>// TypeScript
+function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+
+const message: string = greet("World");
+console.log(message);
+
+// Compiled JavaScript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const message = greet("World");
+console.log(message);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic-types" class="section">
+                    <h2>🔢 Basic Types</h2>
+                    
+                    <div class="subsection">
+                        <h3>Primitive Types</h3>
+                        <div class="code-block">
+                            <pre><code>// Basic types
+let isDone: boolean = false;
+let decimal: number = 6;
+let hex: number = 0xf00d;
+let binary: number = 0b1010;
+let octal: number = 0o744;
+let bigInt: bigint = 100n;
+
+let color: string = "blue";
+let fullName: string = `Bob Bobbington`;
+let age: number = 37;
+let sentence: string = `Hello, my name is ${fullName}. I'll be ${age + 1} years old next month.`;
+
+// Arrays
+let list: number[] = [1, 2, 3];
+let listGeneric: Array<number> = [1, 2, 3];
+let mixedArray: (string | number)[] = ["hello", 42, "world"];
+
+// Tuple - fixed number of elements with known types
+let x: [string, number];
+x = ["hello", 10]; // OK
+// x = [10, "hello"]; // Error
+
+// Tuple with optional elements
+let optionalTuple: [string, number?] = ["hello"];
+
+// Tuple with rest elements
+let restTuple: [string, ...number[]] = ["hello", 1, 2, 3];
+
+// Enum
+enum Color {
+    Red,
+    Green,
+    Blue,
+}
+let c: Color = Color.Green;
+
+// Enum with custom values
+enum Status {
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Pending = "PENDING",
+}
+
+// Numeric enum with custom start
+enum Direction {
+    Up = 1,
+    Down,    // 2
+    Left,    // 3
+    Right,   // 4
+}
 
 // Any type (avoid when possible)
-let notSure: any = 'could be anything';
+let notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false; // okay, definitely a boolean
 
-// Union types - can be one of several types
-let id: string | number;
-id = 'ID123';  // OK
-id = 123;      // OK
-// id = true;  // Error
+// Unknown type (safer than any)
+let userInput: unknown;
+userInput = 5;
+userInput = "hello";
 
-// Literal types
-let direction: 'up' | 'down' | 'left' | 'right' = 'up';
-let status: 1 | 2 | 3 = 1;
+if (typeof userInput === "string") {
+    console.log(userInput.toUpperCase()); // Type narrowing
+}
 
-// Type aliases
-type Age = number;
-type Status = 'pending' | 'completed' | 'failed';
+// Void - absence of any type
+function warnUser(): void {
+    console.log("This is my warning message");
+}
 
-let myAge: Age = 30;
-let myStatus: Status = 'pending';
-          </code></pre>
+// Null and Undefined
+let u: undefined = undefined;
+let n: null = null;
 
-          </section>
+// Never - represents values that never occur
+function error(message: string): never {
+    throw new Error(message);
+}
 
-          <section id="interfaces" class="section">
-            <h2>Interfaces & Objects</h2>
-          <pre><code>
-// Interface definition
+function infiniteLoop(): never {
+    while (true) {}
+}
+
+// Object type
+let obj: object = { name: "John", age: 30 };
+
+// Better object typing
+let person: { name: string; age: number } = {
+    name: "John",
+    age: 30
+};</code></pre>
+                        </div>
+                        
+                        <h3>Type Assertions and Type Guards</h3>
+                        <div class="code-block">
+                            <pre><code>// Type assertions
+let someValue: unknown = "this is a string";
+
+// Angle-bracket syntax
+let strLength: number = (<string>someValue).length;
+
+// As syntax (preferred in JSX)
+let strLength2: number = (someValue as string).length;
+
+// Type guards
+function isString(value: unknown): value is string {
+    return typeof value === "string";
+}
+
+function processValue(value: unknown) {
+    if (isString(value)) {
+        // TypeScript knows value is string here
+        console.log(value.toUpperCase());
+    }
+}
+
+// Built-in type guards
+function example(x: string | number) {
+    if (typeof x === "string") {
+        // x is string
+        console.log(x.charAt(0));
+    } else {
+        // x is number
+        console.log(x.toFixed(2));
+    }
+}
+
+// instanceof type guard
+class Bird {
+    fly() {
+        console.log("Flying");
+    }
+}
+
+class Fish {
+    swim() {
+        console.log("Swimming");
+    }
+}
+
+function move(animal: Bird | Fish) {
+    if (animal instanceof Bird) {
+        animal.fly();
+    } else {
+        animal.swim();
+    }
+}
+
+// in operator type guard
+type Admin = {
+    name: string;
+    privileges: string[];
+};
+
+type Employee = {
+    name: string;
+    startDate: Date;
+};
+
+function printEmployeeInformation(emp: Admin | Employee) {
+    console.log("Name: " + emp.name);
+    
+    if ("privileges" in emp) {
+        console.log("Privileges: " + emp.privileges);
+    }
+    
+    if ("startDate" in emp) {
+        console.log("Start Date: " + emp.startDate);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="interfaces" class="section">
+                    <h2>🔌 Interfaces</h2>
+                    
+                    <div class="subsection">
+                        <h3>Basic Interfaces</h3>
+                        <div class="code-block">
+                            <pre><code>// Basic interface
 interface User {
     id: number;
     name: string;
-    email?: string;              // Optional property
-    readonly username: string;   // Read-only
-    age?: number;
-    greet(): string;             // Method
+    email: string;
+    age?: number; // Optional property
+    readonly createdAt: Date; // Readonly property
 }
 
-// Implementing interface
+// Using interface
 const user: User = {
     id: 1,
-    name: 'John',
-    username: 'john123',
-    email: 'john@example.com',
-    greet() {
-        return 'Hello ' + this.name;
-    }
+    name: "John Doe",
+    email: "john@example.com",
+    createdAt: new Date()
 };
 
-// Interface extension
-interface Admin extends User {
-    role: 'admin' | 'moderator';
-    permissions: string[];
+// user.createdAt = new Date(); // Error: readonly property
+
+// Interface with methods
+interface Calculator {
+    add(a: number, b: number): number;
+    subtract(a: number, b: number): number;
 }
 
-// Indexable types
-interface StringArray {
-    [index: number]: string;
+class BasicCalculator implements Calculator {
+    add(a: number, b: number): number {
+        return a + b;
+    }
+    
+    subtract(a: number, b: number): number {
+        return a - b;
+    }
 }
 
-let arr: StringArray = ['a', 'b', 'c'];
-
-// Interface for functions
+// Function interfaces
 interface SearchFunc {
     (source: string, subString: string): boolean;
 }
 
-const search: SearchFunc = (source, subString) => {
-    return source.indexOf(subString) > -1;
+const mySearch: SearchFunc = function(source: string, subString: string): boolean {
+    return source.search(subString) > -1;
 };
 
-// Intersection types - combine multiple types
-interface Printable {
-    print(): void;
+// Index signatures
+interface StringArray {
+    [index: number]: string;
 }
 
-interface Nameable {
-    getName(): string;
+interface StringDictionary {
+    [key: string]: string;
 }
 
-type PrintableNameable = Printable & Nameable;
-          </code></pre>
+let myArray: StringArray = ["Bob", "Fred"];
+let myDict: StringDictionary = {
+    name: "John",
+    email: "john@example.com"
+};
 
-          </section>
+// Extending interfaces
+interface Animal {
+    name: string;
+    age: number;
+}
 
-          <section id="classes" class="section">
-            <h2>Classes & Inheritance</h2>
-          <pre><code>
-// Basic class
+interface Dog extends Animal {
+    breed: string;
+    bark(): void;
+}
+
+const myDog: Dog = {
+    name: "Buddy",
+    age: 3,
+    breed: "Golden Retriever",
+    bark() {
+        console.log("Woof!");
+    }
+};
+
+// Multiple inheritance
+interface Flyable {
+    fly(): void;
+}
+
+interface Swimmable {
+    swim(): void;
+}
+
+interface Duck extends Animal, Flyable, Swimmable {
+    quack(): void;
+}
+
+// Interface merging
+interface Box {
+    height: number;
+    width: number;
+}
+
+interface Box {
+    scale: number;
+}
+
+// Now Box has height, width, and scale
+let box: Box = { height: 5, width: 6, scale: 10 };</code></pre>
+                        </div>
+                        
+                        <h3>Advanced Interface Patterns</h3>
+                        <div class="code-block">
+                            <pre><code>// Generic interfaces
+interface Repository<T> {
+    findById(id: number): T | undefined;
+    findAll(): T[];
+    save(entity: T): T;
+    delete(id: number): boolean;
+}
+
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+class UserRepository implements Repository<User> {
+    private users: User[] = [];
+    
+    findById(id: number): User | undefined {
+        return this.users.find(user => user.id === id);
+    }
+    
+    findAll(): User[] {
+        return [...this.users];
+    }
+    
+    save(user: User): User {
+        this.users.push(user);
+        return user;
+    }
+    
+    delete(id: number): boolean {
+        const index = this.users.findIndex(user => user.id === id);
+        if (index > -1) {
+            this.users.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
+}
+
+// Conditional types in interfaces
+interface ApiResponse<T> {
+    data: T;
+    status: number;
+    message: string;
+    success: boolean;
+}
+
+// Mapped types
+interface Person {
+    name: string;
+    age: number;
+    email: string;
+}
+
+// Make all properties optional
+type PartialPerson = Partial<Person>;
+
+// Make all properties required
+type RequiredPerson = Required<Person>;
+
+// Pick specific properties
+type PersonName = Pick<Person, 'name' | 'email'>;
+
+// Omit specific properties
+type PersonWithoutAge = Omit<Person, 'age'>;
+
+// Utility interfaces
+interface Config {
+    apiUrl: string;
+    timeout: number;
+    retries: number;
+}
+
+// Deep readonly
+type DeepReadonly<T> = {
+    readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P];
+};
+
+type ReadonlyConfig = DeepReadonly<Config>;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="classes" class="section">
+                    <h2>🏗️ Classes</h2>
+                    
+                    <div class="subsection">
+                        <h3>Basic Classes</h3>
+                        <div class="code-block">
+                            <pre><code>// Basic class
 class Animal {
-    private name: string;              // Private - only in class
-    protected age: number;             // Protected - in class & subclasses
-    public species: string;            // Public - anywhere
-
-    constructor(name: string, age: number) {
+    // Properties
+    public name: string;
+    private age: number;
+    protected species: string;
+    readonly id: number;
+    
+    // Constructor
+    constructor(name: string, age: number, species: string) {
         this.name = name;
         this.age = age;
+        this.species = species;
+        this.id = Math.random();
     }
-
-    private getAge(): number {
+    
+    // Methods
+    public makeSound(): void {
+        console.log("Some generic animal sound");
+    }
+    
+    public getAge(): number {
         return this.age;
     }
-
-    public getName(): string {
-        return this.name;
-    }
-
-    // Static members
-    static species = 'Unknown';
-    static getSpecies() {
+    
+    protected getSpecies(): string {
         return this.species;
+    }
+    
+    // Static method
+    static createRandomAnimal(): Animal {
+        const names = ["Buddy", "Max", "Charlie"];
+        const species = ["Dog", "Cat", "Bird"];
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        const randomSpecies = species[Math.floor(Math.random() * species.length)];
+        return new Animal(randomName, 1, randomSpecies);
     }
 }
 
 // Inheritance
 class Dog extends Animal {
-    constructor(name: string, age: number) {
-        super(name, age);
+    private breed: string;
+    
+    constructor(name: string, age: number, breed: string) {
+        super(name, age, "Canine"); // Call parent constructor
+        this.breed = breed;
     }
-
-    bark(): void {
-        console.log('Woof!');
+    
+    // Override parent method
+    public makeSound(): void {
+        console.log("Woof! Woof!");
     }
-
-    // Override method
-    getName(): string {
-        return 'Dog: ' + super.getName();
+    
+    // Additional method
+    public wagTail(): void {
+        console.log(`${this.name} is wagging tail`);
+    }
+    
+    // Access protected member from parent
+    public getInfo(): string {
+        return `${this.name} is a ${this.getSpecies()}`;
     }
 }
 
-// Abstract class - cannot be instantiated
+// Abstract classes
 abstract class Shape {
-    abstract getArea(): number;
-
-    printArea(): void {
-        console.log('Area: ' + this.getArea());
+    protected color: string;
+    
+    constructor(color: string) {
+        this.color = color;
+    }
+    
+    // Abstract method - must be implemented by subclasses
+    abstract calculateArea(): number;
+    
+    // Concrete method
+    public getColor(): string {
+        return this.color;
     }
 }
 
 class Circle extends Shape {
-    constructor(private radius: number) {
-        super();
+    private radius: number;
+    
+    constructor(color: string, radius: number) {
+        super(color);
+        this.radius = radius;
     }
+    
+    calculateArea(): number {
+        return Math.PI * this.radius * this.radius;
+    }
+}
 
-    getArea(): number {
-        return Math.PI * this.radius ** 2;
+class Rectangle extends Shape {
+    private width: number;
+    private height: number;
+    
+    constructor(color: string, width: number, height: number) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    
+    calculateArea(): number {
+        return this.width * this.height;
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Advanced Class Features</h3>
+                        <div class="code-block">
+                            <pre><code>// Parameter properties (shorthand)
+class User {
+    constructor(
+        public readonly id: number,
+        public name: string,
+        private email: string,
+        protected role: string = 'user'
+    ) {}
+    
+    public getEmail(): string {
+        return this.email;
     }
 }
 
 // Getters and setters
-class Rectangle {
-    private _width: number = 0;
-
-    get width(): number {
-        return this._width;
+class Temperature {
+    private _celsius: number = 0;
+    
+    get celsius(): number {
+        return this._celsius;
     }
-
-    set width(value: number) {
-        if (value <= 0) {
-            throw new Error('Width must be positive');
+    
+    set celsius(value: number) {
+        if (value < -273.15) {
+            throw new Error("Temperature cannot be below absolute zero");
         }
-        this._width = value;
+        this._celsius = value;
+    }
+    
+    get fahrenheit(): number {
+        return (this._celsius * 9/5) + 32;
+    }
+    
+    set fahrenheit(value: number) {
+        this.celsius = (value - 32) * 5/9;
     }
 }
-          </code></pre>
-
-          </section>
-
-          <section id="generics" class="section">
-            <h2>Generics - Reusable Components</h2>
-          <pre><code>
-// Generic function
-function identity<T>(arg: T): T {
-    return arg;
-}
-
-let result = identity<string>('hello');   // Type: string
-let result2 = identity(42);               // Type inferred as number
-
-// Generic with multiple types
-function swap<T, U>(tuple: [T, U]): [U, T] {
-    return [tuple[1], tuple[0]];
-}
-
-const result = swap<string, number>(['hello', 5]);  // [5, 'hello']
-
-// Generic constraints
-function getProperty<T, K extends keyof T>(obj: T, key: K) {
-    return obj[key];
-}
-
-const person = { name: 'John', age: 30 };
-let name = getProperty(person, 'name');    // OK
-// getProperty(person, 'email');           // Error - 'email' not in person
 
 // Generic classes
 class GenericRepository<T> {
     private items: T[] = [];
-
+    
     add(item: T): void {
         this.items.push(item);
     }
-
+    
+    findById<K extends keyof T>(key: K, value: T[K]): T | undefined {
+        return this.items.find(item => item[key] === value);
+    }
+    
     getAll(): T[] {
-        return this.items;
-    }
-
-    getById(index: number): T {
-        return this.items[index];
+        return [...this.items];
     }
 }
 
-interface User {
+interface Product {
     id: number;
     name: string;
+    price: number;
 }
 
-const userRepo = new GenericRepository<User>();
-userRepo.add({ id: 1, name: 'John' });
+const productRepo = new GenericRepository<Product>();
+productRepo.add({ id: 1, name: "Laptop", price: 999 });
 
-// Generic interfaces
-interface Pair<T, U> {
-    first: T;
-    second: U;
+// Mixins
+type Constructor = new (...args: any[]) => {};
+
+function Timestamped<TBase extends Constructor>(Base: TBase) {
+    return class extends Base {
+        timestamp = Date.now();
+        
+        getTimestamp() {
+            return new Date(this.timestamp);
+        }
+    };
 }
 
-const pair: Pair<string, number> = {
-    first: 'hello',
-    second: 42
-};
-
-// Keyof operator
-function printProperty<T, K extends keyof T>(obj: T, key: K): void {
-    console.log(obj[key]);
-}
-          </code></pre>
-
-          </section>
-
-          <section id="advanced-types" class="section">
-            <h2>Advanced Types</h2>
-          <pre><code>
-// Mapped types - transform existing types
-interface User {
-    id: number;
-    name: string;
-    email: string;
+function Activatable<TBase extends Constructor>(Base: TBase) {
+    return class extends Base {
+        isActive = false;
+        
+        activate() {
+            this.isActive = true;
+        }
+        
+        deactivate() {
+            this.isActive = false;
+        }
+    };
 }
 
-// Make all properties optional
-type Partial<T> = {
-    [K in keyof T]?: T[K];
-};
-
-type OptionalUser = Partial<User>;
-
-// Make all properties readonly
-type Readonly<T> = {
-    readonly [K in keyof T]: T[K];
-};
-
-type ReadonlyUser = Readonly<User>;
-
-// Pick - select specific properties
-type UserPreview = Pick<User, 'id' | 'name'>;
-
-// Record - object with specified keys
-type Roles = 'admin' | 'user' | 'guest';
-type RolePermissions = Record<Roles, string[]>;
-
-const permissions: RolePermissions = {
-    admin: ['read', 'write', 'delete'],
-    user: ['read', 'write'],
-    guest: ['read']
-};
-
-// Exclude - exclude types from union
-type Everything = string | number | boolean;
-type NoBoolean = Exclude<Everything, boolean>;  // string | number
-
-// Extract - extract types from union
-type Extracted = Extract<Everything, string | number>;  // string | number
-
-// Conditional types
-type IsString<T> = T extends string ? true : false;
-
-type A = IsString<'hello'>;      // true
-type B = IsString<number>;       // false
-
-// Infer keyword
-type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
-
-function getValue(): string {
-    return 'value';
-}
-
-type Result = ReturnType<typeof getValue>;  // string
-          </code></pre>
-
-          </section>
-
-          <section id="decorators" class="section">
-            <h2>Decorators (Experimental)</h2>
-          <pre><code>
-// Class decorator
-function Log(target: Function) {
-    console.log('Class created:', target.name);
-}
-
-@Log
+// Base class
 class User {
     constructor(public name: string) {}
 }
 
-// Method decorator
-function Timer(target: any, key: string, descriptor: PropertyDescriptor) {
-    const original = descriptor.value;
+// Apply mixins
+const TimestampedUser = Timestamped(User);
+const ActivatableUser = Activatable(User);
+const TimestampedActivatableUser = Timestamped(Activatable(User));
 
-    descriptor.value = function(...args: any[]) {
-        console.time(key);
-        const result = original.apply(this, args);
-        console.timeEnd(key);
-        return result;
-    };
+const user = new TimestampedActivatableUser("John");
+user.activate();
+console.log(user.getTimestamp());
+console.log(user.isActive);</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-    return descriptor;
+                <section id="generics" class="section">
+                    <h2>🔄 Generics</h2>
+                    
+                    <div class="subsection">
+                        <h3>Generic Functions and Interfaces</h3>
+                        <div class="code-block">
+                            <pre><code>// Generic function
+function identity<T>(arg: T): T {
+    return arg;
 }
 
-class Calculator {
-    @Timer
-    expensiveOperation() {
-        let sum = 0;
-        for (let i = 0; i < 1000000; i++) {
-            sum += i;
-        }
-        return sum;
+// Usage
+let output1 = identity<string>("myString");
+let output2 = identity<number>(100);
+let output3 = identity("myString"); // Type inference
+
+// Generic function with multiple type parameters
+function pair<T, U>(first: T, second: U): [T, U] {
+    return [first, second];
+}
+
+const stringNumberPair = pair<string, number>("hello", 42);
+const booleanStringPair = pair(true, "world"); // Type inference
+
+// Generic constraints
+interface Lengthwise {
+    length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+    console.log(arg.length); // Now we know it has a .length property
+    return arg;
+}
+
+loggingIdentity("hello"); // OK, string has length
+loggingIdentity([1, 2, 3]); // OK, array has length
+// loggingIdentity(3); // Error, number doesn't have length
+
+// Using type parameters in generic constraints
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key];
+}
+
+let person = { name: "John", age: 30, email: "john@example.com" };
+let name = getProperty(person, "name"); // string
+let age = getProperty(person, "age");   // number
+// let invalid = getProperty(person, "invalid"); // Error
+
+// Generic interfaces
+interface GenericIdentityFn<T> {
+    (arg: T): T;
+}
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: GenericIdentityFn<number> = identity;
+
+// Generic classes
+class GenericNumber<T> {
+    zeroValue: T;
+    add: (x: T, y: T) => T;
+    
+    constructor(zeroValue: T, addFn: (x: T, y: T) => T) {
+        this.zeroValue = zeroValue;
+        this.add = addFn;
     }
 }
 
-// Property decorator
-function Validate(target: any, key: string) {
-    let value = target[key];
+let myGenericNumber = new GenericNumber<number>(0, (x, y) => x + y);
+let stringNumeric = new GenericNumber<string>("", (x, y) => x + y);</code></pre>
+                        </div>
+                        
+                        <h3>Advanced Generic Patterns</h3>
+                        <div class="code-block">
+                            <pre><code>// Conditional types
+type ApiResponse<T> = T extends string 
+    ? { message: T } 
+    : T extends number 
+    ? { code: T } 
+    : { data: T };
 
-    Object.defineProperty(target, key, {
-        get: () => value,
-        set: (newValue) => {
-            if (typeof newValue !== 'string') {
-                throw new Error(`${key} must be a string`);
-            }
-            value = newValue;
-        }
-    });
-}
+type StringResponse = ApiResponse<string>; // { message: string }
+type NumberResponse = ApiResponse<number>; // { code: number }
+type ObjectResponse = ApiResponse<object>; // { data: object }
 
-class Person {
-    @Validate
-    name: string = '';
-}
-          </code></pre>
+// Mapped types
+type Readonly<T> = {
+    readonly [P in keyof T]: T[P];
+};
 
-          </section>
+type Partial<T> = {
+    [P in keyof T]?: T[P];
+};
 
-          <section id="utility-types" class="section">
-            <h2>Utility Types (Built-in)</h2>
-          <pre><code>
+type Pick<T, K extends keyof T> = {
+    [P in K]: T[P];
+};
+
+// Utility types in action
 interface User {
     id: number;
     name: string;
     email: string;
-    age: number;
+    password: string;
 }
 
-// Partial<T> - make all properties optional
-type PartialUser = Partial<User>;
+type PublicUser = Omit<User, 'password'>; // { id, name, email }
+type UserUpdate = Partial<Pick<User, 'name' | 'email'>>; // { name?, email? }
+type UserCredentials = Pick<User, 'email' | 'password'>; // { email, password }
 
-// Required<T> - make all properties required
-type RequiredUser = Required<PartialUser>;
-
-// Readonly<T> - make all properties readonly
-type ReadonlyUser = Readonly<User>;
-
-// Pick<T, K> - select properties
-type UserPreview = Pick<User, 'id' | 'name'>;
-
-// Omit<T, K> - exclude properties
-type UserWithoutEmail = Omit<User, 'email'>;
-
-// Record<K, T> - map keys to type
-type Roles = 'admin' | 'user';
-type RoleConfig = Record<Roles, { permissions: string[] }>;
-
-// Exclude<T, U> - exclude type from union
-type Result = Exclude<'a' | 'b' | 'c', 'b'>;  // 'a' | 'c'
-
-// Extract<T, U> - extract matching type from union
-type OnlyStrings = Extract<string | number | boolean, string>;
-
-// NonNullable<T> - remove null and undefined
-type NonNull = NonNullable<string | null | undefined>;  // string
-
-// Parameters<T> - get function parameters as tuple
-type Params = Parameters<(a: string, b: number) => void>;  // [string, number]
-
-// ReturnType<T> - get function return type
-type Return = ReturnType<() => string>;  // string
-
-// InstanceType<T> - get instance type of constructor
-type Instance = InstanceType<typeof User>;  // User
-          </code></pre>
-
-          </section>
-
-          <section id="type-narrowing" class="section">
-            <h2>Type Narrowing</h2>
-          <pre><code>
-// typeof guard
-function processValue(value: string | number) {
-    if (typeof value === 'string') {
-        console.log(value.toUpperCase());
-    } else {
-        console.log(value.toFixed(2));
-    }
+// Generic factory pattern
+interface Constructable<T = {}> {
+    new (...args: any[]): T;
 }
 
-// instanceof guard
-class Cat {
-    meow() {}
+function createInstance<T extends Constructable>(ctor: T, ...args: any[]): InstanceType<T> {
+    return new ctor(...args);
 }
 
-class Dog {
-    bark() {}
+class Car {
+    constructor(public brand: string, public model: string) {}
 }
 
-function makeSound(animal: Cat | Dog) {
-    if (animal instanceof Cat) {
-        animal.meow();
-    } else {
-        animal.bark();
-    }
+class Person {
+    constructor(public name: string, public age: number) {}
 }
 
-// Discriminated unions (tagged unions)
-interface Success {
-    status: 'success';
-    data: string;
-}
+const car = createInstance(Car, "Toyota", "Camry");
+const person = createInstance(Person, "John", 30);
 
-interface Error {
-    status: 'error';
-    error: string;
-}
-
-type Result = Success | Error;
-
-function handle(result: Result) {
-    if (result.status === 'success') {
-        console.log(result.data);
-    } else {
-        console.log(result.error);
-    }
-}
-
-// User-defined type guard
-function isUser(obj: any): obj is User {
-    return obj && typeof obj === 'object' && 'id' in obj && 'name' in obj;
-}
-
-function processUser(data: unknown) {
-    if (isUser(data)) {
-        console.log(data.name);
-    }
-}
-
-// Optional chaining and nullish coalescing
-const user: User | null = null;
-const name = user?.name;                    // undefined
-const defaultName = user?.name ?? 'Guest';  // 'Guest'
-          </code></pre>
-
-          </section>
-
-          <section id="modules" class="section">
-            <h2>Modules & Namespaces</h2>
-          <pre><code>
-// Exporting
-export interface User {
+// Generic repository pattern
+interface Entity {
     id: number;
-    name: string;
 }
 
-export class UserService {
-    getUser(id: number): User {
-        return { id, name: 'John' };
+interface Repository<T extends Entity> {
+    findById(id: number): Promise<T | null>;
+    findAll(): Promise<T[]>;
+    save(entity: Omit<T, 'id'>): Promise<T>;
+    update(id: number, updates: Partial<T>): Promise<T | null>;
+    delete(id: number): Promise<boolean>;
+}
+
+class InMemoryRepository<T extends Entity> implements Repository<T> {
+    private items: T[] = [];
+    private nextId = 1;
+    
+    async findById(id: number): Promise<T | null> {
+        return this.items.find(item => item.id === id) || null;
     }
-}
-
-// Default export
-export default class AppService {
-    run() {}
-}
-
-// Importing
-import UserService, { User } from './user.service';
-import * as UserModule from './user.service';
-
-const service = new UserService();
-const user: User = service.getUser(1);
-
-// Namespaces (less common, use modules)
-namespace Utilities {
-    export function log(msg: string) {
-        console.log(msg);
+    
+    async findAll(): Promise<T[]> {
+        return [...this.items];
     }
-}
-
-Utilities.log('Hello');
-          </code></pre>
-
-          </section>
-
-          <section id="enums" class="section">
-            <h2>Enum Types</h2>
-          <pre><code>
-// Numeric enum
-enum Direction {
-    Up = 1,
-    Down = 2,
-    Left = 3,
-    Right = 4
-}
-
-// String enum
-enum Status {
-    Active = 'ACTIVE',
-    Inactive = 'INACTIVE',
-    Pending = 'PENDING'
-}
-
-// Heterogeneous enum (mix of string and number)
-enum Response {
-    No = 0,
-    Yes = 'YES'
-}
-
-// Const enum (optimized away at compile time)
-const enum Color {
-    Red,
-    Green,
-    Blue
-}
-
-// Using enums
-let direction: Direction = Direction.Up;
-let status: Status = Status.Active;
-
-function processStatus(status: Status) {
-    if (status === Status.Active) {
-        console.log('Active');
+    
+    async save(entity: Omit<T, 'id'>): Promise<T> {
+        const newEntity = { ...entity, id: this.nextId++ } as T;
+        this.items.push(newEntity);
+        return newEntity;
     }
-}
-          </code></pre>
-
-          </section>
-
-          <section id="async" class="section">
-            <h2>Async/Await & Promises</h2>
-          <pre><code>
-// Promise types
-function fetchUser(id: number): Promise<User> {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({ id, name: 'John' });
-        }, 1000);
-    });
-}
-
-// Async/await
-async function getUser(id: number): Promise<User> {
-    try {
-        const response = await fetch(`/api/users/${id}`);
-        const user: User = await response.json();
-        return user;
-    } catch (error) {
-        console.error(error);
-        throw error;
+    
+    async update(id: number, updates: Partial<T>): Promise<T | null> {
+        const index = this.items.findIndex(item => item.id === id);
+        if (index === -1) return null;
+        
+        this.items[index] = { ...this.items[index], ...updates };
+        return this.items[index];
     }
-}
-
-// Generic Promise wrapper
-async function handleOperation<T>(
-    promise: Promise<T>,
-    timeout: number = 5000
-): Promise<T | null> {
-    try {
-        return await Promise.race([
-            promise,
-            new Promise<T>((_, reject) =>
-                setTimeout(() => reject(new Error('Timeout')), timeout)
-            )
-        ]);
-    } catch (error) {
-        console.error(error);
-        return null;
+    
+    async delete(id: number): Promise<boolean> {
+        const index = this.items.findIndex(item => item.id === id);
+        if (index === -1) return false;
+        
+        this.items.splice(index, 1);
+        return true;
     }
-}
-          </code></pre>
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-          </section>
+                <section id="interview" class="section">
+                    <h2>💼 Interview Questions</h2>
+                    
+                    <div class="subsection">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <div class="question-block">
+                            <h4>Q1: What are the main benefits of using TypeScript over JavaScript?</h4>
+                            <p><strong>Answer:</strong></p>
+                            <ul>
+                                <li><strong>Type Safety:</strong> Catch errors at compile time</li>
+                                <li><strong>Better IDE Support:</strong> Enhanced autocomplete and refactoring</li>
+                                <li><strong>Self-Documenting Code:</strong> Types serve as documentation</li>
+                                <li><strong>Easier Refactoring:</strong> Safer code changes in large codebases</li>
+                                <li><strong>Modern JavaScript Features:</strong> Latest ECMAScript support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q2: What's the difference between interface and type in TypeScript?</h4>
+                            <p><strong>Answer:</strong></p>
+                            <ul>
+                                <li><strong>Interface:</strong> Can be extended, merged, better for object shapes</li>
+                                <li><strong>Type:</strong> More flexible, supports unions, intersections, computed properties</li>
+                                <li><strong>Use Interface:</strong> For object contracts, when you need extension/merging</li>
+                                <li><strong>Use Type:</strong> For unions, intersections, computed types</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q3: Explain generics in TypeScript</h4>
+                            <p><strong>Answer:</strong> Generics allow creating reusable components that work with multiple types while maintaining type safety. They provide a way to make components work over a variety of types rather than a single one.</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q4: What are utility types in TypeScript?</h4>
+                            <p><strong>Answer:</strong> Built-in generic types that facilitate common type transformations: Partial&lt;T&gt;, Required&lt;T&gt;, Pick&lt;T,K&gt;, Omit&lt;T,K&gt;, Record&lt;K,T&gt;, Exclude&lt;T,U&gt;, Extract&lt;T,U&gt;, etc.</p>
+                        </div>
+                        
+                        <div class="question-block">
+                            <h4>Q5: How do you handle null and undefined in TypeScript?</h4>
+                            <p><strong>Answer:</strong> Use strict null checks (--strictNullChecks), optional chaining (?.), nullish coalescing (??), type guards, and union types (T | null | undefined) for explicit handling.</p>
+                        </div>
+                    </div>
+                </section>
 
-          <section id="configuration" class="section">
-            <h2>Configuration (tsconfig.json)</h2>
-          <pre><code>
-// Common compiler options
-{
-    "compilerOptions": {
-        "target": "ES2020",
-        "module": "ESNext",
-        "lib": ["ES2020", "DOM"],
-        "jsx": "react-jsx",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true,
-        "declaration": true,
-        "declarationMap": true,
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "strictBindCallApply": true,
-        "strictPropertyInitialization": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true
-    },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules"]
-}
-          </code></pre>
-
-          </section>
-
-          <section id="interview" class="section">
-            <h2>Common Interview Problems</h2>
-          <ul>
-              <li><strong>Type vs Interface:</strong> When to use each</li>
-              <li><strong>Generic Constraints:</strong> Using extends keyword</li>
-              <li><strong>keyof & typeof:</strong> Getting types from values</li>
-              <li><strong>Conditional Types:</strong> Type-level programming</li>
-              <li><strong>Utility Types:</strong> Partial, Pick, Record, etc.</li>
-              <li><strong>Discriminated Unions:</strong> Type-safe error handling</li>
-              <li><strong>Module Resolution:</strong> Imports and exports</li>
-              <li><strong>Type Narrowing:</strong> Guards and assertions</li>
-          </ul>
-
-          </section>
-
-          <section id="best-practices" class="section">
-            <h2>Best Practices</h2>
-          <ul>
-              <li>Enable strict mode in tsconfig.json</li>
-              <li>Use interfaces for public API contracts</li>
-              <li>Use types for unions and complex structures</li>
-              <li>Avoid any - use unknown instead</li>
-              <li>Use const assertions for literal types</li>
-              <li>Prefer type guards over type assertions</li>
-              <li>Document complex types with comments</li>
-              <li>Use meaningful names for generics (not just T, U, V)</li>
-              <li>Keep functions small and focused</li>
-              <li>Use readonly for immutable data</li>
-          </ul>
-
-            <h3>TypeScript vs JavaScript:</h3>
-            <ul>
-                <li><strong>Type Safety:</strong> Catch errors at compile-time</li>
-                <li><strong>Better IDE Support:</strong> Autocomplete and refactoring</li>
-                <li><strong>Self-Documenting:</strong> Types serve as documentation</li>
-                <li><strong>Interfaces:</strong> Define contracts between code</li>
-                <li><strong>Compilation Step:</strong> Adds build complexity</li>
-                <li><strong>Learning Curve:</strong> More concepts to understand</li>
-            </ul>
-
-            <h3>Key Interview Questions:</h3>
-            <ul>
-                <li>What's the difference between type and interface?</li>
-                <li>Explain generic constraints and their use cases</li>
-                <li>What are utility types and provide examples</li>
-                <li>How does TypeScript handle type narrowing?</li>
-                <li>What is the keyof operator used for?</li>
-                <li>Explain conditional types and infer keyword</li>
-                <li>How do mapped types work?</li>
-                <li>What's the difference between any and unknown?</li>
-                <li>How to use decorators in TypeScript?</li>
-                <li>What are discriminated unions and their benefits?</li>
-            </ul>
-          </section>
-          </div>
+            </div>
+            </div>
         </div>
-      </div>
     </div>
-      <script src="footer.js"></script>
+    
+    <footer></footer>
+    <script src="footer.js"></script>
 </body>
 </html>
