@@ -13,7 +13,7 @@
         <div class="container">
             <div class="hero">
                 <h1>Java 8 Features</h1>
-                <p>Modern Java Programming</p>
+                <p>Modern Java Programming with Lambda, Streams & More</p>
             </div>
         </div>
     </header>
@@ -21,87 +21,11 @@
     <script>window.activePage = 'java';</script>
     <script src="../menu.js"></script>
     
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!nav.contains(event.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-        
-        // Active section highlighting
-        function highlightActiveSection() {
-            const sections = document.querySelectorAll('.section');
-            const tocLinks = document.querySelectorAll('.toc-nav a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            tocLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        // Initialize
-        window.addEventListener('scroll', highlightActiveSection);
-        
-        // Simple syntax highlighting
-        document.addEventListener('DOMContentLoaded', function() {
-            const codeBlocks = document.querySelectorAll('.code-block code');
-            codeBlocks.forEach(block => {
-                let html = block.textContent || block.innerText;
-                
-                // Escape HTML entities first
-                html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                
-                // Java keywords
-                html = html.replace(/\b(public|private|protected|static|final|class|interface|extends|implements|import|package|void|int|String|boolean|double|float|long|short|byte|char|if|else|for|while|do|switch|case|default|break|continue|return|try|catch|finally|throw|throws|new|this|super|null|true|false|default)\b/g, '<span class="keyword">$1</span>');
-                
-                // Strings
-                html = html.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
-                html = html.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
-                
-                // Comments
-                html = html.replace(/\/\/.*$/gm, '<span class="comment">$&</span>');
-                html = html.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
-                
-                // Numbers
-                html = html.replace(/\b\d+(\.\d+)?[fLdF]?\b/g, '<span class="number">$&</span>');
-                
-                // Method calls
-                html = html.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="method">$1</span>(');
-                
-                // Class names (capitalized words)
-                html = html.replace(/\b[A-Z][a-zA-Z0-9_]*\b/g, '<span class="class">$&</span>');
-                
-                block.innerHTML = html;
-            });
-            
-            // Initialize sidebar functionality
-            highlightActiveSection();
-        });
-    </script>
-        <div class="container">
+    <div class="container">
         <div class="content-with-sidebar">
-            <!-- Sidebar TOC -->
             <aside class="sidebar-toc">
                 <div class="toc-header">
-                    <h2>📚 Table of Contents</h2>
+                    <h2>📚 Java 8 Topics</h2>
                 </div>
                 <nav class="toc-nav">
                     <ul>
@@ -119,7 +43,6 @@
                 </nav>
             </aside>
 
-            <!-- Main Content -->
             <div class="main-content">
                 <div class="topic">
 
@@ -127,9 +50,15 @@
                     <h2>🚀 Lambda Expressions</h2>
                     
                     <div class="subsection">
-                        <h3>Lambda Syntax and Basic Usage</h3>
+                        <h3>What are Lambda Expressions?</h3>
+                        <p>Lambda expressions are anonymous functions that provide a concise way to represent functional interfaces. They enable functional programming in Java.</p>
+                        
+                        <h4>Syntax:</h4>
+                        <pre><code>(parameters) -> expression
+(parameters) -> { statements; }</code></pre>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
+                            <pre><code>import java.util.*;
 import java.util.function.*;
 
 public class LambdaBasics {
@@ -155,9 +84,6 @@ public class LambdaBasics {
         
         Comparator<String> newComparator = (a, b) -> a.compareTo(b);
         
-        // Even shorter with method reference
-        Comparator<String> shortest = String::compareTo;
-        
         // Lambda with multiple statements
         Function<String, String> processor = (input) -> {
             String trimmed = input.trim();
@@ -179,299 +105,98 @@ public class LambdaBasics {
 }</code></pre>
                         </div>
                     </div>
-
-                    <div class="subsection">
-                        <h3>Lambda Expression Types</h3>
-                        <div class="code-block">
-                            <pre><code class="language-java">public class LambdaTypes {
-    public static void main(String[] args) {
-        // No parameters
-        Runnable noParams = () -> System.out.println("No parameters");
-        
-        // Single parameter (parentheses optional)
-        Consumer<String> singleParam = name -> System.out.println("Hello " + name);
-        Consumer<String> singleParamWithParens = (name) -> System.out.println("Hello " + name);
-        
-        // Multiple parameters
-        BinaryOperator<Integer> multipleParams = (a, b) -> a + b;
-        
-        // Explicit type declaration
-        BinaryOperator<Integer> explicitTypes = (Integer a, Integer b) -> a + b;
-        
-        // Return statement
-        Function<String, Integer> withReturn = (str) -> {
-            return str.length();
-        };
-        
-        // Expression body (implicit return)
-        Function<String, Integer> expressionBody = str -> str.length();
-        
-        // Accessing local variables (effectively final)
-        String prefix = "Result: ";
-        Function<Integer, String> accessLocal = num -> prefix + num;
-        
-        // Using lambdas
-        noParams.run();
-        singleParam.accept("Alice");
-        System.out.println(multipleParams.apply(5, 3));
-        System.out.println(withReturn.apply("Hello"));
-        System.out.println(accessLocal.apply(42));
-    }
-}</code></pre>
-                        </div>
-                    </div>
                 </section>
 
                 <section id="functional-interfaces" class="section">
-                    <h2>🔧 Functional Interfaces</h2>
+                    <h2>🎯 Functional Interfaces</h2>
                     
                     <div class="subsection">
+                        <h3>What is a Functional Interface?</h3>
+                        <p><strong>Definition:</strong> A functional interface is an interface that contains exactly one abstract method. It can have multiple default and static methods, but only one abstract method.</p>
+                        
+                        <p><strong>Key Points:</strong></p>
+                        <ul>
+                            <li>Annotated with @FunctionalInterface (optional but recommended)</li>
+                            <li>Can be implemented using lambda expressions</li>
+                            <li>Foundation of functional programming in Java</li>
+                            <li>Enables method references and lambda expressions</li>
+                        </ul>
+                        
                         <h3>Built-in Functional Interfaces</h3>
+                        <p>Java 8 provides several built-in functional interfaces in java.util.function package. Each serves a specific purpose:</p>
+                        
+                        <h4>Core Functional Interfaces:</h4>
+                        <ul>
+                            <li><strong>Predicate&lt;T&gt;</strong> - Tests a condition, returns boolean</li>
+                            <li><strong>Function&lt;T,R&gt;</strong> - Transforms input T to output R</li>
+                            <li><strong>Consumer&lt;T&gt;</strong> - Accepts input T, returns nothing</li>
+                            <li><strong>Supplier&lt;T&gt;</strong> - Provides output T, takes no input</li>
+                        </ul>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">import java.util.function.*;
-import java.util.List;
-import java.util.Arrays;
+                            <pre><code>import java.util.function.*;
+import java.util.*;
 
 public class FunctionalInterfacesDemo {
     public static void main(String[] args) {
         // Predicate<T> - takes T, returns boolean
         Predicate<String> isEmpty = String::isEmpty;
         Predicate<Integer> isEven = num -> num % 2 == 0;
-        Predicate<String> startsWithA = str -> str.startsWith("A");
-        
-        System.out.println(isEmpty.test(""));        // true
-        System.out.println(isEven.test(4));          // true
-        System.out.println(startsWithA.test("Apple")); // true
         
         // Function<T, R> - takes T, returns R
         Function<String, Integer> stringLength = String::length;
-        Function<Integer, String> intToString = Object::toString;
         Function<String, String> toUpperCase = String::toUpperCase;
-        
-        System.out.println(stringLength.apply("Hello"));    // 5
-        System.out.println(intToString.apply(42));           // "42"
-        System.out.println(toUpperCase.apply("hello"));     // "HELLO"
         
         // Consumer<T> - takes T, returns void
         Consumer<String> printer = System.out::println;
-        Consumer<List<String>> listPrinter = list -> list.forEach(System.out::println);
-        
-        printer.accept("Hello World");
-        listPrinter.accept(Arrays.asList("A", "B", "C"));
         
         // Supplier<T> - takes nothing, returns T
-        Supplier<String> stringSupplier = () -> "Hello from supplier";
-        Supplier<Double> randomSupplier = Math::random;
-        Supplier<List<String>> listSupplier = ArrayList::new;
+        Supplier<String> randomUUID = () -> UUID.randomUUID().toString();
         
-        System.out.println(stringSupplier.get());
-        System.out.println(randomSupplier.get());
-        System.out.println(listSupplier.get());
-        
-        // BinaryOperator<T> - takes two T, returns T
-        BinaryOperator<Integer> add = Integer::sum;
-        BinaryOperator<String> concat = String::concat;
-        BinaryOperator<Integer> max = Integer::max;
-        
-        System.out.println(add.apply(5, 3));           // 8
-        System.out.println(concat.apply("Hello", " World")); // "Hello World"
-        System.out.println(max.apply(10, 20));         // 20
+        // BiFunction<T, U, R> - takes T and U, returns R
+        BiFunction<String, String, String> concat = (a, b) -> a + b;
         
         // UnaryOperator<T> - takes T, returns T
-        UnaryOperator<String> toUpper = String::toUpperCase;
-        UnaryOperator<Integer> square = x -> x * x;
+        UnaryOperator<String> addPrefix = str -> "PREFIX_" + str;
         
-        System.out.println(toUpper.apply("hello"));    // "HELLO"
-        System.out.println(square.apply(5));           // 25
+        // BinaryOperator<T> - takes two T, returns T
+        BinaryOperator<Integer> max = Integer::max;
+        
+        // Using the functional interfaces
+        System.out.println("isEmpty test: " + isEmpty.test(""));
+        System.out.println("isEven test: " + isEven.test(4));
+        System.out.println("String length: " + stringLength.apply("Hello"));
+        printer.accept("Hello from Consumer!");
+        System.out.println("Random UUID: " + randomUUID.get());
+        System.out.println("Max: " + max.apply(10, 20));
     }
 }</code></pre>
                         </div>
-                    </div>
-
-                    <div class="subsection">
+                        
                         <h3>Custom Functional Interfaces</h3>
                         <div class="code-block">
-                            <pre><code class="language-java">@FunctionalInterface
-public interface Calculator {
-    int calculate(int a, int b);
+                            <pre><code>@FunctionalInterface
+interface Calculator {
+    double calculate(double a, double b);
     
-    // Default methods are allowed
-    default int multiply(int a, int b) {
-        return a * b;
+    // Default method allowed
+    default double calculateAndRound(double a, double b) {
+        return Math.round(calculate(a, b));
     }
     
-    // Static methods are allowed
-    static int divide(int a, int b) {
-        return a / b;
+    // Static method allowed
+    static Calculator getAddition() {
+        return (a, b) -> a + b;
     }
 }
 
-@FunctionalInterface
-public interface StringProcessor {
-    String process(String input);
-}
-
-@FunctionalInterface
-public interface TriFunction<T, U, V, R> {
-    R apply(T t, U u, V v);
-}
-
-public class CustomFunctionalInterfaceDemo {
+public class CustomFunctionalInterface {
     public static void main(String[] args) {
-        // Using custom functional interfaces
-        Calculator add = (a, b) -> a + b;
-        Calculator subtract = (a, b) -> a - b;
-        Calculator multiply = Integer::sum; // This won't work - wrong operation
-        Calculator actualMultiply = (a, b) -> a * b;
+        Calculator addition = (a, b) -> a + b;
+        Calculator multiplication = (a, b) -> a * b;
         
-        System.out.println(add.calculate(5, 3));        // 8
-        System.out.println(subtract.calculate(5, 3));   // 2
-        System.out.println(actualMultiply.calculate(5, 3)); // 15
-        
-        // Using default method
-        System.out.println(add.multiply(5, 3));         // 15
-        
-        // Using static method
-        System.out.println(Calculator.divide(15, 3));   // 5
-        
-        // StringProcessor examples
-        StringProcessor toUpperCase = String::toUpperCase;
-        StringProcessor addPrefix = str -> "Processed: " + str;
-        StringProcessor reverse = str -> new StringBuilder(str).reverse().toString();
-        
-        System.out.println(toUpperCase.process("hello"));
-        System.out.println(addPrefix.process("data"));
-        System.out.println(reverse.process("hello"));
-        
-        // TriFunction example
-        TriFunction<String, Integer, Integer, String> substring = String::substring;
-        System.out.println(substring.apply("Hello World", 0, 5)); // "Hello"
-        
-        TriFunction<Integer, Integer, Integer, Integer> addThree = (a, b, c) -> a + b + c;
-        System.out.println(addThree.apply(1, 2, 3)); // 6
-    }
-}</code></pre>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="method-references" class="section">
-                    <h2>🔗 Method References</h2>
-                    
-                    <div class="subsection">
-                        <h3>Types of Method References</h3>
-                        <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
-import java.util.function.*;
-
-public class MethodReferencesDemo {
-    public static void main(String[] args) {
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
-        
-        // 1. Reference to static method
-        // ClassName::staticMethodName
-        Function<String, Integer> parseInt1 = Integer::parseInt;
-        Function<String, Integer> parseInt2 = str -> Integer.parseInt(str);
-        
-        System.out.println(parseInt1.apply("123")); // 123
-        
-        // 2. Reference to instance method of particular object
-        // object::instanceMethodName
-        String prefix = "Hello ";
-        Function<String, String> addPrefix1 = prefix::concat;
-        Function<String, String> addPrefix2 = str -> prefix.concat(str);
-        
-        System.out.println(addPrefix1.apply("World")); // "Hello World"
-        
-        // 3. Reference to instance method of arbitrary object
-        // ClassName::instanceMethodName
-        Function<String, String> toUpperCase1 = String::toUpperCase;
-        Function<String, String> toUpperCase2 = str -> str.toUpperCase();
-        
-        names.stream()
-             .map(String::toUpperCase)
-             .forEach(System.out::println);
-        
-        // 4. Reference to constructor
-        // ClassName::new
-        Supplier<List<String>> listSupplier1 = ArrayList::new;
-        Supplier<List<String>> listSupplier2 = () -> new ArrayList<>();
-        
-        Function<String, StringBuilder> sbCreator1 = StringBuilder::new;
-        Function<String, StringBuilder> sbCreator2 = str -> new StringBuilder(str);
-        
-        // More examples
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        
-        // Static method reference
-        numbers.stream()
-               .map(String::valueOf)  // Integer.toString() -> String::valueOf
-               .forEach(System.out::println);
-        
-        // Instance method reference
-        numbers.stream()
-               .map(Object::toString)  // num -> num.toString()
-               .forEach(System.out::println);
-        
-        // Constructor reference
-        numbers.stream()
-               .map(StringBuilder::new)  // num -> new StringBuilder(num)
-               .forEach(System.out::println);
-    }
-    
-    // Custom class for demonstration
-    static class Person {
-        private String name;
-        private int age;
-        
-        public Person(String name) {
-            this.name = name;
-        }
-        
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-        
-        public String getName() { return name; }
-        public int getAge() { return age; }
-        
-        public static int compareByName(Person a, Person b) {
-            return a.name.compareTo(b.name);
-        }
-        
-        public int compareByAge(Person other) {
-            return Integer.compare(this.age, other.age);
-        }
-        
-        @Override
-        public String toString() {
-            return name + "(" + age + ")";
-        }
-    }
-    
-    public static void demonstrateWithCustomClass() {
-        List<Person> people = Arrays.asList(
-            new Person("Alice", 25),
-            new Person("Bob", 30),
-            new Person("Charlie", 20)
-        );
-        
-        // Static method reference
-        people.sort(Person::compareByName);
-        
-        // Instance method reference of arbitrary object
-        people.stream()
-              .map(Person::getName)
-              .forEach(System.out::println);
-        
-        // Constructor reference
-        Function<String, Person> personCreator = Person::new;
-        Person newPerson = personCreator.apply("Eve");
-        
-        // BiFunction for constructor with two parameters
-        BiFunction<String, Integer, Person> personCreatorWithAge = Person::new;
-        Person anotherPerson = personCreatorWithAge.apply("Frank", 35);
+        System.out.println("Addition: " + addition.calculate(10, 5));
+        System.out.println("Multiplication: " + multiplication.calculate(10, 5));
     }
 }</code></pre>
                         </div>
@@ -482,249 +207,81 @@ public class MethodReferencesDemo {
                     <h2>🌊 Stream API</h2>
                     
                     <div class="subsection">
-                        <h3>Stream Creation and Basic Operations</h3>
+                        <h3>What is Stream API?</h3>
+                        <p><strong>Definition:</strong> Stream API is a powerful feature that allows functional-style operations on collections of objects. It provides a declarative way to process data.</p>
+                        
+                        <p><strong>Stream vs Collection:</strong></p>
+                        <ul>
+                            <li><strong>Collection:</strong> Data structure that stores elements</li>
+                            <li><strong>Stream:</strong> Sequence of elements that supports aggregate operations</li>
+                        </ul>
+                        
+                        <h4>Key Characteristics:</h4>
+                        <ul>
+                            <li><strong>No storage</strong> - streams don't store elements, they flow through a pipeline</li>
+                            <li><strong>Functional in nature</strong> - operations produce results without modifying source</li>
+                            <li><strong>Lazy evaluation</strong> - intermediate operations are not executed until terminal operation</li>
+                            <li><strong>Possibly unbounded</strong> - streams can be infinite (unlike collections)</li>
+                            <li><strong>Consumable</strong> - elements are visited only once during the life of a stream</li>
+                        </ul>
+                        
+                        <h4>Stream Pipeline:</h4>
+                        <p>A stream pipeline consists of:</p>
+                        <ul>
+                            <li><strong>Source:</strong> Collection, array, generator function</li>
+                            <li><strong>Intermediate operations:</strong> filter, map, sorted (return Stream)</li>
+                            <li><strong>Terminal operation:</strong> collect, forEach, reduce (triggers execution)</li>
+                        </ul>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
+                            <pre><code>import java.util.*;
 import java.util.stream.*;
 
 public class StreamBasics {
     public static void main(String[] args) {
-        // Creating streams
-        
-        // From collections
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
-        Stream<String> streamFromList = names.stream();
-        
-        // From arrays
-        String[] array = {"A", "B", "C"};
-        Stream<String> streamFromArray = Arrays.stream(array);
-        
-        // From values
-        Stream<String> streamFromValues = Stream.of("X", "Y", "Z");
-        
-        // Empty stream
-        Stream<String> emptyStream = Stream.empty();
-        
-        // Infinite streams
-        Stream<Integer> infiniteStream = Stream.iterate(0, n -> n + 2);
-        Stream<Double> randomStream = Stream.generate(Math::random);
-        
-        // Range streams
-        IntStream range = IntStream.range(1, 10);        // 1 to 9
-        IntStream rangeClosed = IntStream.rangeClosed(1, 10); // 1 to 10
-        
-        // Basic operations
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         
         // Filter - intermediate operation
-        List<Integer> evenNumbers = numbers.stream()
-            .filter(n -> n % 2 == 0)
+        List<String> longNames = names.stream()
+            .filter(name -> name.length() > 3)
             .collect(Collectors.toList());
-        System.out.println("Even numbers: " + evenNumbers);
         
-        // Map - intermediate operation
-        List<String> stringNumbers = numbers.stream()
-            .map(Object::toString)
+        // Map - transform elements
+        List<Integer> nameLengths = names.stream()
+            .map(String::length)
             .collect(Collectors.toList());
-        System.out.println("String numbers: " + stringNumbers);
         
-        // Sorted - intermediate operation
-        List<String> sortedNames = names.stream()
-            .sorted()
-            .collect(Collectors.toList());
-        System.out.println("Sorted names: " + sortedNames);
-        
-        // Distinct - intermediate operation
-        List<Integer> duplicates = Arrays.asList(1, 2, 2, 3, 3, 3, 4);
-        List<Integer> unique = duplicates.stream()
-            .distinct()
-            .collect(Collectors.toList());
-        System.out.println("Unique numbers: " + unique);
-        
-        // Limit and Skip - intermediate operations
-        List<Integer> limitedNumbers = numbers.stream()
-            .skip(3)
-            .limit(4)
-            .collect(Collectors.toList());
-        System.out.println("Limited numbers: " + limitedNumbers);
-    }
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>Terminal Operations</h3>
-                        <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
-import java.util.stream.*;
-
-public class StreamTerminalOperations {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
-        
-        // forEach - terminal operation
-        System.out.println("Numbers:");
-        numbers.stream()
-               .filter(n -> n % 2 == 0)
-               .forEach(System.out::println);
-        
-        // collect - terminal operation
-        List<String> upperCaseWords = words.stream()
-            .map(String::toUpperCase)
-            .collect(Collectors.toList());
-        System.out.println("Uppercase words: " + upperCaseWords);
-        
-        // reduce - terminal operation
-        Optional<Integer> sum = numbers.stream()
-            .reduce(Integer::sum);
-        System.out.println("Sum: " + sum.orElse(0));
-        
-        int product = numbers.stream()
-            .reduce(1, (a, b) -> a * b);
-        System.out.println("Product: " + product);
-        
-        // count - terminal operation
-        long evenCount = numbers.stream()
-            .filter(n -> n % 2 == 0)
-            .count();
-        System.out.println("Even count: " + evenCount);
-        
-        // anyMatch, allMatch, noneMatch - terminal operations
-        boolean hasEven = numbers.stream()
-            .anyMatch(n -> n % 2 == 0);
-        System.out.println("Has even numbers: " + hasEven);
-        
-        boolean allPositive = numbers.stream()
-            .allMatch(n -> n > 0);
-        System.out.println("All positive: " + allPositive);
-        
-        boolean noneNegative = numbers.stream()
-            .noneMatch(n -> n < 0);
-        System.out.println("None negative: " + noneNegative);
-        
-        // findFirst, findAny - terminal operations
-        Optional<Integer> firstEven = numbers.stream()
-            .filter(n -> n % 2 == 0)
-            .findFirst();
-        System.out.println("First even: " + firstEven.orElse(-1));
-        
-        Optional<String> anyLongWord = words.stream()
-            .filter(word -> word.length() > 5)
-            .findAny();
-        System.out.println("Any long word: " + anyLongWord.orElse("none"));
-        
-        // min, max - terminal operations
-        Optional<Integer> min = numbers.stream()
-            .min(Integer::compareTo);
-        System.out.println("Min: " + min.orElse(-1));
-        
-        Optional<String> longestWord = words.stream()
-            .max(Comparator.comparing(String::length));
-        System.out.println("Longest word: " + longestWord.orElse("none"));
-        
-        // toArray - terminal operation
-        String[] wordArray = words.stream()
-            .filter(word -> word.startsWith("a"))
-            .toArray(String[]::new);
-        System.out.println("Words starting with 'a': " + Arrays.toString(wordArray));
-    }
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>Complex Stream Operations</h3>
-                        <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
-import java.util.stream.*;
-
-public class ComplexStreamOperations {
-    
-    static class Person {
-        private String name;
-        private int age;
-        private String city;
-        private double salary;
-        
-        public Person(String name, int age, String city, double salary) {
-            this.name = name;
-            this.age = age;
-            this.city = city;
-            this.salary = salary;
-        }
-        
-        // Getters
-        public String getName() { return name; }
-        public int getAge() { return age; }
-        public String getCity() { return city; }
-        public double getSalary() { return salary; }
-        
-        @Override
-        public String toString() {
-            return String.format("%s(%d, %s, %.0f)", name, age, city, salary);
-        }
-    }
-    
-    public static void main(String[] args) {
-        List<Person> people = Arrays.asList(
-            new Person("Alice", 25, "NYC", 75000),
-            new Person("Bob", 30, "LA", 80000),
-            new Person("Charlie", 35, "NYC", 90000),
-            new Person("David", 28, "Chicago", 70000),
-            new Person("Eve", 32, "LA", 85000),
-            new Person("Frank", 27, "NYC", 72000)
-        );
-        
-        // Complex filtering and mapping
-        List<String> highEarnersInNYC = people.stream()
-            .filter(person -> person.getCity().equals("NYC"))
-            .filter(person -> person.getSalary() > 70000)
-            .map(Person::getName)
-            .sorted()
-            .collect(Collectors.toList());
-        System.out.println("High earners in NYC: " + highEarnersInNYC);
-        
-        // FlatMap example
+        // FlatMap - flatten nested structures
         List<List<String>> nestedList = Arrays.asList(
             Arrays.asList("a", "b"),
-            Arrays.asList("c", "d", "e"),
-            Arrays.asList("f")
+            Arrays.asList("c", "d")
         );
         
-        List<String> flatList = nestedList.stream()
+        List<String> flattened = nestedList.stream()
             .flatMap(List::stream)
             .collect(Collectors.toList());
-        System.out.println("Flattened list: " + flatList);
         
-        // Grouping
-        Map<String, List<Person>> peopleByCity = people.stream()
-            .collect(Collectors.groupingBy(Person::getCity));
-        System.out.println("People by city: " + peopleByCity);
+        // Reduce operations
+        Optional<Integer> sum = numbers.stream()
+            .reduce((a, b) -> a + b);
         
-        // Partitioning
-        Map<Boolean, List<Person>> partitionedByAge = people.stream()
-            .collect(Collectors.partitioningBy(person -> person.getAge() > 30));
-        System.out.println("Partitioned by age > 30: " + partitionedByAge);
+        // Find operations
+        Optional<String> first = names.stream()
+            .filter(name -> name.startsWith("C"))
+            .findFirst();
         
-        // Statistics
-        DoubleSummaryStatistics salaryStats = people.stream()
-            .mapToDouble(Person::getSalary)
-            .summaryStatistics();
-        System.out.println("Salary statistics: " + salaryStats);
+        // Sorting
+        List<String> sorted = names.stream()
+            .sorted(Comparator.comparing(String::length))
+            .collect(Collectors.toList());
         
-        // Custom collector
-        String namesConcatenated = people.stream()
-            .map(Person::getName)
-            .collect(Collectors.joining(", ", "[", "]"));
-        System.out.println("Names concatenated: " + namesConcatenated);
-        
-        // Parallel stream
-        double averageSalary = people.parallelStream()
-            .mapToDouble(Person::getSalary)
-            .average()
-            .orElse(0.0);
-        System.out.println("Average salary: " + averageSalary);
+        System.out.println("Long names: " + longNames);
+        System.out.println("Name lengths: " + nameLengths);
+        System.out.println("Flattened: " + flattened);
+        System.out.println("Sum: " + sum.orElse(0));
+        System.out.println("First C name: " + first.orElse("None"));
+        System.out.println("Sorted by length: " + sorted);
     }
 }</code></pre>
                         </div>
@@ -735,299 +292,141 @@ public class ComplexStreamOperations {
                     <h2>🎁 Optional Class</h2>
                     
                     <div class="subsection">
-                        <h3>Optional Creation and Usage</h3>
+                        <h3>What is Optional?</h3>
+                        <p><strong>Definition:</strong> Optional is a container object that may or may not contain a non-null value. It's designed to handle the absence of values without using null references.</p>
+                        
+                        <h4>Why Optional?</h4>
+                        <ul>
+                            <li><strong>Null Safety:</strong> Eliminates NullPointerException at compile time</li>
+                            <li><strong>Explicit Intent:</strong> Makes it clear when a method might return no value</li>
+                            <li><strong>Functional Style:</strong> Supports functional programming patterns</li>
+                            <li><strong>Better API Design:</strong> Forces developers to handle absence of values</li>
+                        </ul>
+                        
+                        <h4>When to Use Optional:</h4>
+                        <ul>
+                            <li>Method return types that might not have a value</li>
+                            <li>Avoiding null checks in method chains</li>
+                            <li>Representing optional parameters in a clean way</li>
+                        </ul>
+                        
+                        <h4>When NOT to Use Optional:</h4>
+                        <ul>
+                            <li>As method parameters (use overloading instead)</li>
+                            <li>As field types in classes</li>
+                            <li>In collections (use empty collections instead)</li>
+                        </ul>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
+                            <pre><code>import java.util.*;
 
 public class OptionalDemo {
     public static void main(String[] args) {
-        // Creating Optional instances
-        
-        // Optional with value
-        Optional<String> optionalWithValue = Optional.of("Hello");
-        
-        // Optional with null (throws exception)
-        // Optional<String> optionalWithNull = Optional.of(null); // NullPointerException
-        
-        // Optional that may contain null
-        Optional<String> optionalNullable = Optional.ofNullable(null);
-        Optional<String> optionalNullable2 = Optional.ofNullable("World");
-        
-        // Empty optional
-        Optional<String> emptyOptional = Optional.empty();
+        // Creating Optional
+        Optional<String> empty = Optional.empty();
+        Optional<String> nonEmpty = Optional.of("Hello");
+        Optional<String> nullable = Optional.ofNullable(null);
         
         // Checking if value is present
-        if (optionalWithValue.isPresent()) {
-            System.out.println("Value: " + optionalWithValue.get());
-        }
+        System.out.println("Empty present: " + empty.isPresent());
+        System.out.println("NonEmpty present: " + nonEmpty.isPresent());
         
-        // Better way - using ifPresent
-        optionalWithValue.ifPresent(value -> System.out.println("Value: " + value));
-        optionalWithValue.ifPresent(System.out::println);
+        // Getting values safely
+        String value1 = nonEmpty.orElse("Default");
+        String value2 = empty.orElse("Default");
+        String value3 = empty.orElseGet(() -> "Generated Default");
         
-        // Getting value with default
-        String value1 = optionalNullable.orElse("Default Value");
-        System.out.println("Value with default: " + value1);
-        
-        // Getting value with supplier
-        String value2 = optionalNullable.orElseGet(() -> "Generated Default");
-        System.out.println("Value with supplier: " + value2);
-        
-        // Throwing exception if empty
-        try {
-            String value3 = optionalNullable.orElseThrow(() -> 
-                new RuntimeException("Value not present"));
-        } catch (RuntimeException e) {
-            System.out.println("Exception: " + e.getMessage());
-        }
+        // Conditional execution
+        nonEmpty.ifPresent(System.out::println);
         
         // Transforming Optional values
-        Optional<String> upperCase = optionalWithValue.map(String::toUpperCase);
-        upperCase.ifPresent(System.out::println);
-        
-        Optional<Integer> length = optionalWithValue.map(String::length);
-        length.ifPresent(len -> System.out.println("Length: " + len));
+        Optional<Integer> length = nonEmpty.map(String::length);
+        Optional<String> upperCase = nonEmpty.map(String::toUpperCase);
         
         // Filtering Optional values
-        Optional<String> filtered = optionalWithValue.filter(s -> s.startsWith("H"));
-        filtered.ifPresent(s -> System.out.println("Filtered: " + s));
+        Optional<String> filtered = nonEmpty.filter(s -> s.length() > 3);
         
-        // FlatMap with Optional
-        Optional<String> flatMapped = optionalWithValue.flatMap(s -> 
-            s.isEmpty() ? Optional.empty() : Optional.of(s.toUpperCase()));
-        flatMapped.ifPresent(System.out::println);
+        System.out.println("Value1: " + value1);
+        System.out.println("Value2: " + value2);
+        System.out.println("Length: " + length.orElse(0));
+        System.out.println("UpperCase: " + upperCase.orElse(""));
+        System.out.println("Filtered: " + filtered.orElse("Not found"));
     }
     
-    // Practical example - finding user by ID
-    static class User {
-        private int id;
-        private String name;
-        private String email;
-        
-        public User(int id, String name, String email) {
-            this.id = id;
-            this.name = name;
-            this.email = email;
-        }
-        
-        public int getId() { return id; }
-        public String getName() { return name; }
-        public String getEmail() { return email; }
-        
-        @Override
-        public String toString() {
-            return String.format("User{id=%d, name='%s', email='%s'}", id, name, email);
-        }
-    }
-    
-    static class UserService {
-        private List<User> users = Arrays.asList(
-            new User(1, "Alice", "alice@example.com"),
-            new User(2, "Bob", "bob@example.com"),
-            new User(3, "Charlie", "charlie@example.com")
-        );
-        
-        public Optional<User> findUserById(int id) {
-            return users.stream()
-                       .filter(user -> user.getId() == id)
-                       .findFirst();
-        }
-        
-        public Optional<String> getUserEmail(int id) {
-            return findUserById(id).map(User::getEmail);
-        }
-    }
-    
-    public static void demonstrateOptionalWithService() {
-        UserService userService = new UserService();
-        
-        // Finding existing user
-        Optional<User> user1 = userService.findUserById(1);
-        user1.ifPresent(user -> System.out.println("Found: " + user));
-        
-        // Finding non-existing user
-        Optional<User> user999 = userService.findUserById(999);
-        User defaultUser = user999.orElse(new User(0, "Guest", "guest@example.com"));
-        System.out.println("User or default: " + defaultUser);
-        
-        // Chaining operations
-        String email = userService.findUserById(2)
-            .map(User::getEmail)
-            .map(String::toUpperCase)
-            .orElse("NO EMAIL");
-        System.out.println("Email: " + email);
-        
-        // Using Optional in stream
-        List<Integer> userIds = Arrays.asList(1, 999, 2, 888, 3);
-        List<User> existingUsers = userIds.stream()
-            .map(userService::findUserById)
-            .filter(Optional::isPresent)
-            .map(Optional::get)
-            .collect(Collectors.toList());
-        System.out.println("Existing users: " + existingUsers);
-        
-        // Better approach with flatMap
-        List<User> existingUsers2 = userIds.stream()
-            .map(userService::findUserById)
-            .flatMap(Optional::stream) // Java 9+, or use filter + map
-            .collect(Collectors.toList());
+    // Method returning Optional
+    public static Optional<String> findUserById(int id) {
+        Map<Integer, String> users = Map.of(1, "Alice", 2, "Bob");
+        return Optional.ofNullable(users.get(id));
     }
 }</code></pre>
                         </div>
                     </div>
                 </section>
 
-                <section id="date-time-api" class="section">
-                    <h2>📅 Date & Time API</h2>
+                <section id="method-references" class="section">
+                    <h2>🔗 Method References</h2>
                     
                     <div class="subsection">
-                        <h3>LocalDate, LocalTime, LocalDateTime</h3>
+                        <h3>What are Method References?</h3>
+                        <p><strong>Definition:</strong> Method references are a shorthand notation for lambda expressions that call a single method. They make code more readable and concise.</p>
+                        
+                        <h4>When to Use Method References:</h4>
+                        <ul>
+                            <li>When lambda expression only calls an existing method</li>
+                            <li>To improve code readability</li>
+                            <li>To avoid code duplication</li>
+                        </ul>
+                        
+                        <h4>Types of Method References:</h4>
+                        <ol>
+                            <li><strong>Static Method Reference:</strong> ClassName::staticMethod</li>
+                            <li><strong>Instance Method Reference (Bound):</strong> instance::instanceMethod</li>
+                            <li><strong>Instance Method Reference (Unbound):</strong> ClassName::instanceMethod</li>
+                            <li><strong>Constructor Reference:</strong> ClassName::new</li>
+                        </ol>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+                            <pre><code>import java.util.*;
+import java.util.function.*;
 
-public class DateTimeDemo {
+public class MethodReferencesDemo {
     public static void main(String[] args) {
-        // Current date and time
-        LocalDate today = LocalDate.now();
-        LocalTime currentTime = LocalTime.now();
-        LocalDateTime now = LocalDateTime.now();
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
         
-        System.out.println("Today: " + today);
-        System.out.println("Current time: " + currentTime);
-        System.out.println("Now: " + now);
+        // 1. Static method reference
+        // Lambda: (a, b) -> Integer.compare(a, b)
+        Comparator<Integer> intComparator = Integer::compare;
         
-        // Creating specific dates and times
-        LocalDate specificDate = LocalDate.of(2024, 12, 25);
-        LocalTime specificTime = LocalTime.of(14, 30, 0);
-        LocalDateTime specificDateTime = LocalDateTime.of(2024, 12, 25, 14, 30, 0);
+        // 2. Instance method reference of arbitrary object
+        // Lambda: s -> s.length()
+        Function<String, Integer> lengthFunction = String::length;
         
-        // Parsing from strings
-        LocalDate parsedDate = LocalDate.parse("2024-12-25");
-        LocalTime parsedTime = LocalTime.parse("14:30:00");
-        LocalDateTime parsedDateTime = LocalDateTime.parse("2024-12-25T14:30:00");
+        // Lambda: s -> s.toUpperCase()
+        Function<String, String> upperCaseFunction = String::toUpperCase;
         
-        // Date arithmetic
-        LocalDate tomorrow = today.plusDays(1);
-        LocalDate nextWeek = today.plusWeeks(1);
-        LocalDate nextMonth = today.plusMonths(1);
-        LocalDate nextYear = today.plusYears(1);
+        // 3. Instance method reference of particular object
+        String prefix = "Hello ";
+        // Lambda: s -> prefix.concat(s)
+        Function<String, String> greeter = prefix::concat;
         
-        LocalDate yesterday = today.minusDays(1);
-        LocalDate lastMonth = today.minusMonths(1);
+        // 4. Constructor reference
+        // Lambda: () -> new ArrayList<>()
+        Supplier<List<String>> listSupplier = ArrayList::new;
         
-        System.out.println("Tomorrow: " + tomorrow);
-        System.out.println("Next week: " + nextWeek);
-        System.out.println("Yesterday: " + yesterday);
+        // Using method references
+        names.forEach(System.out::println);  // Method reference
         
-        // Time arithmetic
-        LocalTime laterTime = currentTime.plusHours(2).plusMinutes(30);
-        LocalTime earlierTime = currentTime.minusHours(1);
+        List<String> processed = names.stream()
+            .map(String::toUpperCase)
+            .sorted(String::compareTo)
+            .collect(Collectors.toList());
         
-        // Comparisons
-        boolean isBefore = today.isBefore(tomorrow);
-        boolean isAfter = today.isAfter(yesterday);
-        boolean isEqual = today.isEqual(LocalDate.now());
+        System.out.println("Processed: " + processed);
         
-        System.out.println("Today is before tomorrow: " + isBefore);
-        System.out.println("Today is after yesterday: " + isAfter);
-        
-        // Getting components
-        int year = today.getYear();
-        Month month = today.getMonth();
-        int dayOfMonth = today.getDayOfMonth();
-        DayOfWeek dayOfWeek = today.getDayOfWeek();
-        
-        System.out.println("Year: " + year);
-        System.out.println("Month: " + month);
-        System.out.println("Day of month: " + dayOfMonth);
-        System.out.println("Day of week: " + dayOfWeek);
-        
-        // Formatting
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String formattedDate = today.format(formatter);
-        System.out.println("Formatted date: " + formattedDate);
-        
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String formattedTime = currentTime.format(timeFormatter);
-        System.out.println("Formatted time: " + formattedTime);
-        
-        // Period and Duration
-        LocalDate startDate = LocalDate.of(2024, 1, 1);
-        LocalDate endDate = LocalDate.of(2024, 12, 31);
-        Period period = Period.between(startDate, endDate);
-        System.out.println("Period: " + period.getMonths() + " months, " + period.getDays() + " days");
-        
-        LocalTime startTime = LocalTime.of(9, 0);
-        LocalTime endTime = LocalTime.of(17, 30);
-        Duration duration = Duration.between(startTime, endTime);
-        System.out.println("Duration: " + duration.toHours() + " hours, " + duration.toMinutesPart() + " minutes");
-        
-        // ChronoUnit for calculations
-        long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-        long hoursBetween = ChronoUnit.HOURS.between(startTime, endTime);
-        
-        System.out.println("Days between: " + daysBetween);
-        System.out.println("Hours between: " + hoursBetween);
-    }
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>ZonedDateTime and Time Zones</h3>
-                        <div class="code-block">
-                            <pre><code class="language-java">import java.time.*;
-import java.time.format.DateTimeFormatter;
-
-public class TimeZoneDemo {
-    public static void main(String[] args) {
-        // Current time in system default timezone
-        ZonedDateTime nowInSystemTZ = ZonedDateTime.now();
-        System.out.println("Now in system TZ: " + nowInSystemTZ);
-        
-        // Current time in specific timezone
-        ZonedDateTime nowInNY = ZonedDateTime.now(ZoneId.of("America/New_York"));
-        ZonedDateTime nowInTokyo = ZonedDateTime.now(ZoneId.of("Asia/Tokyo"));
-        ZonedDateTime nowInLondon = ZonedDateTime.now(ZoneId.of("Europe/London"));
-        
-        System.out.println("Now in NY: " + nowInNY);
-        System.out.println("Now in Tokyo: " + nowInTokyo);
-        System.out.println("Now in London: " + nowInLondon);
-        
-        // Converting between timezones
-        ZonedDateTime meetingTimeNY = ZonedDateTime.of(2024, 12, 25, 14, 0, 0, 0, 
-                                                      ZoneId.of("America/New_York"));
-        ZonedDateTime meetingTimeTokyo = meetingTimeNY.withZoneSameInstant(ZoneId.of("Asia/Tokyo"));
-        ZonedDateTime meetingTimeLondon = meetingTimeNY.withZoneSameInstant(ZoneId.of("Europe/London"));
-        
-        System.out.println("Meeting time in NY: " + meetingTimeNY);
-        System.out.println("Meeting time in Tokyo: " + meetingTimeTokyo);
-        System.out.println("Meeting time in London: " + meetingTimeLondon);
-        
-        // Working with Instant (UTC)
-        Instant instant = Instant.now();
-        System.out.println("Current instant (UTC): " + instant);
-        
-        // Converting between Instant and ZonedDateTime
-        ZonedDateTime fromInstant = instant.atZone(ZoneId.of("America/Los_Angeles"));
-        Instant backToInstant = fromInstant.toInstant();
-        
-        System.out.println("From instant to LA time: " + fromInstant);
-        System.out.println("Back to instant: " + backToInstant);
-        
-        // Available time zones
-        System.out.println("Available time zones (first 10):");
-        ZoneId.getAvailableZoneIds().stream()
-              .sorted()
-              .limit(10)
-              .forEach(System.out::println);
-        
-        // Formatting with timezone
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z");
-        String formatted = nowInNY.format(formatter);
-        System.out.println("Formatted with timezone: " + formatted);
+        // Constructor reference example
+        List<String> newList = listSupplier.get();
+        newList.addAll(names);
+        System.out.println("New list: " + newList);
     }
 }</code></pre>
                         </div>
@@ -1035,12 +434,38 @@ public class TimeZoneDemo {
                 </section>
 
                 <section id="default-methods" class="section">
-                    <h2>🔧 Default Methods in Interfaces</h2>
+                    <h2>🔧 Default Methods</h2>
                     
                     <div class="subsection">
-                        <h3>Default Method Implementation</h3>
+                        <h3>What are Default Methods?</h3>
+                        <p><strong>Definition:</strong> Default methods are methods in interfaces that have a default implementation. They were introduced in Java 8 to enable interface evolution.</p>
+                        
+                        <h4>Why Default Methods?</h4>
+                        <ul>
+                            <li><strong>Backward Compatibility:</strong> Add new methods without breaking existing implementations</li>
+                            <li><strong>Interface Evolution:</strong> Enhance interfaces over time</li>
+                            <li><strong>Multiple Inheritance:</strong> Provide behavior inheritance in interfaces</li>
+                            <li><strong>Library Enhancement:</strong> Add new functionality to existing APIs</li>
+                        </ul>
+                        
+                        <h4>Rules for Default Methods:</h4>
+                        <ul>
+                            <li>Must be declared with 'default' keyword</li>
+                            <li>Must have a body (implementation)</li>
+                            <li>Can be overridden in implementing classes</li>
+                            <li>Cannot be final, synchronized, or native</li>
+                        </ul>
+                        
+                        <h4>Conflict Resolution:</h4>
+                        <p>When multiple interfaces have same default method:</p>
+                        <ol>
+                            <li>Class methods win over interface default methods</li>
+                            <li>More specific interface wins</li>
+                            <li>Explicit override required if ambiguous</li>
+                        </ol>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">interface Vehicle {
+                            <pre><code>interface Vehicle {
     // Abstract method
     void start();
     
@@ -1050,132 +475,327 @@ public class TimeZoneDemo {
     }
     
     default void honk() {
-        System.out.println("Vehicle honks");
+        System.out.println("Beep beep!");
     }
     
     // Static method
     static void checkLicense() {
-        System.out.println("Checking license...");
+        System.out.println("License checked");
     }
 }
 
-interface Electric {
-    default void charge() {
-        System.out.println("Charging battery");
-    }
-    
-    default void displayBatteryLevel() {
-        System.out.println("Battery level: 80%");
-    }
-}
-
-class Car implements Vehicle, Electric {
+class Car implements Vehicle {
     @Override
     public void start() {
         System.out.println("Car engine started");
     }
     
-    // Can override default methods
+    // Can override default method
     @Override
     public void honk() {
-        System.out.println("Car honks: Beep beep!");
-    }
-    
-    // Inherits stop() and charge() default methods
-}
-
-class ElectricCar implements Vehicle, Electric {
-    @Override
-    public void start() {
-        System.out.println("Electric car started silently");
-    }
-    
-    @Override
-    public void stop() {
-        System.out.println("Electric car stopped with regenerative braking");
-    }
-    
-    @Override
-    public void charge() {
-        System.out.println("Fast charging electric car");
+        System.out.println("Car horn: Honk honk!");
     }
 }
 
 public class DefaultMethodsDemo {
     public static void main(String[] args) {
         Car car = new Car();
-        car.start();        // Implemented method
-        car.stop();         // Default method from Vehicle
-        car.honk();         // Overridden default method
-        car.charge();       // Default method from Electric
+        car.start();
+        car.stop();  // Uses default implementation
+        car.honk();  // Uses overridden implementation
         
-        ElectricCar eCar = new ElectricCar();
-        eCar.start();       // Implemented method
-        eCar.stop();        // Overridden default method
-        eCar.charge();      // Overridden default method
-        eCar.displayBatteryLevel(); // Default method from Electric
-        
-        // Static method call
-        Vehicle.checkLicense();
+        Vehicle.checkLicense();  // Static method call
     }
 }</code></pre>
                         </div>
                     </div>
+                </section>
 
+                <section id="date-time-api" class="section">
+                    <h2>📅 Date Time API</h2>
+                    
                     <div class="subsection">
-                        <h3>Multiple Inheritance and Diamond Problem</h3>
+                        <h3>Why New Date Time API?</h3>
+                        <p><strong>Problems with Old API (Date/Calendar):</strong></p>
+                        <ul>
+                            <li><strong>Mutable:</strong> Date objects could be modified after creation</li>
+                            <li><strong>Thread-unsafe:</strong> Not safe for concurrent access</li>
+                            <li><strong>Poor API design:</strong> Confusing methods and 0-based months</li>
+                            <li><strong>Limited functionality:</strong> Basic operations were complex</li>
+                        </ul>
+                        
+                        <h3>New Date Time API Benefits</h3>
+                        <ul>
+                            <li><strong>Immutable:</strong> Objects cannot be modified after creation</li>
+                            <li><strong>Thread-safe:</strong> Safe for concurrent use</li>
+                            <li><strong>Fluent API:</strong> Method chaining for better readability</li>
+                            <li><strong>Comprehensive:</strong> Covers all date/time use cases</li>
+                            <li><strong>ISO-8601 compliant:</strong> Follows international standards</li>
+                        </ul>
+                        
+                        <h4>Core Classes:</h4>
+                        <ul>
+                            <li><strong>LocalDate:</strong> Date without time (2024-12-25)</li>
+                            <li><strong>LocalTime:</strong> Time without date (14:30:45)</li>
+                            <li><strong>LocalDateTime:</strong> Date and time without timezone</li>
+                            <li><strong>ZonedDateTime:</strong> Date and time with timezone</li>
+                            <li><strong>Instant:</strong> Machine timestamp (epoch seconds)</li>
+                            <li><strong>Period:</strong> Date-based amount (years, months, days)</li>
+                            <li><strong>Duration:</strong> Time-based amount (hours, minutes, seconds)</li>
+                        </ul>
+                        
                         <div class="code-block">
-                            <pre><code class="language-java">interface A {
-    default void method() {
-        System.out.println("Method from A");
-    }
-}
+                            <pre><code>import java.time.*;
+import java.time.format.DateTimeFormatter;
 
-interface B {
-    default void method() {
-        System.out.println("Method from B");
-    }
-}
-
-// Diamond problem - must resolve conflict
-class C implements A, B {
-    @Override
-    public void method() {
-        // Must provide implementation to resolve conflict
-        System.out.println("Method from C");
+public class DateTimeDemo {
+    public static void main(String[] args) {
+        // Current date and time
+        LocalDate today = LocalDate.now();
+        LocalTime now = LocalTime.now();
+        LocalDateTime dateTime = LocalDateTime.now();
         
-        // Can call specific interface methods
-        A.super.method();
-        B.super.method();
+        // Creating specific dates
+        LocalDate specificDate = LocalDate.of(2024, 12, 25);
+        LocalTime specificTime = LocalTime.of(14, 30, 45);
+        
+        // Parsing from strings
+        LocalDate parsedDate = LocalDate.parse("2024-12-25");
+        LocalTime parsedTime = LocalTime.parse("14:30:45");
+        
+        // Date arithmetic
+        LocalDate tomorrow = today.plusDays(1);
+        LocalDate nextWeek = today.plusWeeks(1);
+        LocalDate yesterday = today.minusDays(1);
+        
+        // Formatting
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = today.format(formatter);
+        
+        // Working with time zones
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        ZonedDateTime utcTime = ZonedDateTime.now(ZoneId.of("UTC"));
+        ZonedDateTime tokyoTime = ZonedDateTime.now(ZoneId.of("Asia/Tokyo"));
+        
+        // Converting between zones
+        ZonedDateTime localToTokyo = zonedDateTime.withZoneSameInstant(ZoneId.of("Asia/Tokyo"));
+        
+        // Period and Duration
+        LocalDate startDate = LocalDate.of(2024, 1, 1);
+        LocalDate endDate = LocalDate.of(2024, 12, 31);
+        Period period = Period.between(startDate, endDate);
+        
+        System.out.println("Today: " + today);
+        System.out.println("Now: " + now);
+        System.out.println("Tomorrow: " + tomorrow);
+        System.out.println("Formatted: " + formattedDate);
+        System.out.println("UTC: " + utcTime);
+        System.out.println("Tokyo: " + tokyoTime);
+        System.out.println("Period: " + period.getMonths() + " months");
     }
-}
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
 
-// Interface extending another interface
-interface Advanced extends A {
-    default void advancedMethod() {
-        System.out.println("Advanced method");
-        method(); // Calls inherited default method
+                <section id="collectors" class="section">
+                    <h2>🗂️ Collectors</h2>
+                    
+                    <div class="subsection">
+                        <h3>What are Collectors?</h3>
+                        <p><strong>Definition:</strong> Collectors are utility classes that implement reduction operations to accumulate stream elements into collections, strings, or other summary results.</p>
+                        
+                        <h4>Why Collectors?</h4>
+                        <ul>
+                            <li><strong>Reusable:</strong> Common reduction operations are pre-built</li>
+                            <li><strong>Efficient:</strong> Optimized for performance</li>
+                            <li><strong>Composable:</strong> Can be combined for complex operations</li>
+                            <li><strong>Parallel-friendly:</strong> Work efficiently with parallel streams</li>
+                        </ul>
+                        
+                        <h4>Types of Collectors:</h4>
+                        <ul>
+                            <li><strong>Collection Collectors:</strong> toList(), toSet(), toMap()</li>
+                            <li><strong>String Collectors:</strong> joining()</li>
+                            <li><strong>Grouping Collectors:</strong> groupingBy(), partitioningBy()</li>
+                            <li><strong>Statistical Collectors:</strong> counting(), averaging(), summarizing()</li>
+                            <li><strong>Reduction Collectors:</strong> reducing(), minBy(), maxBy()</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <pre><code>import java.util.*;
+import java.util.stream.*;
+
+class Employee {
+    private String name;
+    private String department;
+    private double salary;
+    
+    public Employee(String name, String department, double salary) {
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
     }
     
-    // Can override inherited default method
+    public String getName() { return name; }
+    public String getDepartment() { return department; }
+    public double getSalary() { return salary; }
+    
     @Override
-    default void method() {
-        System.out.println("Overridden method in Advanced");
+    public String toString() {
+        return name + "(" + department + ", $" + salary + ")";
     }
 }
 
-class D implements Advanced {
-    // Inherits overridden method from Advanced
-}
-
-public class DiamondProblemDemo {
+public class CollectorsDemo {
     public static void main(String[] args) {
-        C c = new C();
-        c.method(); // Calls overridden method and both interface methods
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", "IT", 75000),
+            new Employee("Bob", "HR", 65000),
+            new Employee("Charlie", "IT", 80000),
+            new Employee("David", "Finance", 70000),
+            new Employee("Eve", "IT", 85000)
+        );
         
-        D d = new D();
-        d.method();         // Calls overridden method from Advanced
-        d.advancedMethod(); // Calls default method from Advanced
+        // Basic collectors
+        List<String> names = employees.stream()
+            .map(Employee::getName)
+            .collect(Collectors.toList());
+        
+        Set<String> departments = employees.stream()
+            .map(Employee::getDepartment)
+            .collect(Collectors.toSet());
+        
+        // Joining
+        String allNames = employees.stream()
+            .map(Employee::getName)
+            .collect(Collectors.joining(", "));
+        
+        // Grouping by department
+        Map<String, List<Employee>> byDepartment = employees.stream()
+            .collect(Collectors.groupingBy(Employee::getDepartment));
+        
+        // Counting by department
+        Map<String, Long> countByDepartment = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.counting()
+            ));
+        
+        // Average salary by department
+        Map<String, Double> avgSalaryByDepartment = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.averagingDouble(Employee::getSalary)
+            ));
+        
+        // Partitioning by salary
+        Map<Boolean, List<Employee>> partitionedBySalary = employees.stream()
+            .collect(Collectors.partitioningBy(emp -> emp.getSalary() > 70000));
+        
+        System.out.println("Names: " + names);
+        System.out.println("Departments: " + departments);
+        System.out.println("All names: " + allNames);
+        System.out.println("By Department: " + byDepartment);
+        System.out.println("Count by Department: " + countByDepartment);
+        System.out.println("Avg Salary: " + avgSalaryByDepartment);
+        System.out.println("High salary: " + partitionedBySalary.get(true).size());
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="parallel-streams" class="section">
+                    <h2>⚡ Parallel Streams</h2>
+                    
+                    <div class="subsection">
+                        <h3>What are Parallel Streams?</h3>
+                        <p><strong>Definition:</strong> Parallel streams automatically divide stream elements into multiple chunks and process them concurrently using the ForkJoinPool framework.</p>
+                        
+                        <h4>How Parallel Streams Work:</h4>
+                        <ul>
+                            <li><strong>Fork-Join Framework:</strong> Uses work-stealing algorithm</li>
+                            <li><strong>Automatic Splitting:</strong> Divides data into chunks</li>
+                            <li><strong>Concurrent Processing:</strong> Processes chunks in parallel</li>
+                            <li><strong>Result Combining:</strong> Merges results from all threads</li>
+                        </ul>
+                        
+                        <h4>When to Use Parallel Streams:</h4>
+                        <ul>
+                            <li><strong>Large datasets:</strong> Thousands of elements or more</li>
+                            <li><strong>CPU-intensive operations:</strong> Complex computations per element</li>
+                            <li><strong>Independent operations:</strong> No shared mutable state</li>
+                            <li><strong>Stateless operations:</strong> No dependencies between elements</li>
+                        </ul>
+                        
+                        <h4>When NOT to Use Parallel Streams:</h4>
+                        <ul>
+                            <li><strong>Small datasets:</strong> Overhead exceeds benefits</li>
+                            <li><strong>I/O operations:</strong> Network/file operations are not CPU-bound</li>
+                            <li><strong>Stateful operations:</strong> limit(), skip(), findFirst()</li>
+                            <li><strong>Shared mutable state:</strong> Race conditions possible</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <pre><code>import java.util.*;
+import java.util.stream.*;
+
+public class ParallelStreamsDemo {
+    public static void main(String[] args) {
+        List<Integer> numbers = IntStream.rangeClosed(1, 1000000)
+            .boxed()
+            .collect(Collectors.toList());
+        
+        // Sequential processing
+        long startTime = System.currentTimeMillis();
+        long sequentialSum = numbers.stream()
+            .mapToLong(Integer::longValue)
+            .sum();
+        long sequentialTime = System.currentTimeMillis() - startTime;
+        
+        // Parallel processing
+        startTime = System.currentTimeMillis();
+        long parallelSum = numbers.parallelStream()
+            .mapToLong(Integer::longValue)
+            .sum();
+        long parallelTime = System.currentTimeMillis() - startTime;
+        
+        System.out.println("Sequential: " + sequentialSum + " (" + sequentialTime + "ms)");
+        System.out.println("Parallel: " + parallelSum + " (" + parallelTime + "ms)");
+        
+        // Creating parallel streams
+        Stream<Integer> parallelStream1 = numbers.parallelStream();
+        Stream<Integer> parallelStream2 = numbers.stream().parallel();
+        
+        // Check if stream is parallel
+        System.out.println("Is parallel: " + parallelStream1.isParallel());
+        
+        // When to use parallel streams
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
+        
+        List<String> processed = words.parallelStream()
+            .filter(word -> word.length() > 4)
+            .map(String::toUpperCase)
+            .sorted()
+            .collect(Collectors.toList());
+        
+        System.out.println("Processed: " + processed);
+        
+        // Performance consideration - small datasets
+        List<Integer> smallList = Arrays.asList(1, 2, 3, 4, 5);
+        
+        // For small datasets, sequential is often faster due to overhead
+        int sequentialResult = smallList.stream()
+            .mapToInt(Integer::intValue)
+            .sum();
+        
+        int parallelResult = smallList.parallelStream()
+            .mapToInt(Integer::intValue)
+            .sum();
+        
+        System.out.println("Small dataset - Sequential: " + sequentialResult);
+        System.out.println("Small dataset - Parallel: " + parallelResult);
     }
 }</code></pre>
                         </div>
@@ -1183,175 +803,89 @@ public class DiamondProblemDemo {
                 </section>
 
                 <section id="best-practices" class="section">
-                    <h2>💡 Java 8 Best Practices</h2>
-                    
-                    <div class="best-practices">
-                        <div class="dos-donts">
-                            <div class="dos">
-                                <h3>✅ Do's</h3>
-                                <ul>
-                                    <li>Use method references when they improve readability</li>
-                                    <li>Prefer Optional over null returns</li>
-                                    <li>Use streams for data processing pipelines</li>
-                                    <li>Keep lambda expressions short and focused</li>
-                                    <li>Use parallel streams for CPU-intensive operations</li>
-                                    <li>Leverage collectors for complex reductions</li>
-                                    <li>Use the new Date/Time API instead of Date/Calendar</li>
-                                    <li>Create custom functional interfaces when needed</li>
-                                </ul>
-                            </div>
-                            <div class="donts">
-                                <h3>❌ Don'ts</h3>
-                                <ul>
-                                    <li>Don't use streams for simple iterations</li>
-                                    <li>Don't call Optional.get() without checking isPresent()</li>
-                                    <li>Don't use parallel streams for I/O operations</li>
-                                    <li>Don't make lambda expressions too complex</li>
-                                    <li>Don't modify external variables in lambda expressions</li>
-                                    <li>Don't use streams when traditional loops are clearer</li>
-                                    <li>Don't ignore the performance implications of streams</li>
-                                    <li>Don't overuse Optional for everything</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="examples" class="section">
-                    <h2>🌍 Real-World Examples</h2>
+                    <h2>💡 Best Practices & Interview Tips</h2>
                     
                     <div class="subsection">
-                        <h3>Employee Management System</h3>
+                        <h3>Key Interview Points</h3>
+                        <ul>
+                            <li><strong>Lambda Expressions:</strong> Anonymous functions that implement functional interfaces</li>
+                            <li><strong>Functional Interfaces:</strong> Interfaces with exactly one abstract method (@FunctionalInterface)</li>
+                            <li><strong>Stream API:</strong> Declarative way to process collections with intermediate and terminal operations</li>
+                            <li><strong>Optional:</strong> Container to avoid NullPointerException and handle absence of values</li>
+                            <li><strong>Method References:</strong> Shorthand for lambda expressions (::)</li>
+                            <li><strong>Default Methods:</strong> Allow interface evolution without breaking existing implementations</li>
+                            <li><strong>Date/Time API:</strong> Immutable, thread-safe replacement for Date and Calendar</li>
+                            <li><strong>Collectors:</strong> Utility class for common reduction operations</li>
+                            <li><strong>Parallel Streams:</strong> Automatic parallelization for CPU-intensive operations</li>
+                        </ul>
+                        
+                        <h3>Performance Tips</h3>
+                        <ul>
+                            <li>Use primitive streams (IntStream, LongStream, DoubleStream) to avoid boxing</li>
+                            <li>Parallel streams are beneficial for CPU-intensive operations on large datasets</li>
+                            <li>Avoid stateful operations (limit, skip) in parallel streams</li>
+                            <li>Chain operations efficiently - filter before map</li>
+                            <li>Use method references when possible for better readability</li>
+                        </ul>
+                        
+                        <h3>Common Interview Questions</h3>
+                        <ol>
+                            <li><strong>What is the difference between map() and flatMap()?</strong>
+                                <br>map() transforms each element, flatMap() flattens nested structures</li>
+                            <li><strong>Explain functional interfaces with examples</strong>
+                                <br>Predicate, Function, Consumer, Supplier with their signatures</li>
+                            <li><strong>How to handle exceptions in streams?</strong>
+                                <br>Use filter with try-catch or Optional wrapper methods</li>
+                            <li><strong>When to use parallel streams?</strong>
+                                <br>Large datasets with CPU-intensive operations, avoid for I/O operations</li>
+                            <li><strong>What are intermediate vs terminal operations?</strong>
+                                <br>Intermediate are lazy (filter, map), terminal trigger execution (collect, forEach)</li>
+                            <li><strong>What is Optional and why use it?</strong>
+                                <br>Container for potentially null values, prevents NullPointerException</li>
+                            <li><strong>Explain method references with examples</strong>
+                                <br>Static (Class::method), Instance (object::method), Constructor (Class::new)</li>
+                        </ol>
+                        
+                        <h3>Code Examples for Interviews</h3>
                         <div class="code-block">
-                            <pre><code class="language-java">import java.util.*;
-import java.util.stream.*;
-import java.time.LocalDate;
+                            <pre><code>// Common interview scenarios
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
 
-class Employee {
-    private String name;
-    private String department;
-    private double salary;
-    private LocalDate joinDate;
-    
-    public Employee(String name, String department, double salary, LocalDate joinDate) {
-        this.name = name;
-        this.department = department;
-        this.salary = salary;
-        this.joinDate = joinDate;
-    }
-    
-    // Getters
-    public String getName() { return name; }
-    public String getDepartment() { return department; }
-    public double getSalary() { return salary; }
-    public LocalDate getJoinDate() { return joinDate; }
-    
-    @Override
-    public String toString() {
-        return String.format("%s (%s, $%.0f)", name, department, salary);
-    }
-}
+// 1. Filter and transform
+List<String> result = names.stream()
+    .filter(name -> name.length() > 3)
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
 
-public class EmployeeManagementSystem {
-    private List<Employee> employees;
-    
-    public EmployeeManagementSystem() {
-        employees = Arrays.asList(
-            new Employee("Alice", "Engineering", 95000, LocalDate.of(2020, 1, 15)),
-            new Employee("Bob", "Marketing", 75000, LocalDate.of(2019, 3, 10)),
-            new Employee("Charlie", "Engineering", 105000, LocalDate.of(2018, 7, 20)),
-            new Employee("David", "Sales", 85000, LocalDate.of(2021, 2, 5)),
-            new Employee("Eve", "Engineering", 98000, LocalDate.of(2020, 11, 30)),
-            new Employee("Frank", "Marketing", 72000, LocalDate.of(2022, 1, 12))
-        );
-    }
-    
-    // Find employees by department
-    public List<Employee> getEmployeesByDepartment(String department) {
-        return employees.stream()
-                       .filter(emp -> emp.getDepartment().equals(department))
-                       .collect(Collectors.toList());
-    }
-    
-    // Get average salary by department
-    public Map<String, Double> getAverageSalaryByDepartment() {
-        return employees.stream()
-                       .collect(Collectors.groupingBy(
-                           Employee::getDepartment,
-                           Collectors.averagingDouble(Employee::getSalary)
-                       ));
-    }
-    
-    // Find top N earners
-    public List<Employee> getTopEarners(int n) {
-        return employees.stream()
-                       .sorted(Comparator.comparing(Employee::getSalary).reversed())
-                       .limit(n)
-                       .collect(Collectors.toList());
-    }
-    
-    // Get employees joined in specific year
-    public List<Employee> getEmployeesJoinedInYear(int year) {
-        return employees.stream()
-                       .filter(emp -> emp.getJoinDate().getYear() == year)
-                       .collect(Collectors.toList());
-    }
-    
-    // Calculate total salary expense
-    public double getTotalSalaryExpense() {
-        return employees.stream()
-                       .mapToDouble(Employee::getSalary)
-                       .sum();
-    }
-    
-    // Find employee with highest salary in department
-    public Optional<Employee> getHighestPaidInDepartment(String department) {
-        return employees.stream()
-                       .filter(emp -> emp.getDepartment().equals(department))
-                       .max(Comparator.comparing(Employee::getSalary));
-    }
-    
-    public static void main(String[] args) {
-        EmployeeManagementSystem ems = new EmployeeManagementSystem();
-        
-        // Get engineering employees
-        System.out.println("Engineering employees:");
-        ems.getEmployeesByDepartment("Engineering")
-           .forEach(System.out::println);
-        
-        // Average salary by department
-        System.out.println("\nAverage salary by department:");
-        ems.getAverageSalaryByDepartment()
-           .forEach((dept, avg) -> System.out.printf("%s: $%.0f%n", dept, avg));
-        
-        // Top 3 earners
-        System.out.println("\nTop 3 earners:");
-        ems.getTopEarners(3)
-           .forEach(System.out::println);
-        
-        // Total salary expense
-        System.out.printf("\nTotal salary expense: $%.0f%n", ems.getTotalSalaryExpense());
-        
-        // Highest paid in Engineering
-        ems.getHighestPaidInDepartment("Engineering")
-           .ifPresent(emp -> System.out.println("Highest paid in Engineering: " + emp));
-    }
-}</code></pre>
+// 2. Group by length
+Map<Integer, List<String>> grouped = names.stream()
+    .collect(Collectors.groupingBy(String::length));
+
+// 3. Find first match
+Optional<String> first = names.stream()
+    .filter(name -> name.startsWith("C"))
+    .findFirst();
+
+// 4. Reduce to single value
+String concatenated = names.stream()
+    .reduce("", (a, b) -> a + b);
+
+// 5. Check conditions
+boolean allLong = names.stream()
+    .allMatch(name -> name.length() > 2);
+
+// 6. Convert to different collection
+Set<String> nameSet = names.stream()
+    .collect(Collectors.toSet());</code></pre>
                         </div>
                     </div>
                 </section>
 
-                <div class="conclusion">
-                    <h3>🎯 Java 8 Mastery</h3>
-                    <p>You've learned the powerful features introduced in Java 8 that revolutionized Java programming. These features enable more functional, readable, and efficient code.</p>
-                    <p><strong>Key Benefits:</strong> Lambda expressions reduce boilerplate code, Stream API enables powerful data processing, Optional prevents null pointer exceptions, and the new Date/Time API provides better time handling.</p>
                 </div>
-
-                </div>
-            </div>
             </div>
         </div>
     </div>
+
     <script src="../footer.js"></script>
 </body>
 </html>
