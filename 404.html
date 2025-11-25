@@ -3,28 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Page Not Found | Sonu Kumar</title>
+    <title>404 - Page Not Found | Sonu Kumar - Senior Full Stack Developer</title>
+    <meta name="description" content="Page not found. Return to Sonu Kumar's portfolio - Senior Full Stack Developer with expertise in Java, Spring Boot, Angular, React." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://sonuskr.github.io/sonuskr/" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <style>
       .error-container {
         text-align: center;
         padding: 100px 20px;
+        max-width: 600px;
+        margin: 0 auto;
       }
       .error-code {
         font-size: 120px;
         color: #667eea;
         font-weight: bold;
+        margin-bottom: 20px;
       }
       .error-message {
-        font-size: 24px;
+        font-size: 28px;
         margin: 20px 0;
+        color: #333;
       }
-      .back-home {
+      .error-description {
+        font-size: 16px;
+        color: #666;
+        margin: 20px 0 40px 0;
+        line-height: 1.6;
+      }
+      .navigation-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .nav-link {
         background: #667eea;
         color: white;
         padding: 12px 24px;
         text-decoration: none;
         border-radius: 5px;
+        transition: background 0.3s;
+      }
+      .nav-link:hover {
+        background: #5a6fd8;
+      }
+      .developer-info {
+        margin-top: 50px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+      }
+      .developer-info h3 {
+        color: #667eea;
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -32,8 +67,33 @@
     <div class="error-container">
       <div class="error-code">404</div>
       <div class="error-message">Page Not Found</div>
-      <p>The page you're looking for doesn't exist.</p>
-      <a href="/" class="back-home">Back to Home</a>
+      <div class="error-description">
+        The page you're looking for doesn't exist or may have been moved.
+        <br>Let's get you back to exploring my portfolio and projects.
+      </div>
+      
+      <div class="navigation-links">
+        <a href="/" class="nav-link">🏠 Home</a>
+        <a href="/resume-builder.html" class="nav-link">📄 Resume Builder</a>
+        <a href="/tutorial/tutorial-index.html" class="nav-link">📚 Tutorials</a>
+      </div>
+
+      <div class="developer-info">
+        <h3>About Sonu Kumar</h3>
+        <p>Senior Full Stack Developer with 7.5+ years of experience in Java, Spring Boot, Angular, React, and enterprise solutions. Currently Team Lead at Accenture.</p>
+      </div>
     </div>
+
+    <script>
+      // Track 404 errors for analytics (if you add analytics later)
+      console.log('404 Error:', window.location.href);
+      
+      // Auto-redirect after 10 seconds (optional)
+      setTimeout(() => {
+        if (confirm('Would you like to be redirected to the home page?')) {
+          window.location.href = '/';
+        }
+      }, 10000);
+    </script>
   </body>
 </html>
