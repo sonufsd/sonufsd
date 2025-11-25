@@ -308,3 +308,43 @@ A 15× developer learns 5 skills at the same time — with AI help.
 ## ⚡ Ready to Become a 15× Developer?
 
 _Contact me to get started on your transformation journey!_
+
+---
+
+## 🔍 SEO Keywords & Professional Profile
+
+**Professional Identity & Contact:**
+Sonu Kumar, Sonu Kumar resume, Sonu Kumar portfolio, Sonu Kumar github, Sonu Kumar linkedin, hire Sonu Kumar, contact Sonu Kumar, Sonu Kumar professional profile, Sonu Kumar skills, Sonu Kumar experience, who is Sonu Kumar, Sonu Kumar developer profile
+
+**Technical Expertise:**
+Sonu Kumar full stack developer, Sonu Kumar software engineer, Sonu Kumar team lead, Sonu Kumar Java developer, Sonu Kumar Spring Boot developer, Sonu Kumar Angular developer, Sonu Kumar React developer, Sonu Kumar TypeScript developer, Sonu Kumar JavaScript expert, Sonu Kumar microservices, Sonu Kumar AWS, Sonu Kumar DevOps, Sonu Kumar CI/CD, Sonu Kumar system architecture, Sonu Kumar REST APIs, Sonu Kumar tech lead, Sonu Kumar senior developer
+
+**Location & Work Preferences:**
+Sonu Kumar Bangalore, Sonu Kumar India, Sonu Kumar remote developer, Bangalore developer Sonu Kumar, remote developer Sonu Kumar, work from home developer, distributed team, global team collaboration, timezone flexibility, remote work experience
+
+**Company & Experience:**
+Sonu Kumar Accenture, Sonu Kumar LTIMindtree, Sonu Kumar Team Lead Accenture, Sonu Kumar Packaged App Development, Sonu Kumar 7.5 years experience, Sonu Kumar enterprise IT services, 7.5 years Java developer, 7.5 years Spring Boot developer, 7.5 years Angular developer, 7.5 years React developer, 7.5 years full stack developer, 7.5 years enterprise developer
+
+**Client & Domain Experience:**
+TIAA developer, GE HealthCare developer, AAMC developer, Flydubai developer, Mercedes-Benz developer, Financial Services developer, Healthcare Technology developer, Medical Education developer, Aviation developer, Automotive developer, Fortune 500 developer, enterprise client developer
+
+**Technology Stack:**
+Java 8 developer, Java 11 developer, Java 17 developer, Spring Boot 2.x developer, Spring Boot 3.x developer, Spring Framework developer, Spring MVC developer, Spring Data JPA developer, Spring Security developer, Angular 12+ developer, React 16+ developer, React Hooks developer, React Redux developer, TypeScript 4.x+ developer, JavaScript ES6+ developer, HTML5 CSS3 developer, Bootstrap developer, responsive web design, mobile first design
+
+**Architecture & Development:**
+RESTful web services, REST API design, microservices architecture, service oriented architecture, distributed systems, scalable backend, high availability systems, component based architecture, single page application, progressive web app, cross browser compatibility, web accessibility
+
+**Database & Backend:**
+MySQL database design, MongoDB NoSQL, Oracle database, PostgreSQL developer, database optimization, query optimization, Hibernate JPA, ORM frameworks, database normalization, SQL query optimization, stored procedures, transaction management, connection pooling
+
+**DevOps & Cloud:**
+CI/CD pipeline, Jenkins automation, Docker containerization, Kubernetes orchestration, AWS cloud services, Azure cloud platform, cloud migration, cloud architecture, infrastructure as code, Git version control, Agile development, Scrum methodology
+
+**Development Practices:**
+test driven development, continuous integration, continuous deployment, code quality, unit testing, integration testing, performance testing, team leadership, technical mentoring, code review, architecture decisions, technical documentation, requirement analysis, solution design
+
+**Enterprise Solutions:**
+enterprise software development, business application development, custom software solutions, digital transformation, legacy system modernization, system integration, API integration, web application development, enterprise web applications, e-commerce applications
+
+**Security & Performance:**
+application security, web security, API security, authentication implementation, JWT token implementation, OAuth integration, performance optimization, scalability planning, memory management, caching implementation, SEO optimization, web performance
