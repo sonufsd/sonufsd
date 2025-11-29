@@ -4,7 +4,6 @@ const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
-const themeToggle = document.getElementById('theme-toggle');
 const typewriter = document.getElementById('typewriter');
 const contactForm = document.getElementById('contact-form');
 
@@ -29,24 +28,6 @@ mobileMenuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileMenuToggle.classList.toggle('active');
 });
-
-// Theme Toggle
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    const icon = themeToggle.querySelector('i');
-    icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-});
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-const themeIcon = themeToggle.querySelector('i');
-themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 
 // Typewriter Effect
 const typewriterTexts = [
