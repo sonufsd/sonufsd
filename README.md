@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=600&lines=Hi+👋+I'm+Sonu+Kumar;Senior+Full+Stack+Developer;7%2B+Years+Experience;Enterprise+Solutions+Expert" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=600&lines=Hi+👋+I'm+Sonu+Kumar;Full+Stack+Developer;7%2B+Years+Experience;Enterprise+Solutions+Expert" alt="Typing SVG" />
 </div>
 
 <div align="center">
@@ -10,7 +10,7 @@
 
 <br/>
 
-🚀 **Senior Full Stack Developer & Team Lead** at **Accenture** with **7.5+ years** of experience in enterprise IT services, specializing in designing and implementing scalable, high-availability applications using Java, Spring Boot, Angular, React, and TypeScript. Strong expertise in **system architecture**, **microservices**, **RESTful API development**, and **cloud computing solutions**. Proficient in database design (MySQL, Oracle, MongoDB), **DevOps practices**, **CI/CD pipelines** (Jenkins), containerization (Docker), and version control (Git). Experienced in **Agile/Scrum methodologies**, unit testing, code review, performance optimization, and delivering secure, production-grade solutions for Fortune 500 clients including **Mercedes-Benz**, **GE HealthCare**, **TIAA**, **flydubai**, and **AAMC**. Available for remote work opportunities.
+🚀 **Full Stack Developer & Team Lead** at **Accenture** with **7.5+ years** of experience in enterprise IT services, specializing in designing and implementing scalable, high-availability applications using Java, Spring Boot, Angular, React, and TypeScript. Strong expertise in **system architecture**, **microservices**, **RESTful API development**, and **cloud computing solutions**. Proficient in database design (MySQL, Oracle, MongoDB), **DevOps practices**, **CI/CD pipelines** (Jenkins), containerization (Docker), and version control (Git). Experienced in **Agile/Scrum methodologies**, unit testing, code review, performance optimization, and delivering secure, production-grade solutions for Fortune 500 clients including **Mercedes-Benz**, **GE HealthCare**, **TIAA**, **flydubai**, and **AAMC**. Available for remote work opportunities.
 
 <div align="center">
   
@@ -128,7 +128,7 @@ Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhop
   
   ⭐ **Available for remote work, enterprise consulting, and full-time opportunities!**
   
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=800&lines=Senior+Full+Stack+Developer;Enterprise+Solutions+Expert;Java+Spring+Boot+Angular+React+Specialist;Let's+Build+Something+Amazing+Together!" alt="Footer Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=800&lines=Full+Stack+Developer;Enterprise+Solutions+Expert;Java+Spring+Boot+Angular+React+Specialist;Let's+Build+Something+Amazing+Together!" alt="Footer Typing SVG" />
 
 </div>
 
@@ -373,7 +373,7 @@ _Contact me to get started on your transformation journey!_
 Sonu Kumar, Sonu Kumar resume, Sonu Kumar portfolio, Sonu Kumar github, Sonu Kumar linkedin, hire Sonu Kumar, contact Sonu Kumar, Sonu Kumar professional profile, Sonu Kumar skills, Sonu Kumar experience, who is Sonu Kumar, Sonu Kumar developer profile
 
 **Technical Expertise:**
-Sonu Kumar full stack developer, Sonu Kumar software engineer, Sonu Kumar team lead, Sonu Kumar Java developer, Sonu Kumar Spring Boot developer, Sonu Kumar Angular developer, Sonu Kumar React developer, Sonu Kumar TypeScript developer, Sonu Kumar JavaScript expert, Sonu Kumar microservices, Sonu Kumar AWS, Sonu Kumar DevOps, Sonu Kumar CI/CD, Sonu Kumar system architecture, Sonu Kumar REST APIs, Sonu Kumar tech lead, Sonu Kumar senior developer
+Sonu Kumar full stack developer, Sonu Kumar software engineer, Sonu Kumar team lead, Sonu Kumar Java developer, Sonu Kumar Spring Boot developer, Sonu Kumar Angular developer, Sonu Kumar React developer, Sonu Kumar TypeScript developer, Sonu Kumar JavaScript expert, Sonu Kumar microservices, Sonu Kumar AWS, Sonu Kumar DevOps, Sonu Kumar CI/CD, Sonu Kumar system architecture, Sonu Kumar REST APIs, Sonu Kumar tech lead, Sonu Kumar developer
 
 **Location & Work Preferences:**
 Sonu Kumar Bangalore, Sonu Kumar India, Sonu Kumar remote developer, Bangalore developer Sonu Kumar, remote developer Sonu Kumar, work from home developer, distributed team, global team collaboration, timezone flexibility, remote work experience
@@ -415,7 +415,7 @@ AWS Certified Solutions Architect, Azure Certified Developer, Google Cloud Profe
 Bangalore software developer, Marathahalli developer, Karnataka developer, India software engineer, South India developer, Bangalore IT professional, Silicon Valley of India developer, Bangalore tech hub, Indian software developer, offshore developer India, Bangalore startup developer, Bangalore MNC developer, Bangalore IT services, Bangalore software consultant, Bangalore freelance developer, Bangalore contract developer, Bangalore remote developer, India timezone developer, IST timezone developer, Bangalore full stack developer
 
 **Salary & Experience Keywords:**
-7+ years experienced developer, senior level developer, lead developer 7 years, 7.5 years industry experience, mid-senior developer, experienced software engineer, seasoned developer, veteran developer, expert level developer, professional developer, skilled developer, competent developer, proficient developer, advanced developer, specialist developer, consultant level developer, architect level developer, senior consultant, technical specialist, subject matter expert
+7+ years experienced developer, experienced level developer, lead developer 7 years, 7.5 years industry experience, mid-senior developer, experienced software engineer, seasoned developer, veteran developer, expert level developer, professional developer, skilled developer, competent developer, proficient developer, advanced developer, specialist developer, consultant level developer, architect level developer, technical specialist, subject matter expert
 
 **Project & Achievement Keywords:**
 enterprise project delivery, Fortune 500 project experience, large scale application development, high traffic applications, mission critical systems, production grade applications, scalable system design, performance critical applications, security compliant systems, regulatory compliant development, GDPR compliant applications, HIPAA compliant systems, SOX compliant development, enterprise integration, legacy modernization, digital transformation projects, cloud migration projects, microservices transformation, API modernization, database migration, system optimization, performance tuning, code refactoring, technical debt reduction
