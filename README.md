@@ -15,6 +15,9 @@
 <div align="center">
   
 [![Tutorials](https://img.shields.io/badge/📚%20View%20Tutorials-667EEA?style=for-the-badge&logo=book&logoColor=white)](https://sonuskr.github.io/sonuskr/tutorial/tutorial-index.html)
+[![Live Tutorials](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://skr-tutorials.web.app/)
+[![Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
+[![Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonu-kumar-dev.web.app/)
 
 </div>
 
