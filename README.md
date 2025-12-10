@@ -1,3 +1,13 @@
+<!--
+SEO: Sonu Kumar (sonufsd, sonudev) - Full Stack Developer | Java, Spring Boot, Angular, React | Enterprise Solutions
+
+Description: Sonu Kumar (usernames: sonufsd, sonudev) is a Full Stack Developer and Team Lead with 7.5+ years of experience delivering enterprise IT solutions for Fortune 500 clients. Expert in Java, Spring Boot, Angular, React, TypeScript, Microservices, Cloud, and DevOps. Available for remote work and consulting.
+
+Keywords: Sonu Kumar, sonufsd, sonudev, Full Stack Developer, Java, Spring Boot, Angular, React, TypeScript, Microservices, Cloud, DevOps, Team Lead, Accenture, Bangalore, Remote Developer, Enterprise Solutions, Fortune 500, Resume, Portfolio, Software Engineer, System Architecture, REST APIs, CI/CD, AWS, Docker, Kubernetes, Jenkins, MySQL, MongoDB, Oracle, Agile, Scrum, Code Review, Performance Optimization, Remote Work
+
+Portfolio: https://sonudev.web.app
+Resume: https://build-free-resume.web.app/
+-->
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=600&lines=Hi+👋+I'm+Sonu+Kumar;Full+Stack+Developer;7%2B+Years+Experience;Enterprise+Solutions+Expert" alt="Typing SVG" />
 </div>
@@ -162,24 +172,28 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 ## 🌟 Why Choose Me?
 
 ### 🎯 **Immediate Value**
+
 - Start contributing from **Day 1**
 - **Zero ramp-up time** for Java/Spring Boot/Angular/React projects
 - **Pre-built templates** and **best practices** ready to implement
 - **Proven track record** with Fortune 500 clients
 
 ### 🚀 **Technical Excellence**
+
 - **Clean, maintainable code** following industry standards
 - **Comprehensive testing** strategy (Unit, Integration, E2E)
 - **Performance-first** approach with optimization expertise
 - **Security-conscious** development with vulnerability assessment
 
 ### 👥 **Leadership & Collaboration**
+
 - **Cross-functional team** leadership experience
 - **Stakeholder management** and client communication
 - **Knowledge transfer** and **documentation** expertise
 - **Agile/Scrum** coaching and process improvement
 
 ### 🌐 **Global Experience**
+
 - **Remote work** expert with **7+ years** distributed team experience
 - **Multiple timezone** collaboration (US, Europe, Asia-Pacific)
 - **Cultural adaptability** working with international clients
@@ -195,5 +209,3 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 - 💰 **30% Cost Reduction** through cloud optimization
 - 🚀 **50+ Successful Deployments** with zero downtime
 - 📱 **Mobile-First Applications** with 98% responsive design score
-
-
