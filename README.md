@@ -209,3 +209,24 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 - 💰 **30% Cost Reduction** through cloud optimization
 - 🚀 **50+ Successful Deployments** with zero downtime
 - 📱 **Mobile-First Applications** with 98% responsive design score
+
+
+
+## **Find Me Online**
+
+🌐 **GitHub:** [https://github.com/sonufsd](https://github.com/sonufsd)
+💼 **LinkedIn:** [https://linkedin.com/in/sonufsd](https://linkedin.com/in/sonufsd)
+❓ **StackOverflow:** [https://stackoverflow.com/users/your-id](https://stackoverflow.com/users/your-id)
+📝 **Dev.to:** [https://dev.to/sonufsd](https://dev.to/sonufsd)
+✍️ **Medium:** [https://medium.com/@sonufsd](https://medium.com/@sonufsd)
+🧑‍💻 **GitLab:** [https://gitlab.com/sonufsd](https://gitlab.com/sonufsd)
+📊 **Kaggle:** [https://kaggle.com/sonufsd](https://kaggle.com/sonufsd)
+⚡ **LeetCode:** [https://leetcode.com/sonufsd](https://leetcode.com/sonufsd)
+🏆 **HackerRank:** [https://www.hackerrank.com/sonufsd](https://www.hackerrank.com/sonufsd)
+📦 **npm:** [https://npmjs.com/~sonufsd](https://npmjs.com/~sonufsd)
+🐳 **DockerHub:** [https://hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd)
+
+---
+
+
+
