@@ -1,9 +1,3 @@
 User-agent: *
 Allow: /
-Allow: /resume-accenture.html
-Allow: /resume-builder.html
-Disallow: /js/
-Disallow: /*.css$
-Disallow: /*.js$
-
 Sitemap: https://sonufsd.github.io/sonufsd/sitemap.xml
