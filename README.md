@@ -126,8 +126,8 @@ Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhop
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sonufsd?trk=public_profile)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sonuskr)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sonuskr.github.io/sonuskr/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:skrdeveloper1@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sonudev.web.app/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sonufsd11@gmail.com)
 
 📍 **Location**: Marathahalli, Bangalore, India
 
@@ -210,8 +210,6 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 - 🚀 **50+ Successful Deployments** with zero downtime
 - 📱 **Mobile-First Applications** with 98% responsive design score
 
-
-
 ## **Find Me Online**
 
 🌐 **GitHub:** [https://github.com/sonufsd](https://github.com/sonufsd)
@@ -227,6 +225,3 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 🐳 **DockerHub:** [https://hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd)
 
 ---
-
-
-
