@@ -82,15 +82,11 @@ Additionally, I provide technical mentorship to junior developers, conduct code 
 
 ## 🚀 Want to Become a 15× Developer?
 
-<div align="center">
-
 [![Read the 15× Developer System](https://img.shields.io/badge/📖%20Read%20the%2015×%20Developer%20System-667EEA?style=for-the-badge&logo=markdown&logoColor=white)](./15X_DEVELOPER_SYSTEM.md)
 
-[![Live Tutorials](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://skr-tutorials.web.app/)
-[![Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
-[![Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
-
-</div>
+[![InterviewPoints](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://interviewpoints.web.app/)
+[![Free Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
+[![Sonu Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
 
 ---
 
