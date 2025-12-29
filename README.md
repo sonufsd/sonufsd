@@ -76,22 +76,16 @@ Additionally, I provide technical mentorship to junior developers, conduct code 
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sonudev.web.app/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sonufsd11@gmail.com)
 
-📍 **Location**: Marathahalli, Bangalore, India
-
 </div>
 
 ---
 
 ## 🚀 Want to Become a 15× Developer?
 
-**Learn the daily workflows and AI-powered tools that top developers use to 15× their productivity!**
+<div align="center">
 
 [![Read the 15× Developer System](https://img.shields.io/badge/📖%20Read%20the%2015×%20Developer%20System-667EEA?style=for-the-badge&logo=markdown&logoColor=white)](./15X_DEVELOPER_SYSTEM.md)
 
-_Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot to accelerate your development speed, master system design, and build enterprise-grade applications faster than ever._
-
-<div align="center">
-  
 [![Live Tutorials](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://skr-tutorials.web.app/)
 [![Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
 [![Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
@@ -101,8 +95,6 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 ---
 
 ## **Find Me Online**
-
-<div align="center">
 
 | Platform             | Profile Link                                                                       |
 | -------------------- | ---------------------------------------------------------------------------------- |
@@ -117,7 +109,5 @@ _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot 
 | 🏆 **HackerRank**    | [https://www.hackerrank.com/sonufsd](https://www.hackerrank.com/sonufsd)           |
 | 📦 **npm**           | [https://npmjs.com/~sonufsd](https://npmjs.com/~sonufsd)                           |
 | 🐳 **DockerHub**     | [https://hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd)               |
-
-</div>
 
 ---
