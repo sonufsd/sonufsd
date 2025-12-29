@@ -94,12 +94,12 @@ Structured Data: Person, SoftwareEngineer, RemoteWorker
 ## 📊 GitHub Performance & Contribution Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sonufsd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sonufsd&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=sonufsd&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=sonufsd&theme=radical&hide_border=true" alt="GitHub Streak" width="48%" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonufsd&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="50%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonufsd&layout=compact&theme=radical&hide_border=true" alt="Top Languages" width="50%" />
 </div>
 
 ## 📫 Connect with Sonu Kumar - Let's Build Something Amazing Together
