@@ -94,12 +94,12 @@ Structured Data: Person, SoftwareEngineer, RemoteWorker
 ## 📊 GitHub Performance & Contribution Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sonufsd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Sonu Kumar GitHub Stats - Senior Full Stack Developer" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sonufsd&theme=tokyonight&hide_border=true" alt="Sonu Kumar GitHub Streak Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=sonufsd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sonufsd&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="48%" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonufsd&layout=compact&theme=tokyonight&hide_border=true" alt="Sonu Kumar Most Used Programming Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonufsd&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="50%" />
 </div>
 
 ## 📫 Connect with Sonu Kumar - Let's Build Something Amazing Together
