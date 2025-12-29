@@ -28,14 +28,6 @@ I have collaborated with cross-functional teams including Product, UX, QA, and D
 
 Additionally, I provide technical mentorship to junior developers, conduct code reviews, and support development standards. I bring strong problem-solving skills, attention to detail, and the ability to work independently or collaboratively, with solid experience in Java, JavaScript, Angular, React, HTML5, and CSS.
 
-<div align="center">
-  
-[![Live Tutorials](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://skr-tutorials.web.app/)
-[![Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
-[![Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
-
-</div>
-
 ## 💻 Tech Stack & Expertise
 
 <div align="center">
@@ -90,17 +82,6 @@ Additionally, I provide technical mentorship to junior developers, conduct code 
 
 ---
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=667eea&height=100&section=footer" />
-  
-  ⭐ **Available for remote work, enterprise consulting, and full-time opportunities!**
-  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=800&lines=Full+Stack+Developer;Enterprise+Solutions+Expert;Java+Spring+Boot+Angular+React+Specialist;Let's+Build+Something+Amazing+Together!" alt="Footer Typing SVG" />
-
-</div>
-
----
-
 ## 🚀 Want to Become a 15× Developer?
 
 **Learn the daily workflows and AI-powered tools that top developers use to 15× their productivity!**
@@ -109,20 +90,34 @@ Additionally, I provide technical mentorship to junior developers, conduct code 
 
 _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot to accelerate your development speed, master system design, and build enterprise-grade applications faster than ever._
 
+<div align="center">
+  
+[![Live Tutorials](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://skr-tutorials.web.app/)
+[![Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
+[![Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
+
+</div>
+
 ---
 
 ## **Find Me Online**
 
-🌐 **GitHub:** [https://github.com/sonufsd](https://github.com/sonufsd)
-💼 **LinkedIn:** [https://linkedin.com/in/sonufsd](https://linkedin.com/in/sonufsd)
-❓ **StackOverflow:** [https://stackoverflow.com/users/your-id](https://stackoverflow.com/users/your-id)
-📝 **Dev.to:** [https://dev.to/sonufsd](https://dev.to/sonufsd)
-✍️ **Medium:** [https://medium.com/@sonufsd](https://medium.com/@sonufsd)
-🧑‍💻 **GitLab:** [https://gitlab.com/sonufsd](https://gitlab.com/sonufsd)
-📊 **Kaggle:** [https://kaggle.com/sonufsd](https://kaggle.com/sonufsd)
-⚡ **LeetCode:** [https://leetcode.com/sonufsd](https://leetcode.com/sonufsd)
-🏆 **HackerRank:** [https://www.hackerrank.com/sonufsd](https://www.hackerrank.com/sonufsd)
-📦 **npm:** [https://npmjs.com/~sonufsd](https://npmjs.com/~sonufsd)
-🐳 **DockerHub:** [https://hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd)
+<div align="center">
+
+| Platform             | Profile Link                                                                       |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| 🌐 **GitHub**        | [https://github.com/sonufsd](https://github.com/sonufsd)                           |
+| 💼 **LinkedIn**      | [https://linkedin.com/in/sonufsd](https://linkedin.com/in/sonufsd)                 |
+| ❓ **StackOverflow** | [https://stackoverflow.com/users/your-id](https://stackoverflow.com/users/your-id) |
+| 📝 **Dev.to**        | [https://dev.to/sonufsd](https://dev.to/sonufsd)                                   |
+| ✍️ **Medium**        | [https://medium.com/@sonufsd](https://medium.com/@sonufsd)                         |
+| 🧑💻 **GitLab**      | [https://gitlab.com/sonufsd](https://gitlab.com/sonufsd)                           |
+| 📊 **Kaggle**        | [https://kaggle.com/sonufsd](https://kaggle.com/sonufsd)                           |
+| ⚡ **LeetCode**      | [https://leetcode.com/sonufsd](https://leetcode.com/sonufsd)                       |
+| 🏆 **HackerRank**    | [https://www.hackerrank.com/sonufsd](https://www.hackerrank.com/sonufsd)           |
+| 📦 **npm**           | [https://npmjs.com/~sonufsd](https://npmjs.com/~sonufsd)                           |
+| 🐳 **DockerHub**     | [https://hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd)               |
+
+</div>
 
 ---
