@@ -110,19 +110,19 @@ Structured Data: Person, SoftwareEngineer, RemoteWorker
 
 <div align="center">
 
-| Platform          | Profile Link                                                                            |
-| ----------------- | --------------------------------------------------------------------------------------- |
-| 📄 **Sonu Resume** | <a href="https://sonufsd.github.io/sonufsd/" target="_blank">sonufsd.github.io/sonufsd</a> |
-| 🌐 **GitHub**     | <a href="https://github.com/sonufsd" target="_blank">github.com/sonufsd</a>             |
-| 💼 **LinkedIn**   | <a href="https://linkedin.com/in/sonufsd" target="_blank">linkedin.com/in/sonufsd</a>   |
-| 📝 **Dev.to**     | <a href="https://dev.to/sonufsd" target="_blank">dev.to/sonufsd</a>                     |
-| ✍️ **Medium**     | <a href="https://medium.com/@sonufsd" target="_blank">medium.com/@sonufsd</a>           |
-| 🧑💻 **GitLab**   | <a href="https://gitlab.com/sonufsd" target="_blank">gitlab.com/sonufsd</a>             |
-| 📊 **Kaggle**     | <a href="https://kaggle.com/sonufsd" target="_blank">kaggle.com/sonufsd</a>             |
-| 🔥 **LeetCode**   | <a href="https://leetcode.com/sonufsd" target="_blank">leetcode.com/sonufsd</a>         |
-| 🏆 **HackerRank** | <a href="https://www.hackerrank.com/sonufsd" target="_blank">hackerrank.com/sonufsd</a> |
-| 📦 **npm**        | <a href="https://npmjs.com/~sonufsd" target="_blank">npmjs.com/~sonufsd</a>             |
-| 🐳 **DockerHub**  | <a href="https://hub.docker.com/u/sonufsd" target="_blank">hub.docker.com/u/sonufsd</a> |
+| Platform          | Profile Link                                                 |
+| ----------------- | ------------------------------------------------------------ |
+| 📄 **Sonu Resume** | [sonufsd.github.io/sonufsd](https://sonufsd.github.io/sonufsd/) |
+| 🌐 **GitHub**     | [github.com/sonufsd](https://github.com/sonufsd)             |
+| 💼 **LinkedIn**   | [linkedin.com/in/sonufsd](https://linkedin.com/in/sonufsd)   |
+| 📝 **Dev.to**     | [dev.to/sonufsd](https://dev.to/sonufsd)                     |
+| ✍️ **Medium**     | [medium.com/@sonufsd](https://medium.com/@sonufsd)           |
+| 🧑💻 **GitLab**   | [gitlab.com/sonufsd](https://gitlab.com/sonufsd)             |
+| 📊 **Kaggle**     | [kaggle.com/sonufsd](https://kaggle.com/sonufsd)             |
+| 🔥 **LeetCode**   | [leetcode.com/sonufsd](https://leetcode.com/sonufsd)         |
+| 🏆 **HackerRank** | [hackerrank.com/sonufsd](https://www.hackerrank.com/sonufsd) |
+| 📦 **npm**        | [npmjs.com/~sonufsd](https://npmjs.com/~sonufsd)             |
+| 🐳 **DockerHub**  | [hub.docker.com/u/sonufsd](https://hub.docker.com/u/sonufsd) |
 
 </div>
 
