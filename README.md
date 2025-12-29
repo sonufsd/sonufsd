@@ -20,7 +20,13 @@ Resume: https://build-free-resume.web.app/
 
 <br/>
 
-🚀 **Full Stack Developer & Team Lead** at **Accenture** with **7.5+ years** of experience in enterprise IT services, specializing in designing and implementing scalable, high-availability applications using Java, Spring Boot, Angular, React, and TypeScript. Strong expertise in **system architecture**, **microservices**, **RESTful API development**, and **cloud computing solutions**. Proficient in database design (MySQL, Oracle, MongoDB), **DevOps practices**, **CI/CD pipelines** (Jenkins), containerization (Docker), and version control (Git). Experienced in **Agile/Scrum methodologies**, unit testing, code review, performance optimization, and delivering secure, production-grade solutions for Fortune 500 clients including **Mercedes-Benz**, **GE HealthCare**, **TIAA**, **flydubai**, and **AAMC**. Available for remote work opportunities.
+I am a Full Stack Developer with experience building scalable and high-performing web applications using Java and Angular. I have designed and implemented RESTful API services to integrate seamlessly with front-end features and applied fundamental design principles to ensure robust and scalable application architectures.
+
+I write clean, maintainable, and testable code, following test-driven development (TDD) and software development best practices, while continuously improving code quality. I have utilized Git for version control and CI/CD tools to enable efficient collaboration, automated builds, and reliable deployment workflows.
+
+I have collaborated with cross-functional teams including Product, UX, QA, and DevOps to gather requirements, define solutions, and deliver releases within sprint timelines. I also work closely with team members to brainstorm solutions, troubleshoot issues, and optimize application performance.
+
+Additionally, I provide technical mentorship to junior developers, conduct code reviews, and support development standards. I bring strong problem-solving skills, attention to detail, and the ability to work independently or collaboratively, with solid experience in Java, JavaScript, Angular, React, HTML5, and CSS.
 
 <div align="center">
   
@@ -69,57 +75,6 @@ Resume: https://build-free-resume.web.app/
 
 </div>
 
-## 🏢 Domain & Client Experience
-
-**Fortune 500 Clients I've Delivered Solutions For:**
-
-- 💼 **Financial Services & Insurance** - TIAA
-- 🏥 **Healthcare Technology** - GE HealthCare
-- 🎓 **Medical Education** - AAMC
-- ✈️ **Aviation & Travel Solutions** - Flydubai
-- 🚗 **Automotive Industry** - Mercedes-Benz
-
-## 🔥 Roles & Responsibilities
-
-- **Led** end-to-end full-stack development across enterprise projects using **Agile/Scrum** methodologies, overseeing **system architecture**, development, testing, and deployment while enforcing coding standards
-- **Designed microservices** using **Java, Spring Boot**, and **REST APIs** with **API integration**, ensuring scalability and high availability in **cloud computing** environments
-- Built responsive, high-performance front-end applications using **Angular, React, TypeScript**, HTML5, and CSS3, following component-based architecture
-- **Collaborated** with cross-functional teams (Product, UX, QA, DevOps) implementing **DevOps** practices to gather requirements, define solutions, and deliver releases within sprint timelines
-- **Mentored** junior developers, conducted **code reviews**, and improved development standards including **unit testing** practices
-- **Implemented CI/CD pipelines** using **Jenkins, Maven**, and **Docker**, enabling automated builds and deployments in **cloud platforms**
-- Translated requirements into technical specifications, **system architecture** diagrams, **database design**, and integration strategies
-- Performed **performance optimization**, debugging, and root-cause analysis to ensure reliability in production environments
-
-## 💼 Professional Experience
-
-**Packaged App Development Team Lead** at **Accenture** (Sep 2024 - Present) | Bangalore, India
-
-**Specialist Software Engineer** at **LTIMindtree** (Jun 2021 - Sep 2024) | Bangalore, India
-
-**Software Engineer** at **JoulesToWatts Business Solutions** (Oct 2019 - Jun 2021) | Bangalore, India
-
-**Software Engineer** at **Cuion Technology Pvt Ltd** (Jul 2017 - Oct 2019) | Bangalore, India
-
-## 🎓 Education
-
-**Bachelor of Engineering in Computer Science**  
-Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhopal, M.P
-
-## 📊 GitHub Stats
-
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=sonuskr&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonuskr&layout=compact&langs_count=8&theme=tokyonight"/>
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sonuskr&theme=tokyonight" alt="GitHub Streak" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=sonuskr&theme=tokyo-night" alt="Activity Graph" />
-</div>
-
 ## 📫 Let's Connect
 
 <div align="center">
@@ -155,60 +110,6 @@ Radharaman Institute of Technology & Science | 2012 - 2016 | GPA: 7.43/10 | Bhop
 _Discover how to leverage AI tools like ChatGPT, Cursor IDE, and GitHub Copilot to accelerate your development speed, master system design, and build enterprise-grade applications faster than ever._
 
 ---
-
-## 🏆 Professional Achievements & Certifications
-
-- ✅ **7.5+ Years** of Enterprise Software Development Experience
-- ✅ **Fortune 500 Clients** - Mercedes-Benz, GE HealthCare, TIAA, flydubai, AAMC
-- ✅ **Team Leadership** - Led cross-functional teams of 5-10 developers
-- ✅ **System Architecture** - Designed scalable microservices for 1M+ users
-- ✅ **Performance Optimization** - Improved application performance by 60%
-- ✅ **Cloud Migration** - Successfully migrated 15+ legacy applications to cloud
-- ✅ **DevOps Implementation** - Reduced deployment time from hours to minutes
-- ✅ **Code Quality** - Maintained 90%+ code coverage across all projects
-- ✅ **Mentoring** - Trained 20+ junior developers in modern development practices
-- ✅ **Agile Delivery** - Consistently delivered projects on time and within budget
-
-## 🌟 Why Choose Me?
-
-### 🎯 **Immediate Value**
-
-- Start contributing from **Day 1**
-- **Zero ramp-up time** for Java/Spring Boot/Angular/React projects
-- **Pre-built templates** and **best practices** ready to implement
-- **Proven track record** with Fortune 500 clients
-
-### 🚀 **Technical Excellence**
-
-- **Clean, maintainable code** following industry standards
-- **Comprehensive testing** strategy (Unit, Integration, E2E)
-- **Performance-first** approach with optimization expertise
-- **Security-conscious** development with vulnerability assessment
-
-### 👥 **Leadership & Collaboration**
-
-- **Cross-functional team** leadership experience
-- **Stakeholder management** and client communication
-- **Knowledge transfer** and **documentation** expertise
-- **Agile/Scrum** coaching and process improvement
-
-### 🌐 **Global Experience**
-
-- **Remote work** expert with **7+ years** distributed team experience
-- **Multiple timezone** collaboration (US, Europe, Asia-Pacific)
-- **Cultural adaptability** working with international clients
-- **English proficiency** for seamless communication
-
-## 📈 Success Metrics & Impact
-
-- 🎯 **99.9% Uptime** achieved for production applications
-- ⚡ **60% Performance Improvement** through optimization
-- 🔒 **Zero Security Incidents** in production systems
-- 📊 **40% Faster Delivery** through DevOps automation
-- 👥 **95% Team Satisfaction** rating from junior developers
-- 💰 **30% Cost Reduction** through cloud optimization
-- 🚀 **50+ Successful Deployments** with zero downtime
-- 📱 **Mobile-First Applications** with 98% responsive design score
 
 ## **Find Me Online**
 
