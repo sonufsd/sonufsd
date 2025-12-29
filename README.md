@@ -91,27 +91,16 @@ Structured Data: Person, SoftwareEngineer, RemoteWorker
 
 </div>
 
-## 📫 Connect with Sonu Kumar - Let's Build Something Amazing Together
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sonufsd)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sonufsd)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sonudev.web.app/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sonufsd11@gmail.com)
-
-</div>
-
 ---
 
 ## 🚀 Featured Projects, Resources & Live Applications
 
 <div align="center">
 
-[![Read the 15× Developer System](https://img.shields.io/badge/📖%20Read%20the%2015×%20Developer%20System-667EEA?style=for-the-badge&logo=markdown&logoColor=white)](./15X_DEVELOPER_SYSTEM.md)
-[![InterviewPoints](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)](https://interviewpoints.web.app/)
-[![Free Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)](https://build-free-resume.web.app/)
-[![Sonu Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)](https://sonudev.web.app)
+<a href="./15X_DEVELOPER_SYSTEM.md" target="_blank">![Read the 15× Developer System](https://img.shields.io/badge/📖%20Read%20the%2015×%20Developer%20System-667EEA?style=for-the-badge&logo=markdown&logoColor=white)</a>
+<a href="https://interviewpoints.web.app/" target="_blank">![InterviewPoints](https://img.shields.io/badge/🌐%20Live%20Tutorials-FF6B6B?style=for-the-badge&logo=firebase&logoColor=white)</a>
+<a href="https://build-free-resume.web.app/" target="_blank">![Free Resume Builder](https://img.shields.io/badge/📄%20Free%20Resume%20Builder-4ECDC4?style=for-the-badge&logo=document&logoColor=white)</a>
+<a href="https://sonudev.web.app" target="_blank">![Sonu Portfolio](https://img.shields.io/badge/🚀%20Live%20Portfolio-667EEA?style=for-the-badge&logo=web&logoColor=white)</a>
 
 </div>
 
@@ -123,6 +112,7 @@ Structured Data: Person, SoftwareEngineer, RemoteWorker
 
 | Platform          | Profile Link                                                                            |
 | ----------------- | --------------------------------------------------------------------------------------- |
+| 📄 **Sonu Resume** | <a href="https://sonufsd.github.io/sonufsd/" target="_blank">sonufsd.github.io/sonufsd</a> |
 | 🌐 **GitHub**     | <a href="https://github.com/sonufsd" target="_blank">github.com/sonufsd</a>             |
 | 💼 **LinkedIn**   | <a href="https://linkedin.com/in/sonufsd" target="_blank">linkedin.com/in/sonufsd</a>   |
 | 📝 **Dev.to**     | <a href="https://dev.to/sonufsd" target="_blank">dev.to/sonufsd</a>                     |
